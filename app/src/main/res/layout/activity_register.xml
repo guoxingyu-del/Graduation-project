@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="register"
+        android:textSize="20sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="150dp"/>
+
+    <EditText
+        android:id="@+id/usernameInRegister"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="username"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:layout_marginTop="100dp"/>
+
+    <EditText
+        android:id="@+id/passwordInRegister"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="password"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/emailInRegister"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:hint="email"
+        android:inputType="text"
+        android:textSize="35dp"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:id="@+id/registerBtnInRegister"
+        android:layout_width="match_parent"
+        android:layout_height="64dp"
+        android:background="@color/white"
+        android:text="Register"
+        android:textColor="@color/black"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
