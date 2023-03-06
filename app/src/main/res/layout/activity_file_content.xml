@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".activity.FileContentActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--顶部两个功能按钮-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back_image_btn"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/back"
+                android:background="#FFFFFF"
+                android:layout_weight="0.3"
+                >
+
+            </ImageButton>
+
+            <Button
+                android:id="@+id/back_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Back"
+                android:textSize="20sp"
+                android:textColor="#F9A413"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
+                android:layout_weight="17" />
+
+            <ImageButton
+                android:id="@+id/share_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/share"
+                android:background="#FFFFFF"
+                android:layout_weight="1">
+
+            </ImageButton>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

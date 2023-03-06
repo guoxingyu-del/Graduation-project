@@ -10,6 +10,7 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.RequestBody;
 import okhttp3.Response;
+import okhttp3.ResponseBody;
 
 public class NetWorkServiceImpl implements NetWorkService {
     public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
@@ -26,7 +27,7 @@ public class NetWorkServiceImpl implements NetWorkService {
             Response response;
             response = client.newCall(request).execute();
             if (response.isSuccessful()) {
-                return response.body() != null ? response.body().string() : null;
+               return response.body() != null ? response.body().string() : null;
             }
             else {
                 System.out.println("-----------请求失败-------------");
