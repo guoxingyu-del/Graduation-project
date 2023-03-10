@@ -13,6 +13,7 @@ import android.widget.LinearLayout;
 
 import com.graduate.design.activity.LoginActivity;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.molihuan.pathselector.configs.PathSelectorConfig;
 
 public class MainActivity extends AppCompatActivity {
     private LinearLayout splashButton;
@@ -27,6 +28,9 @@ public class MainActivity extends AppCompatActivity {
         window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
         window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusbar_color));
 
+        // 开启调试模式
+        PathSelectorConfig.setDebug(true);
+
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().
                 detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
 
@@ -37,6 +41,8 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 ActivityJumpUtils.jumpActivity(MainActivity.this, intent, 100L, false);
+                /*Intent intent = new Intent(MainActivity.this, UploadBrowserActivity.class);
+                ActivityJumpUtils.jumpActivity(MainActivity.this, intent, 100L, false);*/
             }
         });
     }

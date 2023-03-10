@@ -113,16 +113,14 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public int uploadFile(String fileName, Long parentId, List<String> indexList, ByteString content, ByteString secretKey, String token) {
-        FileUpload.UploadFileRequest.Builder builder = FileUpload.UploadFileRequest.newBuilder()
+        FileUpload.UploadFileRequest req = FileUpload.UploadFileRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setFileName(fileName)
                 .setParentId(parentId)
                 .setContent(content)
-                .setSecretKey(secretKey);
-        for(int i=0;i<indexList.size();i++){
-            builder.setIndexList(i, indexList.get(i));
-        }
-        FileUpload.UploadFileRequest req = builder.build();
+                .setSecretKey(secretKey)
+                .addAllIndexList(indexList)
+                .build();
 
         JSONObject jsonObject = sendData(req, 4);
 
@@ -178,7 +176,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Common.Node> getNode(Long nodeId, String token) {
+    public List<Common.Node> getNodeList(Long nodeId, String token) {
         List<Common.Node> res = new ArrayList<>();
 
         GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
@@ -217,6 +215,26 @@ public class UserServiceImpl implements UserService {
                     .build();
             res.add(son);
         }
+        return res;
+    }
+
+    @Override
+    public String[] getNodeContent(Long nodeId, String token) {
+        GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
+                .setNodeId(nodeId)
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .build();
+
+        JSONObject jsonObject = sendData(req, 6);
+        // 请求失败
+        if(jsonObject==null) return null;
+
+        JSONObject node = jsonObject.getJSONObject("node");
+
+        String[] res = new String[2];
+        // 可能存在问题
+        res[0] = node.getString("nodeContent");
+        res[1] = node.getString("secretKey");
         return res;
     }
 

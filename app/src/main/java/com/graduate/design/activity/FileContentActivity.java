@@ -7,10 +7,12 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.ContextCompat;
 
+import com.google.protobuf.ByteString;
 import com.graduate.design.R;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
@@ -20,6 +22,8 @@ public class FileContentActivity extends AppCompatActivity {
     private UserService userService;
     private ImageButton backImageButton;
     private Button backButton;
+    private TextView fileTitleView;
+    private TextView fileContentView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,8 +37,16 @@ public class FileContentActivity extends AppCompatActivity {
 
         userService = new UserServiceImpl();
 
-        // 如何拿到点开文件的id，activity之间如何通信
-        // userService.getNode().getContent();
+        // 从disk页面拿到点击的文件名称和内容
+        String fileName = getIntent().getStringExtra("fileName");
+        String fileContent = getIntent().getStringExtra("fileContent");
+
+        fileTitleView = findViewById(R.id.file_title);
+        fileContentView = findViewById(R.id.file_content);
+
+        fileTitleView.setText(fileName);
+        fileContentView.setText(fileContent);
+
 
         backImageButton = findViewById(R.id.back_image_btn);
         backButton = findViewById(R.id.back_btn);
@@ -43,15 +55,13 @@ public class FileContentActivity extends AppCompatActivity {
         backImageButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FileContentActivity.this, DiskActivity.class);
-                ActivityJumpUtils.jumpActivity(FileContentActivity.this, intent, 100L, true);
+                finish();
             }
         });
         backButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(FileContentActivity.this, DiskActivity.class);
-                ActivityJumpUtils.jumpActivity(FileContentActivity.this, intent, 100L, true);
+                finish();
             }
         });
 

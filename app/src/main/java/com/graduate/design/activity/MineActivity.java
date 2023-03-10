@@ -32,8 +32,7 @@ public class MineActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 // 跳转到文件页面
-                Intent intent = new Intent(MineActivity.this, DiskActivity.class);
-                ActivityJumpUtils.jumpActivity(MineActivity.this, intent, 100L, true);
+                finish();
             }
         });
 

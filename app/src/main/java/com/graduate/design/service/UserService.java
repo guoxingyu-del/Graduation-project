@@ -24,7 +24,8 @@ public interface UserService {
     int registerFile(Long fileId, Long dirId, ByteString secretKey,
                   Boolean isWeb, Long shareId, String token);
 
-    List<Common.Node> getNode(Long nodeId, String token);
+    List<Common.Node> getNodeList(Long nodeId, String token);
+    String[] getNodeContent(Long nodeId, String token);
 
     int shareFile(String username, Long fileId, ByteString key, String token);
 
