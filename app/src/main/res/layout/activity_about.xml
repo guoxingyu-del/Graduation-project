@@ -3,7 +3,6 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     tools:context=".activity.DiskActivity">
 
@@ -42,55 +41,41 @@
 
         </LinearLayout>
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:src="@drawable/info"
+            android:layout_marginTop="150dp"
+            />
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="150dp"
-            android:text="Change Password"
-            android:paddingLeft="60dp"
-            android:textStyle="bold"
-            android:textSize="25sp" />
+            android:layout_marginTop="20dp"
+            android:text="Designed By  GuoXingyu"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        <EditText
-            android:id="@+id/old_password"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            android:background="@drawable/search_button_design"
-            android:padding="10dp"
-            android:hint="  Old Password.."
-            >
+            android:layout_marginTop="20dp"
+            android:text="Guided By  WangWei"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        </EditText>
-
-        <EditText
-            android:id="@+id/new_password"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="60dp"
-            android:layout_marginRight="60dp"
-            android:background="@drawable/search_button_design"
-            android:padding="10dp"
-            android:inputType="textPassword"
-            android:hint="  New Password.."
-            >
+            android:layout_marginTop="20dp"
+            android:text="Version  1.0.0"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            android:textStyle="bold" />
 
-        </EditText>
 
-        <Button
-            android:id="@+id/change_pwd_confirm_button"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="confirm"
-            android:layout_marginTop="10dp"
-            android:layout_marginLeft="65dp"
-            android:layout_marginRight="65dp"
-            android:background="#F9A413"
-            android:textColor="@color/white" />
 
     </LinearLayout>
 

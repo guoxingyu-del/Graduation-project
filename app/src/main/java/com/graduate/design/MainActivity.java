@@ -13,9 +13,11 @@ import android.widget.LinearLayout;
 
 import com.graduate.design.activity.LoginActivity;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.InitViewUtils;
+import com.graduate.design.utils.ToastUtils;
 import com.molihuan.pathselector.configs.PathSelectorConfig;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     private LinearLayout splashButton;
 
     @Override
@@ -23,27 +25,45 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        Window window = this.getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusbar_color));
+        // 初始化页面
+        InitViewUtils.initView(this);
+        // 初始化数据
+        initData();
+        // 拿到页面元素
+        getComponentsById();
+        // 设置监听事件
+        setListeners();
+    }
 
+    private void initData(){
         // 开启调试模式
         PathSelectorConfig.setDebug(true);
-
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().
                 detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
+    }
 
+    private void getComponentsById(){
         splashButton = findViewById(R.id.splash_btn);
+    }
 
-        splashButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-                ActivityJumpUtils.jumpActivity(MainActivity.this, intent, 100L, false);
-                /*Intent intent = new Intent(MainActivity.this, UploadBrowserActivity.class);
-                ActivityJumpUtils.jumpActivity(MainActivity.this, intent, 100L, false);*/
-            }
-        });
+    private void setListeners(){
+        splashButton.setOnClickListener(this);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.splash_btn:
+                gotoLogin();
+                break;
+            default:
+                ToastUtils.showShortToastCenter("错误的页面元素ID");
+                break;
+        }
+    }
+
+    private void gotoLogin(){
+        Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+        ActivityJumpUtils.jumpActivity(MainActivity.this, intent, 100L, false);
     }
 }

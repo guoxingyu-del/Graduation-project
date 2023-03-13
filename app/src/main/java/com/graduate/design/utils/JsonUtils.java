@@ -7,8 +7,6 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.MessageOrBuilder;
 import com.google.protobuf.util.JsonFormat;
 
-
-
 public class JsonUtils {
 
     private static final Gson gson = new Gson();

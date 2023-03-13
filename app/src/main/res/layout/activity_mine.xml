@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#D3D3D3"
                     android:text="Disk"
-                    android:textSize="20sp">
+                    android:textSize="15dp">
 
                 </TextView>
             </LinearLayout>
@@ -210,7 +210,7 @@
                     android:layout_height="wrap_content"
                     android:textColor="#F9A413"
                     android:text="Mine"
-                    android:textSize="20sp">
+                    android:textSize="15dp">
 
                 </TextView>
             </LinearLayout>

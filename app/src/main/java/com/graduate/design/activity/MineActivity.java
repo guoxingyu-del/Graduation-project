@@ -3,38 +3,88 @@ package com.graduate.design.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageButton;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import com.graduate.design.R;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.InitViewUtils;
+import com.graduate.design.utils.ToastUtils;
 
-public class MineActivity extends AppCompatActivity {
+public class MineActivity extends AppCompatActivity implements View.OnClickListener {
 
-    private ImageButton gotoDiskBtn;
+    private ImageButton gotoDiskButton;
+    private Button changePasswordButton;
+    private Button settingsButton;
+    private Button aboutButton;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_mine);
 
-        Window window = this.getWindow();
-        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-        window.setStatusBarColor(ContextCompat.getColor(this,R.color.statusbar_color));
+        // 初始化页面元素
+        InitViewUtils.initView(this);
+        // 获取页面元素
+        getComponentsById();
+        // 为按钮元素设置点击事件
+        setListeners();
+    }
 
-        gotoDiskBtn = findViewById(R.id.goto_disk_btn);
-        gotoDiskBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                // 跳转到文件页面
-                finish();
-            }
-        });
+    private void getComponentsById(){
+        gotoDiskButton = findViewById(R.id.goto_disk_btn);
+        changePasswordButton = findViewById(R.id.change_password_btn);
+        settingsButton = findViewById(R.id.settings_btn);
+        aboutButton = findViewById(R.id.about_btn);
+    }
 
+    private void setListeners(){
+        gotoDiskButton.setOnClickListener(this);
+        changePasswordButton.setOnClickListener(this);
+        settingsButton.setOnClickListener(this);
+        aboutButton.setOnClickListener(this);
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.goto_disk_btn:
+                gotoDisk();
+                break;
+            case R.id.change_password_btn:
+                gotoChangePassword();
+                break;
+            case R.id.settings_btn:
+                gotoSettings();
+                break;
+            case R.id.about_btn:
+                gotoAbout();
+                break;
+            default:
+                ToastUtils.showShortToastCenter("错误的页面元素ID");
+                break;
+        }
+    }
+
+    private void gotoDisk(){
+        finish();
+    }
+
+    private void gotoChangePassword(){
+        Intent intent = new Intent(MineActivity.this, ChangePasswordActivity.class);
+        ActivityJumpUtils.jumpActivity(MineActivity.this, intent, 100L, false);
+    }
+
+    private void gotoSettings(){
+        Intent intent = new Intent(MineActivity.this, SettingsActivity.class);
+        ActivityJumpUtils.jumpActivity(MineActivity.this, intent, 100L, false);
+    }
+
+    private void gotoAbout(){
+        Intent intent = new Intent(MineActivity.this, AboutActivity.class);
+        ActivityJumpUtils.jumpActivity(MineActivity.this, intent, 100L, false);
     }
 }
