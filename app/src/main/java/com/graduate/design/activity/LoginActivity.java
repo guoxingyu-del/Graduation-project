@@ -97,8 +97,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         // 登录成功
-        Intent intent = new Intent(LoginActivity.this, DiskActivity.class);
-        ActivityJumpUtils.jumpActivity(LoginActivity.this, intent, 100L, false);
+        Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
+        ActivityJumpUtils.jumpActivity(LoginActivity.this, intent, 100L, true);
     }
 
     private void gotoRegister(){

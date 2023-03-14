@@ -1,38 +1,52 @@
-package com.graduate.design.activity;
+package com.graduate.design.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.graduate.design.R;
+import com.graduate.design.activity.HomeActivity;
+import com.graduate.design.activity.LoginActivity;
 import com.graduate.design.proto.UserLogin;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
-public class SettingsActivity extends AppCompatActivity implements View.OnClickListener {
+public class SettingsFragment extends Fragment implements View.OnClickListener {
     private Button backButton;
     private ImageButton backImageButton;
     private Button logoutButton;
     private String token;
     private UserLogin.UserInfo userInfo;
+    private HomeActivity activity;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_settings);
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        // 初始化页面
-        InitViewUtils.initView(this);
+        return inflater.inflate(R.layout.fragment_settings, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         // 初始化数据
         initData();
         // 拿到页面元素
-        getComponentsById();
+        getComponentsById(view);
         // 设置监听事件
         setListeners();
     }
@@ -40,12 +54,13 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
     private void initData(){
         token = GraduateDesignApplication.getToken();
         userInfo = GraduateDesignApplication.getUserInfo();
+        activity = (HomeActivity) getActivity();
     }
 
-    private void getComponentsById(){
-        backButton = findViewById(R.id.back_btn_disk);
-        backImageButton = findViewById(R.id.back_image_btn_disk);
-        logoutButton = findViewById(R.id.logout);
+    private void getComponentsById(View view){
+        backButton = view.findViewById(R.id.back_btn_disk);
+        backImageButton = view.findViewById(R.id.back_image_btn_disk);
+        logoutButton = view.findViewById(R.id.logout);
     }
 
     private void setListeners(){
@@ -73,7 +88,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
 
     // 返回到我的页面
     private void goBackToMine(){
-        finish();
+        activity.getSupportFragmentManager().popBackStack();
     }
 
     private void logout(){
@@ -81,7 +96,7 @@ public class SettingsActivity extends AppCompatActivity implements View.OnClickL
         token = null;
         userInfo = null;
         // 跳转到登录页面
-        Intent intent = new Intent(SettingsActivity.this, LoginActivity.class);
-        ActivityJumpUtils.jumpActivity(SettingsActivity.this, intent, 100L, true);
+        Intent intent = new Intent(activity, LoginActivity.class);
+        ActivityJumpUtils.jumpActivity(activity, intent, 100L, true);
     }
 }

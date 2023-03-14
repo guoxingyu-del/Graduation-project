@@ -1,11 +1,11 @@
-package com.graduate.design.activity;
+package com.graduate.design.fragment;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
 import android.view.KeyEvent;
+import android.view.LayoutInflater;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -13,16 +13,16 @@ import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.graduate.design.R;
+import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
-import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
-import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 import com.graduate.design.view.ClearEditText;
 
@@ -33,7 +33,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class SearchActivity extends AppCompatActivity implements View.OnClickListener,
+public class SearchFragment extends Fragment implements View.OnClickListener,
         TextView.OnEditorActionListener, AdapterView.OnItemClickListener {
     private Button cancelButton;
     private ListView listView;
@@ -41,18 +41,28 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private UserService userService;
     private String token;
     private List<Common.Node> searchNodes;
+    private HomeActivity activity;
+    private Context context;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_search);
+    }
 
-        // 初始化页面
-        InitViewUtils.initView(this);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_search, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         // 初始化数据
         initData();
         // 拿到页面元素
-        getComponentsById();
+        getComponentsById(view);
         // 设置监听事件
         setListeners();
     }
@@ -60,12 +70,14 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     private void initData(){
         userService = new UserServiceImpl();
         token = GraduateDesignApplication.getToken();
+        activity = (HomeActivity) getActivity();
+        context = getContext();
     }
 
-    private void getComponentsById(){
-        cancelButton = findViewById(R.id.cancel_btn);
-        searchText = findViewById(R.id.search_text);
-        listView = findViewById(R.id.show_search_files);
+    private void getComponentsById(View view){
+        cancelButton = view.findViewById(R.id.cancel_btn);
+        searchText = view.findViewById(R.id.search_text);
+        listView = view.findViewById(R.id.show_search_files);
     }
 
     private void setListeners(){
@@ -87,14 +99,14 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
     }
 
     private void goBackDisk(){
-        finish();
+        activity.getSupportFragmentManager().popBackStack();
     }
 
     @Override
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         switch (v.getId()){
             case R.id.search_text:
-                showSearchFileList(actionId);
+                showSearchFileList(actionId, true);
                 break;
             default:
                 ToastUtils.showShortToastCenter("错误的页面元素ID");
@@ -103,10 +115,9 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         return false;
     }
 
-    private void showSearchFileList(int actionId){
+    private void showSearchFileList(int actionId, Boolean search){
         if(actionId == EditorInfo.IME_ACTION_SEARCH){
             searchNodes = userService.searchFile(searchText.getText().toString(), token);
-
             // 展示搜索结果
             List<Map<String, Object>> listItem = new ArrayList<Map<String, Object>>();
             for (int j = 0; j < searchNodes.size(); j++) {
@@ -127,7 +138,7 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
             }
 
             //创建一个simpleAdapter
-            SimpleAdapter myAdapter = new SimpleAdapter(SearchActivity.this,
+            SimpleAdapter myAdapter = new SimpleAdapter(context,
                     listItem, R.layout.activity_file_item, new String[]{"nodeType", "topName", "subTime"},
                     new int[]{R.id.node_type, R.id.top_name, R.id.sub_time});
 
@@ -160,9 +171,17 @@ public class SearchActivity extends AppCompatActivity implements View.OnClickLis
         // TODO 解密
         String fileContent = fileContentKey[0];
 
-        Intent intent = new Intent(SearchActivity.this, FileContentActivity.class);
-        intent.putExtra("fileName", clickedNode.getNodeName());
-        intent.putExtra("fileContent", fileContent);
-        ActivityJumpUtils.jumpActivity(SearchActivity.this, intent, 100L, false);
+        FileContentFragment fragment = new FileContentFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("fileName", clickedNode.getNodeName());
+        bundle.putString("fileContent", fileContent);
+        fragment.setArguments(bundle);
+
+        activity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_layout, fragment)
+                .addToBackStack(null)
+                .commit();
     }
+
 }

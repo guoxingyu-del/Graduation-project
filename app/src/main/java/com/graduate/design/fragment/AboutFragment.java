@@ -1,53 +1,60 @@
-package com.graduate.design.activity;
+package com.graduate.design.fragment;
 
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.graduate.design.R;
-import com.graduate.design.utils.GraduateDesignApplication;
+import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
-public class ChangePasswordActivity extends AppCompatActivity implements View.OnClickListener {
+public class AboutFragment extends Fragment implements View.OnClickListener {
     private Button backButton;
     private ImageButton backImageButton;
-    private Button confirmButton;
-    private String token;
-
+    private HomeActivity activity;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_change_password);
+    }
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
 
-        // 初始化页面
-        InitViewUtils.initView(this);
+        return inflater.inflate(R.layout.fragment_about, container, false);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         // 初始化数据
         initData();
         // 拿到页面元素
-        getComponentsById();
+        getComponentsById(view);
         // 设置监听事件
         setListeners();
     }
 
     private void initData(){
-        token = GraduateDesignApplication.getToken();
+        activity = (HomeActivity) getActivity();
     }
 
-    private void getComponentsById(){
-        backButton = findViewById(R.id.back_btn_disk);
-        backImageButton = findViewById(R.id.back_image_btn_disk);
-        confirmButton = findViewById(R.id.change_pwd_confirm_button);
+    private void getComponentsById(View view){
+        backButton = view.findViewById(R.id.back_btn_disk);
+        backImageButton = view.findViewById(R.id.back_image_btn_disk);
     }
 
     private void setListeners(){
         backButton.setOnClickListener(this);
         backImageButton.setOnClickListener(this);
-        confirmButton.setOnClickListener(this);
     }
 
     // 为按钮元素设置对应的点击事件
@@ -58,9 +65,6 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
             case R.id.back_image_btn_disk:
                 goBackToMine();
                 break;
-            case R.id.change_pwd_confirm_button:
-                confirmChangePassword();
-                break;
             default:
                 ToastUtils.showShortToastCenter("错误的页面元素ID");
                 break;
@@ -69,10 +73,6 @@ public class ChangePasswordActivity extends AppCompatActivity implements View.On
 
     // 返回到我的页面
     private void goBackToMine(){
-        finish();
-    }
-
-    private void confirmChangePassword(){
-        // TODO 修改密码
+        activity.getSupportFragmentManager().popBackStack();
     }
 }

@@ -1,11 +1,11 @@
-package com.graduate.design.activity;
+package com.graduate.design.fragment;
 
-import android.content.Intent;
+import android.content.Context;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
+import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
@@ -14,19 +14,18 @@ import android.widget.PopupMenu;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
-
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
+import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
-import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.DialogUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
-import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 import com.molihuan.pathselector.PathSelector;
 import com.molihuan.pathselector.entity.FileBean;
@@ -45,31 +44,40 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class DiskActivity extends AppCompatActivity implements View.OnClickListener,
+public class DiskFragment extends Fragment implements View.OnClickListener,
         AdapterView.OnItemClickListener {
-    private ImageButton gotoMineButton;
     private ListView fileList;
     private ImageButton backImageButton;
     private Button backButton;
     private Button searchButton;
     private ImageButton addFileOrDir;
     private UserService userService;
-    // 当前磁盘页面的父id，添加文件或文件夹时都使用该id
+    // 当前磁盘页面的id，添加文件或文件夹时都使用该id
     private Long nodeId;
     private String token;
-    List<Common.Node> subNodes;
+    private List<Common.Node> subNodes;
+    private HomeActivity activity;
+    private Context context;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_disk);
+    }
 
-        // 初始化页面
-        InitViewUtils.initView(this);
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                             Bundle savedInstanceState) {
+        return inflater.inflate(R.layout.fragment_disk, container, false);
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         // 初始化数据
         initData();
         // 拿到页面元素
-        getComponentsById();
+        getComponentsById(view);
         // 设置监听事件
         setListeners();
         // 设置是否显示返回按钮和搜索框
@@ -80,22 +88,23 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
 
     private void initData(){
         token = GraduateDesignApplication.getToken();
-        // 拿到当前父节点id
-        nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        activity = (HomeActivity) getActivity();
+        context = getContext();
         userService = new UserServiceImpl();
+        // 拿到当前节点id
+        if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
+        else nodeId = getArguments().getLong("nodeId");
     }
 
-    private void getComponentsById(){
-        gotoMineButton = findViewById(R.id.goto_mine_btn);
-        backImageButton = findViewById(R.id.back_image_btn_disk);
-        backButton = findViewById(R.id.back_btn_disk);
-        searchButton = findViewById(R.id.search_btn);
-        addFileOrDir = findViewById(R.id.add_file_or_dir);
-        fileList = findViewById(R.id.show_files);
+    private void getComponentsById(View view){
+        backImageButton = view.findViewById(R.id.back_image_btn_disk);
+        backButton = view.findViewById(R.id.back_btn_disk);
+        searchButton = view.findViewById(R.id.search_btn);
+        addFileOrDir = view.findViewById(R.id.add_file_or_dir);
+        fileList = view.findViewById(R.id.show_files);
     }
 
     private void setListeners(){
-        gotoMineButton.setOnClickListener(this);
         backImageButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
         searchButton.setOnClickListener(this);
@@ -104,16 +113,16 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
     }
 
     private void setShowBackButtonAndSearchText(){
-        // 是否显示返回按钮
-        Boolean showBack = getIntent().getBooleanExtra("showBack", false);
-        if(showBack){
+        // 不在根节点，显示后退按钮，并隐藏搜索按钮
+        if(nodeId != GraduateDesignApplication.getUserInfo().getRootId()){
             backImageButton.setVisibility(View.VISIBLE);
             backButton.setVisibility(View.VISIBLE);
-        }
-        // 是否显示搜索框
-        Boolean showSearch = getIntent().getBooleanExtra("showSearch", true);
-        if(!showSearch){
             searchButton.setVisibility(View.GONE);
+        }
+        else {
+            backImageButton.setVisibility(View.GONE);
+            backButton.setVisibility(View.GONE);
+            searchButton.setVisibility(View.VISIBLE);
         }
     }
 
@@ -140,7 +149,7 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
         }
 
         //创建一个simpleAdapter
-        SimpleAdapter myAdapter = new SimpleAdapter(this,
+        SimpleAdapter myAdapter = new SimpleAdapter(context,
                 listItem, R.layout.activity_file_item, new String[]{"nodeType", "topName", "subTime"},
                 new int[]{R.id.node_type, R.id.top_name, R.id.sub_time});
 
@@ -150,9 +159,6 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.goto_mine_btn:
-                gotoMine();
-                break;
             case R.id.back_btn_disk:
             case R.id.back_image_btn_disk:
                 goBackParent();
@@ -169,24 +175,22 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
         }
     }
 
-    private void gotoMine(){
-        Intent intent = new Intent(DiskActivity.this, MineActivity.class);
-        ActivityJumpUtils.jumpActivity(DiskActivity.this, intent, 100L, false);
-    }
-
     private void goBackParent(){
-        finish();
+        activity.getSupportFragmentManager().popBackStack();
     }
 
     private void gotoSearch(){
-        Intent intent = new Intent(DiskActivity.this, SearchActivity.class);
-        ActivityJumpUtils.jumpActivity(DiskActivity.this, intent, 100L, false);
+        activity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_layout, new SearchFragment())
+                .addToBackStack(null)
+                .commit();
     }
 
     // 展示添加文件夹或上传文件的菜单栏
     private void popupAddFileOrDir(){
         // View当前PopupMenu显示的相对View的位置
-        PopupMenu popupMenu = new PopupMenu(this, addFileOrDir);
+        PopupMenu popupMenu = new PopupMenu(context, addFileOrDir);
         // menu布局
         popupMenu.getMenuInflater().inflate(R.menu.functions, popupMenu.getMenu());
         // menu的item点击事件
@@ -199,7 +203,7 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
                 }
                 // 点击了创建文件夹按钮
                 else if("Create Dir".contentEquals(item.getTitle())){
-                    DialogUtils.showDialog(DiskActivity.this, userService, nodeId, token);
+                    DialogUtils.showDialog(context, userService, nodeId, token);
                 }
                 return false;
             }
@@ -327,19 +331,31 @@ public class DiskActivity extends AppCompatActivity implements View.OnClickListe
             // TODO 解密
             String fileContent = fileContentKey[0];
 
-            Intent intent = new Intent(DiskActivity.this, FileContentActivity.class);
-            intent.putExtra("fileName", clickedNode.getNodeName());
-            intent.putExtra("fileContent", fileContent);
-            ActivityJumpUtils.jumpActivity(DiskActivity.this, intent, 100L, false);
+            FileContentFragment fragment = new FileContentFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("fileName", clickedNode.getNodeName());
+            bundle.putString("fileContent", fileContent);
+            fragment.setArguments(bundle);
+
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_layout, fragment)
+                    .addToBackStack(null)
+                    .commit();
         }
 
         // 如果点击的是文件夹，则展开文件夹
         else {
-            Intent intent = new Intent(DiskActivity.this, DiskActivity.class);
-            intent.putExtra("nodeId", clickedNode.getNodeId());
-            intent.putExtra("showBack", true);
-            intent.putExtra("showSearch", false);
-            ActivityJumpUtils.jumpActivity(DiskActivity.this, intent, 100L, false);
+            DiskFragment fragment = new DiskFragment();
+            Bundle bundle = new Bundle();
+            bundle.putLong("nodeId", clickedNode.getNodeId());
+            fragment.setArguments(bundle);
+
+            activity.getSupportFragmentManager()
+                    .beginTransaction()
+                    .replace(R.id.fragment_layout, fragment)
+                    .addToBackStack(null)
+                    .commit();
         }
     }
 

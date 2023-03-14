@@ -11,6 +11,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 
+import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.activity.LoginActivity;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.InitViewUtils;

@@ -3,13 +3,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    tools:context=".activity.DiskActivity">
+    >
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
         android:orientation="vertical">
 
         <!--顶部两个功能按钮-->
@@ -22,7 +22,9 @@
                 android:id="@+id/search_text"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_margin="10dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:layout_marginLeft="20dp"
                 android:layout_weight="5"
                 android:background="@drawable/search_button_design"
                 android:drawableLeft="@drawable/search"
@@ -34,27 +36,29 @@
             </com.graduate.design.view.ClearEditText>
 
             <Button
-                 android:id="@+id/cancel_btn"
-                 android:layout_width="60dp"
-                 android:layout_height="60dp"
-                 android:text="Cancel"
-                 android:textColor="#F9A413"
-                 android:background="@android:color/transparent"
-                 android:layout_weight="1"
-                 />
+                android:id="@+id/cancel_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Cancel"
+                android:textColor="#F9A413"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"
+                />
 
         </LinearLayout>
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:fadingEdge="none"
+            android:overScrollMode="never">
             <!--文件展示列表-->
             <com.graduate.design.view.NestedListView
                 android:id="@+id/show_search_files"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:layout_marginTop="30dp">
+                android:layout_marginTop="20dp">
 
             </com.graduate.design.view.NestedListView>
         </androidx.core.widget.NestedScrollView>
