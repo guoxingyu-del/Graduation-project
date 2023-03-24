@@ -10,7 +10,6 @@ import android.view.inputmethod.EditorInfo;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -19,6 +18,7 @@ import androidx.fragment.app.Fragment;
 
 import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
+import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
@@ -26,12 +26,7 @@ import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
 import com.graduate.design.view.ClearEditText;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class SearchFragment extends Fragment implements View.OnClickListener,
         TextView.OnEditorActionListener, AdapterView.OnItemClickListener {
@@ -43,6 +38,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
     private List<Common.Node> searchNodes;
     private HomeActivity activity;
     private Context context;
+    private GetNodeFileItemAdapter fileItemAdapter;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -72,12 +68,15 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
         token = GraduateDesignApplication.getToken();
         activity = (HomeActivity) getActivity();
         context = getContext();
+        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file);
     }
 
     private void getComponentsById(View view){
         cancelButton = view.findViewById(R.id.cancel_btn);
         searchText = view.findViewById(R.id.search_text);
+
         listView = view.findViewById(R.id.show_search_files);
+        listView.setAdapter(fileItemAdapter);
     }
 
     private void setListeners(){
@@ -106,7 +105,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
     public boolean onEditorAction(TextView v, int actionId, KeyEvent event) {
         switch (v.getId()){
             case R.id.search_text:
-                showSearchFileList(actionId, true);
+                showSearchFileList(actionId);
                 break;
             default:
                 ToastUtils.showShortToastCenter("错误的页面元素ID");
@@ -115,34 +114,11 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
         return false;
     }
 
-    private void showSearchFileList(int actionId, Boolean search){
+    private void showSearchFileList(int actionId){
         if(actionId == EditorInfo.IME_ACTION_SEARCH){
+            fileItemAdapter.clear();
             searchNodes = userService.searchFile(searchText.getText().toString(), token);
-            // 展示搜索结果
-            List<Map<String, Object>> listItem = new ArrayList<Map<String, Object>>();
-            for (int j = 0; j < searchNodes.size(); j++) {
-                Map<String, Object> item = new HashMap<>();
-                Common.Node node = searchNodes.get(j);
-
-                item.put("nodeType", R.drawable.file);
-                item.put("topName", node.getNodeName());
-
-                // 将时间转换成yyyy-MM-dd HH:MM:ss格式的24小时制
-                Long updateTime = node.getUpdateTime();
-                Date date = new Date();
-                //格式里的时如果用hh表示用12小时制，HH表示用24小时制。MM必须是大写!
-                SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-                date.setTime(updateTime*1000);//java里面应该是按毫秒
-                item.put("subTime", sdf.format(date));
-                listItem.add(item);
-            }
-
-            //创建一个simpleAdapter
-            SimpleAdapter myAdapter = new SimpleAdapter(context,
-                    listItem, R.layout.activity_file_item, new String[]{"nodeType", "topName", "subTime"},
-                    new int[]{R.id.node_type, R.id.top_name, R.id.sub_time});
-
-            listView.setAdapter(myAdapter);
+            fileItemAdapter.addAllFileItem(searchNodes);
         }
     }
 

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <!--顶部两个功能按钮-->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageButton
+                android:id="@+id/back_image_btn"
+                android:layout_width="40dp"
+                android:layout_height="60dp"
+                android:src="@drawable/back"
+                android:background="#FFFFFF"
+                android:layout_weight="0.3"
+                >
+
+            </ImageButton>
+
+            <Button
+                android:id="@+id/back_btn"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:text="Back"
+                android:textSize="20sp"
+                android:textColor="#F9A413"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"/>
+
+            <TextView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:background="#FFFFFF"
+                android:layout_weight="17" />
+
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/server_connect_state"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="等待连接"
+            android:textSize="25dp"/>
+
+        <TextView
+            android:id="@+id/show_receive_info"
+            android:layout_marginTop="20dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="连接测试消息" />
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fadingEdge="none"
+            android:overScrollMode="never">
+
+            <!--文件展示列表-->
+            <com.graduate.design.view.NestedListView
+                android:id="@+id/show_receive_files"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_marginTop="20dp">
+            </com.graduate.design.view.NestedListView>
+        </androidx.core.widget.NestedScrollView>
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -5,4 +5,9 @@
         <item>Upload File</item>
         <item>Create Dir</item>
     </string-array>
+
+    <string-array name="share">
+        <item>Join Session</item>
+        <item>Host Session</item>
+    </string-array>
 </resources>

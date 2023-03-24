@@ -8,7 +8,6 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.graduate.design.R;
-import com.graduate.design.entity.FileInfo;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.CreateDir;
 import com.graduate.design.proto.FileUpload;
@@ -232,9 +231,14 @@ public class UserServiceImpl implements UserService {
         JSONObject node = jsonObject.getJSONObject("node");
 
         String[] res = new String[2];
-        // 可能存在问题
-        res[0] = node.getString("nodeContent");
-        res[1] = node.getString("secretKey");
+
+        byte[] contentBytes = node.getBytes("nodeContent");
+        if(contentBytes==null) res[0] = "";
+        else res[0] = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
+
+        byte[] secretKeyBytes = node.getBytes("secretKey");
+        if(secretKeyBytes==null) res[1] = "";
+        else res[1] = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.UTF_8);
         return res;
     }
 

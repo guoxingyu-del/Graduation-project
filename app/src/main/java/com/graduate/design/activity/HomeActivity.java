@@ -1,14 +1,19 @@
 package com.graduate.design.activity;
 
+import android.Manifest;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import com.allenliu.classicbt.BleManager;
 import com.graduate.design.R;
 import com.graduate.design.fragment.DiskFragment;
 import com.graduate.design.fragment.MineFragment;
@@ -18,7 +23,6 @@ import com.graduate.design.utils.ToastUtils;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Stack;
 
 public class HomeActivity extends AppCompatActivity implements RadioGroup.OnCheckedChangeListener {
     private RadioGroup mRadioGroup;
@@ -75,6 +79,7 @@ public class HomeActivity extends AppCompatActivity implements RadioGroup.OnChec
                 break;
             default:
                 ToastUtils.showShortToastCenter("错误的元素ID");
+                break;
         }
     }
 

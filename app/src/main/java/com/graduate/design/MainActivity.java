@@ -1,17 +1,13 @@
 package com.graduate.design;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.content.ContextCompat;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
 import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.LinearLayout;
 
-import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.activity.LoginActivity;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.InitViewUtils;
@@ -36,12 +32,19 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         setListeners();
     }
 
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+    }
+
     private void initData(){
         // 开启调试模式
         PathSelectorConfig.setDebug(true);
         StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().
                 detectDiskReads().detectDiskWrites().detectNetwork().penaltyLog().build());
     }
+
+
 
     private void getComponentsById(){
         splashButton = findViewById(R.id.splash_btn);

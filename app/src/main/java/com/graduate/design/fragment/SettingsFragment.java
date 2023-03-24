@@ -18,7 +18,6 @@ import com.graduate.design.activity.LoginActivity;
 import com.graduate.design.proto.UserLogin;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
-import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
 public class SettingsFragment extends Fragment implements View.OnClickListener {

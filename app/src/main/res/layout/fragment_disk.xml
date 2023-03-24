@@ -45,7 +45,7 @@
                 android:id="@+id/add_file_or_dir"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/add_file_or_dir"
+                android:src="@drawable/selector_add_file_or_dir"
                 android:background="#FFFFFF"
                 android:layout_weight="1">
 
@@ -69,9 +69,10 @@
             </ImageButton>
 
             <ImageButton
+                android:id="@+id/search_device_btn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/search_device"
+                android:src="@drawable/selector_search_device"
                 android:background="#FFFFFF"
                 android:layout_weight="1">
 
@@ -95,11 +96,13 @@
             android:textSize="20sp">
         </Button>
 
+
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fadingEdge="none"
             android:overScrollMode="never">
+
             <!--文件展示列表-->
             <com.graduate.design.view.NestedListView
                 android:id="@+id/show_files"
@@ -107,7 +110,6 @@
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="20dp">
-
             </com.graduate.design.view.NestedListView>
         </androidx.core.widget.NestedScrollView>
     </LinearLayout>

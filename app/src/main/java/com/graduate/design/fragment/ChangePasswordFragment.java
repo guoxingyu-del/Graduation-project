@@ -14,7 +14,6 @@ import androidx.fragment.app.Fragment;
 import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.utils.GraduateDesignApplication;
-import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
 public class ChangePasswordFragment extends Fragment implements View.OnClickListener {

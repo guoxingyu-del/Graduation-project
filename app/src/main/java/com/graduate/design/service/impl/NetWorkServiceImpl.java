@@ -36,10 +36,6 @@ public class NetWorkServiceImpl implements NetWorkService {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        /*ServerResponse serverResponse = new ServerResponse();
-        serverResponse.setStatus(ResponseCodeENUM.ERROR.getCode());
-        serverResponse.setMsg("请求超时");*/
-        // return serverResponse;
         return null;
     }
 }

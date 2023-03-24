@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/join_session"
+        android:title="Join Session" />
+    <item
+        android:id="@+id/host_session"
+        android:title="Host Session" />
+</menu>

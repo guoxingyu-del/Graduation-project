@@ -1,17 +1,21 @@
 package com.graduate.design.fragment;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ListView;
 import android.widget.PopupMenu;
-import android.widget.SimpleAdapter;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -21,10 +25,11 @@ import androidx.fragment.app.Fragment;
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
+import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
-import com.graduate.design.utils.DialogUtils;
+import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
 import com.molihuan.pathselector.PathSelector;
@@ -37,12 +42,7 @@ import com.molihuan.pathselector.utils.MConstants;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class DiskFragment extends Fragment implements View.OnClickListener,
         AdapterView.OnItemClickListener {
@@ -51,13 +51,16 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
     private Button backButton;
     private Button searchButton;
     private ImageButton addFileOrDir;
+    private ImageButton searchDeviceButton;
     private UserService userService;
     // 当前磁盘页面的id，添加文件或文件夹时都使用该id
     private Long nodeId;
     private String token;
     private List<Common.Node> subNodes;
+    private GetNodeFileItemAdapter fileItemAdapter;
     private HomeActivity activity;
     private Context context;
+    private Dialog dialog;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -91,6 +94,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         activity = (HomeActivity) getActivity();
         context = getContext();
         userService = new UserServiceImpl();
+        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file);
         // 拿到当前节点id
         if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
         else nodeId = getArguments().getLong("nodeId");
@@ -102,12 +106,15 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         searchButton = view.findViewById(R.id.search_btn);
         addFileOrDir = view.findViewById(R.id.add_file_or_dir);
         fileList = view.findViewById(R.id.show_files);
+        fileList.setAdapter(fileItemAdapter);
+        searchDeviceButton = view.findViewById(R.id.search_device_btn);
     }
 
     private void setListeners(){
         backImageButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
         searchButton.setOnClickListener(this);
+        searchDeviceButton.setOnClickListener(this);
         addFileOrDir.setOnClickListener(this);
         fileList.setOnItemClickListener(this);
     }
@@ -127,33 +134,9 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
     }
 
     private void setNodeList(){
-        subNodes = putDirBeforeFile(userService.getNodeList(nodeId, token));
-
-        List<Map<String, Object>> listItem = new ArrayList<Map<String, Object>>();
-        for (int i = 0; i < subNodes.size(); i++) {
-            Map<String, Object> item = new HashMap<>();
-            Common.Node node = subNodes.get(i);
-
-            item.put("nodeType", node.getNodeType() == Common.NodeType.Dir ?
-                    R.drawable.folder : R.drawable.file);
-            item.put("topName", node.getNodeName());
-
-            // 将时间转换成yyyy-MM-dd HH:MM:ss格式的24小时制
-            Long updateTime = node.getUpdateTime();
-            Date date = new Date();
-            //格式里的时如果用hh表示用12小时制，HH表示用24小时制。MM必须是大写!
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
-            date.setTime(updateTime*1000);//java里面应该是按毫秒
-            item.put("subTime", sdf.format(date));
-            listItem.add(item);
-        }
-
-        //创建一个simpleAdapter
-        SimpleAdapter myAdapter = new SimpleAdapter(context,
-                listItem, R.layout.activity_file_item, new String[]{"nodeType", "topName", "subTime"},
-                new int[]{R.id.node_type, R.id.top_name, R.id.sub_time});
-
-        fileList.setAdapter(myAdapter);
+        fileItemAdapter.clear();
+        subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+        fileItemAdapter.addAllFileItem(subNodes);
     }
 
     @Override
@@ -168,6 +151,9 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 break;
             case R.id.add_file_or_dir:
                 popupAddFileOrDir();
+                break;
+            case R.id.search_device_btn:
+                popupJoinOrHostSession();
                 break;
             default:
                 ToastUtils.showShortToastCenter("错误的页面元素ID");
@@ -203,7 +189,8 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 }
                 // 点击了创建文件夹按钮
                 else if("Create Dir".contentEquals(item.getTitle())){
-                    DialogUtils.showDialog(context, userService, nodeId, token);
+                    // DialogUtils.showDialog(context, userService, nodeId, token);
+                    showDialog();
                 }
                 return false;
             }
@@ -251,8 +238,8 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                             sb.append(new String(buf,0, hasRead));
                                         }
                                         // TODO 文件内容加密后上传
-                                        int res = userService.uploadFile(fileBean.getName(), nodeId, indexList(sb.toString()),
-                                                ByteString.copyFromUtf8(sb.toString()), ByteString.copyFromUtf8("123"), token);
+                                        int res = userService.uploadFile(fileBean.getName(), nodeId, FileUtils.indexList(sb.toString()),
+                                                ByteString.copyFromUtf8(sb.toString()), ByteString.copyFromUtf8(""), token);
 
                                         if(res==1) {
                                             ToastUtils.showShortToastCenter("上传文件失败" + fileBean.getName());
@@ -271,6 +258,8 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                         throw new RuntimeException(e);
                                     }
                                 }
+                                // 更新文件列表
+                                setNodeList();
                                 return false;
                             }
                         },
@@ -285,24 +274,95 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 .show();
     }
 
-    private List<String> indexList(String content) {
-        List<String> res = new ArrayList<>();
-        StringBuilder word = new StringBuilder();
-        for(int i=0;i<content.length();i++){
-            char temp = content.charAt(i);
-            if((temp>='a' && temp<='z') || (temp>='A' && temp<='Z') || (temp>='0' && temp<='9')){
-                word.append(temp);
+    private void showDialog() {
+        //自定义dialog显示布局
+        View inflate = LayoutInflater.from(context).inflate(R.layout.dialog, null);
+        //自定义dialog显示风格
+        dialog = new Dialog(context, R.style.DialogStyle);
+        dialog.setContentView(inflate);
+
+        Window window = dialog.getWindow();
+        WindowManager.LayoutParams wlp = window.getAttributes();
+        wlp.gravity = Gravity.CENTER;
+        wlp.width = WindowManager.LayoutParams.WRAP_CONTENT;
+        window.setAttributes(wlp);
+        dialog.show();
+
+        EditText createDirName = inflate.findViewById(R.id.create_dir_name);
+        Button dialogCancelButton = inflate.findViewById(R.id.dialog_cancel);
+        Button dialogOKButton = inflate.findViewById(R.id.dialog_ok);
+
+        // 点击了ok按钮
+        dialogOKButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeDialog();
+                String dirName = createDirName.getText().toString();
+                int res = userService.createDir(dirName, nodeId, token);
+                if(res==0) ToastUtils.showShortToastCenter("添加文件夹成功");
+                else ToastUtils.showShortToastCenter("添加文件夹失败");
+                // 更新文件列表
+                setNodeList();
             }
-            else {
-                if(word.length()>0){
-                    res.add(word.toString());
-                    word.delete(0, word.length());
-                }
+        });
+        // 点击了取消按钮
+        dialogCancelButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                closeDialog();
             }
-        }
-        if(word.length()>0) res.add(word.toString());
-        return res;
+        });
     }
+
+    private void closeDialog() {
+        if (dialog != null) {
+            dialog.dismiss();
+            dialog = null;
+        }
+    }
+
+
+    private void popupJoinOrHostSession(){
+        // View当前PopupMenu显示的相对View的位置
+        PopupMenu popupMenu = new PopupMenu(context, searchDeviceButton);
+        // menu布局
+        popupMenu.getMenuInflater().inflate(R.menu.share, popupMenu.getMenu());
+        // menu的item点击事件
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if("Join Session".contentEquals(item.getTitle())){
+                    ToastUtils.showShortToastCenter("点击了Join Session");
+                    gotoJoinSession();
+                }
+                else if("Host Session".contentEquals(item.getTitle())){
+                    // TODO 广播自身设备，等待链接
+                    ToastUtils.showShortToastCenter("点击了Host Session");
+                    gotoHostSession();
+                }
+                return false;
+            }
+        });
+
+        popupMenu.show();
+    }
+
+    private void gotoJoinSession(){
+        activity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_layout, new BtClientFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void gotoHostSession(){
+        activity.getSupportFragmentManager()
+                .beginTransaction()
+                .replace(R.id.fragment_layout, new BtServerFragment())
+                .addToBackStack(null)
+                .commit();
+    }
+
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -357,23 +417,5 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                     .addToBackStack(null)
                     .commit();
         }
-    }
-
-    // 把文件夹放到文件前面
-    private List<Common.Node> putDirBeforeFile(List<Common.Node> subNodes){
-        List<Common.Node> dirs = new ArrayList<>();
-        List<Common.Node> files = new ArrayList<>();
-        List<Common.Node> res = new ArrayList<>();
-
-        for(int i=0;i<subNodes.size();i++){
-            Common.Node node = subNodes.get(i);
-            if(node.getNodeType()== Common.NodeType.File)
-                files.add(node);
-            else dirs.add(node);
-        }
-
-        res.addAll(dirs);
-        res.addAll(files);
-        return res;
     }
 }

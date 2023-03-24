@@ -14,15 +14,20 @@ import androidx.fragment.app.Fragment;
 
 import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
-import com.graduate.design.utils.InitViewUtils;
+import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
+
+import java.nio.charset.StandardCharsets;
 
 public class FileContentFragment extends Fragment implements View.OnClickListener {
     private ImageButton backImageButton;
     private Button backButton;
     private TextView fileTitleView;
     private TextView fileContentView;
+    private ImageButton shareButton;
     private HomeActivity activity;
+    private String fileName;
+    private String fileContent;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,6 +56,8 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
 
     private void initData(){
         activity = (HomeActivity) getActivity();
+        fileName = getArguments().getString("fileName");
+        fileContent = getArguments().getString("fileContent");
     }
 
     private void getComponentsById(View view){
@@ -58,18 +65,17 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
         fileContentView = view.findViewById(R.id.file_content);
         backImageButton = view.findViewById(R.id.back_image_btn);
         backButton = view.findViewById(R.id.back_btn);
+        shareButton = view.findViewById(R.id.share_btn);
     }
 
     private void setListeners(){
         backImageButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
+        shareButton.setOnClickListener(this);
     }
 
     private void setFileNameAndContent(){
         // 从disk页面拿到点击的文件名称和内容
-        String fileName = getArguments().getString("fileName");
-        String fileContent = getArguments().getString("fileContent");
-
         fileTitleView.setText(fileName);
         fileContentView.setText(fileContent);
     }
@@ -81,6 +87,9 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
             case R.id.back_image_btn:
                 goBackDisk();
                 break;
+            case R.id.share_btn:
+                shareFile();
+                break;
             default:
                 ToastUtils.showShortToastCenter("错误的页面元素ID");
                 break;
@@ -89,5 +98,9 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
 
     private void goBackDisk(){
         activity.getSupportFragmentManager().popBackStack();
+    }
+
+    private void shareFile(){
+        ToastUtils.showShortToastCenter("点击了分享按钮");
     }
 }
