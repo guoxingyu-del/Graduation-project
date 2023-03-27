@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/join_session"
-        android:title="Join Session" />
+        android:title="@string/join_session" />
     <item
         android:id="@+id/host_session"
-        android:title="Host Session" />
+        android:title="@string/host_session" />
 </menu>

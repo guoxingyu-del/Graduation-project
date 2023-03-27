@@ -31,7 +31,7 @@
             android:drawableTop="@drawable/selector_disk"
             android:gravity="center"
             android:paddingLeft="0dp"
-            android:text="Disk"
+            android:text="文件"
             android:textColor="@drawable/selector_text_color"/>
         <RadioButton
             android:id="@+id/rb_mine"
@@ -42,7 +42,7 @@
             android:drawableTop="@drawable/selector_mine"
             android:gravity="center"
             android:paddingLeft="0dp"
-            android:text="Mine"
+            android:text="我的"
             android:textColor="@drawable/selector_text_color"/>
     </RadioGroup>
 </RelativeLayout>

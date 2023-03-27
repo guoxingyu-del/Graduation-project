@@ -34,7 +34,7 @@
                 android:layout_height="60dp"
                 android:text="Back"
                 android:textSize="20sp"
-                android:textColor="#F9A413"
+                android:textColor="@color/common_orange"
                 android:background="@android:color/transparent"
                 />
 
@@ -62,9 +62,10 @@
 
     <Button
         android:id="@+id/receive_btn"
-        android:layout_width="match_parent"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:background="@color/common_orange"
         android:text="保存到此文件夹下"
         android:textSize="20dp" />
 

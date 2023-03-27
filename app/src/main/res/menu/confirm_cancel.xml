@@ -3,11 +3,11 @@
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/cancel"
-        android:title="share"
+        android:title="取消"
         app:showAsAction="always"/>
 
     <item
         android:id="@+id/share"
-        android:title="cancel"
+        android:title="分享"
         app:showAsAction="always"/>
 </menu>

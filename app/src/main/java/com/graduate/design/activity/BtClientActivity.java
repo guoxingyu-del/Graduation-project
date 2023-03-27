@@ -1,10 +1,12 @@
-package com.graduate.design.fragment;
+package com.graduate.design.activity;
 
+import android.Manifest;
+import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
@@ -12,8 +14,8 @@ import android.widget.ImageButton;
 import android.widget.ListView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
 
 import com.allenliu.classicbt.BleManager;
 import com.allenliu.classicbt.Connect;
@@ -23,16 +25,17 @@ import com.allenliu.classicbt.listener.ScanResultListener;
 import com.allenliu.classicbt.listener.TransferProgressListener;
 import com.allenliu.classicbt.scan.ScanConfig;
 import com.graduate.design.R;
-import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.DeviceItemAdapter;
+import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
+import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.PermissionUtils;
 import com.graduate.design.utils.ToastUtils;
 
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 
-public class BtClientFragment extends Fragment implements View.OnClickListener,
+public class BtClientActivity extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener {
     private ImageButton backImageButton;
     private Button backButton;
@@ -44,38 +47,30 @@ public class BtClientFragment extends Fragment implements View.OnClickListener,
     private Button shareButton;
 
     private DeviceItemAdapter deviceItemAdapter;
+ //   private Connect currentConnect;
     // 一次只允许一个连接
     private Boolean isConnected = false;
-    private HomeActivity activity;
+
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        setContentView(R.layout.activity_bt_client);
 
-        return inflater.inflate(R.layout.fragment_bt_client, container, false);
-    }
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        // 初始化页面
+        InitViewUtils.initView(this);
+        // 申请权限
+        PermissionUtils.initPermission(this);
         // 初始化数据
         initData();
-        // 申请权限
-        PermissionUtils.initPermission(activity);
         // 拿到页面元素
-        getComponentsById(view);
-        // 在分享界面中将底部导航栏隐藏
-        hideBottomNavBar();
+        getComponentsById();
         // 设置监听事件
         setListeners();
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         // 在此注销bleManager
         if(BleManager.getInstance()!=null)
@@ -84,24 +79,19 @@ public class BtClientFragment extends Fragment implements View.OnClickListener,
 
     private void initData() {
         deviceItemAdapter = new DeviceItemAdapter(GraduateDesignApplication.getAppContext());
-        activity = (HomeActivity) getActivity();
     }
 
-    private void getComponentsById(View view) {
-        backImageButton = view.findViewById(R.id.back_image_btn);
-        backButton = view.findViewById(R.id.back_btn);
-        searchDeviceButton = view.findViewById(R.id.search_device_btn);
-        sendButton = view.findViewById(R.id.send_btn);
-        sendMsg = view.findViewById(R.id.send_msg);
-        disconnectButton = view.findViewById(R.id.disconnect_btn);
-        shareButton = view.findViewById(R.id.share_btn);
+    private void getComponentsById() {
+        backImageButton = findViewById(R.id.back_image_btn);
+        backButton = findViewById(R.id.back_btn);
+        searchDeviceButton = findViewById(R.id.search_device_btn);
+        sendButton = findViewById(R.id.send_btn);
+        sendMsg = findViewById(R.id.send_msg);
+        disconnectButton = findViewById(R.id.disconnect_btn);
+        shareButton = findViewById(R.id.share_btn);
 
-        listView = view.findViewById(R.id.show_search_device);
+        listView = findViewById(R.id.show_search_device);
         listView.setAdapter(deviceItemAdapter);
-    }
-
-    private void hideBottomNavBar(){
-        activity.findViewById(R.id.rg_tab).setVisibility(View.GONE);
     }
 
     private void setListeners() {
@@ -141,9 +131,7 @@ public class BtClientFragment extends Fragment implements View.OnClickListener,
     }
 
     private void gotoHomeActivity() {
-        // 在返回主页面之前将底部导航栏重新显示
-        activity.findViewById(R.id.rg_tab).setVisibility(View.VISIBLE);
-        activity.getSupportFragmentManager().popBackStack();
+        finish();
     }
 
     // 扫描设备
@@ -204,16 +192,9 @@ public class BtClientFragment extends Fragment implements View.OnClickListener,
     }
 
     private void selectShareFile(){
-        ShareFragment fragment = new ShareFragment();
-        Bundle bundle = new Bundle();
-        bundle.putLong("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
-        fragment.setArguments(bundle);
-
-        activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_layout, fragment)
-                .addToBackStack(null)
-                .commit();
+        Intent intent = new Intent(BtClientActivity.this, ShareActivity.class);
+        intent.putExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        ActivityJumpUtils.jumpActivity(BtClientActivity.this, intent, 100L, false);
     }
 
     @Override
@@ -242,6 +223,7 @@ public class BtClientFragment extends Fragment implements View.OnClickListener,
                     isConnected = true;
                     disconnectButton.setEnabled(true);
                     shareButton.setEnabled(true);
+                    sendButton.setEnabled(true);
                 }
 
                 @Override
@@ -257,6 +239,7 @@ public class BtClientFragment extends Fragment implements View.OnClickListener,
                     GraduateDesignApplication.setCurConnect(null);
                     disconnectButton.setEnabled(false);
                     shareButton.setEnabled(false);
+                    sendButton.setEnabled(false);
                 }
             });
         }

@@ -1,5 +1,15 @@
 <resources>
     <string name="app_name">GraduationProject</string>
-    <string name="bottom_tab_mine_text">Mine</string>
-    <string name="bottom_tab_disk_text">Disk</string>
+    <!--<string name="bottom_tab_mine_text">Mine</string>
+    <string name="bottom_tab_disk_text">Disk</string>-->
+    <string name="join_session">加入会话</string>
+    <string name="host_session">广播会话</string>
+    <string name="delete_file">删除文件</string>
+    <string name="upload_file">上传文件</string>
+    <string name="create_dir">创建文件夹</string>
+    <string name="receive_file">接收文件</string>
+    <string name="startMsg">开始</string>
+    <string name="endMsg">结束</string>
+    <string name="filename">filename:</string>
+    <string name="fileContent">fileContent:</string>
 </resources>

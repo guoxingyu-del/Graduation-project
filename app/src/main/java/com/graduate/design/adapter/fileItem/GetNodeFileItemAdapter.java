@@ -47,7 +47,7 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         // 点击了删除文件按钮
-                        if("Delete".contentEquals(item.getTitle())){
+                        if(context.getString(R.string.delete_file).contentEquals(item.getTitle())){
                             ToastUtils.showShortToastCenter("点击了删除文件按钮");
                             delete();
                         }

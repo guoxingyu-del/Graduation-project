@@ -7,6 +7,7 @@ import android.os.Handler;
 import com.allenliu.classicbt.BleManager;
 import com.allenliu.classicbt.Connect;
 // import com.graduate.design.exception.GlobalCrashHandler;
+import com.graduate.design.R;
 import com.graduate.design.proto.UserLogin;
 
 import java.nio.charset.StandardCharsets;
@@ -26,8 +27,8 @@ public class GraduateDesignApplication extends Application {
     private static UserLogin.UserInfo userInfo;
 
     // 自定义一个完整数据包的开头和结束字节
-    private static byte[] start = "开始\n".getBytes(StandardCharsets.UTF_8);
-    private static byte[] end = "结束\n".getBytes(StandardCharsets.UTF_8);
+    private static byte[] start;
+    private static byte[] end;
     private static Connect curConnect;
 
     @Override
@@ -35,6 +36,8 @@ public class GraduateDesignApplication extends Application {
         super.onCreate();
         token = null;
         mAppContext = getApplicationContext();
+        start = mAppContext.getString(R.string.startMsg).getBytes(StandardCharsets.UTF_8);
+        end = mAppContext.getString(R.string.endMsg).getBytes(StandardCharsets.UTF_8);
 
         // 初始化bleManager
         BleManager.getInstance().init(mAppContext);

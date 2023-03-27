@@ -34,7 +34,7 @@
                 android:layout_height="60dp"
                 android:text="Back"
                 android:textSize="20sp"
-                android:textColor="#F9A413"
+                android:textColor="@color/common_orange"
                 android:background="@android:color/transparent"
                 />
 
@@ -47,7 +47,7 @@
             android:layout_margin="15dp"
             android:padding="15dp"
             android:background="@drawable/button_design"
-            android:text="Logout"
+            android:text="登出"
             android:textSize="20sp"
             android:drawableLeft="@drawable/logout" />
 

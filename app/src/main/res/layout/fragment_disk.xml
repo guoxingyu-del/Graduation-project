@@ -45,7 +45,7 @@
                 android:id="@+id/add_file_or_dir"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/selector_add_file_or_dir"
+                android:src="@drawable/add_file_or_dir"
                 android:background="#FFFFFF"
                 android:layout_weight="1">
 
@@ -59,20 +59,20 @@
                 android:background="#FFFFFF"
                 android:layout_weight="17" />
 
-            <ImageButton
+            <!--<ImageButton
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/share_or_receive"
                 android:background="#FFFFFF"
                 android:layout_weight="1">
 
-            </ImageButton>
+            </ImageButton>-->
 
             <ImageButton
                 android:id="@+id/search_device_btn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:src="@drawable/selector_search_device"
+                android:src="@drawable/search_device"
                 android:background="#FFFFFF"
                 android:layout_weight="1">
 
@@ -83,19 +83,20 @@
 
 
         <!--搜索框按钮-->
-        <Button android:id="@+id/search_btn"
-            android:layout_height="match_parent"
+
+
+        <Button
+            android:id="@+id/search_btn"
             android:layout_width="match_parent"
-            android:layout_marginTop="20dp"
+            android:layout_height="match_parent"
             android:layout_marginLeft="40dp"
+            android:layout_marginTop="20dp"
             android:layout_marginRight="40dp"
             android:background="@drawable/search_button_design"
-            android:padding="10dp"
             android:drawableLeft="@drawable/search"
-            android:text="search  file"
-            android:textSize="20sp">
-        </Button>
-
+            android:padding="10dp"
+            android:text="搜索文件"
+            android:textSize="20sp" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"

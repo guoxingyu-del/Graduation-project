@@ -8,15 +8,15 @@
         android:layout_width="260dp"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:background="#D3D3D3"
+        android:background="@drawable/dialog_shape"
         android:orientation="vertical">
 
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Input Directory Name"
+            android:text="输入文件夹名"
             android:textAlignment="center"
-            android:layout_margin="5dp"
+            android:layout_marginTop="10dp"
             android:textStyle="bold" />
 
         <EditText
@@ -24,7 +24,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/edittext_design"
-            android:layout_margin="15dp"
+            android:layout_margin="10dp"
             android:padding="10dp" />
 
         <LinearLayout
@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Cancel"
+                android:text="取消"
                 android:background="@android:color/transparent" />
 
             <Button
@@ -45,7 +45,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="OK"
+                android:text="确认"
                 android:background="@android:color/transparent" />
 
         </LinearLayout>

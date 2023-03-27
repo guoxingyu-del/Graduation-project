@@ -1,25 +1,21 @@
-package com.graduate.design.fragment;
+package com.graduate.design.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
-import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.ChooseDirFileItemAdapter;
+import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
+import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
@@ -31,7 +27,7 @@ import com.graduate.design.utils.ToastUtils;
 
 import java.util.List;
 
-public class ReceiveFragment extends Fragment implements View.OnClickListener,
+public class ReceiveActivity extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener {
     private Button backButton;
     private ImageButton backImageButton;
@@ -46,26 +42,17 @@ public class ReceiveFragment extends Fragment implements View.OnClickListener,
     private String fileContent;
     private ChooseDirFileItemAdapter fileItemAdapter;
     private List<Common.Node> subNodes;
-    private HomeActivity activity;
-
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        setContentView(R.layout.activity_receive);
 
-        return inflater.inflate(R.layout.fragment_receive, container, false);
-    }
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        // 初始化视图
+        InitViewUtils.initView(this);
         // 初始化数据
         initData();
         // 拿到页面元素
-        getComponentsById(view);
+        getComponentsById();
         // 设置监听事件
         setListeners();
         // 设置当前节点下的文件列表
@@ -74,28 +61,20 @@ public class ReceiveFragment extends Fragment implements View.OnClickListener,
 
     private void initData(){
         token = GraduateDesignApplication.getToken();
-        activity = (HomeActivity) getActivity();
-        context = getContext();
+        context = getApplicationContext();
         userService = new UserServiceImpl();
-        // 拿到当前节点id
-        if(getArguments()==null){
-            ToastUtils.showShortToastCenter("保存信息不完善");
-            goBack();
-        }
-        else{
-            nodeId = getArguments().getLong("nodeId");
-            filename = getArguments().getString("filename");
-            fileContent = getArguments().getString("fileContent");
-        }
+        nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        filename = getIntent().getStringExtra("filename");
+        fileContent = getIntent().getStringExtra("fileContent");
         fileItemAdapter = new ChooseDirFileItemAdapter(context, R.layout.item_file);
     }
 
-    private void getComponentsById(View view){
-        backButton = view.findViewById(R.id.back_btn);
-        backImageButton = view.findViewById(R.id.back_image_btn);
-        receiveButton = view.findViewById(R.id.receive_btn);
+    private void getComponentsById(){
+        backButton = findViewById(R.id.back_btn);
+        backImageButton = findViewById(R.id.back_image_btn);
+        receiveButton = findViewById(R.id.receive_btn);
 
-        listView = view.findViewById(R.id.show_files);
+        listView = findViewById(R.id.show_files);
         listView.setAdapter(fileItemAdapter);
     }
 
@@ -130,7 +109,7 @@ public class ReceiveFragment extends Fragment implements View.OnClickListener,
     }
 
     private void goBack(){
-        activity.getSupportFragmentManager().popBackStack();
+        finish();
     }
 
     private void receive(){
@@ -156,18 +135,12 @@ public class ReceiveFragment extends Fragment implements View.OnClickListener,
         Common.Node clickedNode = subNodes.get(position);
         // 如果点击的是文件夹，进入下一层
         if(clickedNode.getNodeType()== Common.NodeType.Dir){
-            ShareFragment fragment = new ShareFragment();
-            Bundle bundle = new Bundle();
-            bundle.putLong("nodeId", clickedNode.getNodeId());
-            bundle.putString("filename", filename);
-            bundle.putString("fileContent", fileContent);
-            fragment.setArguments(bundle);
-
-            activity.getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_layout, fragment)
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(ReceiveActivity.this, ReceiveActivity.class);
+            intent.putExtra("nodeId", clickedNode.getNodeId());
+            intent.putExtra("filename", filename);
+            intent.putExtra("fileContent", fileContent);
+            ActivityJumpUtils.jumpActivity(ReceiveActivity.this, intent, 100L, false);
         }
     }
+
 }

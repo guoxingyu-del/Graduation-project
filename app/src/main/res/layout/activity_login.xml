@@ -30,13 +30,13 @@
             android:textSize="30dp"
             android:textColor="#fff"
             android:textStyle="bold"
-            android:text="Login">
+            android:text="登录">
         </TextView>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="please enter your credential"
+            android:text="请输入您的身份信息"
             android:textColor="#fff"
             android:textSize="19dp"
             android:layout_marginTop="20dp">
@@ -51,7 +51,7 @@
             android:background="@drawable/edittext_design"
             android:padding="10dp"
             android:drawableLeft="@drawable/person"
-            android:hint="  Username.."
+            android:hint="  用户名..."
             >
 
         </EditText>
@@ -65,7 +65,7 @@
             android:padding="10dp"
             android:inputType="textPassword"
             android:drawableLeft="@drawable/password"
-            android:hint="  Password.."
+            android:hint="  密码..."
             >
 
         </EditText>
@@ -78,8 +78,8 @@
             android:background="@drawable/edittext_design"
             android:padding="10dp"
             android:textSize="18dp"
-            android:textColor="#F3B252"
-            android:text="LOGIN" >
+            android:textColor="@color/common_orange"
+            android:text="登录" >
 
         </Button>
 
@@ -89,7 +89,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="40dp"
             android:background="@android:color/transparent"
-            android:text="OR Register "
+            android:text="注册"
             android:textColor="#fff"
             android:textSize="20dp"
             android:textStyle="bold">
@@ -110,7 +110,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Github"
-            android:textColor="#ED2C1E"
+            android:textColor="@color/common_orange"
             android:textStyle="bold"
             android:layout_weight="1">
 

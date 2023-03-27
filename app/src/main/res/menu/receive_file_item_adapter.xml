@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/receive"
-        android:title="Receive" />
+        android:title="@string/receive_file" />
     <item
         android:id="@+id/delete"
-        android:title="Delete" />
+        android:title="@string/delete_file" />
 </menu>

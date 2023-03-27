@@ -33,6 +33,10 @@
         <activity android:name=".activity.LoginActivity" />
         <activity android:name=".activity.RegisterActivity" />
         <activity android:name=".activity.HomeActivity" />
+        <activity android:name=".activity.BtClientActivity" />
+        <activity android:name=".activity.BtServerActivity" />
+        <activity android:name=".activity.ShareActivity" />
+        <activity android:name=".activity.ReceiveActivity" />
     </application>
 
 </manifest>

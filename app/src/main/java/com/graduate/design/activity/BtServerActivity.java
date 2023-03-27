@@ -1,21 +1,18 @@
-package com.graduate.design.fragment;
+package com.graduate.design.activity;
 
-import android.content.Context;
+import android.Manifest;
+import android.bluetooth.BluetoothDevice;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
+import androidx.core.app.ActivityCompat;
 
 import com.allenliu.classicbt.BleManager;
 import com.allenliu.classicbt.Connect;
@@ -24,7 +21,6 @@ import com.allenliu.classicbt.listener.PacketDefineListener;
 import com.allenliu.classicbt.listener.TransferProgressListener;
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
-import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
@@ -35,8 +31,10 @@ import com.graduate.design.utils.PermissionUtils;
 import com.graduate.design.utils.ToastUtils;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 
-public class BtServerFragment extends Fragment implements View.OnClickListener {
+public class BtServerActivity extends AppCompatActivity implements View.OnClickListener {
     private ImageButton backImageButton;
     private Button backButton;
     private TextView serverConnectState;
@@ -47,32 +45,22 @@ public class BtServerFragment extends Fragment implements View.OnClickListener {
     private String fileContent;
     private UserService userService;
     private ReceiveFileItemAdapter fileItemAdapter;
-    private HomeActivity activity;
-    private Context context;
+    // 当前连接
+ //   private Connect currentConnect;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
+        setContentView(R.layout.activity_bt_server);
 
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_bt_server, container, false);
-    }
-
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        // 初始化页面
+        InitViewUtils.initView(this);
+        // 动态申请权限
+        PermissionUtils.initPermission(this);
         // 初始化数据
         initData();
-        // 动态申请权限
-        PermissionUtils.initPermission(activity);
         // 获取页面元素
-        getComponentById(view);
-        // 在分享界面中将底部导航栏隐藏
-        hideBottomNavBar();
+        getComponentById();
         // 设置监听事件
         setListeners();
         // 注册为服务器，接收数据
@@ -80,7 +68,7 @@ public class BtServerFragment extends Fragment implements View.OnClickListener {
     }
 
     @Override
-    public void onDestroy() {
+    protected void onDestroy() {
         super.onDestroy();
         // 在此注销bleManager
         if(BleManager.getInstance()!=null)
@@ -89,24 +77,18 @@ public class BtServerFragment extends Fragment implements View.OnClickListener {
 
     private void initData(){
         userService = new UserServiceImpl();
-        activity = (HomeActivity) getActivity();
-        context = getContext();
-        fileItemAdapter = new ReceiveFileItemAdapter(context, activity, this);
+        fileItemAdapter = new ReceiveFileItemAdapter(getApplicationContext(), BtServerActivity.this);
     }
 
-    private void getComponentById(View view){
-        backImageButton = view.findViewById(R.id.back_image_btn);
-        backButton = view.findViewById(R.id.back_btn);
+    private void getComponentById(){
+        backImageButton = findViewById(R.id.back_image_btn);
+        backButton = findViewById(R.id.back_btn);
 
-        serverConnectState = view.findViewById(R.id.server_connect_state);
-        showReceiveInfo = view.findViewById(R.id.show_receive_info);
+        serverConnectState = findViewById(R.id.server_connect_state);
+        showReceiveInfo = findViewById(R.id.show_receive_info);
 
-        listView = view.findViewById(R.id.show_receive_files);
+        listView = findViewById(R.id.show_receive_files);
         listView.setAdapter(fileItemAdapter);
-    }
-
-    private void hideBottomNavBar(){
-        activity.findViewById(R.id.rg_tab).setVisibility(View.GONE);
     }
 
     private void setListeners(){
@@ -172,16 +154,24 @@ public class BtServerFragment extends Fragment implements View.OnClickListener {
                 ToastUtils.showShortToastCenter("传输数据成功");
 
                 String res = ByteString.copyFrom(bytes).toString(StandardCharsets.UTF_8);
-                showReceiveInfo.setText(res);
-                int filenameIndex = res.indexOf("filename:");
-                int fileContentIndex = res.indexOf("fileContent:");
-                int endIndex = res.indexOf("结束");
-                if(filenameIndex == -1 || fileContentIndex == -1) return;
 
+                // 取出消息整体内容
+                int startIndex = res.indexOf(getString(R.string.startMsg));
+                int endIndex = res.indexOf(getString(R.string.endMsg));
+                String resWithoutStartEnd = res.substring(startIndex + getString(R.string.startMsg).length(), endIndex);
+
+                // 将消息分割出文件名和文件内容
+                int filenameIndex = resWithoutStartEnd.indexOf(getString(R.string.filename));
+                int fileContentIndex = resWithoutStartEnd.indexOf(getString(R.string.fileContent));
+                // 测试消息，在页面展示
+                if(filenameIndex == -1 || fileContentIndex == -1) {
+                    showReceiveInfo.setText(resWithoutStartEnd);
+                    return;
+                }
                 // 提取出文件名和文件内容
                 // 除去文件名中的换行符
-                filename = FileUtils.removeLineBreak(res.substring(filenameIndex + "filename:".length(), fileContentIndex));
-                fileContent = res.substring(fileContentIndex + "fileContent:".length(), endIndex);
+                filename = FileUtils.removeLineBreak(resWithoutStartEnd.substring(filenameIndex + getString(R.string.filename).length(), fileContentIndex));
+                fileContent = resWithoutStartEnd.substring(fileContentIndex + getString(R.string.fileContent).length());
 
                 String[] fileInfo = new String[]{filename, fileContent};
                 fileItemAdapter.addFileItem(fileInfo);
@@ -208,23 +198,6 @@ public class BtServerFragment extends Fragment implements View.OnClickListener {
     }
 
     private void gotoHomeActivity() {
-        // 在返回主页面之前将底部导航栏重新显示
-        activity.findViewById(R.id.rg_tab).setVisibility(View.VISIBLE);
-        activity.getSupportFragmentManager().popBackStack();
-    }
-
-    public void gotoReceive(String[] node){
-        ShareFragment fragment = new ShareFragment();
-        Bundle bundle = new Bundle();
-        bundle.putLong("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
-        bundle.putString("filename", node[0]);
-        bundle.putString("fileContent", node[1]);
-        fragment.setArguments(bundle);
-
-        activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_layout, fragment)
-                .addToBackStack(null)
-                .commit();
+        finish();
     }
 }

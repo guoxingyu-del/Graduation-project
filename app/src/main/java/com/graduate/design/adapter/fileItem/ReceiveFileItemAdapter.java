@@ -2,6 +2,7 @@ package com.graduate.design.adapter.fileItem;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -13,7 +14,9 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 
 import com.graduate.design.R;
-import com.graduate.design.fragment.BtServerFragment;
+import com.graduate.design.activity.ReceiveActivity;
+import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
 
 import java.util.ArrayList;
@@ -30,13 +33,11 @@ public class ReceiveFileItemAdapter extends BaseAdapter {
     private Activity activity;
     private Context context;
     private List<String[]> list;
-    private BtServerFragment fragment;
 
 
-    public ReceiveFileItemAdapter(Context context, Activity activity, BtServerFragment fragment) {
+    public ReceiveFileItemAdapter(Context context, Activity activity) {
         this.context = context;
         this.activity = activity;
-        this.fragment = fragment;
         list = new ArrayList<>();
     }
 
@@ -89,16 +90,25 @@ public class ReceiveFileItemAdapter extends BaseAdapter {
                     @Override
                     public boolean onMenuItemClick(MenuItem item) {
                         // 点击了接收按钮
-                        if("Receive".contentEquals(item.getTitle())){
-                            fragment.gotoReceive(node);
+                        if(context.getString(R.string.receive_file).contentEquals(item.getTitle())){
+                            gotoReceive();
                             delete();
                         }
                         // 点击了删除文件按钮
-                        else if("Delete".contentEquals(item.getTitle())){
+                        else if(context.getString(R.string.delete_file).contentEquals(item.getTitle())){
                             ToastUtils.showShortToastCenter("点击了删除文件按钮");
                             delete();
                         }
                         return false;
+                    }
+
+                    // 接收文件
+                    private void gotoReceive(){
+                        Intent intent = new Intent(activity, ReceiveActivity.class);
+                        intent.putExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+                        intent.putExtra("filename", node[0]);
+                        intent.putExtra("fileContent", node[1]);
+                        ActivityJumpUtils.jumpActivity(activity, intent, 100L, false);
                     }
 
                     // 从接收列表中删除该文件

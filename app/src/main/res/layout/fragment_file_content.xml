@@ -33,7 +33,7 @@
                 android:layout_height="60dp"
                 android:text="Back"
                 android:textSize="20sp"
-                android:textColor="#F9A413"
+                android:textColor="@color/common_orange"
                 android:background="@android:color/transparent"
                 android:layout_weight="1"/>
 
@@ -43,7 +43,7 @@
                 android:background="#FFFFFF"
                 android:layout_weight="17" />
 
-            <ImageButton
+            <!--<ImageButton
                 android:id="@+id/share_btn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
@@ -51,7 +51,7 @@
                 android:background="#FFFFFF"
                 android:layout_weight="1">
 
-            </ImageButton>
+            </ImageButton>-->
 
         </LinearLayout>
 

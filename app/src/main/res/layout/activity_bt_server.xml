@@ -46,59 +46,43 @@
 
         </LinearLayout>
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/server_connect_state"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal" >
-            <Button
-                android:id="@+id/search_device_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="搜索" />
-            <Button
-                android:id="@+id/disconnect_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="断开"
-                android:enabled="false" />
-            <Button
-                android:id="@+id/share_btn"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="分享"
-                android:enabled="false" />
+            android:text="等待连接"
+            android:gravity="center_horizontal"
+            android:textSize="25dp"/>
 
-        </LinearLayout>
-
-        <EditText
-            android:id="@+id/send_msg"
+        <TextView
+            android:id="@+id/show_receive_info"
+            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="发送数据，测试蓝牙连通性" />
+            android:text="显示测试消息" />
 
-        <Button
-            android:id="@+id/send_btn"
+        <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="发送" />
-
+            android:text="-------文件接收列表-------"
+            android:layout_marginTop="10dp" />
 
         <androidx.core.widget.NestedScrollView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fadingEdge="none"
             android:overScrollMode="never">
+
+            <!--文件展示列表-->
             <com.graduate.design.view.NestedListView
-                android:id="@+id/show_search_device"
+                android:id="@+id/show_receive_files"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
                 android:layout_marginTop="20dp">
-
-
             </com.graduate.design.view.NestedListView>
         </androidx.core.widget.NestedScrollView>
-
 
     </LinearLayout>
 

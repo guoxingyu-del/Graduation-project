@@ -1,29 +1,23 @@
-package com.graduate.design.fragment;
+package com.graduate.design.activity;
 
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.ActionMode;
-import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ListView;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 
 import com.allenliu.classicbt.Connect;
 import com.allenliu.classicbt.listener.TransferProgressListener;
 import com.graduate.design.R;
-import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.ShareFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
@@ -39,7 +33,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ShareFragment extends Fragment implements View.OnClickListener,
+public class ShareActivity extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener {
     private Button backButton;
     private ImageButton backImageButton;
@@ -51,26 +45,18 @@ public class ShareFragment extends Fragment implements View.OnClickListener,
     private String token;
     private UserService userService;
     private Context context;
-    private HomeActivity activity;
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
+        setContentView(R.layout.activity_share);
 
-        return inflater.inflate(R.layout.fragment_share, container, false);
-    }
-    @Override
-    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
-        super.onViewCreated(view, savedInstanceState);
-
+        // 初始化视图
+        InitViewUtils.initView(this);
         // 初始化数据
         initData();
         // 拿到页面元素
-        getComponentsById(view);
+        getComponentsById();
         // 设置监听事件
         setListeners();
         // 设置当前节点下的文件列表
@@ -79,20 +65,17 @@ public class ShareFragment extends Fragment implements View.OnClickListener,
 
     private void initData(){
         token = GraduateDesignApplication.getToken();
-        activity = (HomeActivity) getActivity();
-        context = getContext();
+        context = getApplicationContext();
         userService = new UserServiceImpl();
         shareFileItemAdapter = new ShareFileItemAdapter(context, R.layout.item_file_share);
-        // 拿到当前节点id
-        if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
-        else nodeId = getArguments().getLong("nodeId");
+        nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
     }
 
-    private void getComponentsById(View view){
-        backButton = view.findViewById(R.id.back_btn);
-        backImageButton = view.findViewById(R.id.back_image_btn);
+    private void getComponentsById(){
+        backButton = findViewById(R.id.back_btn);
+        backImageButton = findViewById(R.id.back_image_btn);
 
-        shareFileList = view.findViewById(R.id.show_share_files);
+        shareFileList = findViewById(R.id.show_share_files);
         shareFileList.setAdapter(shareFileItemAdapter);
     }
 
@@ -124,7 +107,7 @@ public class ShareFragment extends Fragment implements View.OnClickListener,
     }
 
     private void goBack(){
-        activity.getSupportFragmentManager().popBackStack();
+        finish();
     }
 
     @Override
@@ -143,16 +126,9 @@ public class ShareFragment extends Fragment implements View.OnClickListener,
         Common.Node clickedNode = subNodes.get(position);
         // 如果点击的是文件夹，进入下一层
         if(clickedNode.getNodeType()== Common.NodeType.Dir){
-            ShareFragment fragment = new ShareFragment();
-            Bundle bundle = new Bundle();
-            bundle.putLong("nodeId", clickedNode.getNodeId());
-            fragment.setArguments(bundle);
-
-            activity.getSupportFragmentManager()
-                    .beginTransaction()
-                    .replace(R.id.fragment_layout, fragment)
-                    .addToBackStack(null)
-                    .commit();
+            Intent intent = new Intent(ShareActivity.this, ShareActivity.class);
+            intent.putExtra("nodeId", clickedNode.getNodeId());
+            ActivityJumpUtils.jumpActivity(ShareActivity.this, intent, 100L, false);
         }
     }
 
@@ -214,7 +190,7 @@ public class ShareFragment extends Fragment implements View.OnClickListener,
             for(Common.Node node : selectedItem){
                 if(node.getNodeType() == Common.NodeType.Dir) continue;
                 String content = userService.getNodeContent(node.getNodeId(), token)[0];
-                String fileNameAndContent = "filename:" + node.getNodeName() + "\n" + "fileContent:" + content + "\n";
+                String fileNameAndContent = getString(R.string.filename) + node.getNodeName() + "\n" + getString(R.string.fileContent) + content + "\n";
                 byte[] msg = fileNameAndContent.getBytes(StandardCharsets.UTF_8);
                 ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);
                 fullMsg.put(start).put(msg).put(end);

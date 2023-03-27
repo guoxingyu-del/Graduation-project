@@ -28,7 +28,7 @@
                 android:layout_weight="5"
                 android:background="@drawable/search_button_design"
                 android:drawableLeft="@drawable/search"
-                android:hint="  Keywords.."
+                android:hint="  关键字.."
                 android:imeOptions="actionSearch"
                 android:padding="10dp"
                 android:singleLine="true">
@@ -39,8 +39,9 @@
                 android:id="@+id/cancel_btn"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:text="Cancel"
-                android:textColor="#F9A413"
+                android:text="取消"
+                android:textSize="20dp"
+                android:textColor="@color/common_orange"
                 android:background="@android:color/transparent"
                 android:layout_weight="1"
                 />

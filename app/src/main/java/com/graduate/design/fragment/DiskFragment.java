@@ -2,6 +2,7 @@ package com.graduate.design.fragment;
 
 import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -24,11 +25,14 @@ import androidx.fragment.app.Fragment;
 
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
+import com.graduate.design.activity.BtClientActivity;
+import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
+import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
@@ -184,11 +188,11 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 // 点击了上传文件按钮
-                if("Upload File".contentEquals(item.getTitle())){
+                if(getString(R.string.upload_file).contentEquals(item.getTitle())){
                     showPhoneFileList();
                 }
                 // 点击了创建文件夹按钮
-                else if("Create Dir".contentEquals(item.getTitle())){
+                else if(getString(R.string.create_dir).contentEquals(item.getTitle())){
                     // DialogUtils.showDialog(context, userService, nodeId, token);
                     showDialog();
                 }
@@ -203,6 +207,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
     private void showPhoneFileList(){
         //Constants.BUILD_ACTIVITY为ACTIVITY模式
         PathSelectFragment selector = PathSelector.build(this, MConstants.BUILD_ACTIVITY)
+                .setTitlebarBG(getResources().getColor(R.color.common_orange))
                 .setRequestCode(635)
                 .setMorePopupItemListeners(
                         new CommonItemListener("SelectAll") {
@@ -331,11 +336,11 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
-                if("Join Session".contentEquals(item.getTitle())){
+                if(getString(R.string.join_session).contentEquals(item.getTitle())){
                     ToastUtils.showShortToastCenter("点击了Join Session");
                     gotoJoinSession();
                 }
-                else if("Host Session".contentEquals(item.getTitle())){
+                else if(getString(R.string.host_session).contentEquals(item.getTitle())){
                     // TODO 广播自身设备，等待链接
                     ToastUtils.showShortToastCenter("点击了Host Session");
                     gotoHostSession();
@@ -348,19 +353,13 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
     }
 
     private void gotoJoinSession(){
-        activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_layout, new BtClientFragment())
-                .addToBackStack(null)
-                .commit();
+        Intent intent = new Intent(activity, BtClientActivity.class);
+        ActivityJumpUtils.jumpActivity(activity, intent, 100L, false);
     }
 
     private void gotoHostSession(){
-        activity.getSupportFragmentManager()
-                .beginTransaction()
-                .replace(R.id.fragment_layout, new BtServerFragment())
-                .addToBackStack(null)
-                .commit();
+        Intent intent = new Intent(activity, BtServerActivity.class);
+        ActivityJumpUtils.jumpActivity(activity, intent, 100L, false);
     }
 
 
