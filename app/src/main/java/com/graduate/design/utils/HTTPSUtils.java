@@ -95,7 +95,7 @@ public final class HTTPSUtils {
         }
 
         // Put the certificates a key store.
-        char[] password = "gxy240014".toCharArray(); // Any password will work.
+        char[] password = "123456".toCharArray(); // Any password will work.
         KeyStore keyStore = newEmptyKeyStore(password);
         int index = 0;
         for (Certificate certificate : certificates) {

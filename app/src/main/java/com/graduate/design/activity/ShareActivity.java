@@ -186,10 +186,10 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
             byte[] start = GraduateDesignApplication.getStart();
             byte[] end = GraduateDesignApplication.getEnd();
 
-            // TODO 批量分享
+            // TODO 批量分享，加密传输
             for(Common.Node node : selectedItem){
                 if(node.getNodeType() == Common.NodeType.Dir) continue;
-                String content = userService.getNodeContent(node.getNodeId(), token)[0];
+                String content = userService.getNodeContent(node.getNodeId(), token);
                 String fileNameAndContent = getString(R.string.filename) + node.getNodeName() + "\n" + getString(R.string.fileContent) + content + "\n";
                 byte[] msg = fileNameAndContent.getBytes(StandardCharsets.UTF_8);
                 ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);

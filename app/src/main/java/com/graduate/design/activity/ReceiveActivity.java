@@ -17,7 +17,9 @@ import com.graduate.design.adapter.fileItem.ChooseDirFileItemAdapter;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
 import com.graduate.design.proto.Common;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.FileUtils;
@@ -37,6 +39,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     private String token;
     private Context context;
     private UserService userService;
+    private EncryptionService encryptionService;
     private Long nodeId;
     private String filename;
     private String fileContent;
@@ -63,6 +66,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         token = GraduateDesignApplication.getToken();
         context = getApplicationContext();
         userService = new UserServiceImpl();
+        encryptionService = new EncryptionServiceImpl();
         nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
         filename = getIntent().getStringExtra("filename");
         fileContent = getIntent().getStringExtra("fileContent");
@@ -114,8 +118,18 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
 
     private void receive(){
         // 将文件内容和文件标题作为一个新的节点上传
-        userService.uploadFile(filename, nodeId, FileUtils.indexList(fileContent), ByteString.copyFromUtf8(fileContent),
-                ByteString.copyFromUtf8("123"), token);
+        // 利用文件名和用户密码生成文件密钥
+        byte[] fileSecret = encryptionService.getSecretKey(filename,
+                GraduateDesignApplication.getOriginPassword());
+        byte[] mainSecret = GraduateDesignApplication.getMainSecret();
+        // 将加密结果转为Base64编码
+        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileContent, fileSecret));
+        String encryptFileSecret = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileSecret, mainSecret));
+        if(encryptContent == null) encryptContent = "";
+        if(encryptFileSecret == null) encryptFileSecret = "";
+
+        userService.uploadFile(filename, nodeId, FileUtils.indexList(fileContent), ByteString.copyFromUtf8(encryptContent),
+                ByteString.copyFromUtf8(encryptFileSecret), token);
         ToastUtils.showShortToastCenter("保存成功");
     }
 

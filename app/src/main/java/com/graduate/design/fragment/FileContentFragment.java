@@ -24,7 +24,7 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
     private Button backButton;
     private TextView fileTitleView;
     private TextView fileContentView;
-    private ImageButton shareButton;
+  //  private ImageButton shareButton;
     private HomeActivity activity;
     private String fileName;
     private String fileContent;
@@ -65,13 +65,13 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
         fileContentView = view.findViewById(R.id.file_content);
         backImageButton = view.findViewById(R.id.back_image_btn);
         backButton = view.findViewById(R.id.back_btn);
-        shareButton = view.findViewById(R.id.share_btn);
+       // shareButton = view.findViewById(R.id.share_btn);
     }
 
     private void setListeners(){
         backImageButton.setOnClickListener(this);
         backButton.setOnClickListener(this);
-        shareButton.setOnClickListener(this);
+       // shareButton.setOnClickListener(this);
     }
 
     private void setFileNameAndContent(){
@@ -87,9 +87,6 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
             case R.id.back_image_btn:
                 goBackDisk();
                 break;
-            case R.id.share_btn:
-                shareFile();
-                break;
             default:
                 ToastUtils.showShortToastCenter("错误的页面元素ID");
                 break;
@@ -98,9 +95,5 @@ public class FileContentFragment extends Fragment implements View.OnClickListene
 
     private void goBackDisk(){
         activity.getSupportFragmentManager().popBackStack();
-    }
-
-    private void shareFile(){
-        ToastUtils.showShortToastCenter("点击了分享按钮");
     }
 }

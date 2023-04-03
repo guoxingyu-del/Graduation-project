@@ -252,6 +252,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
                     connect(position);
                 }
             });
+
         }
     }
 }

@@ -1,6 +1,7 @@
 package com.graduate.design.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -12,11 +13,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.apache.commons.lang.StringUtils;
 
 import com.graduate.design.R;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.FileUtils;
+import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
+
+import java.util.Base64;
 
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
@@ -25,6 +32,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private Button loginBtnInLogin;
     private Button gotoRegisterBtn;
     private UserService userService;
+    private EncryptionService encryptionService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
     private void initData(){
         userService = new UserServiceImpl();
+        encryptionService = new EncryptionServiceImpl();
     }
 
     private void getComponentsById(){
@@ -83,8 +92,12 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
+        // 使用SHA256生成用户主密钥
+        byte[] mainSecret = encryptionService.getSecretKey(username, password);
+        // 用主密钥加密用户密码后上传
+        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, mainSecret));
         // 进行登录验证
-        int res = userService.login(username, password);
+        int res = userService.login(username, encryptPassword);
 
         // 登录失败
         if(res==1){
@@ -95,6 +108,10 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         // 登录成功
+        // 设置主密钥为全局变量
+        GraduateDesignApplication.setMainSecret(mainSecret);
+        // 把原始密码设为全局变量，以供后续加密文件使用
+        GraduateDesignApplication.setOriginPassword(password);
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         ActivityJumpUtils.jumpActivity(LoginActivity.this, intent, 100L, true);
     }

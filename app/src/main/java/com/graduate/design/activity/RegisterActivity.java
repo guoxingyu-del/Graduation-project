@@ -1,6 +1,7 @@
 package com.graduate.design.activity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -8,13 +9,21 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.protobuf.ByteString;
 import com.graduate.design.R;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.FileUtils;
+import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
+import java.io.File;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -25,6 +34,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private Button gotoLoginBtn;
 
     private UserService userService;
+    private EncryptionService encryptionService;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +53,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
     private void initData(){
         userService = new UserServiceImpl();
+        encryptionService = new EncryptionServiceImpl();
     }
 
     private void getComponentsById(){
@@ -102,7 +113,12 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        int res = userService.register(username, password, email);
+        // 使用SHA256生成用户主密钥
+        byte[] mainSecret = encryptionService.getSecretKey(username, password);
+        // 用主密钥加密用户密码后上传
+        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, mainSecret));
+
+        int res = userService.register(username, encryptPassword, email);
 
         // 请求失败
         if(res==1){

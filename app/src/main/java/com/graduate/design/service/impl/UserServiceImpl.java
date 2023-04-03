@@ -19,8 +19,10 @@ import com.graduate.design.proto.SearchFile;
 import com.graduate.design.proto.ShareFile;
 import com.graduate.design.proto.UserLogin;
 import com.graduate.design.proto.UserRegister;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.NetWorkService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.JsonUtils;
 
@@ -36,6 +38,7 @@ import java.util.List;
 public class UserServiceImpl implements UserService {
     private final String base = "https://192.168.43.39:8888";
     private NetWorkService netWorkService = new NetWorkServiceImpl();
+    private EncryptionService encryptionService = new EncryptionServiceImpl();
 
     @Override
     public int ping(String name, String token) {
@@ -218,7 +221,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public String[] getNodeContent(Long nodeId, String token) {
+    public String getNodeContent(Long nodeId, String token) {
         GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
                 .setNodeId(nodeId)
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
@@ -230,16 +233,25 @@ public class UserServiceImpl implements UserService {
 
         JSONObject node = jsonObject.getJSONObject("node");
 
-        String[] res = new String[2];
+        String[] base64 = new String[2];
 
+        // 此时获得的文件内容和文件密钥均为Base64编码
         byte[] contentBytes = node.getBytes("nodeContent");
-        if(contentBytes==null) res[0] = "";
-        else res[0] = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
+        if(contentBytes==null) base64[0] = "";
+        else base64[0] = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
 
         byte[] secretKeyBytes = node.getBytes("secretKey");
-        if(secretKeyBytes==null) res[1] = "";
-        else res[1] = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.UTF_8);
-        return res;
+        if(secretKeyBytes==null) base64[1] = "";
+        else base64[1] = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.UTF_8);
+
+        // TODO 解密
+        byte[] fileContentEncrypt = FileUtils.Base64ToBytes(base64[0]);
+        byte[] fileSecretEncrypt = FileUtils.Base64ToBytes(base64[1]);
+        byte[] mainSecret = GraduateDesignApplication.getMainSecret();
+        byte[] fileSecret = encryptionService.decryptByAES128(fileSecretEncrypt, mainSecret);
+        byte[] fileContent = encryptionService.decryptByAES128(fileContentEncrypt, fileSecret);
+
+        return ByteString.copyFrom(fileContent).toString(StandardCharsets.UTF_8);
     }
 
     @Override

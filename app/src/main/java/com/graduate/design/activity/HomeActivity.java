@@ -20,6 +20,10 @@ import com.graduate.design.fragment.MineFragment;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
+import com.molihuan.pathselector.PathSelector;
+import com.molihuan.pathselector.fragment.impl.PathSelectFragment;
+import com.molihuan.pathselector.service.IConfigDataBuilder;
+import com.molihuan.pathselector.utils.MConstants;
 
 import java.util.ArrayList;
 import java.util.List;

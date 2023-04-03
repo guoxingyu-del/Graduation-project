@@ -22,8 +22,10 @@ public class NetWorkServiceImpl implements NetWorkService {
             OkHttpClient client = httpsUtils.getInstance();
             RequestBody body = RequestBody.create(data, JSON);
             Request request = new Request.Builder()
-                    .url(url).post(body)
+                    .url(url)
+                    .post(body)
                     .build();
+            System.out.println(request.toString());
             Response response;
             response = client.newCall(request).execute();
             if (response.isSuccessful()) {

@@ -1,15 +1,19 @@
 package com.graduate.design.utils;
 
+import android.os.Build;
 import android.util.Log;
 
 /*import com.graduate.design.common.Const;
 import com.graduate.design.common.SdPathConst;*/
 import com.graduate.design.proto.Common;
+import com.graduate.design.service.EncryptionService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 public class FileUtils {
@@ -33,8 +37,9 @@ public class FileUtils {
 
     // 文件内容分词函数
     public static List<String> indexList(String content) {
-        List<String> res = new ArrayList<>();
+        List<String> words = new ArrayList<>();
         StringBuilder word = new StringBuilder();
+        EncryptionService encryptionService = new EncryptionServiceImpl();
         for(int i=0;i<content.length();i++){
             char temp = content.charAt(i);
             if((temp>='a' && temp<='z') || (temp>='A' && temp<='Z') || (temp>='0' && temp<='9')){
@@ -42,12 +47,18 @@ public class FileUtils {
             }
             else {
                 if(word.length()>0){
-                    res.add(word.toString());
+                    words.add(word.toString());
                     word.delete(0, word.length());
                 }
             }
         }
-        if(word.length()>0) res.add(word.toString());
+        if(word.length()>0) words.add(word.toString());
+        List<String> res = new ArrayList<>();
+        // 对关键字使用主密钥加密
+        for(int i=0;i<words.size();i++){
+            byte[] encryptWords = encryptionService.encryptByAES128(words.get(i), GraduateDesignApplication.getMainSecret());
+            res.add(bytes2Base64(encryptWords));
+        }
         return res;
     }
 
@@ -58,5 +69,23 @@ public class FileUtils {
             if(content.charAt(i)!='\n') sb.append(content.charAt(i));
         }
         return sb.toString();
+    }
+
+    public static String bytes2Base64(byte[] origin){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return Base64.getEncoder().encodeToString(origin);
+        }
+        else {
+            return android.util.Base64.encodeToString(origin, android.util.Base64.DEFAULT);
+        }
+    }
+
+    public static byte[] Base64ToBytes(String origin){
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            return Base64.getDecoder().decode(origin);
+        }
+        else {
+            return android.util.Base64.decode(origin, android.util.Base64.DEFAULT);
+        }
     }
 }

@@ -30,6 +30,10 @@ public class GraduateDesignApplication extends Application {
     private static byte[] start;
     private static byte[] end;
     private static Connect curConnect;
+    private static byte[] mainSecret;
+    private static String originPassword;
+    // 设置AES256加密得到默认向量常量，16个字节
+    public static final String IV = "0123456789012345";
 
     @Override
     public void onCreate() {
@@ -80,5 +84,21 @@ public class GraduateDesignApplication extends Application {
 
     public static void setCurConnect(Connect curConnect) {
         GraduateDesignApplication.curConnect = curConnect;
+    }
+
+    public static byte[] getMainSecret() {
+        return mainSecret;
+    }
+
+    public static void setMainSecret(byte[] mainSecret) {
+        GraduateDesignApplication.mainSecret = mainSecret;
+    }
+
+    public static String getOriginPassword() {
+        return originPassword;
+    }
+
+    public static void setOriginPassword(String originPassword) {
+        GraduateDesignApplication.originPassword = originPassword;
     }
 }

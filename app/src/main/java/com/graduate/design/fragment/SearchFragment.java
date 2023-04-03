@@ -16,16 +16,21 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import com.google.protobuf.ByteString;
 import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
+import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
 import com.graduate.design.view.ClearEditText;
 
+import java.nio.charset.StandardCharsets;
 import java.util.List;
 
 public class SearchFragment extends Fragment implements View.OnClickListener,
@@ -34,6 +39,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
     private ListView listView;
     private ClearEditText searchText;
     private UserService userService;
+    private EncryptionService encryptionService;
     private String token;
     private List<Common.Node> searchNodes;
     private HomeActivity activity;
@@ -65,6 +71,7 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
 
     private void initData(){
         userService = new UserServiceImpl();
+        encryptionService = new EncryptionServiceImpl();
         token = GraduateDesignApplication.getToken();
         activity = (HomeActivity) getActivity();
         context = getContext();
@@ -117,7 +124,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
     private void showSearchFileList(int actionId){
         if(actionId == EditorInfo.IME_ACTION_SEARCH){
             fileItemAdapter.clear();
-            searchNodes = userService.searchFile(searchText.getText().toString(), token);
+            // 将搜索关键字用主密钥加密
+            String keyword = searchText.getText().toString();
+            byte[] secretKeyword = encryptionService.encryptByAES128(keyword, GraduateDesignApplication.getMainSecret());
+            searchNodes = userService.searchFile(FileUtils.bytes2Base64(secretKeyword), token);
             fileItemAdapter.addAllFileItem(searchNodes);
         }
     }
@@ -137,15 +147,12 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
     private void showFileContent(int position){
         Common.Node clickedNode = searchNodes.get(position);
         // 拿取文件内容和对应密钥
-        String[] fileContentKey = userService.getNodeContent(clickedNode.getNodeId(), GraduateDesignApplication.getToken());
+        String fileContent = userService.getNodeContent(clickedNode.getNodeId(), GraduateDesignApplication.getToken());
 
-        if(fileContentKey==null) {
+        if(fileContent==null) {
             ToastUtils.showShortToastCenter("读取文件出错");
             return;
         }
-
-        // TODO 解密
-        String fileContent = fileContentKey[0];
 
         FileContentFragment fragment = new FileContentFragment();
         Bundle bundle = new Bundle();

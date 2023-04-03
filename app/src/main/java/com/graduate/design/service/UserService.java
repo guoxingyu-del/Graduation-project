@@ -1,7 +1,6 @@
 package com.graduate.design.service;
 
 import com.google.protobuf.ByteString;
-import com.graduate.design.entity.FileInfo;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.GetRecvFile;
 
@@ -25,7 +24,7 @@ public interface UserService {
                   Boolean isWeb, Long shareId, String token);
 
     List<Common.Node> getNodeList(Long nodeId, String token);
-    String[] getNodeContent(Long nodeId, String token);
+    String getNodeContent(Long nodeId, String token);
 
     int shareFile(String username, Long fileId, ByteString key, String token);
 

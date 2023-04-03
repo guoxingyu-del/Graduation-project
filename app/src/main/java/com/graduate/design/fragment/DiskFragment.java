@@ -3,6 +3,8 @@ package com.graduate.design.fragment;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -30,7 +32,9 @@ import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.FileUtils;
@@ -38,14 +42,19 @@ import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
 import com.molihuan.pathselector.PathSelector;
 import com.molihuan.pathselector.entity.FileBean;
+import com.molihuan.pathselector.entity.FontBean;
 import com.molihuan.pathselector.fragment.BasePathSelectFragment;
 import com.molihuan.pathselector.fragment.impl.PathSelectFragment;
 import com.molihuan.pathselector.listener.CommonItemListener;
+import com.molihuan.pathselector.listener.FileItemListener;
 import com.molihuan.pathselector.utils.MConstants;
+import com.molihuan.pathselector.utils.Mtools;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.util.Base64;
 import java.util.List;
 
 public class DiskFragment extends Fragment implements View.OnClickListener,
@@ -57,6 +66,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
     private ImageButton addFileOrDir;
     private ImageButton searchDeviceButton;
     private UserService userService;
+    private EncryptionService encryptionService;
     // 当前磁盘页面的id，添加文件或文件夹时都使用该id
     private Long nodeId;
     private String token;
@@ -98,6 +108,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         activity = (HomeActivity) getActivity();
         context = getContext();
         userService = new UserServiceImpl();
+        encryptionService = new EncryptionServiceImpl();
         fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file);
         // 拿到当前节点id
         if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
@@ -213,9 +224,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                         new CommonItemListener("SelectAll") {
                             @Override
                             public boolean onClick(View v, TextView tv, List<FileBean> selectedFiles, String currentPath, BasePathSelectFragment pathSelectFragment) {
-
                                 pathSelectFragment.selectAllFile(true);
-
                                 return false;
                             }
                         },
@@ -243,8 +252,19 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                             sb.append(new String(buf,0, hasRead));
                                         }
                                         // TODO 文件内容加密后上传
+                                        // 利用文件名和用户密码生成文件密钥
+                                        byte[] fileSecret = encryptionService.getSecretKey(fileBean.getName(),
+                                                GraduateDesignApplication.getOriginPassword());
+                                        byte[] mainSecret = GraduateDesignApplication.getMainSecret();
+                                        // 将加密结果转为Base64编码
+                                        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES128(sb.toString(), fileSecret));
+                                        String encryptFileSecret = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileSecret, mainSecret));
+                                        if(encryptContent == null) encryptContent = "";
+                                        if(encryptFileSecret == null) encryptFileSecret = "";
+
                                         int res = userService.uploadFile(fileBean.getName(), nodeId, FileUtils.indexList(sb.toString()),
-                                                ByteString.copyFromUtf8(sb.toString()), ByteString.copyFromUtf8(""), token);
+                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)),
+                                                ByteString.copyFrom(encryptFileSecret.getBytes(StandardCharsets.UTF_8)), token);
 
                                         if(res==1) {
                                             ToastUtils.showShortToastCenter("上传文件失败" + fileBean.getName());
@@ -278,6 +298,8 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 )
                 .show();
     }
+
+
 
     private void showDialog() {
         //自定义dialog显示布局
@@ -341,7 +363,6 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                     gotoJoinSession();
                 }
                 else if(getString(R.string.host_session).contentEquals(item.getTitle())){
-                    // TODO 广播自身设备，等待链接
                     ToastUtils.showShortToastCenter("点击了Host Session");
                     gotoHostSession();
                 }
@@ -380,15 +401,12 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         // 如果点击的是文件，则查看文件的详细内容
         if(clickedNode.getNodeType()== Common.NodeType.File){
             // 拿取文件内容和对应密钥
-            String[] fileContentKey = userService.getNodeContent(clickedNode.getNodeId(), token);
+            String fileContent = userService.getNodeContent(clickedNode.getNodeId(), token);
 
-            if(fileContentKey==null) {
+            if(fileContent==null) {
                 ToastUtils.showShortToastCenter("读取文件出错");
                 return;
             }
-
-            // TODO 解密
-            String fileContent = fileContentKey[0];
 
             FileContentFragment fragment = new FileContentFragment();
             Bundle bundle = new Bundle();
