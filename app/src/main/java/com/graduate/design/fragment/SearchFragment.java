@@ -21,6 +21,8 @@ import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
+import com.graduate.design.proto.SearchFile;
+import com.graduate.design.proto.SendSearchToken;
 import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
@@ -126,8 +128,16 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
             fileItemAdapter.clear();
             // 将搜索关键字用主密钥加密
             String keyword = searchText.getText().toString();
-            byte[] secretKeyword = encryptionService.encryptByAES128(keyword, GraduateDesignApplication.getMainSecret());
-            searchNodes = userService.searchFile(FileUtils.bytes2Base64(secretKeyword), token);
+            // 构造搜索令牌Tw = (L, Jw)
+            SendSearchToken.SearchToken searchToken = encryptionService.getSearchToken(keyword);
+            // 搜索令牌为空，不存在相应文件
+            if(searchToken==null) return;
+            // 根据搜索令牌拿到对应的Cw集合
+            List<String> Cw = userService.sendSearchToken(searchToken, token);
+            // 根据Cw获取节点id
+            List<Long> idList = encryptionService.getNodeIdByCw(Cw, keyword);
+            // 根据id获取文件
+            searchNodes = userService.searchFile(idList, token);
             fileItemAdapter.addAllFileItem(searchNodes);
         }
     }

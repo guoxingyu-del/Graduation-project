@@ -17,6 +17,7 @@ import com.graduate.design.adapter.fileItem.ChooseDirFileItemAdapter;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
 import com.graduate.design.proto.Common;
+import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
@@ -119,17 +120,19 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     private void receive(){
         // 将文件内容和文件标题作为一个新的节点上传
         // 利用文件名和用户密码生成文件密钥
-        byte[] fileSecret = encryptionService.getSecretKey(filename,
-                GraduateDesignApplication.getOriginPassword());
-        byte[] mainSecret = GraduateDesignApplication.getMainSecret();
+        byte[] fileSecret = GraduateDesignApplication.getKey2();
         // 将加密结果转为Base64编码
         String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileContent, fileSecret));
-        String encryptFileSecret = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileSecret, mainSecret));
         if(encryptContent == null) encryptContent = "";
-        if(encryptFileSecret == null) encryptFileSecret = "";
 
-        userService.uploadFile(filename, nodeId, FileUtils.indexList(fileContent), ByteString.copyFromUtf8(encryptContent),
-                ByteString.copyFromUtf8(encryptFileSecret), token);
+        // 先从服务器中拿到文件节点
+        Long fileId = userService.getNodeId(token);
+        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
+        // 同步上传biIndex进行更新
+        String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+
+        userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
+                fileId, token);
         ToastUtils.showShortToastCenter("保存成功");
     }
 

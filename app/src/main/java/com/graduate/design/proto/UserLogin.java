@@ -1040,6 +1040,26 @@ public final class UserLogin {
      */
     com.google.protobuf.ByteString
         getEmailBytes();
+
+    /**
+     * <pre>
+     * 双向索引链表，以base64形式存储
+     * </pre>
+     *
+     * <code>string biIndex = 4;</code>
+     * @return The biIndex.
+     */
+    java.lang.String getBiIndex();
+    /**
+     * <pre>
+     * 双向索引链表，以base64形式存储
+     * </pre>
+     *
+     * <code>string biIndex = 4;</code>
+     * @return The bytes for biIndex.
+     */
+    com.google.protobuf.ByteString
+        getBiIndexBytes();
   }
   /**
    * Protobuf type {@code UserInfo}
@@ -1056,6 +1076,7 @@ public final class UserLogin {
     private UserInfo() {
       userName_ = "";
       email_ = "";
+      biIndex_ = "";
     }
 
     @java.lang.Override
@@ -1103,6 +1124,12 @@ public final class UserLogin {
               java.lang.String s = input.readStringRequireUtf8();
 
               email_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              biIndex_ = s;
               break;
             }
             default: {
@@ -1224,6 +1251,52 @@ public final class UserLogin {
       }
     }
 
+    public static final int BIINDEX_FIELD_NUMBER = 4;
+    private volatile java.lang.Object biIndex_;
+    /**
+     * <pre>
+     * 双向索引链表，以base64形式存储
+     * </pre>
+     *
+     * <code>string biIndex = 4;</code>
+     * @return The biIndex.
+     */
+    @java.lang.Override
+    public java.lang.String getBiIndex() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        biIndex_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 双向索引链表，以base64形式存储
+     * </pre>
+     *
+     * <code>string biIndex = 4;</code>
+     * @return The bytes for biIndex.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBiIndexBytes() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        biIndex_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1247,6 +1320,9 @@ public final class UserLogin {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 3, email_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, biIndex_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1265,6 +1341,9 @@ public final class UserLogin {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(email_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, email_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, biIndex_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1287,6 +1366,8 @@ public final class UserLogin {
           .equals(other.getUserName())) return false;
       if (!getEmail()
           .equals(other.getEmail())) return false;
+      if (!getBiIndex()
+          .equals(other.getBiIndex())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1305,6 +1386,8 @@ public final class UserLogin {
       hash = (53 * hash) + getUserName().hashCode();
       hash = (37 * hash) + EMAIL_FIELD_NUMBER;
       hash = (53 * hash) + getEmail().hashCode();
+      hash = (37 * hash) + BIINDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getBiIndex().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1444,6 +1527,8 @@ public final class UserLogin {
 
         email_ = "";
 
+        biIndex_ = "";
+
         return this;
       }
 
@@ -1473,6 +1558,7 @@ public final class UserLogin {
         result.rootId_ = rootId_;
         result.userName_ = userName_;
         result.email_ = email_;
+        result.biIndex_ = biIndex_;
         onBuilt();
         return result;
       }
@@ -1530,6 +1616,10 @@ public final class UserLogin {
         }
         if (!other.getEmail().isEmpty()) {
           email_ = other.email_;
+          onChanged();
+        }
+        if (!other.getBiIndex().isEmpty()) {
+          biIndex_ = other.biIndex_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1740,6 +1830,102 @@ public final class UserLogin {
   checkByteStringIsUtf8(value);
         
         email_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object biIndex_ = "";
+      /**
+       * <pre>
+       * 双向索引链表，以base64形式存储
+       * </pre>
+       *
+       * <code>string biIndex = 4;</code>
+       * @return The biIndex.
+       */
+      public java.lang.String getBiIndex() {
+        java.lang.Object ref = biIndex_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          biIndex_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 双向索引链表，以base64形式存储
+       * </pre>
+       *
+       * <code>string biIndex = 4;</code>
+       * @return The bytes for biIndex.
+       */
+      public com.google.protobuf.ByteString
+          getBiIndexBytes() {
+        java.lang.Object ref = biIndex_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          biIndex_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 双向索引链表，以base64形式存储
+       * </pre>
+       *
+       * <code>string biIndex = 4;</code>
+       * @param value The biIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBiIndex(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        biIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 双向索引链表，以base64形式存储
+       * </pre>
+       *
+       * <code>string biIndex = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBiIndex() {
+        
+        biIndex_ = getDefaultInstance().getBiIndex();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 双向索引链表，以base64形式存储
+       * </pre>
+       *
+       * <code>string biIndex = 4;</code>
+       * @param value The bytes for biIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBiIndexBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        biIndex_ = value;
         onChanged();
         return this;
       }
@@ -2892,13 +3078,14 @@ public final class UserLogin {
     java.lang.String[] descriptorData = {
       "\n\020user_login.proto\032\014common.proto\"R\n\020User" +
       "LoginRequest\022\020\n\010userName\030\001 \001(\t\022\020\n\010passwo" +
-      "rd\030\002 \001(\t\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\";\n\010" +
+      "rd\030\002 \001(\t\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\"L\n\010" +
       "UserInfo\022\016\n\006rootId\030\001 \001(\003\022\020\n\010userName\030\002 \001" +
-      "(\t\022\r\n\005email\030\003 \001(\t\"]\n\021UserLoginResponse\022\r" +
-      "\n\005token\030\001 \001(\t\022\033\n\010userInfo\030\002 \001(\0132\t.UserIn" +
-      "fo\022\034\n\010baseResp\030\377\001 \001(\0132\t.BaseRespBN\n\031com." +
-      "graduate.design.protoB\tUserLoginZ&github" +
-      ".com/JackTJC/gmFS_backend/pb_genb\006proto3"
+      "(\t\022\r\n\005email\030\003 \001(\t\022\017\n\007biIndex\030\004 \001(\t\"]\n\021Us" +
+      "erLoginResponse\022\r\n\005token\030\001 \001(\t\022\033\n\010userIn" +
+      "fo\030\002 \001(\0132\t.UserInfo\022\034\n\010baseResp\030\377\001 \001(\0132\t" +
+      ".BaseRespBN\n\031com.graduate.design.protoB\t" +
+      "UserLoginZ&github.com/JackTJC/gmFS_backe" +
+      "nd/pb_genb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -2916,7 +3103,7 @@ public final class UserLogin {
     internal_static_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserInfo_descriptor,
-        new java.lang.String[] { "RootId", "UserName", "Email", });
+        new java.lang.String[] { "RootId", "UserName", "Email", "BiIndex", });
     internal_static_UserLoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_UserLoginResponse_fieldAccessorTable = new

@@ -74,6 +74,7 @@ public class BaseFileItemAdapter extends BaseAdapter {
     }
 
     public void addAllFileItem(List<Common.Node> nodes){
+        if(nodes == null) return;
         for(Common.Node node : nodes){
             addFileItem(node);
         }

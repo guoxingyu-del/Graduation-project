@@ -37,7 +37,7 @@ public class BiIndex implements Serializable {
         this.lastID = lastID;
     }
 
-    private byte[] writeObject() {
+    public byte[] writeObject() {
         byte[] res;
         try {
             ByteArrayOutputStream byteStream = new ByteArrayOutputStream();
@@ -53,7 +53,7 @@ public class BiIndex implements Serializable {
         return res;
     }
 
-    private void readObject(byte[] bytes) {
+    public void readObject(byte[] bytes) {
         try {
             ByteArrayInputStream byteStream = new ByteArrayInputStream(bytes);
             ObjectInputStream objectStream = new ObjectInputStream(byteStream);

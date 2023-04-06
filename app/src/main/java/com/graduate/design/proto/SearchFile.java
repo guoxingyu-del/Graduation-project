@@ -19,16 +19,21 @@ public final class SearchFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>string keyword = 1;</code>
-     * @return The keyword.
+     * <code>repeated int64 nodeId = 1;</code>
+     * @return A list containing the nodeId.
      */
-    java.lang.String getKeyword();
+    java.util.List<java.lang.Long> getNodeIdList();
     /**
-     * <code>string keyword = 1;</code>
-     * @return The bytes for keyword.
+     * <code>repeated int64 nodeId = 1;</code>
+     * @return The count of nodeId.
      */
-    com.google.protobuf.ByteString
-        getKeywordBytes();
+    int getNodeIdCount();
+    /**
+     * <code>repeated int64 nodeId = 1;</code>
+     * @param index The index of the element to return.
+     * @return The nodeId at the given index.
+     */
+    long getNodeId(int index);
 
     /**
      * <code>.BaseReq baseReq = 255;</code>
@@ -62,7 +67,7 @@ public final class SearchFile {
       super(builder);
     }
     private SearchFileRequest() {
-      keyword_ = "";
+      nodeId_ = emptyLongList();
     }
 
     @java.lang.Override
@@ -85,6 +90,7 @@ public final class SearchFile {
       if (extensionRegistry == null) {
         throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -95,10 +101,25 @@ public final class SearchFile {
             case 0:
               done = true;
               break;
+            case 8: {
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                nodeId_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              nodeId_.addLong(input.readInt64());
+              break;
+            }
             case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              keyword_ = s;
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                nodeId_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                nodeId_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
               break;
             }
             case 2042: {
@@ -129,6 +150,9 @@ public final class SearchFile {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          nodeId_.makeImmutable(); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
@@ -146,43 +170,33 @@ public final class SearchFile {
               com.graduate.design.proto.SearchFile.SearchFileRequest.class, com.graduate.design.proto.SearchFile.SearchFileRequest.Builder.class);
     }
 
-    public static final int KEYWORD_FIELD_NUMBER = 1;
-    private volatile java.lang.Object keyword_;
+    public static final int NODEID_FIELD_NUMBER = 1;
+    private com.google.protobuf.Internal.LongList nodeId_;
     /**
-     * <code>string keyword = 1;</code>
-     * @return The keyword.
+     * <code>repeated int64 nodeId = 1;</code>
+     * @return A list containing the nodeId.
      */
     @java.lang.Override
-    public java.lang.String getKeyword() {
-      java.lang.Object ref = keyword_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        keyword_ = s;
-        return s;
-      }
+    public java.util.List<java.lang.Long>
+        getNodeIdList() {
+      return nodeId_;
     }
     /**
-     * <code>string keyword = 1;</code>
-     * @return The bytes for keyword.
+     * <code>repeated int64 nodeId = 1;</code>
+     * @return The count of nodeId.
      */
-    @java.lang.Override
-    public com.google.protobuf.ByteString
-        getKeywordBytes() {
-      java.lang.Object ref = keyword_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        keyword_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
+    public int getNodeIdCount() {
+      return nodeId_.size();
     }
+    /**
+     * <code>repeated int64 nodeId = 1;</code>
+     * @param index The index of the element to return.
+     * @return The nodeId at the given index.
+     */
+    public long getNodeId(int index) {
+      return nodeId_.getLong(index);
+    }
+    private int nodeIdMemoizedSerializedSize = -1;
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
     private com.graduate.design.proto.Common.BaseReq baseReq_;
@@ -224,8 +238,13 @@ public final class SearchFile {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyword_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, keyword_);
+      getSerializedSize();
+      if (getNodeIdList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(nodeIdMemoizedSerializedSize);
+      }
+      for (int i = 0; i < nodeId_.size(); i++) {
+        output.writeInt64NoTag(nodeId_.getLong(i));
       }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
@@ -239,8 +258,19 @@ public final class SearchFile {
       if (size != -1) return size;
 
       size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(keyword_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, keyword_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < nodeId_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(nodeId_.getLong(i));
+        }
+        size += dataSize;
+        if (!getNodeIdList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        nodeIdMemoizedSerializedSize = dataSize;
       }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -261,8 +291,8 @@ public final class SearchFile {
       }
       com.graduate.design.proto.SearchFile.SearchFileRequest other = (com.graduate.design.proto.SearchFile.SearchFileRequest) obj;
 
-      if (!getKeyword()
-          .equals(other.getKeyword())) return false;
+      if (!getNodeIdList()
+          .equals(other.getNodeIdList())) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
         if (!getBaseReq()
@@ -279,8 +309,10 @@ public final class SearchFile {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + KEYWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getKeyword().hashCode();
+      if (getNodeIdCount() > 0) {
+        hash = (37 * hash) + NODEID_FIELD_NUMBER;
+        hash = (53 * hash) + getNodeIdList().hashCode();
+      }
       if (hasBaseReq()) {
         hash = (37 * hash) + BASEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getBaseReq().hashCode();
@@ -422,8 +454,8 @@ public final class SearchFile {
       @java.lang.Override
       public Builder clear() {
         super.clear();
-        keyword_ = "";
-
+        nodeId_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (baseReqBuilder_ == null) {
           baseReq_ = null;
         } else {
@@ -456,7 +488,12 @@ public final class SearchFile {
       @java.lang.Override
       public com.graduate.design.proto.SearchFile.SearchFileRequest buildPartial() {
         com.graduate.design.proto.SearchFile.SearchFileRequest result = new com.graduate.design.proto.SearchFile.SearchFileRequest(this);
-        result.keyword_ = keyword_;
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          nodeId_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
+        result.nodeId_ = nodeId_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -510,8 +547,14 @@ public final class SearchFile {
 
       public Builder mergeFrom(com.graduate.design.proto.SearchFile.SearchFileRequest other) {
         if (other == com.graduate.design.proto.SearchFile.SearchFileRequest.getDefaultInstance()) return this;
-        if (!other.getKeyword().isEmpty()) {
-          keyword_ = other.keyword_;
+        if (!other.nodeId_.isEmpty()) {
+          if (nodeId_.isEmpty()) {
+            nodeId_ = other.nodeId_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureNodeIdIsMutable();
+            nodeId_.addAll(other.nodeId_);
+          }
           onChanged();
         }
         if (other.hasBaseReq()) {
@@ -545,79 +588,83 @@ public final class SearchFile {
         }
         return this;
       }
+      private int bitField0_;
 
-      private java.lang.Object keyword_ = "";
-      /**
-       * <code>string keyword = 1;</code>
-       * @return The keyword.
-       */
-      public java.lang.String getKeyword() {
-        java.lang.Object ref = keyword_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          keyword_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
+      private com.google.protobuf.Internal.LongList nodeId_ = emptyLongList();
+      private void ensureNodeIdIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          nodeId_ = mutableCopy(nodeId_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>string keyword = 1;</code>
-       * @return The bytes for keyword.
+       * <code>repeated int64 nodeId = 1;</code>
+       * @return A list containing the nodeId.
        */
-      public com.google.protobuf.ByteString
-          getKeywordBytes() {
-        java.lang.Object ref = keyword_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          keyword_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
+      public java.util.List<java.lang.Long>
+          getNodeIdList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(nodeId_) : nodeId_;
       }
       /**
-       * <code>string keyword = 1;</code>
-       * @param value The keyword to set.
+       * <code>repeated int64 nodeId = 1;</code>
+       * @return The count of nodeId.
+       */
+      public int getNodeIdCount() {
+        return nodeId_.size();
+      }
+      /**
+       * <code>repeated int64 nodeId = 1;</code>
+       * @param index The index of the element to return.
+       * @return The nodeId at the given index.
+       */
+      public long getNodeId(int index) {
+        return nodeId_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 nodeId = 1;</code>
+       * @param index The index to set the value at.
+       * @param value The nodeId to set.
        * @return This builder for chaining.
        */
-      public Builder setKeyword(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        keyword_ = value;
+      public Builder setNodeId(
+          int index, long value) {
+        ensureNodeIdIsMutable();
+        nodeId_.setLong(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>string keyword = 1;</code>
+       * <code>repeated int64 nodeId = 1;</code>
+       * @param value The nodeId to add.
        * @return This builder for chaining.
        */
-      public Builder clearKeyword() {
-        
-        keyword_ = getDefaultInstance().getKeyword();
+      public Builder addNodeId(long value) {
+        ensureNodeIdIsMutable();
+        nodeId_.addLong(value);
         onChanged();
         return this;
       }
       /**
-       * <code>string keyword = 1;</code>
-       * @param value The bytes for keyword to set.
+       * <code>repeated int64 nodeId = 1;</code>
+       * @param values The nodeId to add.
        * @return This builder for chaining.
        */
-      public Builder setKeywordBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        keyword_ = value;
+      public Builder addAllNodeId(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureNodeIdIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, nodeId_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 nodeId = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNodeId() {
+        nodeId_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
@@ -1920,13 +1967,13 @@ public final class SearchFile {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021search_file.proto\032\014common.proto\"@\n\021Sea" +
-      "rchFileRequest\022\017\n\007keyword\030\001 \001(\t\022\032\n\007baseR" +
-      "eq\030\377\001 \001(\0132\010.BaseReq\"K\n\022SearchFileRespons" +
-      "e\022\027\n\010nodeList\030\001 \003(\0132\005.Node\022\034\n\010baseResp\030\377" +
-      "\001 \001(\0132\t.BaseRespBO\n\031com.graduate.design." +
-      "protoB\nSearchFileZ&github.com/JackTJC/gm" +
-      "FS_backend/pb_genb\006proto3"
+      "\n\021search_file.proto\032\014common.proto\"?\n\021Sea" +
+      "rchFileRequest\022\016\n\006nodeId\030\001 \003(\003\022\032\n\007baseRe" +
+      "q\030\377\001 \001(\0132\010.BaseReq\"K\n\022SearchFileResponse" +
+      "\022\027\n\010nodeList\030\001 \003(\0132\005.Node\022\034\n\010baseResp\030\377\001" +
+      " \001(\0132\t.BaseRespBO\n\031com.graduate.design.p" +
+      "rotoB\nSearchFileZ&github.com/JackTJC/gmF" +
+      "S_backend/pb_genb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1938,7 +1985,7 @@ public final class SearchFile {
     internal_static_SearchFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchFileRequest_descriptor,
-        new java.lang.String[] { "Keyword", "BaseReq", });
+        new java.lang.String[] { "NodeId", "BaseReq", });
     internal_static_SearchFileResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SearchFileResponse_fieldAccessorTable = new

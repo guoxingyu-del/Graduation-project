@@ -32,6 +32,7 @@ import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.proto.Common;
+import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
@@ -252,19 +253,21 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                             sb.append(new String(buf,0, hasRead));
                                         }
                                         // TODO 文件内容加密后上传
-                                        // 利用文件名和用户密码生成文件密钥
-                                        byte[] fileSecret = encryptionService.getSecretKey(fileBean.getName(),
-                                                GraduateDesignApplication.getOriginPassword());
-                                        byte[] mainSecret = GraduateDesignApplication.getMainSecret();
+                                        // 将key2作为密钥加密文件内容
+                                        byte[] fileSecret = GraduateDesignApplication.getKey2();
                                         // 将加密结果转为Base64编码
                                         String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES128(sb.toString(), fileSecret));
-                                        String encryptFileSecret = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileSecret, mainSecret));
                                         if(encryptContent == null) encryptContent = "";
-                                        if(encryptFileSecret == null) encryptFileSecret = "";
 
-                                        int res = userService.uploadFile(fileBean.getName(), nodeId, FileUtils.indexList(sb.toString()),
-                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)),
-                                                ByteString.copyFrom(encryptFileSecret.getBytes(StandardCharsets.UTF_8)), token);
+                                        // 先从服务器拿到文件id
+                                        Long fileId = userService.getNodeId(token);
+
+                                        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(sb.toString(), fileId);
+                                        // 同步上传biIndex进行更新
+                                        String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+
+                                        int res = userService.uploadFile(fileBean.getName(), nodeId, indexTokens,
+                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)), biIndexString, fileId, token);
 
                                         if(res==1) {
                                             ToastUtils.showShortToastCenter("上传文件失败" + fileBean.getName());

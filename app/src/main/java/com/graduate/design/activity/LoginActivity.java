@@ -13,6 +13,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import org.apache.commons.lang.StringUtils;
 
 import com.graduate.design.R;
+import com.graduate.design.entity.BiIndex;
 import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
@@ -94,8 +95,13 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // 使用SHA256生成用户主密钥
         byte[] mainSecret = encryptionService.getSecretKey(username, password);
+        // 截取前16个字节给用户密码加密
+        byte[] key1 = new byte[16];
+        byte[] key2 = new byte[16];
+        for(int i=0;i<16;i++) key1[i] = mainSecret[i];
+        for(int i=16;i<32;i++) key2[i-16] = mainSecret[i];
         // 用主密钥加密用户密码后上传
-        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, mainSecret));
+        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, key1));
         // 进行登录验证
         int res = userService.login(username, encryptPassword);
 
@@ -109,9 +115,14 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
         // 登录成功
         // 设置主密钥为全局变量
-        GraduateDesignApplication.setMainSecret(mainSecret);
-        // 把原始密码设为全局变量，以供后续加密文件使用
-        GraduateDesignApplication.setOriginPassword(password);
+        GraduateDesignApplication.setKey1(key1);
+        GraduateDesignApplication.setKey2(key2);
+        // 将用户双向索引表反序列化，并设置为全局变量
+        byte[] biIndexBytes = FileUtils.Base64ToBytes(GraduateDesignApplication.getUserInfo().getBiIndex());
+        BiIndex biIndex = new BiIndex();
+        biIndex.readObject(biIndexBytes);
+        GraduateDesignApplication.setBiIndex(biIndex);
+
         Intent intent = new Intent(LoginActivity.this, HomeActivity.class);
         ActivityJumpUtils.jumpActivity(LoginActivity.this, intent, 100L, true);
     }

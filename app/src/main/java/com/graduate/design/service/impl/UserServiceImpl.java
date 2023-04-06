@@ -8,20 +8,24 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.graduate.design.R;
+import com.graduate.design.entity.BiIndex;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.CreateDir;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.proto.GetNode;
+import com.graduate.design.proto.GetNodeId;
 import com.graduate.design.proto.GetRecvFile;
 import com.graduate.design.proto.Ping;
 import com.graduate.design.proto.RegisterFile;
 import com.graduate.design.proto.SearchFile;
+import com.graduate.design.proto.SendSearchToken;
 import com.graduate.design.proto.ShareFile;
 import com.graduate.design.proto.UserLogin;
 import com.graduate.design.proto.UserRegister;
 import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.NetWorkService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.utils.ByteUtils;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.JsonUtils;
@@ -34,11 +38,11 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class UserServiceImpl implements UserService {
     private final String base = "https://192.168.43.39:8888";
     private NetWorkService netWorkService = new NetWorkServiceImpl();
-    private EncryptionService encryptionService = new EncryptionServiceImpl();
 
     @Override
     public int ping(String name, String token) {
@@ -74,10 +78,12 @@ public class UserServiceImpl implements UserService {
         Long rootId = Long.parseLong(userInfoJson.getString("rootId"));
         String respUsername = userInfoJson.getString("userName");
         String email = userInfoJson.getString("email");
+        String biIndex = userInfoJson.getString("biIndex");
         UserLogin.UserInfo userInfo = UserLogin.UserInfo.newBuilder()
                 .setRootId(rootId)
                 .setUserName(respUsername)
                 .setEmail(email)
+                .setBiIndex(biIndex)
                 .build();
 
         // 将userInfo设置到全局变量中
@@ -88,12 +94,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int register(String username, String password, String email) {
+    public int register(String username, String password, String email, String biIndex) {
         // 构造注册请求对象
         UserRegister.UserRegisterRequest req = UserRegister.UserRegisterRequest.newBuilder()
                 .setUserName(username)
                 .setPassword(password)
                 .setEmail(email)
+                .setBiIndex(biIndex)
                 .build();
 
         JSONObject jsonObject = sendData(req, 2);
@@ -114,13 +121,14 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public int uploadFile(String fileName, Long parentId, List<String> indexList, ByteString content, ByteString secretKey, String token) {
+    public int uploadFile(String fileName, Long parentId, List<FileUpload.indexToken> indexList, ByteString content, String biIndex, Long fileId, String token) {
         FileUpload.UploadFileRequest req = FileUpload.UploadFileRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setFileName(fileName)
                 .setParentId(parentId)
                 .setContent(content)
-                .setSecretKey(secretKey)
+                .setBiIndex(biIndex)
+                .setNodeId(fileId)
                 .addAllIndexList(indexList)
                 .build();
 
@@ -130,11 +138,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public List<Common.Node> searchFile(String keyword, String token) {
+    public List<Common.Node> searchFile(List<Long> idList, String token) {
         List<Common.Node> res = new ArrayList<>();
 
         SearchFile.SearchFileRequest req = SearchFile.SearchFileRequest.newBuilder()
-                .setKeyword(keyword)
+                .addAllNodeId(idList)
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .build();
 
@@ -233,22 +241,18 @@ public class UserServiceImpl implements UserService {
 
         JSONObject node = jsonObject.getJSONObject("node");
 
-        String[] base64 = new String[2];
+        String content;
 
         // 此时获得的文件内容和文件密钥均为Base64编码
         byte[] contentBytes = node.getBytes("nodeContent");
-        if(contentBytes==null) base64[0] = "";
-        else base64[0] = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
-
-        byte[] secretKeyBytes = node.getBytes("secretKey");
-        if(secretKeyBytes==null) base64[1] = "";
-        else base64[1] = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.UTF_8);
+        if(contentBytes==null) content = "";
+        else content = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
 
         // TODO 解密
-        byte[] fileContentEncrypt = FileUtils.Base64ToBytes(base64[0]);
-        byte[] fileSecretEncrypt = FileUtils.Base64ToBytes(base64[1]);
-        byte[] mainSecret = GraduateDesignApplication.getMainSecret();
-        byte[] fileSecret = encryptionService.decryptByAES128(fileSecretEncrypt, mainSecret);
+        EncryptionService encryptionService = new EncryptionServiceImpl();
+        byte[] fileContentEncrypt = FileUtils.Base64ToBytes(content);
+
+        byte[] fileSecret = GraduateDesignApplication.getKey2();
         byte[] fileContent = encryptionService.decryptByAES128(fileContentEncrypt, fileSecret);
 
         return ByteString.copyFrom(fileContent).toString(StandardCharsets.UTF_8);
@@ -312,6 +316,44 @@ public class UserServiceImpl implements UserService {
         return res;
     }
 
+    @Override
+    public Long getNodeId(String token) {
+        GetNodeId.GetNodeIdRequest req = GetNodeId.GetNodeIdRequest.newBuilder()
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .build();
+
+        JSONObject jsonObject = sendData(req, 10);
+
+        if(jsonObject==null) return null;
+
+        Long nodeId = jsonObject.getLong("nodeId");
+
+        return nodeId;
+    }
+
+    @Override
+    public List<String> sendSearchToken(SendSearchToken.SearchToken searchToken, String token) {
+        SendSearchToken.SendSearchTokenRequest req = SendSearchToken.SendSearchTokenRequest.newBuilder()
+                .setSearchToken(searchToken)
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .build();
+
+        JSONObject jsonObject = sendData(req, 11);
+
+        if(jsonObject==null) return null;
+
+        List<String> res = new ArrayList<>();
+        JSONArray array = jsonObject.getJSONArray("Cw");
+        // 没有文件节点
+        if(array==null) return res;
+        // 遍历所有文件节点
+        for(int i=0;i<array.size();i++){
+            String cw = array.getString(i);
+            res.add(cw);
+        }
+        return res;
+    }
+
     private JSONObject sendData(Object req, int number) {
         String[] urls = {
                 "ping",
@@ -323,7 +365,9 @@ public class UserServiceImpl implements UserService {
                 "/node/get",
                 "/file/register",
                 "/file/share",
-                "/file/recv/get"
+                "/file/recv/get",
+                "/node/getId",
+                "/file/seadSearchToken"
         };
         // 将请求对象转换成json格式，不要使用Gson
         String data = JsonUtils.toJson(req);

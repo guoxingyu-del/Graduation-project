@@ -14,6 +14,1510 @@ public final class FileUpload {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  public interface indexTokenOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:indexToken)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <pre>
+     * 均以base64格式存储
+     * </pre>
+     *
+     * <code>string L = 1;</code>
+     * @return The l.
+     */
+    java.lang.String getL();
+    /**
+     * <pre>
+     * 均以base64格式存储
+     * </pre>
+     *
+     * <code>string L = 1;</code>
+     * @return The bytes for l.
+     */
+    com.google.protobuf.ByteString
+        getLBytes();
+
+    /**
+     * <code>string Iw = 2;</code>
+     * @return The iw.
+     */
+    java.lang.String getIw();
+    /**
+     * <code>string Iw = 2;</code>
+     * @return The bytes for iw.
+     */
+    com.google.protobuf.ByteString
+        getIwBytes();
+
+    /**
+     * <code>string Rw = 3;</code>
+     * @return The rw.
+     */
+    java.lang.String getRw();
+    /**
+     * <code>string Rw = 3;</code>
+     * @return The bytes for rw.
+     */
+    com.google.protobuf.ByteString
+        getRwBytes();
+
+    /**
+     * <code>string Cw = 4;</code>
+     * @return The cw.
+     */
+    java.lang.String getCw();
+    /**
+     * <code>string Cw = 4;</code>
+     * @return The bytes for cw.
+     */
+    com.google.protobuf.ByteString
+        getCwBytes();
+
+    /**
+     * <code>string Iid = 5;</code>
+     * @return The iid.
+     */
+    java.lang.String getIid();
+    /**
+     * <code>string Iid = 5;</code>
+     * @return The bytes for iid.
+     */
+    com.google.protobuf.ByteString
+        getIidBytes();
+
+    /**
+     * <code>string Rid = 6;</code>
+     * @return The rid.
+     */
+    java.lang.String getRid();
+    /**
+     * <code>string Rid = 6;</code>
+     * @return The bytes for rid.
+     */
+    com.google.protobuf.ByteString
+        getRidBytes();
+
+    /**
+     * <code>string Cid = 7;</code>
+     * @return The cid.
+     */
+    java.lang.String getCid();
+    /**
+     * <code>string Cid = 7;</code>
+     * @return The bytes for cid.
+     */
+    com.google.protobuf.ByteString
+        getCidBytes();
+  }
+  /**
+   * Protobuf type {@code indexToken}
+   */
+  public static final class indexToken extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:indexToken)
+      indexTokenOrBuilder {
+  private static final long serialVersionUID = 0L;
+    // Use indexToken.newBuilder() to construct.
+    private indexToken(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private indexToken() {
+      l_ = "";
+      iw_ = "";
+      rw_ = "";
+      cw_ = "";
+      iid_ = "";
+      rid_ = "";
+      cid_ = "";
+    }
+
+    @java.lang.Override
+    @SuppressWarnings({"unused"})
+    protected java.lang.Object newInstance(
+        UnusedPrivateParameter unused) {
+      return new indexToken();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return this.unknownFields;
+    }
+    private indexToken(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      if (extensionRegistry == null) {
+        throw new java.lang.NullPointerException();
+      }
+      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
+          com.google.protobuf.UnknownFieldSet.newBuilder();
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              l_ = s;
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              iw_ = s;
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rw_ = s;
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cw_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              iid_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              rid_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              cid_ = s;
+              break;
+            }
+            default: {
+              if (!parseUnknownField(
+                  input, unknownFields, extensionRegistry, tag)) {
+                done = true;
+              }
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        this.unknownFields = unknownFields.build();
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.graduate.design.proto.FileUpload.internal_static_indexToken_descriptor;
+    }
+
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.graduate.design.proto.FileUpload.internal_static_indexToken_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.graduate.design.proto.FileUpload.indexToken.class, com.graduate.design.proto.FileUpload.indexToken.Builder.class);
+    }
+
+    public static final int L_FIELD_NUMBER = 1;
+    private volatile java.lang.Object l_;
+    /**
+     * <pre>
+     * 均以base64格式存储
+     * </pre>
+     *
+     * <code>string L = 1;</code>
+     * @return The l.
+     */
+    @java.lang.Override
+    public java.lang.String getL() {
+      java.lang.Object ref = l_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        l_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 均以base64格式存储
+     * </pre>
+     *
+     * <code>string L = 1;</code>
+     * @return The bytes for l.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getLBytes() {
+      java.lang.Object ref = l_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        l_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IW_FIELD_NUMBER = 2;
+    private volatile java.lang.Object iw_;
+    /**
+     * <code>string Iw = 2;</code>
+     * @return The iw.
+     */
+    @java.lang.Override
+    public java.lang.String getIw() {
+      java.lang.Object ref = iw_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        iw_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Iw = 2;</code>
+     * @return The bytes for iw.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIwBytes() {
+      java.lang.Object ref = iw_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        iw_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RW_FIELD_NUMBER = 3;
+    private volatile java.lang.Object rw_;
+    /**
+     * <code>string Rw = 3;</code>
+     * @return The rw.
+     */
+    @java.lang.Override
+    public java.lang.String getRw() {
+      java.lang.Object ref = rw_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rw_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Rw = 3;</code>
+     * @return The bytes for rw.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRwBytes() {
+      java.lang.Object ref = rw_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rw_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CW_FIELD_NUMBER = 4;
+    private volatile java.lang.Object cw_;
+    /**
+     * <code>string Cw = 4;</code>
+     * @return The cw.
+     */
+    @java.lang.Override
+    public java.lang.String getCw() {
+      java.lang.Object ref = cw_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cw_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Cw = 4;</code>
+     * @return The bytes for cw.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCwBytes() {
+      java.lang.Object ref = cw_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cw_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int IID_FIELD_NUMBER = 5;
+    private volatile java.lang.Object iid_;
+    /**
+     * <code>string Iid = 5;</code>
+     * @return The iid.
+     */
+    @java.lang.Override
+    public java.lang.String getIid() {
+      java.lang.Object ref = iid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        iid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Iid = 5;</code>
+     * @return The bytes for iid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getIidBytes() {
+      java.lang.Object ref = iid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        iid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int RID_FIELD_NUMBER = 6;
+    private volatile java.lang.Object rid_;
+    /**
+     * <code>string Rid = 6;</code>
+     * @return The rid.
+     */
+    @java.lang.Override
+    public java.lang.String getRid() {
+      java.lang.Object ref = rid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        rid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Rid = 6;</code>
+     * @return The bytes for rid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getRidBytes() {
+      java.lang.Object ref = rid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        rid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CID_FIELD_NUMBER = 7;
+    private volatile java.lang.Object cid_;
+    /**
+     * <code>string Cid = 7;</code>
+     * @return The cid.
+     */
+    @java.lang.Override
+    public java.lang.String getCid() {
+      java.lang.Object ref = cid_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        cid_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string Cid = 7;</code>
+     * @return The bytes for cid.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getCidBytes() {
+      java.lang.Object ref = cid_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        cid_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    @java.lang.Override
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    @java.lang.Override
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(l_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, l_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iw_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, iw_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rw_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, rw_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cw_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, cw_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, iid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, rid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cid_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cid_);
+      }
+      unknownFields.writeTo(output);
+    }
+
+    @java.lang.Override
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(l_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, l_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iw_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, iw_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rw_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, rw_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cw_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, cw_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, iid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, rid_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cid_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cid_);
+      }
+      size += unknownFields.getSerializedSize();
+      memoizedSize = size;
+      return size;
+    }
+
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.graduate.design.proto.FileUpload.indexToken)) {
+        return super.equals(obj);
+      }
+      com.graduate.design.proto.FileUpload.indexToken other = (com.graduate.design.proto.FileUpload.indexToken) obj;
+
+      if (!getL()
+          .equals(other.getL())) return false;
+      if (!getIw()
+          .equals(other.getIw())) return false;
+      if (!getRw()
+          .equals(other.getRw())) return false;
+      if (!getCw()
+          .equals(other.getCw())) return false;
+      if (!getIid()
+          .equals(other.getIid())) return false;
+      if (!getRid()
+          .equals(other.getRid())) return false;
+      if (!getCid()
+          .equals(other.getCid())) return false;
+      if (!unknownFields.equals(other.unknownFields)) return false;
+      return true;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + L_FIELD_NUMBER;
+      hash = (53 * hash) + getL().hashCode();
+      hash = (37 * hash) + IW_FIELD_NUMBER;
+      hash = (53 * hash) + getIw().hashCode();
+      hash = (37 * hash) + RW_FIELD_NUMBER;
+      hash = (53 * hash) + getRw().hashCode();
+      hash = (37 * hash) + CW_FIELD_NUMBER;
+      hash = (53 * hash) + getCw().hashCode();
+      hash = (37 * hash) + IID_FIELD_NUMBER;
+      hash = (53 * hash) + getIid().hashCode();
+      hash = (37 * hash) + RID_FIELD_NUMBER;
+      hash = (53 * hash) + getRid().hashCode();
+      hash = (37 * hash) + CID_FIELD_NUMBER;
+      hash = (53 * hash) + getCid().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        java.nio.ByteBuffer data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        java.nio.ByteBuffer data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.graduate.design.proto.FileUpload.indexToken parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    @java.lang.Override
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.graduate.design.proto.FileUpload.indexToken prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    @java.lang.Override
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code indexToken}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:indexToken)
+        com.graduate.design.proto.FileUpload.indexTokenOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.graduate.design.proto.FileUpload.internal_static_indexToken_descriptor;
+      }
+
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.graduate.design.proto.FileUpload.internal_static_indexToken_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.graduate.design.proto.FileUpload.indexToken.class, com.graduate.design.proto.FileUpload.indexToken.Builder.class);
+      }
+
+      // Construct using com.graduate.design.proto.FileUpload.indexToken.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      @java.lang.Override
+      public Builder clear() {
+        super.clear();
+        l_ = "";
+
+        iw_ = "";
+
+        rw_ = "";
+
+        cw_ = "";
+
+        iid_ = "";
+
+        rid_ = "";
+
+        cid_ = "";
+
+        return this;
+      }
+
+      @java.lang.Override
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.graduate.design.proto.FileUpload.internal_static_indexToken_descriptor;
+      }
+
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.indexToken getDefaultInstanceForType() {
+        return com.graduate.design.proto.FileUpload.indexToken.getDefaultInstance();
+      }
+
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.indexToken build() {
+        com.graduate.design.proto.FileUpload.indexToken result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.indexToken buildPartial() {
+        com.graduate.design.proto.FileUpload.indexToken result = new com.graduate.design.proto.FileUpload.indexToken(this);
+        result.l_ = l_;
+        result.iw_ = iw_;
+        result.rw_ = rw_;
+        result.cw_ = cw_;
+        result.iid_ = iid_;
+        result.rid_ = rid_;
+        result.cid_ = cid_;
+        onBuilt();
+        return result;
+      }
+
+      @java.lang.Override
+      public Builder clone() {
+        return super.clone();
+      }
+      @java.lang.Override
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.setField(field, value);
+      }
+      @java.lang.Override
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return super.clearField(field);
+      }
+      @java.lang.Override
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return super.clearOneof(oneof);
+      }
+      @java.lang.Override
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, java.lang.Object value) {
+        return super.setRepeatedField(field, index, value);
+      }
+      @java.lang.Override
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          java.lang.Object value) {
+        return super.addRepeatedField(field, value);
+      }
+      @java.lang.Override
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.graduate.design.proto.FileUpload.indexToken) {
+          return mergeFrom((com.graduate.design.proto.FileUpload.indexToken)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.graduate.design.proto.FileUpload.indexToken other) {
+        if (other == com.graduate.design.proto.FileUpload.indexToken.getDefaultInstance()) return this;
+        if (!other.getL().isEmpty()) {
+          l_ = other.l_;
+          onChanged();
+        }
+        if (!other.getIw().isEmpty()) {
+          iw_ = other.iw_;
+          onChanged();
+        }
+        if (!other.getRw().isEmpty()) {
+          rw_ = other.rw_;
+          onChanged();
+        }
+        if (!other.getCw().isEmpty()) {
+          cw_ = other.cw_;
+          onChanged();
+        }
+        if (!other.getIid().isEmpty()) {
+          iid_ = other.iid_;
+          onChanged();
+        }
+        if (!other.getRid().isEmpty()) {
+          rid_ = other.rid_;
+          onChanged();
+        }
+        if (!other.getCid().isEmpty()) {
+          cid_ = other.cid_;
+          onChanged();
+        }
+        this.mergeUnknownFields(other.unknownFields);
+        onChanged();
+        return this;
+      }
+
+      @java.lang.Override
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      @java.lang.Override
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.graduate.design.proto.FileUpload.indexToken parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.graduate.design.proto.FileUpload.indexToken) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object l_ = "";
+      /**
+       * <pre>
+       * 均以base64格式存储
+       * </pre>
+       *
+       * <code>string L = 1;</code>
+       * @return The l.
+       */
+      public java.lang.String getL() {
+        java.lang.Object ref = l_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          l_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 均以base64格式存储
+       * </pre>
+       *
+       * <code>string L = 1;</code>
+       * @return The bytes for l.
+       */
+      public com.google.protobuf.ByteString
+          getLBytes() {
+        java.lang.Object ref = l_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          l_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 均以base64格式存储
+       * </pre>
+       *
+       * <code>string L = 1;</code>
+       * @param value The l to set.
+       * @return This builder for chaining.
+       */
+      public Builder setL(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        l_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 均以base64格式存储
+       * </pre>
+       *
+       * <code>string L = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearL() {
+        
+        l_ = getDefaultInstance().getL();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 均以base64格式存储
+       * </pre>
+       *
+       * <code>string L = 1;</code>
+       * @param value The bytes for l to set.
+       * @return This builder for chaining.
+       */
+      public Builder setLBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        l_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object iw_ = "";
+      /**
+       * <code>string Iw = 2;</code>
+       * @return The iw.
+       */
+      public java.lang.String getIw() {
+        java.lang.Object ref = iw_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          iw_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Iw = 2;</code>
+       * @return The bytes for iw.
+       */
+      public com.google.protobuf.ByteString
+          getIwBytes() {
+        java.lang.Object ref = iw_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          iw_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Iw = 2;</code>
+       * @param value The iw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIw(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        iw_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Iw = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIw() {
+        
+        iw_ = getDefaultInstance().getIw();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Iw = 2;</code>
+       * @param value The bytes for iw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIwBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        iw_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object rw_ = "";
+      /**
+       * <code>string Rw = 3;</code>
+       * @return The rw.
+       */
+      public java.lang.String getRw() {
+        java.lang.Object ref = rw_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          rw_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Rw = 3;</code>
+       * @return The bytes for rw.
+       */
+      public com.google.protobuf.ByteString
+          getRwBytes() {
+        java.lang.Object ref = rw_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          rw_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Rw = 3;</code>
+       * @param value The rw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRw(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rw_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Rw = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRw() {
+        
+        rw_ = getDefaultInstance().getRw();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Rw = 3;</code>
+       * @param value The bytes for rw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRwBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rw_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object cw_ = "";
+      /**
+       * <code>string Cw = 4;</code>
+       * @return The cw.
+       */
+      public java.lang.String getCw() {
+        java.lang.Object ref = cw_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cw_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Cw = 4;</code>
+       * @return The bytes for cw.
+       */
+      public com.google.protobuf.ByteString
+          getCwBytes() {
+        java.lang.Object ref = cw_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cw_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Cw = 4;</code>
+       * @param value The cw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCw(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cw_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Cw = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCw() {
+        
+        cw_ = getDefaultInstance().getCw();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Cw = 4;</code>
+       * @param value The bytes for cw to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCwBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cw_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object iid_ = "";
+      /**
+       * <code>string Iid = 5;</code>
+       * @return The iid.
+       */
+      public java.lang.String getIid() {
+        java.lang.Object ref = iid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          iid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Iid = 5;</code>
+       * @return The bytes for iid.
+       */
+      public com.google.protobuf.ByteString
+          getIidBytes() {
+        java.lang.Object ref = iid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          iid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Iid = 5;</code>
+       * @param value The iid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        iid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Iid = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIid() {
+        
+        iid_ = getDefaultInstance().getIid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Iid = 5;</code>
+       * @param value The bytes for iid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        iid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object rid_ = "";
+      /**
+       * <code>string Rid = 6;</code>
+       * @return The rid.
+       */
+      public java.lang.String getRid() {
+        java.lang.Object ref = rid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          rid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Rid = 6;</code>
+       * @return The bytes for rid.
+       */
+      public com.google.protobuf.ByteString
+          getRidBytes() {
+        java.lang.Object ref = rid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          rid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Rid = 6;</code>
+       * @param value The rid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        rid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Rid = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearRid() {
+        
+        rid_ = getDefaultInstance().getRid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Rid = 6;</code>
+       * @param value The bytes for rid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setRidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        rid_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object cid_ = "";
+      /**
+       * <code>string Cid = 7;</code>
+       * @return The cid.
+       */
+      public java.lang.String getCid() {
+        java.lang.Object ref = cid_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          cid_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string Cid = 7;</code>
+       * @return The bytes for cid.
+       */
+      public com.google.protobuf.ByteString
+          getCidBytes() {
+        java.lang.Object ref = cid_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          cid_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string Cid = 7;</code>
+       * @param value The cid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCid(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        cid_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Cid = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearCid() {
+        
+        cid_ = getDefaultInstance().getCid();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string Cid = 7;</code>
+       * @param value The bytes for cid to set.
+       * @return This builder for chaining.
+       */
+      public Builder setCidBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        cid_ = value;
+        onChanged();
+        return this;
+      }
+      @java.lang.Override
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.setUnknownFields(unknownFields);
+      }
+
+      @java.lang.Override
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return super.mergeUnknownFields(unknownFields);
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:indexToken)
+    }
+
+    // @@protoc_insertion_point(class_scope:indexToken)
+    private static final com.graduate.design.proto.FileUpload.indexToken DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.graduate.design.proto.FileUpload.indexToken();
+    }
+
+    public static com.graduate.design.proto.FileUpload.indexToken getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<indexToken>
+        PARSER = new com.google.protobuf.AbstractParser<indexToken>() {
+      @java.lang.Override
+      public indexToken parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+        return new indexToken(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<indexToken> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<indexToken> getParserForType() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.graduate.design.proto.FileUpload.indexToken getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   public interface UploadFileRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:UploadFileRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -53,18 +1557,24 @@ public final class FileUpload {
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @return A list containing the indexList.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
-    java.util.List<java.lang.String>
+    java.util.List<com.graduate.design.proto.FileUpload.indexToken> 
         getIndexListList();
     /**
      * <pre>
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @return The count of indexList.
+     * <code>repeated .indexToken indexList = 3;</code>
+     */
+    com.graduate.design.proto.FileUpload.indexToken getIndexList(int index);
+    /**
+     * <pre>
+     * 文件的关键词列表，用于后续可加密搜索
+     * </pre>
+     *
+     * <code>repeated .indexToken indexList = 3;</code>
      */
     int getIndexListCount();
     /**
@@ -72,22 +1582,19 @@ public final class FileUpload {
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @param index The index of the element to return.
-     * @return The indexList at the given index.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
-    java.lang.String getIndexList(int index);
+    java.util.List<? extends com.graduate.design.proto.FileUpload.indexTokenOrBuilder> 
+        getIndexListOrBuilderList();
     /**
      * <pre>
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the indexList at the given index.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
-    com.google.protobuf.ByteString
-        getIndexListBytes(int index);
+    com.graduate.design.proto.FileUpload.indexTokenOrBuilder getIndexListOrBuilder(
+        int index);
 
     /**
      * <pre>
@@ -101,13 +1608,33 @@ public final class FileUpload {
 
     /**
      * <pre>
-     * 文件解密key，已经加密过
+     * 用户索引
      * </pre>
      *
-     * <code>bytes secretKey = 5;</code>
-     * @return The secretKey.
+     * <code>string biIndex = 5;</code>
+     * @return The biIndex.
      */
-    com.google.protobuf.ByteString getSecretKey();
+    java.lang.String getBiIndex();
+    /**
+     * <pre>
+     * 用户索引
+     * </pre>
+     *
+     * <code>string biIndex = 5;</code>
+     * @return The bytes for biIndex.
+     */
+    com.google.protobuf.ByteString
+        getBiIndexBytes();
+
+    /**
+     * <pre>
+     * 文件Id
+     * </pre>
+     *
+     * <code>int64 nodeId = 6;</code>
+     * @return The nodeId.
+     */
+    long getNodeId();
 
     /**
      * <code>.BaseReq baseReq = 255;</code>
@@ -142,9 +1669,9 @@ public final class FileUpload {
     }
     private UploadFileRequest() {
       fileName_ = "";
-      indexList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      indexList_ = java.util.Collections.emptyList();
       content_ = com.google.protobuf.ByteString.EMPTY;
-      secretKey_ = com.google.protobuf.ByteString.EMPTY;
+      biIndex_ = "";
     }
 
     @java.lang.Override
@@ -190,12 +1717,12 @@ public final class FileUpload {
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                indexList_ = new com.google.protobuf.LazyStringArrayList();
+                indexList_ = new java.util.ArrayList<com.graduate.design.proto.FileUpload.indexToken>();
                 mutable_bitField0_ |= 0x00000001;
               }
-              indexList_.add(s);
+              indexList_.add(
+                  input.readMessage(com.graduate.design.proto.FileUpload.indexToken.parser(), extensionRegistry));
               break;
             }
             case 34: {
@@ -204,8 +1731,14 @@ public final class FileUpload {
               break;
             }
             case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
 
-              secretKey_ = input.readBytes();
+              biIndex_ = s;
+              break;
+            }
+            case 48: {
+
+              nodeId_ = input.readInt64();
               break;
             }
             case 2042: {
@@ -237,7 +1770,7 @@ public final class FileUpload {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000001) != 0)) {
-          indexList_ = indexList_.getUnmodifiableView();
+          indexList_ = java.util.Collections.unmodifiableList(indexList_);
         }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
@@ -318,17 +1851,16 @@ public final class FileUpload {
     }
 
     public static final int INDEXLIST_FIELD_NUMBER = 3;
-    private com.google.protobuf.LazyStringList indexList_;
+    private java.util.List<com.graduate.design.proto.FileUpload.indexToken> indexList_;
     /**
      * <pre>
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @return A list containing the indexList.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getIndexListList() {
+    @java.lang.Override
+    public java.util.List<com.graduate.design.proto.FileUpload.indexToken> getIndexListList() {
       return indexList_;
     }
     /**
@@ -336,9 +1868,21 @@ public final class FileUpload {
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @return The count of indexList.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
+    @java.lang.Override
+    public java.util.List<? extends com.graduate.design.proto.FileUpload.indexTokenOrBuilder> 
+        getIndexListOrBuilderList() {
+      return indexList_;
+    }
+    /**
+     * <pre>
+     * 文件的关键词列表，用于后续可加密搜索
+     * </pre>
+     *
+     * <code>repeated .indexToken indexList = 3;</code>
+     */
+    @java.lang.Override
     public int getIndexListCount() {
       return indexList_.size();
     }
@@ -347,11 +1891,10 @@ public final class FileUpload {
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @param index The index of the element to return.
-     * @return The indexList at the given index.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
-    public java.lang.String getIndexList(int index) {
+    @java.lang.Override
+    public com.graduate.design.proto.FileUpload.indexToken getIndexList(int index) {
       return indexList_.get(index);
     }
     /**
@@ -359,13 +1902,12 @@ public final class FileUpload {
      * 文件的关键词列表，用于后续可加密搜索
      * </pre>
      *
-     * <code>repeated string indexList = 3;</code>
-     * @param index The index of the value to return.
-     * @return The bytes of the indexList at the given index.
+     * <code>repeated .indexToken indexList = 3;</code>
      */
-    public com.google.protobuf.ByteString
-        getIndexListBytes(int index) {
-      return indexList_.getByteString(index);
+    @java.lang.Override
+    public com.graduate.design.proto.FileUpload.indexTokenOrBuilder getIndexListOrBuilder(
+        int index) {
+      return indexList_.get(index);
     }
 
     public static final int CONTENT_FIELD_NUMBER = 4;
@@ -383,19 +1925,65 @@ public final class FileUpload {
       return content_;
     }
 
-    public static final int SECRETKEY_FIELD_NUMBER = 5;
-    private com.google.protobuf.ByteString secretKey_;
+    public static final int BIINDEX_FIELD_NUMBER = 5;
+    private volatile java.lang.Object biIndex_;
     /**
      * <pre>
-     * 文件解密key，已经加密过
+     * 用户索引
      * </pre>
      *
-     * <code>bytes secretKey = 5;</code>
-     * @return The secretKey.
+     * <code>string biIndex = 5;</code>
+     * @return The biIndex.
      */
     @java.lang.Override
-    public com.google.protobuf.ByteString getSecretKey() {
-      return secretKey_;
+    public java.lang.String getBiIndex() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        biIndex_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 用户索引
+     * </pre>
+     *
+     * <code>string biIndex = 5;</code>
+     * @return The bytes for biIndex.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBiIndexBytes() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        biIndex_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NODEID_FIELD_NUMBER = 6;
+    private long nodeId_;
+    /**
+     * <pre>
+     * 文件Id
+     * </pre>
+     *
+     * <code>int64 nodeId = 6;</code>
+     * @return The nodeId.
+     */
+    @java.lang.Override
+    public long getNodeId() {
+      return nodeId_;
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
@@ -445,13 +2033,16 @@ public final class FileUpload {
         output.writeInt64(2, parentId_);
       }
       for (int i = 0; i < indexList_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, indexList_.getRaw(i));
+        output.writeMessage(3, indexList_.get(i));
       }
       if (!content_.isEmpty()) {
         output.writeBytes(4, content_);
       }
-      if (!secretKey_.isEmpty()) {
-        output.writeBytes(5, secretKey_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, biIndex_);
+      }
+      if (nodeId_ != 0L) {
+        output.writeInt64(6, nodeId_);
       }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
@@ -472,21 +2063,20 @@ public final class FileUpload {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, parentId_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < indexList_.size(); i++) {
-          dataSize += computeStringSizeNoTag(indexList_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getIndexListList().size();
+      for (int i = 0; i < indexList_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(3, indexList_.get(i));
       }
       if (!content_.isEmpty()) {
         size += com.google.protobuf.CodedOutputStream
           .computeBytesSize(4, content_);
       }
-      if (!secretKey_.isEmpty()) {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, biIndex_);
+      }
+      if (nodeId_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(5, secretKey_);
+          .computeInt64Size(6, nodeId_);
       }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -515,8 +2105,10 @@ public final class FileUpload {
           .equals(other.getIndexListList())) return false;
       if (!getContent()
           .equals(other.getContent())) return false;
-      if (!getSecretKey()
-          .equals(other.getSecretKey())) return false;
+      if (!getBiIndex()
+          .equals(other.getBiIndex())) return false;
+      if (getNodeId()
+          != other.getNodeId()) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
         if (!getBaseReq()
@@ -544,8 +2136,11 @@ public final class FileUpload {
       }
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      hash = (37 * hash) + SECRETKEY_FIELD_NUMBER;
-      hash = (53 * hash) + getSecretKey().hashCode();
+      hash = (37 * hash) + BIINDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getBiIndex().hashCode();
+      hash = (37 * hash) + NODEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNodeId());
       if (hasBaseReq()) {
         hash = (37 * hash) + BASEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getBaseReq().hashCode();
@@ -682,6 +2277,7 @@ public final class FileUpload {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getIndexListFieldBuilder();
         }
       }
       @java.lang.Override
@@ -691,11 +2287,17 @@ public final class FileUpload {
 
         parentId_ = 0L;
 
-        indexList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
+        if (indexListBuilder_ == null) {
+          indexList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          indexListBuilder_.clear();
+        }
         content_ = com.google.protobuf.ByteString.EMPTY;
 
-        secretKey_ = com.google.protobuf.ByteString.EMPTY;
+        biIndex_ = "";
+
+        nodeId_ = 0L;
 
         if (baseReqBuilder_ == null) {
           baseReq_ = null;
@@ -732,13 +2334,18 @@ public final class FileUpload {
         int from_bitField0_ = bitField0_;
         result.fileName_ = fileName_;
         result.parentId_ = parentId_;
-        if (((bitField0_ & 0x00000001) != 0)) {
-          indexList_ = indexList_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000001);
+        if (indexListBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) != 0)) {
+            indexList_ = java.util.Collections.unmodifiableList(indexList_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.indexList_ = indexList_;
+        } else {
+          result.indexList_ = indexListBuilder_.build();
         }
-        result.indexList_ = indexList_;
         result.content_ = content_;
-        result.secretKey_ = secretKey_;
+        result.biIndex_ = biIndex_;
+        result.nodeId_ = nodeId_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -799,21 +2406,41 @@ public final class FileUpload {
         if (other.getParentId() != 0L) {
           setParentId(other.getParentId());
         }
-        if (!other.indexList_.isEmpty()) {
-          if (indexList_.isEmpty()) {
-            indexList_ = other.indexList_;
-            bitField0_ = (bitField0_ & ~0x00000001);
-          } else {
-            ensureIndexListIsMutable();
-            indexList_.addAll(other.indexList_);
+        if (indexListBuilder_ == null) {
+          if (!other.indexList_.isEmpty()) {
+            if (indexList_.isEmpty()) {
+              indexList_ = other.indexList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureIndexListIsMutable();
+              indexList_.addAll(other.indexList_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.indexList_.isEmpty()) {
+            if (indexListBuilder_.isEmpty()) {
+              indexListBuilder_.dispose();
+              indexListBuilder_ = null;
+              indexList_ = other.indexList_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              indexListBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getIndexListFieldBuilder() : null;
+            } else {
+              indexListBuilder_.addAllMessages(other.indexList_);
+            }
+          }
         }
         if (other.getContent() != com.google.protobuf.ByteString.EMPTY) {
           setContent(other.getContent());
         }
-        if (other.getSecretKey() != com.google.protobuf.ByteString.EMPTY) {
-          setSecretKey(other.getSecretKey());
+        if (!other.getBiIndex().isEmpty()) {
+          biIndex_ = other.biIndex_;
+          onChanged();
+        }
+        if (other.getNodeId() != 0L) {
+          setNodeId(other.getNodeId());
         }
         if (other.hasBaseReq()) {
           mergeBaseReq(other.getBaseReq());
@@ -987,79 +2614,79 @@ public final class FileUpload {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList indexList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private java.util.List<com.graduate.design.proto.FileUpload.indexToken> indexList_ =
+        java.util.Collections.emptyList();
       private void ensureIndexListIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          indexList_ = new com.google.protobuf.LazyStringArrayList(indexList_);
+          indexList_ = new java.util.ArrayList<com.graduate.design.proto.FileUpload.indexToken>(indexList_);
           bitField0_ |= 0x00000001;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.graduate.design.proto.FileUpload.indexToken, com.graduate.design.proto.FileUpload.indexToken.Builder, com.graduate.design.proto.FileUpload.indexTokenOrBuilder> indexListBuilder_;
+
       /**
        * <pre>
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @return A list containing the indexList.
+       * <code>repeated .indexToken indexList = 3;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getIndexListList() {
-        return indexList_.getUnmodifiableView();
+      public java.util.List<com.graduate.design.proto.FileUpload.indexToken> getIndexListList() {
+        if (indexListBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(indexList_);
+        } else {
+          return indexListBuilder_.getMessageList();
+        }
       }
       /**
        * <pre>
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @return The count of indexList.
+       * <code>repeated .indexToken indexList = 3;</code>
        */
       public int getIndexListCount() {
-        return indexList_.size();
+        if (indexListBuilder_ == null) {
+          return indexList_.size();
+        } else {
+          return indexListBuilder_.getCount();
+        }
       }
       /**
        * <pre>
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @param index The index of the element to return.
-       * @return The indexList at the given index.
+       * <code>repeated .indexToken indexList = 3;</code>
        */
-      public java.lang.String getIndexList(int index) {
-        return indexList_.get(index);
+      public com.graduate.design.proto.FileUpload.indexToken getIndexList(int index) {
+        if (indexListBuilder_ == null) {
+          return indexList_.get(index);
+        } else {
+          return indexListBuilder_.getMessage(index);
+        }
       }
       /**
        * <pre>
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @param index The index of the value to return.
-       * @return The bytes of the indexList at the given index.
-       */
-      public com.google.protobuf.ByteString
-          getIndexListBytes(int index) {
-        return indexList_.getByteString(index);
-      }
-      /**
-       * <pre>
-       * 文件的关键词列表，用于后续可加密搜索
-       * </pre>
-       *
-       * <code>repeated string indexList = 3;</code>
-       * @param index The index to set the value at.
-       * @param value The indexList to set.
-       * @return This builder for chaining.
+       * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder setIndexList(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIndexListIsMutable();
-        indexList_.set(index, value);
-        onChanged();
+          int index, com.graduate.design.proto.FileUpload.indexToken value) {
+        if (indexListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureIndexListIsMutable();
+          indexList_.set(index, value);
+          onChanged();
+        } else {
+          indexListBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
@@ -1067,18 +2694,58 @@ public final class FileUpload {
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @param value The indexList to add.
-       * @return This builder for chaining.
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public Builder setIndexList(
+          int index, com.graduate.design.proto.FileUpload.indexToken.Builder builderForValue) {
+        if (indexListBuilder_ == null) {
+          ensureIndexListIsMutable();
+          indexList_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          indexListBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public Builder addIndexList(com.graduate.design.proto.FileUpload.indexToken value) {
+        if (indexListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureIndexListIsMutable();
+          indexList_.add(value);
+          onChanged();
+        } else {
+          indexListBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder addIndexList(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureIndexListIsMutable();
-        indexList_.add(value);
-        onChanged();
+          int index, com.graduate.design.proto.FileUpload.indexToken value) {
+        if (indexListBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureIndexListIsMutable();
+          indexList_.add(index, value);
+          onChanged();
+        } else {
+          indexListBuilder_.addMessage(index, value);
+        }
         return this;
       }
       /**
@@ -1086,16 +2753,54 @@ public final class FileUpload {
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @param values The indexList to add.
-       * @return This builder for chaining.
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public Builder addIndexList(
+          com.graduate.design.proto.FileUpload.indexToken.Builder builderForValue) {
+        if (indexListBuilder_ == null) {
+          ensureIndexListIsMutable();
+          indexList_.add(builderForValue.build());
+          onChanged();
+        } else {
+          indexListBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public Builder addIndexList(
+          int index, com.graduate.design.proto.FileUpload.indexToken.Builder builderForValue) {
+        if (indexListBuilder_ == null) {
+          ensureIndexListIsMutable();
+          indexList_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          indexListBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder addAllIndexList(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureIndexListIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, indexList_);
-        onChanged();
+          java.lang.Iterable<? extends com.graduate.design.proto.FileUpload.indexToken> values) {
+        if (indexListBuilder_ == null) {
+          ensureIndexListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, indexList_);
+          onChanged();
+        } else {
+          indexListBuilder_.addAllMessages(values);
+        }
         return this;
       }
       /**
@@ -1103,13 +2808,16 @@ public final class FileUpload {
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @return This builder for chaining.
+       * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder clearIndexList() {
-        indexList_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000001);
-        onChanged();
+        if (indexListBuilder_ == null) {
+          indexList_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          indexListBuilder_.clear();
+        }
         return this;
       }
       /**
@@ -1117,20 +2825,105 @@ public final class FileUpload {
        * 文件的关键词列表，用于后续可加密搜索
        * </pre>
        *
-       * <code>repeated string indexList = 3;</code>
-       * @param value The bytes of the indexList to add.
-       * @return This builder for chaining.
+       * <code>repeated .indexToken indexList = 3;</code>
        */
-      public Builder addIndexListBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureIndexListIsMutable();
-        indexList_.add(value);
-        onChanged();
+      public Builder removeIndexList(int index) {
+        if (indexListBuilder_ == null) {
+          ensureIndexListIsMutable();
+          indexList_.remove(index);
+          onChanged();
+        } else {
+          indexListBuilder_.remove(index);
+        }
         return this;
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public com.graduate.design.proto.FileUpload.indexToken.Builder getIndexListBuilder(
+          int index) {
+        return getIndexListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public com.graduate.design.proto.FileUpload.indexTokenOrBuilder getIndexListOrBuilder(
+          int index) {
+        if (indexListBuilder_ == null) {
+          return indexList_.get(index);  } else {
+          return indexListBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public java.util.List<? extends com.graduate.design.proto.FileUpload.indexTokenOrBuilder> 
+           getIndexListOrBuilderList() {
+        if (indexListBuilder_ != null) {
+          return indexListBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(indexList_);
+        }
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public com.graduate.design.proto.FileUpload.indexToken.Builder addIndexListBuilder() {
+        return getIndexListFieldBuilder().addBuilder(
+            com.graduate.design.proto.FileUpload.indexToken.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public com.graduate.design.proto.FileUpload.indexToken.Builder addIndexListBuilder(
+          int index) {
+        return getIndexListFieldBuilder().addBuilder(
+            index, com.graduate.design.proto.FileUpload.indexToken.getDefaultInstance());
+      }
+      /**
+       * <pre>
+       * 文件的关键词列表，用于后续可加密搜索
+       * </pre>
+       *
+       * <code>repeated .indexToken indexList = 3;</code>
+       */
+      public java.util.List<com.graduate.design.proto.FileUpload.indexToken.Builder> 
+           getIndexListBuilderList() {
+        return getIndexListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.graduate.design.proto.FileUpload.indexToken, com.graduate.design.proto.FileUpload.indexToken.Builder, com.graduate.design.proto.FileUpload.indexTokenOrBuilder> 
+          getIndexListFieldBuilder() {
+        if (indexListBuilder_ == null) {
+          indexListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.graduate.design.proto.FileUpload.indexToken, com.graduate.design.proto.FileUpload.indexToken.Builder, com.graduate.design.proto.FileUpload.indexTokenOrBuilder>(
+                  indexList_,
+                  ((bitField0_ & 0x00000001) != 0),
+                  getParentForChildren(),
+                  isClean());
+          indexList_ = null;
+        }
+        return indexListBuilder_;
       }
 
       private com.google.protobuf.ByteString content_ = com.google.protobuf.ByteString.EMPTY;
@@ -1179,48 +2972,141 @@ public final class FileUpload {
         return this;
       }
 
-      private com.google.protobuf.ByteString secretKey_ = com.google.protobuf.ByteString.EMPTY;
+      private java.lang.Object biIndex_ = "";
       /**
        * <pre>
-       * 文件解密key，已经加密过
+       * 用户索引
        * </pre>
        *
-       * <code>bytes secretKey = 5;</code>
-       * @return The secretKey.
+       * <code>string biIndex = 5;</code>
+       * @return The biIndex.
        */
-      @java.lang.Override
-      public com.google.protobuf.ByteString getSecretKey() {
-        return secretKey_;
+      public java.lang.String getBiIndex() {
+        java.lang.Object ref = biIndex_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          biIndex_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
       }
       /**
        * <pre>
-       * 文件解密key，已经加密过
+       * 用户索引
        * </pre>
        *
-       * <code>bytes secretKey = 5;</code>
-       * @param value The secretKey to set.
+       * <code>string biIndex = 5;</code>
+       * @return The bytes for biIndex.
+       */
+      public com.google.protobuf.ByteString
+          getBiIndexBytes() {
+        java.lang.Object ref = biIndex_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          biIndex_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 5;</code>
+       * @param value The biIndex to set.
        * @return This builder for chaining.
        */
-      public Builder setSecretKey(com.google.protobuf.ByteString value) {
+      public Builder setBiIndex(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        secretKey_ = value;
+        biIndex_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 文件解密key，已经加密过
+       * 用户索引
        * </pre>
        *
-       * <code>bytes secretKey = 5;</code>
+       * <code>string biIndex = 5;</code>
        * @return This builder for chaining.
        */
-      public Builder clearSecretKey() {
+      public Builder clearBiIndex() {
         
-        secretKey_ = getDefaultInstance().getSecretKey();
+        biIndex_ = getDefaultInstance().getBiIndex();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 5;</code>
+       * @param value The bytes for biIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBiIndexBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        biIndex_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long nodeId_ ;
+      /**
+       * <pre>
+       * 文件Id
+       * </pre>
+       *
+       * <code>int64 nodeId = 6;</code>
+       * @return The nodeId.
+       */
+      @java.lang.Override
+      public long getNodeId() {
+        return nodeId_;
+      }
+      /**
+       * <pre>
+       * 文件Id
+       * </pre>
+       *
+       * <code>int64 nodeId = 6;</code>
+       * @param value The nodeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNodeId(long value) {
+        
+        nodeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件Id
+       * </pre>
+       *
+       * <code>int64 nodeId = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNodeId() {
+        
+        nodeId_ = 0L;
         onChanged();
         return this;
       }
@@ -2018,6 +3904,11 @@ public final class FileUpload {
   }
 
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_indexToken_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_indexToken_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UploadFileRequest_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -2036,28 +3927,38 @@ public final class FileUpload {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\021upload_file.proto\032\014common.proto\"\212\001\n\021Up" +
-      "loadFileRequest\022\020\n\010fileName\030\001 \001(\t\022\020\n\010par" +
-      "entId\030\002 \001(\003\022\021\n\tindexList\030\003 \003(\t\022\017\n\007conten" +
-      "t\030\004 \001(\014\022\021\n\tsecretKey\030\005 \001(\014\022\032\n\007baseReq\030\377\001" +
-      " \001(\0132\010.BaseReq\"1\n\021UploadFileReponse\022\034\n\010b" +
-      "aseResp\030\377\001 \001(\0132\t.BaseRespBO\n\031com.graduat" +
-      "e.design.protoB\nFileUploadZ&github.com/J" +
-      "ackTJC/gmFS_backend/pb_genb\006proto3"
+      "\n\021upload_file.proto\032\014common.proto\"b\n\nind" +
+      "exToken\022\t\n\001L\030\001 \001(\t\022\n\n\002Iw\030\002 \001(\t\022\n\n\002Rw\030\003 \001" +
+      "(\t\022\n\n\002Cw\030\004 \001(\t\022\013\n\003Iid\030\005 \001(\t\022\013\n\003Rid\030\006 \001(\t" +
+      "\022\013\n\003Cid\030\007 \001(\t\"\245\001\n\021UploadFileRequest\022\020\n\010f" +
+      "ileName\030\001 \001(\t\022\020\n\010parentId\030\002 \001(\003\022\036\n\tindex" +
+      "List\030\003 \003(\0132\013.indexToken\022\017\n\007content\030\004 \001(\014" +
+      "\022\017\n\007biIndex\030\005 \001(\t\022\016\n\006nodeId\030\006 \001(\003\022\032\n\007bas" +
+      "eReq\030\377\001 \001(\0132\010.BaseReq\"1\n\021UploadFileRepon" +
+      "se\022\034\n\010baseResp\030\377\001 \001(\0132\t.BaseRespBO\n\031com." +
+      "graduate.design.protoB\nFileUploadZ&githu" +
+      "b.com/JackTJC/gmFS_backend/pb_genb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.graduate.design.proto.Common.getDescriptor(),
         });
-    internal_static_UploadFileRequest_descriptor =
+    internal_static_indexToken_descriptor =
       getDescriptor().getMessageTypes().get(0);
+    internal_static_indexToken_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_indexToken_descriptor,
+        new java.lang.String[] { "L", "Iw", "Rw", "Cw", "Iid", "Rid", "Cid", });
+    internal_static_UploadFileRequest_descriptor =
+      getDescriptor().getMessageTypes().get(1);
     internal_static_UploadFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadFileRequest_descriptor,
-        new java.lang.String[] { "FileName", "ParentId", "IndexList", "Content", "SecretKey", "BaseReq", });
+        new java.lang.String[] { "FileName", "ParentId", "IndexList", "Content", "BiIndex", "NodeId", "BaseReq", });
     internal_static_UploadFileReponse_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(2);
     internal_static_UploadFileReponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadFileReponse_descriptor,

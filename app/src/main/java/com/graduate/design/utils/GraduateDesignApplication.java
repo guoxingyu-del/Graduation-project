@@ -8,6 +8,7 @@ import com.allenliu.classicbt.BleManager;
 import com.allenliu.classicbt.Connect;
 // import com.graduate.design.exception.GlobalCrashHandler;
 import com.graduate.design.R;
+import com.graduate.design.entity.BiIndex;
 import com.graduate.design.proto.UserLogin;
 
 import java.nio.charset.StandardCharsets;
@@ -30,10 +31,11 @@ public class GraduateDesignApplication extends Application {
     private static byte[] start;
     private static byte[] end;
     private static Connect curConnect;
-    private static byte[] mainSecret;
-    private static String originPassword;
     // 设置AES256加密得到默认向量常量，16个字节
     public static final String IV = "0123456789012345";
+    private static byte[] key1;
+    private static byte[] key2;
+    private static BiIndex biIndex;
 
     @Override
     public void onCreate() {
@@ -86,19 +88,27 @@ public class GraduateDesignApplication extends Application {
         GraduateDesignApplication.curConnect = curConnect;
     }
 
-    public static byte[] getMainSecret() {
-        return mainSecret;
+    public static BiIndex getBiIndex() {
+        return biIndex;
     }
 
-    public static void setMainSecret(byte[] mainSecret) {
-        GraduateDesignApplication.mainSecret = mainSecret;
+    public static void setBiIndex(BiIndex biIndex) {
+        GraduateDesignApplication.biIndex = biIndex;
     }
 
-    public static String getOriginPassword() {
-        return originPassword;
+    public static byte[] getKey1() {
+        return key1;
     }
 
-    public static void setOriginPassword(String originPassword) {
-        GraduateDesignApplication.originPassword = originPassword;
+    public static void setKey1(byte[] key1) {
+        GraduateDesignApplication.key1 = key1;
+    }
+
+    public static byte[] getKey2() {
+        return key2;
+    }
+
+    public static void setKey2(byte[] key2) {
+        GraduateDesignApplication.key2 = key2;
     }
 }

@@ -11,6 +11,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
+import com.graduate.design.entity.BiIndex;
 import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
@@ -115,10 +116,16 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
         // 使用SHA256生成用户主密钥
         byte[] mainSecret = encryptionService.getSecretKey(username, password);
+        // 截取前16个字节给用户密码加密
+        byte[] key1 = new byte[16];
+        for(int i=0;i<16;i++) key1[i] = mainSecret[i];
         // 用主密钥加密用户密码后上传
-        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, mainSecret));
+        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, key1));
+        // 给注册用户新建一个双向索引表上传
+        BiIndex biIndex = new BiIndex();
+        String biIndexString = FileUtils.bytes2Base64(biIndex.writeObject());
 
-        int res = userService.register(username, encryptPassword, email);
+        int res = userService.register(username, encryptPassword, email, biIndexString);
 
         // 请求失败
         if(res==1){
