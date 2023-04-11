@@ -12,9 +12,9 @@ import java.util.List;
 public interface UserService {
     int ping(String name, String token);
 
-    int login(String username, String password);
+    int login(String username, String hashId);
 
-    int register(String username, String password, String email, String biIndex);
+    int register(String username, String hashId, String email, String biIndex, String key1, String key2);
 
     int createDir(String dirName, Long parentId, String token);
 
@@ -36,4 +36,6 @@ public interface UserService {
     Long getNodeId(String token);
 
     List<String> sendSearchToken(SendSearchToken.SearchToken searchToken, String token);
+
+    int changePassword(String oldHashId, String newHashId, String key1, String key2, String token);
 }

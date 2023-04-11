@@ -9,6 +9,7 @@ import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.graduate.design.R;
 import com.graduate.design.entity.BiIndex;
+import com.graduate.design.proto.ChangePassword;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.CreateDir;
 import com.graduate.design.proto.FileUpload;
@@ -56,11 +57,11 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int login(String username, String password) {
+    public int login(String username, String hashId) {
         // 构造登录请求对象
         UserLogin.UserLoginRequest req = UserLogin.UserLoginRequest.newBuilder()
                 .setUserName(username)
-                .setPassword(password)
+                .setHashId(hashId)
                 .build();
 
         JSONObject jsonObject = sendData(req, 1);
@@ -79,11 +80,15 @@ public class UserServiceImpl implements UserService {
         String respUsername = userInfoJson.getString("userName");
         String email = userInfoJson.getString("email");
         String biIndex = userInfoJson.getString("biIndex");
+        String key1 = userInfoJson.getString("key1");
+        String key2 = userInfoJson.getString("key2");
         UserLogin.UserInfo userInfo = UserLogin.UserInfo.newBuilder()
                 .setRootId(rootId)
                 .setUserName(respUsername)
                 .setEmail(email)
                 .setBiIndex(biIndex)
+                .setKey1(key1)
+                .setKey2(key2)
                 .build();
 
         // 将userInfo设置到全局变量中
@@ -94,13 +99,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int register(String username, String password, String email, String biIndex) {
+    public int register(String username, String hashId, String email, String biIndex, String key1, String key2) {
         // 构造注册请求对象
         UserRegister.UserRegisterRequest req = UserRegister.UserRegisterRequest.newBuilder()
                 .setUserName(username)
-                .setPassword(password)
+                .setHashId(hashId)
                 .setEmail(email)
                 .setBiIndex(biIndex)
+                .setKey1(key1)
+                .setKey2(key2)
                 .build();
 
         JSONObject jsonObject = sendData(req, 2);
@@ -253,7 +260,7 @@ public class UserServiceImpl implements UserService {
         byte[] fileContentEncrypt = FileUtils.Base64ToBytes(content);
 
         byte[] fileSecret = GraduateDesignApplication.getKey2();
-        byte[] fileContent = encryptionService.decryptByAES128(fileContentEncrypt, fileSecret);
+        byte[] fileContent = encryptionService.decryptByAES256(fileContentEncrypt, fileSecret);
 
         return ByteString.copyFrom(fileContent).toString(StandardCharsets.UTF_8);
     }
@@ -354,6 +361,21 @@ public class UserServiceImpl implements UserService {
         return res;
     }
 
+    @Override
+    public int changePassword(String oldHashId, String newHashId, String key1, String key2, String token) {
+        ChangePassword.ChangePasswordRequest req = ChangePassword.ChangePasswordRequest.newBuilder()
+                .setOldHashId(oldHashId)
+                .setNewHashId(newHashId)
+                .setKey1(key1)
+                .setKey2(key2)
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .build();
+
+        JSONObject jsonObject = sendData(req, 12);
+
+        return jsonObject == null ? 1 : 0;
+    }
+
     private JSONObject sendData(Object req, int number) {
         String[] urls = {
                 "ping",
@@ -367,7 +389,8 @@ public class UserServiceImpl implements UserService {
                 "/file/share",
                 "/file/recv/get",
                 "/node/getId",
-                "/file/seadSearchToken"
+                "/file/sendSearchToken",
+                "/user/changePwd"
         };
         // 将请求对象转换成json格式，不要使用Gson
         String data = JsonUtils.toJson(req);

@@ -1,7 +1,6 @@
 package com.graduate.design.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -19,13 +18,13 @@ import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.ByteUtils;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
-import java.util.Base64;
-
+import java.nio.charset.StandardCharsets;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
     private EditText usernameInLogin;
@@ -93,17 +92,15 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
             return;
         }
 
-        // 使用SHA256生成用户主密钥
-        byte[] mainSecret = encryptionService.getSecretKey(username, password);
-        // 截取前16个字节给用户密码加密
-        byte[] key1 = new byte[16];
-        byte[] key2 = new byte[16];
-        for(int i=0;i<16;i++) key1[i] = mainSecret[i];
-        for(int i=16;i<32;i++) key2[i-16] = mainSecret[i];
+        // 使用SHA512生成hashID
+        byte[] usernameBytes = username.getBytes(StandardCharsets.UTF_8);
+        byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+        byte[] hashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, passwordBytes));
+
         // 用主密钥加密用户密码后上传
-        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, key1));
+        String encryptHashId = FileUtils.bytes2Base64(hashId);
         // 进行登录验证
-        int res = userService.login(username, encryptPassword);
+        int res = userService.login(username, encryptHashId);
 
         // 登录失败
         if(res==1){
@@ -114,7 +111,17 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         // 登录成功
+        // 将用户名设置为全局变量
+        GraduateDesignApplication.setUsername(username);
+
         // 设置主密钥为全局变量
+        String base64Key1 = GraduateDesignApplication.getUserInfo().getKey1();
+        String base64Key2 = GraduateDesignApplication.getUserInfo().getKey2();
+        // 使用用户密码解密
+        byte[] pwd2SHA256 = encryptionService.SHA256(passwordBytes);
+        byte[] key1 = encryptionService.decryptByAES256(FileUtils.Base64ToBytes(base64Key1), pwd2SHA256);
+        byte[] key2 = encryptionService.decryptByAES256(FileUtils.Base64ToBytes(base64Key2), pwd2SHA256);
+
         GraduateDesignApplication.setKey1(key1);
         GraduateDesignApplication.setKey2(key2);
         // 将用户双向索引表反序列化，并设置为全局变量

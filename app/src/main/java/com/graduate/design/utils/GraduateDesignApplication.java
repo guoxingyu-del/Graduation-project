@@ -36,6 +36,7 @@ public class GraduateDesignApplication extends Application {
     private static byte[] key1;
     private static byte[] key2;
     private static BiIndex biIndex;
+    private static String username;
 
     @Override
     public void onCreate() {
@@ -110,5 +111,13 @@ public class GraduateDesignApplication extends Application {
 
     public static void setKey2(byte[] key2) {
         GraduateDesignApplication.key2 = key2;
+    }
+
+    public static String getUsername() {
+        return username;
+    }
+
+    public static void setUsername(String username) {
+        GraduateDesignApplication.username = username;
     }
 }

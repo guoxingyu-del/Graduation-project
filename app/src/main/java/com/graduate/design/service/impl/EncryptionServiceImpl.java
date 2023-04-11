@@ -32,12 +32,12 @@ import javax.crypto.spec.SecretKeySpec;
 
 public class EncryptionServiceImpl implements EncryptionService {
     @Override
-    public byte[] getSecretKey(String username, String password) {
+    public byte[] SHA256(byte[] input) {
         MessageDigest messageDigest;
         byte[] mainSecret;
         try {
             messageDigest = MessageDigest.getInstance("SHA-256");
-            messageDigest.update((username+password).getBytes(StandardCharsets.UTF_8));
+            messageDigest.update(input);
             mainSecret = messageDigest.digest();
         } catch (NoSuchAlgorithmException e) {
             throw new RuntimeException(e);
@@ -46,13 +46,27 @@ public class EncryptionServiceImpl implements EncryptionService {
     }
 
     @Override
-    public byte[] encryptByAES128(String plaintext, byte[] secretKey) {
-        byte[] plainBytes = plaintext.getBytes(StandardCharsets.UTF_8);
-        return encryptByAES128(plainBytes, secretKey);
+    public byte[] SHA512(byte[] input) {
+        MessageDigest messageDigest;
+        byte[] output;
+        try {
+            messageDigest = MessageDigest.getInstance("SHA-512");
+            messageDigest.update(input);
+            output = messageDigest.digest();
+        } catch (NoSuchAlgorithmException e) {
+            throw new RuntimeException(e);
+        }
+        return output;
     }
 
     @Override
-    public byte[] encryptByAES128(byte[] plaintext, byte[] secretKey) {
+    public byte[] encryptByAES256(String plaintext, byte[] secretKey) {
+        byte[] plainBytes = plaintext.getBytes(StandardCharsets.UTF_8);
+        return encryptByAES256(plainBytes, secretKey);
+    }
+
+    @Override
+    public byte[] encryptByAES256(byte[] plaintext, byte[] secretKey) {
         byte[] encryptRes;
         try {
             SecretKeySpec spec = new SecretKeySpec(secretKey, "AES");
@@ -77,13 +91,13 @@ public class EncryptionServiceImpl implements EncryptionService {
     }
 
     @Override
-    public byte[] decryptByAES128(String ciphertext, byte[] secretKey) {
+    public byte[] decryptByAES256(String ciphertext, byte[] secretKey) {
         byte[] cipherBytes = FileUtils.Base64ToBytes(ciphertext);
-        return decryptByAES128(cipherBytes, secretKey);
+        return decryptByAES256(cipherBytes, secretKey);
     }
 
     @Override
-    public byte[] decryptByAES128(byte[] ciphertext, byte[] secretKey) {
+    public byte[] decryptByAES256(byte[] ciphertext, byte[] secretKey) {
         byte[] decryptRes;
         try {
             SecretKeySpec spec = new SecretKeySpec(secretKey, "AES");
@@ -140,39 +154,39 @@ public class EncryptionServiceImpl implements EncryptionService {
         byte[] word_id = ByteUtils.mergeBytes(wordBytes, idBytes);
         byte[] id_word = ByteUtils.mergeBytes(idBytes, wordBytes);
 
-        byte[] L = cutOffTo128(HmacSha256(key1, word_id));
-        byte[] Rw = ByteUtils.getRandomBytes(16);
-        byte[] Rid = ByteUtils.getRandomBytes(16);
+        byte[] L = HmacSha256(key1, word_id);
+        byte[] Rw = ByteUtils.getRandomBytes(32);
+        byte[] Rid = ByteUtils.getRandomBytes(32);
 
-        byte[] kw = cutOffTo128(HmacSha256(key2, wordBytes));
-        byte[] kid = cutOffTo128(HmacSha256(key2, idBytes));
+        byte[] kw = HmacSha256(key2, wordBytes);
+        byte[] kid = HmacSha256(key2, idBytes);
 
-        byte[] Cw = encryptByAES128(idBytes, kw);
-        byte[] Cid = encryptByAES128(word, kid);
+        byte[] Cw = encryptByAES256(idBytes, kw);
+        byte[] Cid = encryptByAES256(word, kid);
         byte[] Iw;
 
         if(oldID == null) {
-            byte[] Jw = cutOffTo128(HmacSha256(key2, word_id));
-            Iw = HmacSha256(Jw, Rw);
+            byte[] Jw = HmacSha256(key2, word_id);
+            Iw = SHA512(ByteUtils.mergeBytes(Jw, Rw));
         }
         else {
             byte[] oldIDBytes = String.valueOf(oldID).getBytes(StandardCharsets.UTF_8);
-            byte[] oldL = cutOffTo128(HmacSha256(key1, ByteUtils.mergeBytes(wordBytes, oldIDBytes)));
-            byte[] oldJw = cutOffTo128(HmacSha256(key2, ByteUtils.mergeBytes(wordBytes, oldIDBytes)));
-            byte[] Jw = cutOffTo128(HmacSha256(key2, word_id));
-            Iw = ByteUtils.xor(HmacSha256(Jw, Rw), ByteUtils.mergeBytes(oldL, oldJw));
+            byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(wordBytes, oldIDBytes));
+            byte[] oldJw = HmacSha256(key2, ByteUtils.mergeBytes(wordBytes, oldIDBytes));
+            byte[] Jw = HmacSha256(key2, word_id);
+            Iw = ByteUtils.xor(SHA512(ByteUtils.mergeBytes(Jw, Rw)), ByteUtils.mergeBytes(oldL, oldJw));
         }
         byte[] Iid;
         if(oldWord==null) {
-            byte[] Jid = cutOffTo128(HmacSha256(key2, id_word));
-            Iid = HmacSha256(Jid, Rid);
+            byte[] Jid = HmacSha256(key2, id_word);
+            Iid = SHA512(ByteUtils.mergeBytes(Jid, Rid));
         }
         else {
             byte[] oldWordBytes = oldWord.getBytes(StandardCharsets.UTF_8);
-            byte[] oldL = cutOffTo128(HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes)));
-            byte[] oldJid = cutOffTo128(HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes)));
-            byte[] Jid = cutOffTo128(HmacSha256(key2, id_word));
-            Iid = ByteUtils.xor(HmacSha256(Jid, Rid), ByteUtils.mergeBytes(oldL, oldJid));
+            byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes));
+            byte[] oldJid = HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes));
+            byte[] Jid = HmacSha256(key2, id_word);
+            Iid = ByteUtils.xor(SHA512(ByteUtils.mergeBytes(Jid, Rid)), ByteUtils.mergeBytes(oldL, oldJid));
         }
         lastW.put(id, word);
         lastID.put(word, id);
@@ -203,8 +217,8 @@ public class EncryptionServiceImpl implements EncryptionService {
         byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.UTF_8);
         byte[] wordBytes = word.getBytes(StandardCharsets.UTF_8);
         byte[] word_id = ByteUtils.mergeBytes(wordBytes, idBytes);
-        byte[] L = cutOffTo128(HmacSha256(key1, word_id));
-        byte[] Jw = cutOffTo128(HmacSha256(key2, word_id));
+        byte[] L = HmacSha256(key1, word_id);
+        byte[] Jw = HmacSha256(key2, word_id);
 
         return SendSearchToken.SearchToken.newBuilder()
                 .setL(FileUtils.bytes2Base64(L))
@@ -216,12 +230,12 @@ public class EncryptionServiceImpl implements EncryptionService {
     public List<Long> getNodeIdByCw(List<String> Cw, String word) {
         byte[] key2 = GraduateDesignApplication.getKey2();
 
-        byte[] kw = cutOffTo128(HmacSha256(key2, word.getBytes(StandardCharsets.UTF_8)));
+        byte[] kw = HmacSha256(key2, word.getBytes(StandardCharsets.UTF_8));
         List<Long> res = new ArrayList<>();
         for(int i=0;i<Cw.size();i++){
             String cw = Cw.get(i);
             byte[] cwBytes = FileUtils.Base64ToBytes(cw);
-            byte[] idBytes = decryptByAES128(cwBytes, kw);
+            byte[] idBytes = decryptByAES256(cwBytes, kw);
             Long id = Long.parseLong(new String(idBytes));
             res.add(id);
         }

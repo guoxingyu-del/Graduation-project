@@ -19,19 +19,11 @@ public final class UserLogin {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
      * <code>string userName = 1;</code>
      * @return The userName.
      */
     java.lang.String getUserName();
     /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
      * <code>string userName = 1;</code>
      * @return The bytes for userName.
      */
@@ -40,23 +32,23 @@ public final class UserLogin {
 
     /**
      * <pre>
-     * 密码
+     * hashId身份识别
      * </pre>
      *
-     * <code>string password = 2;</code>
-     * @return The password.
+     * <code>string hashId = 2;</code>
+     * @return The hashId.
      */
-    java.lang.String getPassword();
+    java.lang.String getHashId();
     /**
      * <pre>
-     * 密码
+     * hashId身份识别
      * </pre>
      *
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
+     * <code>string hashId = 2;</code>
+     * @return The bytes for hashId.
      */
     com.google.protobuf.ByteString
-        getPasswordBytes();
+        getHashIdBytes();
 
     /**
      * <code>.BaseReq baseReq = 255;</code>
@@ -87,7 +79,7 @@ public final class UserLogin {
     }
     private UserLoginRequest() {
       userName_ = "";
-      password_ = "";
+      hashId_ = "";
     }
 
     @java.lang.Override
@@ -129,7 +121,7 @@ public final class UserLogin {
             case 18: {
               java.lang.String s = input.readStringRequireUtf8();
 
-              password_ = s;
+              hashId_ = s;
               break;
             }
             case 2042: {
@@ -180,10 +172,6 @@ public final class UserLogin {
     public static final int USERNAME_FIELD_NUMBER = 1;
     private volatile java.lang.Object userName_;
     /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
      * <code>string userName = 1;</code>
      * @return The userName.
      */
@@ -201,10 +189,6 @@ public final class UserLogin {
       }
     }
     /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
      * <code>string userName = 1;</code>
      * @return The bytes for userName.
      */
@@ -223,46 +207,46 @@ public final class UserLogin {
       }
     }
 
-    public static final int PASSWORD_FIELD_NUMBER = 2;
-    private volatile java.lang.Object password_;
+    public static final int HASHID_FIELD_NUMBER = 2;
+    private volatile java.lang.Object hashId_;
     /**
      * <pre>
-     * 密码
+     * hashId身份识别
      * </pre>
      *
-     * <code>string password = 2;</code>
-     * @return The password.
+     * <code>string hashId = 2;</code>
+     * @return The hashId.
      */
     @java.lang.Override
-    public java.lang.String getPassword() {
-      java.lang.Object ref = password_;
+    public java.lang.String getHashId() {
+      java.lang.Object ref = hashId_;
       if (ref instanceof java.lang.String) {
         return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
         java.lang.String s = bs.toStringUtf8();
-        password_ = s;
+        hashId_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * 密码
+     * hashId身份识别
      * </pre>
      *
-     * <code>string password = 2;</code>
-     * @return The bytes for password.
+     * <code>string hashId = 2;</code>
+     * @return The bytes for hashId.
      */
     @java.lang.Override
     public com.google.protobuf.ByteString
-        getPasswordBytes() {
-      java.lang.Object ref = password_;
+        getHashIdBytes() {
+      java.lang.Object ref = hashId_;
       if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
                 (java.lang.String) ref);
-        password_ = b;
+        hashId_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -312,8 +296,8 @@ public final class UserLogin {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 1, userName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, password_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hashId_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, hashId_);
       }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
@@ -330,8 +314,8 @@ public final class UserLogin {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, userName_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(password_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, password_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(hashId_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, hashId_);
       }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -354,8 +338,8 @@ public final class UserLogin {
 
       if (!getUserName()
           .equals(other.getUserName())) return false;
-      if (!getPassword()
-          .equals(other.getPassword())) return false;
+      if (!getHashId()
+          .equals(other.getHashId())) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
         if (!getBaseReq()
@@ -374,8 +358,8 @@ public final class UserLogin {
       hash = (19 * hash) + getDescriptor().hashCode();
       hash = (37 * hash) + USERNAME_FIELD_NUMBER;
       hash = (53 * hash) + getUserName().hashCode();
-      hash = (37 * hash) + PASSWORD_FIELD_NUMBER;
-      hash = (53 * hash) + getPassword().hashCode();
+      hash = (37 * hash) + HASHID_FIELD_NUMBER;
+      hash = (53 * hash) + getHashId().hashCode();
       if (hasBaseReq()) {
         hash = (37 * hash) + BASEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getBaseReq().hashCode();
@@ -515,7 +499,7 @@ public final class UserLogin {
         super.clear();
         userName_ = "";
 
-        password_ = "";
+        hashId_ = "";
 
         if (baseReqBuilder_ == null) {
           baseReq_ = null;
@@ -550,7 +534,7 @@ public final class UserLogin {
       public com.graduate.design.proto.UserLogin.UserLoginRequest buildPartial() {
         com.graduate.design.proto.UserLogin.UserLoginRequest result = new com.graduate.design.proto.UserLogin.UserLoginRequest(this);
         result.userName_ = userName_;
-        result.password_ = password_;
+        result.hashId_ = hashId_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -608,8 +592,8 @@ public final class UserLogin {
           userName_ = other.userName_;
           onChanged();
         }
-        if (!other.getPassword().isEmpty()) {
-          password_ = other.password_;
+        if (!other.getHashId().isEmpty()) {
+          hashId_ = other.hashId_;
           onChanged();
         }
         if (other.hasBaseReq()) {
@@ -646,10 +630,6 @@ public final class UserLogin {
 
       private java.lang.Object userName_ = "";
       /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
        * <code>string userName = 1;</code>
        * @return The userName.
        */
@@ -666,10 +646,6 @@ public final class UserLogin {
         }
       }
       /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
        * <code>string userName = 1;</code>
        * @return The bytes for userName.
        */
@@ -687,10 +663,6 @@ public final class UserLogin {
         }
       }
       /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
        * <code>string userName = 1;</code>
        * @param value The userName to set.
        * @return This builder for chaining.
@@ -706,10 +678,6 @@ public final class UserLogin {
         return this;
       }
       /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
        * <code>string userName = 1;</code>
        * @return This builder for chaining.
        */
@@ -720,10 +688,6 @@ public final class UserLogin {
         return this;
       }
       /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
        * <code>string userName = 1;</code>
        * @param value The bytes for userName to set.
        * @return This builder for chaining.
@@ -740,22 +704,22 @@ public final class UserLogin {
         return this;
       }
 
-      private java.lang.Object password_ = "";
+      private java.lang.Object hashId_ = "";
       /**
        * <pre>
-       * 密码
+       * hashId身份识别
        * </pre>
        *
-       * <code>string password = 2;</code>
-       * @return The password.
+       * <code>string hashId = 2;</code>
+       * @return The hashId.
        */
-      public java.lang.String getPassword() {
-        java.lang.Object ref = password_;
+      public java.lang.String getHashId() {
+        java.lang.Object ref = hashId_;
         if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
           java.lang.String s = bs.toStringUtf8();
-          password_ = s;
+          hashId_ = s;
           return s;
         } else {
           return (java.lang.String) ref;
@@ -763,20 +727,20 @@ public final class UserLogin {
       }
       /**
        * <pre>
-       * 密码
+       * hashId身份识别
        * </pre>
        *
-       * <code>string password = 2;</code>
-       * @return The bytes for password.
+       * <code>string hashId = 2;</code>
+       * @return The bytes for hashId.
        */
       public com.google.protobuf.ByteString
-          getPasswordBytes() {
-        java.lang.Object ref = password_;
+          getHashIdBytes() {
+        java.lang.Object ref = hashId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
                   (java.lang.String) ref);
-          password_ = b;
+          hashId_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -784,54 +748,54 @@ public final class UserLogin {
       }
       /**
        * <pre>
-       * 密码
+       * hashId身份识别
        * </pre>
        *
-       * <code>string password = 2;</code>
-       * @param value The password to set.
+       * <code>string hashId = 2;</code>
+       * @param value The hashId to set.
        * @return This builder for chaining.
        */
-      public Builder setPassword(
+      public Builder setHashId(
           java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        password_ = value;
+        hashId_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 密码
+       * hashId身份识别
        * </pre>
        *
-       * <code>string password = 2;</code>
+       * <code>string hashId = 2;</code>
        * @return This builder for chaining.
        */
-      public Builder clearPassword() {
+      public Builder clearHashId() {
         
-        password_ = getDefaultInstance().getPassword();
+        hashId_ = getDefaultInstance().getHashId();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 密码
+       * hashId身份识别
        * </pre>
        *
-       * <code>string password = 2;</code>
-       * @param value The bytes for password to set.
+       * <code>string hashId = 2;</code>
+       * @param value The bytes for hashId to set.
        * @return This builder for chaining.
        */
-      public Builder setPasswordBytes(
+      public Builder setHashIdBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        password_ = value;
+        hashId_ = value;
         onChanged();
         return this;
       }
@@ -1060,6 +1024,30 @@ public final class UserLogin {
      */
     com.google.protobuf.ByteString
         getBiIndexBytes();
+
+    /**
+     * <code>string key1 = 5;</code>
+     * @return The key1.
+     */
+    java.lang.String getKey1();
+    /**
+     * <code>string key1 = 5;</code>
+     * @return The bytes for key1.
+     */
+    com.google.protobuf.ByteString
+        getKey1Bytes();
+
+    /**
+     * <code>string key2 = 6;</code>
+     * @return The key2.
+     */
+    java.lang.String getKey2();
+    /**
+     * <code>string key2 = 6;</code>
+     * @return The bytes for key2.
+     */
+    com.google.protobuf.ByteString
+        getKey2Bytes();
   }
   /**
    * Protobuf type {@code UserInfo}
@@ -1077,6 +1065,8 @@ public final class UserLogin {
       userName_ = "";
       email_ = "";
       biIndex_ = "";
+      key1_ = "";
+      key2_ = "";
     }
 
     @java.lang.Override
@@ -1130,6 +1120,18 @@ public final class UserLogin {
               java.lang.String s = input.readStringRequireUtf8();
 
               biIndex_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key1_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              key2_ = s;
               break;
             }
             default: {
@@ -1297,6 +1299,82 @@ public final class UserLogin {
       }
     }
 
+    public static final int KEY1_FIELD_NUMBER = 5;
+    private volatile java.lang.Object key1_;
+    /**
+     * <code>string key1 = 5;</code>
+     * @return The key1.
+     */
+    @java.lang.Override
+    public java.lang.String getKey1() {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key1_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key1 = 5;</code>
+     * @return The bytes for key1.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKey1Bytes() {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key1_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int KEY2_FIELD_NUMBER = 6;
+    private volatile java.lang.Object key2_;
+    /**
+     * <code>string key2 = 6;</code>
+     * @return The key2.
+     */
+    @java.lang.Override
+    public java.lang.String getKey2() {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        key2_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>string key2 = 6;</code>
+     * @return The bytes for key2.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getKey2Bytes() {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        key2_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1323,6 +1401,12 @@ public final class UserLogin {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 4, biIndex_);
       }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key1_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, key1_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key2_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, key2_);
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1344,6 +1428,12 @@ public final class UserLogin {
       }
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, biIndex_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key1_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, key1_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(key2_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, key2_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1368,6 +1458,10 @@ public final class UserLogin {
           .equals(other.getEmail())) return false;
       if (!getBiIndex()
           .equals(other.getBiIndex())) return false;
+      if (!getKey1()
+          .equals(other.getKey1())) return false;
+      if (!getKey2()
+          .equals(other.getKey2())) return false;
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1388,6 +1482,10 @@ public final class UserLogin {
       hash = (53 * hash) + getEmail().hashCode();
       hash = (37 * hash) + BIINDEX_FIELD_NUMBER;
       hash = (53 * hash) + getBiIndex().hashCode();
+      hash = (37 * hash) + KEY1_FIELD_NUMBER;
+      hash = (53 * hash) + getKey1().hashCode();
+      hash = (37 * hash) + KEY2_FIELD_NUMBER;
+      hash = (53 * hash) + getKey2().hashCode();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -1529,6 +1627,10 @@ public final class UserLogin {
 
         biIndex_ = "";
 
+        key1_ = "";
+
+        key2_ = "";
+
         return this;
       }
 
@@ -1559,6 +1661,8 @@ public final class UserLogin {
         result.userName_ = userName_;
         result.email_ = email_;
         result.biIndex_ = biIndex_;
+        result.key1_ = key1_;
+        result.key2_ = key2_;
         onBuilt();
         return result;
       }
@@ -1620,6 +1724,14 @@ public final class UserLogin {
         }
         if (!other.getBiIndex().isEmpty()) {
           biIndex_ = other.biIndex_;
+          onChanged();
+        }
+        if (!other.getKey1().isEmpty()) {
+          key1_ = other.key1_;
+          onChanged();
+        }
+        if (!other.getKey2().isEmpty()) {
+          key2_ = other.key2_;
           onChanged();
         }
         this.mergeUnknownFields(other.unknownFields);
@@ -1926,6 +2038,158 @@ public final class UserLogin {
   checkByteStringIsUtf8(value);
         
         biIndex_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object key1_ = "";
+      /**
+       * <code>string key1 = 5;</code>
+       * @return The key1.
+       */
+      public java.lang.String getKey1() {
+        java.lang.Object ref = key1_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key1_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string key1 = 5;</code>
+       * @return The bytes for key1.
+       */
+      public com.google.protobuf.ByteString
+          getKey1Bytes() {
+        java.lang.Object ref = key1_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key1_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key1 = 5;</code>
+       * @param value The key1 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKey1(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key1_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key1 = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKey1() {
+        
+        key1_ = getDefaultInstance().getKey1();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key1 = 5;</code>
+       * @param value The bytes for key1 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKey1Bytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key1_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object key2_ = "";
+      /**
+       * <code>string key2 = 6;</code>
+       * @return The key2.
+       */
+      public java.lang.String getKey2() {
+        java.lang.Object ref = key2_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          key2_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>string key2 = 6;</code>
+       * @return The bytes for key2.
+       */
+      public com.google.protobuf.ByteString
+          getKey2Bytes() {
+        java.lang.Object ref = key2_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          key2_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>string key2 = 6;</code>
+       * @param value The key2 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKey2(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        key2_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key2 = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearKey2() {
+        
+        key2_ = getDefaultInstance().getKey2();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>string key2 = 6;</code>
+       * @param value The bytes for key2 to set.
+       * @return This builder for chaining.
+       */
+      public Builder setKey2Bytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        key2_ = value;
         onChanged();
         return this;
       }
@@ -3076,16 +3340,17 @@ public final class UserLogin {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\020user_login.proto\032\014common.proto\"R\n\020User" +
-      "LoginRequest\022\020\n\010userName\030\001 \001(\t\022\020\n\010passwo" +
-      "rd\030\002 \001(\t\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\"L\n\010" +
-      "UserInfo\022\016\n\006rootId\030\001 \001(\003\022\020\n\010userName\030\002 \001" +
-      "(\t\022\r\n\005email\030\003 \001(\t\022\017\n\007biIndex\030\004 \001(\t\"]\n\021Us" +
-      "erLoginResponse\022\r\n\005token\030\001 \001(\t\022\033\n\010userIn" +
-      "fo\030\002 \001(\0132\t.UserInfo\022\034\n\010baseResp\030\377\001 \001(\0132\t" +
-      ".BaseRespBN\n\031com.graduate.design.protoB\t" +
-      "UserLoginZ&github.com/JackTJC/gmFS_backe" +
-      "nd/pb_genb\006proto3"
+      "\n\020user_login.proto\032\014common.proto\"P\n\020User" +
+      "LoginRequest\022\020\n\010userName\030\001 \001(\t\022\016\n\006hashId" +
+      "\030\002 \001(\t\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\"h\n\010Us" +
+      "erInfo\022\016\n\006rootId\030\001 \001(\003\022\020\n\010userName\030\002 \001(\t" +
+      "\022\r\n\005email\030\003 \001(\t\022\017\n\007biIndex\030\004 \001(\t\022\014\n\004key1" +
+      "\030\005 \001(\t\022\014\n\004key2\030\006 \001(\t\"]\n\021UserLoginRespons" +
+      "e\022\r\n\005token\030\001 \001(\t\022\033\n\010userInfo\030\002 \001(\0132\t.Use" +
+      "rInfo\022\034\n\010baseResp\030\377\001 \001(\0132\t.BaseRespBN\n\031c" +
+      "om.graduate.design.protoB\tUserLoginZ&git" +
+      "hub.com/JackTJC/gmFS_backend/pb_genb\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -3097,13 +3362,13 @@ public final class UserLogin {
     internal_static_UserLoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserLoginRequest_descriptor,
-        new java.lang.String[] { "UserName", "Password", "BaseReq", });
+        new java.lang.String[] { "UserName", "HashId", "BaseReq", });
     internal_static_UserInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserInfo_descriptor,
-        new java.lang.String[] { "RootId", "UserName", "Email", "BiIndex", });
+        new java.lang.String[] { "RootId", "UserName", "Email", "BiIndex", "Key1", "Key2", });
     internal_static_UserLoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_UserLoginResponse_fieldAccessorTable = new

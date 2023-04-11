@@ -122,7 +122,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         // 利用文件名和用户密码生成文件密钥
         byte[] fileSecret = GraduateDesignApplication.getKey2();
         // 将加密结果转为Base64编码
-        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES128(fileContent, fileSecret));
+        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
         if(encryptContent == null) encryptContent = "";
 
         // 先从服务器中拿到文件节点

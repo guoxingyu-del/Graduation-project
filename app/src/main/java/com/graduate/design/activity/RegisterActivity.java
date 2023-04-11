@@ -1,7 +1,6 @@
 package com.graduate.design.activity;
 
 import android.content.Intent;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -9,7 +8,6 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.protobuf.ByteString;
 import com.graduate.design.R;
 import com.graduate.design.entity.BiIndex;
 import com.graduate.design.service.EncryptionService;
@@ -17,14 +15,12 @@ import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.ByteUtils;
 import com.graduate.design.utils.FileUtils;
-import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
-import java.io.File;
 import java.nio.charset.StandardCharsets;
-import java.util.Base64;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity implements View.OnClickListener {
@@ -114,18 +110,28 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        // 使用SHA256生成用户主密钥
-        byte[] mainSecret = encryptionService.getSecretKey(username, password);
-        // 截取前16个字节给用户密码加密
-        byte[] key1 = new byte[16];
-        for(int i=0;i<16;i++) key1[i] = mainSecret[i];
-        // 用主密钥加密用户密码后上传
-        String encryptPassword = FileUtils.bytes2Base64(encryptionService.encryptByAES128(password, key1));
+        // 使用SHA512生成hashID，用于后续登录识别
+        byte[] usernameBytes = username.getBytes(StandardCharsets.UTF_8);
+        byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+        byte[] hashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, passwordBytes));
+
+        // 把hashId作为用户密码上传
+        String encryptHashId = FileUtils.bytes2Base64(hashId);
         // 给注册用户新建一个双向索引表上传
         BiIndex biIndex = new BiIndex();
         String biIndexString = FileUtils.bytes2Base64(biIndex.writeObject());
 
-        int res = userService.register(username, encryptPassword, email, biIndexString);
+        // 随机生成两个主密钥key1和key2，都是32字节
+        byte[] key1 = ByteUtils.getRandomBytes(32);
+        byte[] key2 = ByteUtils.getRandomBytes(32);
+        // 使用用户密码用AES256加密key1和key2
+        // 先用用户密码得到通过SHA256得到一个32字节密钥
+        byte[] pwd2SHA256 = encryptionService.SHA256(passwordBytes);
+        byte[] encryptKey1 = encryptionService.encryptByAES256(key1, pwd2SHA256);
+        byte[] encryptKey2 = encryptionService.encryptByAES256(key2, pwd2SHA256);
+
+        int res = userService.register(username, encryptHashId, email, biIndexString,
+                FileUtils.bytes2Base64(encryptKey1), FileUtils.bytes2Base64(encryptKey2));
 
         // 请求失败
         if(res==1){

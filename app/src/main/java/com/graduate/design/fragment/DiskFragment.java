@@ -256,7 +256,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                         // 将key2作为密钥加密文件内容
                                         byte[] fileSecret = GraduateDesignApplication.getKey2();
                                         // 将加密结果转为Base64编码
-                                        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES128(sb.toString(), fileSecret));
+                                        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(sb.toString(), fileSecret));
                                         if(encryptContent == null) encryptContent = "";
 
                                         // 先从服务器拿到文件id
