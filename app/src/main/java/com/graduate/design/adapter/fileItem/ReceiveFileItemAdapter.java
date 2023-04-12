@@ -108,6 +108,10 @@ public class ReceiveFileItemAdapter extends BaseAdapter {
                         intent.putExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
                         intent.putExtra("filename", node[0]);
                         intent.putExtra("fileContent", node[1]);
+                        intent.putExtra("shareTokenL", node[2]);
+                        intent.putExtra("shareTokenJId", node[3]);
+                        intent.putExtra("shareTokenKId", node[4]);
+                        intent.putExtra("shareTokenFileId", node[5]);
                         ActivityJumpUtils.jumpActivity(activity, intent, 100L, false);
                     }
 

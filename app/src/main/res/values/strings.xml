@@ -12,4 +12,8 @@
     <string name="endMsg">结束</string>
     <string name="filename">filename:</string>
     <string name="fileContent">fileContent:</string>
+    <string name="shareTokenL">shareTokenL:</string>
+    <string name="shareTokenJid">shareTokenJid:</string>
+    <string name="shareTokenKid">shareTokenKid:</string>
+    <string name="shareTokenFileId">shareTokenFileId:</string>
 </resources>

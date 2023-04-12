@@ -24,9 +24,10 @@ public interface UserService {
     List<Common.Node> searchFile(List<Long> idList, String token);
 
     int registerFile(Long fileId, Long dirId, ByteString secretKey,
-                  Boolean isWeb, Long shareId, String token);
+                     Boolean isWeb, Long shareId, String token);
 
     List<Common.Node> getNodeList(Long nodeId, String token);
+
     String getNodeContent(Long nodeId, String token);
 
     int shareFile(String username, Long fileId, ByteString key, String token);
@@ -38,4 +39,10 @@ public interface UserService {
     List<String> sendSearchToken(SendSearchToken.SearchToken searchToken, String token);
 
     int changePassword(String oldHashId, String newHashId, String key1, String key2, String token);
+
+    public int uploadShareToken(Common.ShareToken shareToken, String token);
+
+    public List<Common.ShareToken> getAllShareToken(String userid, String token);
+
+    public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token);
 }

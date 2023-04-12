@@ -22,6 +22,7 @@ import com.graduate.design.adapter.fileItem.ShareFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
+import com.graduate.design.sharettokenprotocol.ShareTokenGen;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
@@ -186,12 +187,30 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
             byte[] start = GraduateDesignApplication.getStart();
             byte[] end = GraduateDesignApplication.getEnd();
 
+//            // TODO 批量分享，加密传输
+//            for(Common.Node node : selectedItem){
+//                if(node.getNodeType() == Common.NodeType.Dir) continue;
+//                String content = userService.getNodeContent(node.getNodeId(), token);
+//                String fileNameAndContent = getString(R.string.filename) + node.getNodeName() + "\n" + getString(R.string.fileContent) + content + "\n";
+//                byte[] msg = fileNameAndContent.getBytes(StandardCharsets.UTF_8);
+//                ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);
+//                fullMsg.put(start).put(msg).put(end);
             // TODO 批量分享，加密传输
             for(Common.Node node : selectedItem){
                 if(node.getNodeType() == Common.NodeType.Dir) continue;
                 String content = userService.getNodeContent(node.getNodeId(), token);
                 String fileNameAndContent = getString(R.string.filename) + node.getNodeName() + "\n" + getString(R.string.fileContent) + content + "\n";
-                byte[] msg = fileNameAndContent.getBytes(StandardCharsets.UTF_8);
+//                byte[] msg = fileNameAndContent.getBytes(StandardCharsets.UTF_8);
+//                ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);
+//                fullMsg.put(start).put(msg).put(end);
+                ShareTokenGen shareTokenGen = new ShareTokenGen();
+                Common.ShareToken shareTokenRaw = shareTokenGen.genShareToken(String.valueOf(node.getNodeId()), " ", " ");
+                String shareToken = getString(R.string.shareTokenL) + shareTokenRaw.getL() + "\n"
+                        + getString(R.string.shareTokenJid) + shareTokenRaw.getJId() + "\n"
+                        + getString(R.string.shareTokenKid) + shareTokenRaw.getKId() + "\n"
+                        + getString(R.string.shareTokenFileId) + shareTokenRaw.getFileId() + "\n"
+                        + fileNameAndContent;
+                byte[] msg = shareToken.getBytes(StandardCharsets.UTF_8);
                 ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);
                 fullMsg.put(start).put(msg).put(end);
                 curConnect.write(fullMsg.array(), new TransferProgressListener() {

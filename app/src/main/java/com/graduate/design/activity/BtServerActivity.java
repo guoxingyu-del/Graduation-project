@@ -43,6 +43,10 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
 
     private String filename;
     private String fileContent;
+    private String shareTokenL;
+    private String shareTokenJId;
+    private String shareTokenKId;
+    private String shareTokenFileId;
     private UserService userService;
     private ReceiveFileItemAdapter fileItemAdapter;
     // 当前连接
@@ -163,18 +167,31 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
                 // 将消息分割出文件名和文件内容
                 int filenameIndex = resWithoutStartEnd.indexOf(getString(R.string.filename));
                 int fileContentIndex = resWithoutStartEnd.indexOf(getString(R.string.fileContent));
+                int LIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenL));
+                int JIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenJid));
+                int KIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenKid));
+                int FileIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenFileId));
                 // 测试消息，在页面展示
                 if(filenameIndex == -1 || fileContentIndex == -1) {
                     showReceiveInfo.setText(resWithoutStartEnd);
                     return;
                 }
+                if (LIndex == -1 || JIdIndex == -1 || KIdIndex == -1 || FileIdIndex == -1) {
+                    showReceiveInfo.setText(resWithoutStartEnd);
+                    return;
+                }
                 // 提取出文件名和文件内容
                 // 除去文件名中的换行符
+                shareTokenL = FileUtils.removeLineBreak(resWithoutStartEnd.substring(LIndex + getString(R.string.shareTokenL).length(), JIdIndex));
+                shareTokenJId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(JIdIndex + getString(R.string.shareTokenJid).length(), KIdIndex));
+                shareTokenKId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(KIdIndex + getString(R.string.shareTokenKid).length(), FileIdIndex));
+                shareTokenFileId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(FileIdIndex + getString(R.string.shareTokenFileId).length(), filenameIndex));
                 filename = FileUtils.removeLineBreak(resWithoutStartEnd.substring(filenameIndex + getString(R.string.filename).length(), fileContentIndex));
                 fileContent = resWithoutStartEnd.substring(fileContentIndex + getString(R.string.fileContent).length());
-
-                String[] fileInfo = new String[]{filename, fileContent};
-                fileItemAdapter.addFileItem(fileInfo);
+//                String[] fileInfo = new String[]{filename, fileContent};
+                String[] shareToken = new String[]{filename, fileContent, shareTokenL, shareTokenJId, shareTokenKId, shareTokenFileId};
+//                fileItemAdapter.addFileItem(fileInfo);
+                fileItemAdapter.addFileItem(shareToken);
             }
 
             @Override

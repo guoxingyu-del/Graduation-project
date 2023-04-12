@@ -44,6 +44,10 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     private Long nodeId;
     private String filename;
     private String fileContent;
+    private String shareTokenL;
+    private String shareTokenJId;
+    private String shareTokenKId;
+    private String shareTokenFileId;
     private ChooseDirFileItemAdapter fileItemAdapter;
     private List<Common.Node> subNodes;
     @Override
@@ -71,6 +75,10 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
         filename = getIntent().getStringExtra("filename");
         fileContent = getIntent().getStringExtra("fileContent");
+        shareTokenL = getIntent().getStringExtra("shareTokenL");
+        shareTokenJId = getIntent().getStringExtra("shareTokenJId");
+        shareTokenKId = getIntent().getStringExtra("shareTokenKId");
+        shareTokenFileId = getIntent().getStringExtra("shareTokenFileId");
         fileItemAdapter = new ChooseDirFileItemAdapter(context, R.layout.item_file);
     }
 
@@ -117,25 +125,48 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         finish();
     }
 
-    private void receive(){
-        // 将文件内容和文件标题作为一个新的节点上传
-        // 利用文件名和用户密码生成文件密钥
-        byte[] fileSecret = GraduateDesignApplication.getKey2();
-        // 将加密结果转为Base64编码
-        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
-        if(encryptContent == null) encryptContent = "";
+//    private void receive(){
+//        // 将文件内容和文件标题作为一个新的节点上传
+//        // 利用文件名和用户密码生成文件密钥
+//        byte[] fileSecret = GraduateDesignApplication.getKey2();
+//        // 将加密结果转为Base64编码
+//        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
+//        if(encryptContent == null) encryptContent = "";
+//
+//        // 先从服务器中拿到文件节点
+//        Long fileId = userService.getNodeId(token);
+//        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
+//        // 同步上传biIndex进行更新
+//        String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+//
+//        userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
+//                fileId, token);
+//        ToastUtils.showShortToastCenter("保存成功");
+//    }
+private void receive() {
+    // 将文件内容和文件标题作为一个新的节点上传
+    // 利用文件名和用户密码生成文件密钥
+    byte[] fileSecret = GraduateDesignApplication.getKey2();
+    // 将加密结果转为Base64编码
+    String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
+    if (encryptContent == null) encryptContent = "";
 
-        // 先从服务器中拿到文件节点
-        Long fileId = userService.getNodeId(token);
-        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
-        // 同步上传biIndex进行更新
-        String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+    // 先从服务器中拿到文件节点
+    Long fileId = userService.getNodeId(token);
+//        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
+    // 同步上传biIndex进行更新
 
-        userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
-                fileId, token);
-        ToastUtils.showShortToastCenter("保存成功");
-    }
 
+
+//        Log.d("ssssssssss", "go receive");
+    Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(shareTokenFileId).build();
+    List<FileUpload.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
+//        ToastUtils.showShortToastCenter("保存成功");
+    String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+    userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
+            fileId, token);
+    ToastUtils.showShortToastCenter("保存成功");
+}
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         switch (parent.getId()){
@@ -156,6 +187,10 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
             intent.putExtra("nodeId", clickedNode.getNodeId());
             intent.putExtra("filename", filename);
             intent.putExtra("fileContent", fileContent);
+            intent.putExtra("shareTokenL", shareTokenL);
+            intent.putExtra("shareTokenJId", shareTokenJId);
+            intent.putExtra("shareTokenKId", shareTokenKId);
+            intent.putExtra("shareTokenFileId", shareTokenFileId);
             ActivityJumpUtils.jumpActivity(ReceiveActivity.this, intent, 100L, false);
         }
     }
