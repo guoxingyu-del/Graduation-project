@@ -529,8 +529,8 @@ public class UserServiceImpl implements UserService {
                 .setL(shareToken.getL())
                 .setJId(shareToken.getJId())
                 .build();
-        Log.e("llllllllllllllllllL", shareToken.getL());
-        Log.e("Jid", shareToken.getJId());
+//        Log.e("llllllllllllllllllL", shareToken.getL());
+//        Log.e("Jid", shareToken.getJId());
         JSONObject jsonObject = sendData(req, 15);
         if (jsonObject == null) return null;
         List<String> S = new ArrayList<>();
@@ -555,7 +555,8 @@ public class UserServiceImpl implements UserService {
         Map<Long, String> lastW = biIndex.getLastW();
         for (String s : S) {
             byte[] w = encryptionService.decryptByAES256(s, KidBytes);
-            Long lastId = lastID.get(FileUtils.bytes2Base64(w));
+//            Long lastId = lastID.get(FileUtils.bytes2Base64(w));
+            Long lastId = lastID.get(new String(w));
             String lastw = lastW.get(Long.parseLong(id));
             byte[] Cw = encryptionService.encryptByAES256(id,
                     HmacSha256(key2, w));
@@ -602,9 +603,8 @@ public class UserServiceImpl implements UserService {
                     .setRid(FileUtils.bytes2Base64(Rid))
                     .setCid(FileUtils.bytes2Base64(Cid))
                     .build());
-
         }
-        Log.e("length", String.valueOf(newS.size()));
+//        Log.e("length", String.valueOf(newS.size()));
 //        ShareSecond.ShareSecondRequest shareSecondRequest = ShareSecond.ShareSecondRequest.newBuilder()
 //                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
 //                .addAllSearchIndexSecond(newS)

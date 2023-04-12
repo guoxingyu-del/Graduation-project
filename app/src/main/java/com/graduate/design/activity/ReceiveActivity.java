@@ -159,7 +159,8 @@ private void receive() {
 
 
 //        Log.d("ssssssssss", "go receive");
-    Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(shareTokenFileId).build();
+//    Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(shareTokenFileId).build();
+    Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(String.valueOf(fileId)).build();
     List<FileUpload.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
 //        ToastUtils.showShortToastCenter("保存成功");
     String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
