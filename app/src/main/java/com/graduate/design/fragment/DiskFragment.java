@@ -31,6 +31,7 @@ import com.graduate.design.activity.BtClientActivity;
 import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
+import com.graduate.design.entity.GotNodeList;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
@@ -57,6 +58,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.List;
+import java.util.Map;
 
 public class DiskFragment extends Fragment implements View.OnClickListener,
         AdapterView.OnItemClickListener {
@@ -151,7 +153,13 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
 
     private void setNodeList(){
         fileItemAdapter.clear();
-        subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+        Map<Long, GotNodeList> map = GraduateDesignApplication.getAllNodeList();
+        if(map.containsKey(nodeId) && !map.get(nodeId).getUpdate())
+            subNodes = FileUtils.putDirBeforeFile(map.get(nodeId).getNodeList());
+        else {
+            subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+            map.put(nodeId, new GotNodeList(subNodes, false));
+        }
         fileItemAdapter.addAllFileItem(subNodes);
     }
 
@@ -287,6 +295,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                     }
                                 }
                                 // 更新文件列表
+                                GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
                                 setNodeList();
                                 return false;
                             }
@@ -332,6 +341,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 if(res==0) ToastUtils.showShortToastCenter("添加文件夹成功");
                 else ToastUtils.showShortToastCenter("添加文件夹失败");
                 // 更新文件列表
+                GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
                 setNodeList();
             }
         });

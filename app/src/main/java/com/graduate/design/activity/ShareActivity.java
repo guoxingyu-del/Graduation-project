@@ -19,6 +19,7 @@ import com.allenliu.classicbt.Connect;
 import com.allenliu.classicbt.listener.TransferProgressListener;
 import com.graduate.design.R;
 import com.graduate.design.adapter.fileItem.ShareFileItemAdapter;
+import com.graduate.design.entity.GotNodeList;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
@@ -31,7 +32,9 @@ import com.graduate.design.utils.ToastUtils;
 import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ShareActivity extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener {
@@ -89,7 +92,13 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
 
     private void setNodeList(){
         shareFileItemAdapter.clear();
-        subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+        Map<Long, GotNodeList> map = GraduateDesignApplication.getAllNodeList();
+        if(map.containsKey(nodeId) && !map.get(nodeId).getUpdate())
+            subNodes = map.get(nodeId).getNodeList();
+        else {
+            subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+            map.put(nodeId, new GotNodeList(subNodes, false));
+        }
         shareFileItemAdapter.addAllFileItem(subNodes);
     }
 

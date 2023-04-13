@@ -16,6 +16,7 @@ import com.graduate.design.R;
 import com.graduate.design.adapter.fileItem.ChooseDirFileItemAdapter;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
+import com.graduate.design.entity.GotNodeList;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
@@ -29,6 +30,7 @@ import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
 import java.util.List;
+import java.util.Map;
 
 public class ReceiveActivity extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener {
@@ -93,7 +95,13 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
 
     private void setNodeList(){
         fileItemAdapter.clear();
-        subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+        Map<Long, GotNodeList> map = GraduateDesignApplication.getAllNodeList();
+        if(map.containsKey(nodeId) && !map.get(nodeId).getUpdate())
+            subNodes = FileUtils.putDirBeforeFile(map.get(nodeId).getNodeList());
+        else {
+            subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+            map.put(nodeId, new GotNodeList(subNodes, false));
+        }
         fileItemAdapter.addAllFileItem(subNodes);
     }
 
@@ -134,6 +142,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
                 fileId, token);
         ToastUtils.showShortToastCenter("保存成功");
+        GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
     }
 
     @Override
