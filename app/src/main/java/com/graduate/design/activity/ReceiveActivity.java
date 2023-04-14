@@ -17,6 +17,7 @@ import com.graduate.design.adapter.fileItem.ChooseDirFileItemAdapter;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
 import com.graduate.design.entity.GotNodeList;
+import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
@@ -52,6 +53,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     private String shareTokenFileId;
     private ChooseDirFileItemAdapter fileItemAdapter;
     private List<Common.Node> subNodes;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -69,7 +71,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         setNodeList();
     }
 
-    private void initData(){
+    private void initData() {
         token = GraduateDesignApplication.getToken();
         context = getApplicationContext();
         userService = new UserServiceImpl();
@@ -84,7 +86,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         fileItemAdapter = new ChooseDirFileItemAdapter(context, R.layout.item_file);
     }
 
-    private void getComponentsById(){
+    private void getComponentsById() {
         backButton = findViewById(R.id.back_btn);
         backImageButton = findViewById(R.id.back_image_btn);
         receiveButton = findViewById(R.id.receive_btn);
@@ -115,7 +117,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
 
     @Override
     public void onClick(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.back_btn:
             case R.id.back_image_btn:
                 goBack();
@@ -151,33 +153,32 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
 //                fileId, token);
 //        ToastUtils.showShortToastCenter("保存成功");
 //    }
-private void receive() {
-    // 将文件内容和文件标题作为一个新的节点上传
-    // 利用文件名和用户密码生成文件密钥
-    byte[] fileSecret = GraduateDesignApplication.getKey2();
-    // 将加密结果转为Base64编码
-    String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
-    if (encryptContent == null) encryptContent = "";
+    private void receive() {
+        // 将文件内容和文件标题作为一个新的节点上传
+        // 利用文件名和用户密码生成文件密钥
+        byte[] fileSecret = GraduateDesignApplication.getKey2();
+        // 将加密结果转为Base64编码
+        // 这部分文件内容的来源后面应该也需要修改
+        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
+        if (encryptContent == null) encryptContent = "";
 
-    // 先从服务器中拿到文件节点
-    Long fileId = userService.getNodeId(token);
-//        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
-    // 同步上传biIndex进行更新
+        // 先从服务器中拿到文件节点
+        Long fileId = userService.getNodeId(token);
 
+        Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(String.valueOf(fileId)).build();
+        List<FileUpload.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
+        String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+        // 这个保存形式也需要改
+        userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
+                fileId, token,
+                DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
+                        String.valueOf(fileId), "add"), GraduateDesignApplication.getUsername());
+        ToastUtils.showShortToastCenter("保存成功");
+    }
 
-
-//        Log.d("ssssssssss", "go receive");
-    Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(shareTokenFileId).build();
-    List<FileUpload.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
-//        ToastUtils.showShortToastCenter("保存成功");
-    String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
-    userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
-            fileId, token);
-    ToastUtils.showShortToastCenter("保存成功");
-}
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        switch (parent.getId()){
+        switch (parent.getId()) {
             case R.id.show_files:
                 getFileContentOrNextDir(position);
                 break;

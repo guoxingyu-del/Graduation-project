@@ -8,6 +8,7 @@ import com.graduate.design.proto.SearchFile;
 import com.graduate.design.proto.SendSearchToken;
 
 import java.util.List;
+import java.util.Set;
 
 public interface UserService {
     int ping(String name, String token);
@@ -16,10 +17,10 @@ public interface UserService {
 
     int register(String username, String hashId, String email, String biIndex, String key1, String key2);
 
-    int createDir(String dirName, Long parentId, String token);
+    int createDir(String dirName, Long parentId, String token, Long dirId, String nodeIdOpPair, String userName);
 
     int uploadFile(String fileName, Long parentId, List<FileUpload.indexToken> indexList,
-                   ByteString content, String biIndex, Long fileId, String token);
+                   ByteString content, String biIndex, Long fileId, String token, String nodeIdOpPair, String userName);
 
     List<Common.Node> searchFile(List<Long> idList, String token);
 
@@ -45,4 +46,6 @@ public interface UserService {
     public List<Common.ShareToken> getAllShareToken(String userid, String token);
 
     public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token);
+
+    public Set<Long> getAllDeleteNodes(String userName, String token);
 }

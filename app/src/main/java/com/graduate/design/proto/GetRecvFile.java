@@ -38,7 +38,7 @@ public final class GetRecvFile {
      * <code>string fileName = 3;</code>
      * @return The fileName.
      */
-    java.lang.String getFileName();
+    String getFileName();
     /**
      * <code>string fileName = 3;</code>
      * @return The bytes for fileName.
@@ -64,7 +64,7 @@ public final class GetRecvFile {
      * <code>string from = 5;</code>
      * @return The from.
      */
-    java.lang.String getFrom();
+    String getFrom();
     /**
      * <pre>
      * 文件来自谁? 
@@ -98,14 +98,14 @@ public final class GetRecvFile {
       from_ = "";
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new SharedFile();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -116,7 +116,7 @@ public final class GetRecvFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -139,7 +139,7 @@ public final class GetRecvFile {
               break;
             }
             case 26: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               fileName_ = s;
               break;
@@ -150,7 +150,7 @@ public final class GetRecvFile {
               break;
             }
             case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
+              String s = input.readStringRequireUtf8();
 
               from_ = s;
               break;
@@ -176,15 +176,15 @@ public final class GetRecvFile {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.GetRecvFile.internal_static_SharedFile_descriptor;
+      return GetRecvFile.internal_static_SharedFile_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.GetRecvFile.internal_static_SharedFile_fieldAccessorTable
+      return GetRecvFile.internal_static_SharedFile_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.GetRecvFile.SharedFile.class, com.graduate.design.proto.GetRecvFile.SharedFile.Builder.class);
+              SharedFile.class, Builder.class);
     }
 
     public static final int SHAREID_FIELD_NUMBER = 1;
@@ -197,7 +197,7 @@ public final class GetRecvFile {
      * <code>int64 shareId = 1;</code>
      * @return The shareId.
      */
-    @java.lang.Override
+    @Override
     public long getShareId() {
       return shareId_;
     }
@@ -208,26 +208,26 @@ public final class GetRecvFile {
      * <code>int64 fileId = 2;</code>
      * @return The fileId.
      */
-    @java.lang.Override
+    @Override
     public long getFileId() {
       return fileId_;
     }
 
     public static final int FILENAME_FIELD_NUMBER = 3;
-    private volatile java.lang.Object fileName_;
+    private volatile Object fileName_;
     /**
      * <code>string fileName = 3;</code>
      * @return The fileName.
      */
-    @java.lang.Override
-    public java.lang.String getFileName() {
-      java.lang.Object ref = fileName_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getFileName() {
+      Object ref = fileName_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         fileName_ = s;
         return s;
       }
@@ -236,14 +236,14 @@ public final class GetRecvFile {
      * <code>string fileName = 3;</code>
      * @return The bytes for fileName.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getFileNameBytes() {
-      java.lang.Object ref = fileName_;
-      if (ref instanceof java.lang.String) {
+      Object ref = fileName_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         fileName_ = b;
         return b;
       } else {
@@ -261,13 +261,13 @@ public final class GetRecvFile {
      * <code>bytes key = 4;</code>
      * @return The key.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString getKey() {
       return key_;
     }
 
     public static final int FROM_FIELD_NUMBER = 5;
-    private volatile java.lang.Object from_;
+    private volatile Object from_;
     /**
      * <pre>
      * 文件来自谁? 
@@ -276,15 +276,15 @@ public final class GetRecvFile {
      * <code>string from = 5;</code>
      * @return The from.
      */
-    @java.lang.Override
-    public java.lang.String getFrom() {
-      java.lang.Object ref = from_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
+    @Override
+    public String getFrom() {
+      Object ref = from_;
+      if (ref instanceof String) {
+        return (String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
+        String s = bs.toStringUtf8();
         from_ = s;
         return s;
       }
@@ -297,14 +297,14 @@ public final class GetRecvFile {
      * <code>string from = 5;</code>
      * @return The bytes for from.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString
         getFromBytes() {
-      java.lang.Object ref = from_;
-      if (ref instanceof java.lang.String) {
+      Object ref = from_;
+      if (ref instanceof String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
+                (String) ref);
         from_ = b;
         return b;
       } else {
@@ -313,7 +313,7 @@ public final class GetRecvFile {
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -323,7 +323,7 @@ public final class GetRecvFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (shareId_ != 0L) {
@@ -344,7 +344,7 @@ public final class GetRecvFile {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -373,15 +373,15 @@ public final class GetRecvFile {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.GetRecvFile.SharedFile)) {
+      if (!(obj instanceof SharedFile)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.GetRecvFile.SharedFile other = (com.graduate.design.proto.GetRecvFile.SharedFile) obj;
+      SharedFile other = (SharedFile) obj;
 
       if (getShareId()
           != other.getShareId()) return false;
@@ -397,7 +397,7 @@ public final class GetRecvFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -421,69 +421,69 @@ public final class GetRecvFile {
       return hash;
     }
 
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(byte[] data)
+    public static SharedFile parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(java.io.InputStream input)
+    public static SharedFile parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseDelimitedFrom(java.io.InputStream input)
+    public static SharedFile parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseDelimitedFrom(
+    public static SharedFile parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.SharedFile parseFrom(
+    public static SharedFile parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -491,23 +491,23 @@ public final class GetRecvFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.GetRecvFile.SharedFile prototype) {
+    public static Builder newBuilder(SharedFile prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -521,18 +521,18 @@ public final class GetRecvFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:SharedFile)
-        com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder {
+        SharedFileOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_SharedFile_descriptor;
+        return GetRecvFile.internal_static_SharedFile_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_SharedFile_fieldAccessorTable
+        return GetRecvFile.internal_static_SharedFile_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.GetRecvFile.SharedFile.class, com.graduate.design.proto.GetRecvFile.SharedFile.Builder.class);
+                SharedFile.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.GetRecvFile.SharedFile.newBuilder()
@@ -541,7 +541,7 @@ public final class GetRecvFile {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -550,7 +550,7 @@ public final class GetRecvFile {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         shareId_ = 0L;
@@ -566,29 +566,29 @@ public final class GetRecvFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_SharedFile_descriptor;
+        return GetRecvFile.internal_static_SharedFile_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.SharedFile getDefaultInstanceForType() {
-        return com.graduate.design.proto.GetRecvFile.SharedFile.getDefaultInstance();
+      @Override
+      public SharedFile getDefaultInstanceForType() {
+        return SharedFile.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.SharedFile build() {
-        com.graduate.design.proto.GetRecvFile.SharedFile result = buildPartial();
+      @Override
+      public SharedFile build() {
+        SharedFile result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.SharedFile buildPartial() {
-        com.graduate.design.proto.GetRecvFile.SharedFile result = new com.graduate.design.proto.GetRecvFile.SharedFile(this);
+      @Override
+      public SharedFile buildPartial() {
+        SharedFile result = new SharedFile(this);
         result.shareId_ = shareId_;
         result.fileId_ = fileId_;
         result.fileName_ = fileName_;
@@ -598,50 +598,50 @@ public final class GetRecvFile {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.GetRecvFile.SharedFile) {
-          return mergeFrom((com.graduate.design.proto.GetRecvFile.SharedFile)other);
+        if (other instanceof SharedFile) {
+          return mergeFrom((SharedFile)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.GetRecvFile.SharedFile other) {
-        if (other == com.graduate.design.proto.GetRecvFile.SharedFile.getDefaultInstance()) return this;
+      public Builder mergeFrom(SharedFile other) {
+        if (other == SharedFile.getDefaultInstance()) return this;
         if (other.getShareId() != 0L) {
           setShareId(other.getShareId());
         }
@@ -664,21 +664,21 @@ public final class GetRecvFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.GetRecvFile.SharedFile parsedMessage = null;
+        SharedFile parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.GetRecvFile.SharedFile) e.getUnfinishedMessage();
+          parsedMessage = (SharedFile) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -697,7 +697,7 @@ public final class GetRecvFile {
        * <code>int64 shareId = 1;</code>
        * @return The shareId.
        */
-      @java.lang.Override
+      @Override
       public long getShareId() {
         return shareId_;
       }
@@ -736,7 +736,7 @@ public final class GetRecvFile {
        * <code>int64 fileId = 2;</code>
        * @return The fileId.
        */
-      @java.lang.Override
+      @Override
       public long getFileId() {
         return fileId_;
       }
@@ -762,21 +762,21 @@ public final class GetRecvFile {
         return this;
       }
 
-      private java.lang.Object fileName_ = "";
+      private Object fileName_ = "";
       /**
        * <code>string fileName = 3;</code>
        * @return The fileName.
        */
-      public java.lang.String getFileName() {
-        java.lang.Object ref = fileName_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getFileName() {
+        Object ref = fileName_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           fileName_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -785,11 +785,11 @@ public final class GetRecvFile {
        */
       public com.google.protobuf.ByteString
           getFileNameBytes() {
-        java.lang.Object ref = fileName_;
+        Object ref = fileName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           fileName_ = b;
           return b;
         } else {
@@ -802,7 +802,7 @@ public final class GetRecvFile {
        * @return This builder for chaining.
        */
       public Builder setFileName(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -847,7 +847,7 @@ public final class GetRecvFile {
        * <code>bytes key = 4;</code>
        * @return The key.
        */
-      @java.lang.Override
+      @Override
       public com.google.protobuf.ByteString getKey() {
         return key_;
       }
@@ -884,7 +884,7 @@ public final class GetRecvFile {
         return this;
       }
 
-      private java.lang.Object from_ = "";
+      private Object from_ = "";
       /**
        * <pre>
        * 文件来自谁? 
@@ -893,16 +893,16 @@ public final class GetRecvFile {
        * <code>string from = 5;</code>
        * @return The from.
        */
-      public java.lang.String getFrom() {
-        java.lang.Object ref = from_;
-        if (!(ref instanceof java.lang.String)) {
+      public String getFrom() {
+        Object ref = from_;
+        if (!(ref instanceof String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
+          String s = bs.toStringUtf8();
           from_ = s;
           return s;
         } else {
-          return (java.lang.String) ref;
+          return (String) ref;
         }
       }
       /**
@@ -915,11 +915,11 @@ public final class GetRecvFile {
        */
       public com.google.protobuf.ByteString
           getFromBytes() {
-        java.lang.Object ref = from_;
+        Object ref = from_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
+                  (String) ref);
           from_ = b;
           return b;
         } else {
@@ -936,7 +936,7 @@ public final class GetRecvFile {
        * @return This builder for chaining.
        */
       public Builder setFrom(
-          java.lang.String value) {
+          String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -979,13 +979,13 @@ public final class GetRecvFile {
         onChanged();
         return this;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -996,18 +996,18 @@ public final class GetRecvFile {
     }
 
     // @@protoc_insertion_point(class_scope:SharedFile)
-    private static final com.graduate.design.proto.GetRecvFile.SharedFile DEFAULT_INSTANCE;
+    private static final SharedFile DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.GetRecvFile.SharedFile();
+      DEFAULT_INSTANCE = new SharedFile();
     }
 
-    public static com.graduate.design.proto.GetRecvFile.SharedFile getDefaultInstance() {
+    public static SharedFile getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<SharedFile>
         PARSER = new com.google.protobuf.AbstractParser<SharedFile>() {
-      @java.lang.Override
+      @Override
       public SharedFile parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1020,13 +1020,13 @@ public final class GetRecvFile {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<SharedFile> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.GetRecvFile.SharedFile getDefaultInstanceForType() {
+    @Override
+    public SharedFile getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1045,11 +1045,11 @@ public final class GetRecvFile {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    com.graduate.design.proto.Common.BaseReq getBaseReq();
+    Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code GetRecvFileRequest}
@@ -1066,14 +1066,14 @@ public final class GetRecvFile {
     private GetRecvFileRequest() {
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new GetRecvFileRequest();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1084,7 +1084,7 @@ public final class GetRecvFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1097,11 +1097,11 @@ public final class GetRecvFile {
               done = true;
               break;
             case 2042: {
-              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
+              Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -1130,24 +1130,24 @@ public final class GetRecvFile {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileRequest_descriptor;
+      return GetRecvFile.internal_static_GetRecvFileRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileRequest_fieldAccessorTable
+      return GetRecvFile.internal_static_GetRecvFileRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.class, com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.Builder.class);
+              GetRecvFileRequest.class, Builder.class);
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private com.graduate.design.proto.Common.BaseReq baseReq_;
+    private Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -1155,20 +1155,20 @@ public final class GetRecvFile {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+    @Override
+    public Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @Override
+    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1178,7 +1178,7 @@ public final class GetRecvFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseReq_ != null) {
@@ -1187,7 +1187,7 @@ public final class GetRecvFile {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1202,15 +1202,15 @@ public final class GetRecvFile {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.GetRecvFile.GetRecvFileRequest)) {
+      if (!(obj instanceof GetRecvFileRequest)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.GetRecvFile.GetRecvFileRequest other = (com.graduate.design.proto.GetRecvFile.GetRecvFileRequest) obj;
+      GetRecvFileRequest other = (GetRecvFileRequest) obj;
 
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
@@ -1221,7 +1221,7 @@ public final class GetRecvFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1237,69 +1237,69 @@ public final class GetRecvFile {
       return hash;
     }
 
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(byte[] data)
+    public static GetRecvFileRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(java.io.InputStream input)
+    public static GetRecvFileRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseDelimitedFrom(java.io.InputStream input)
+    public static GetRecvFileRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseDelimitedFrom(
+    public static GetRecvFileRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parseFrom(
+    public static GetRecvFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1307,23 +1307,23 @@ public final class GetRecvFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.GetRecvFile.GetRecvFileRequest prototype) {
+    public static Builder newBuilder(GetRecvFileRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1333,18 +1333,18 @@ public final class GetRecvFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:GetRecvFileRequest)
-        com.graduate.design.proto.GetRecvFile.GetRecvFileRequestOrBuilder {
+        GetRecvFileRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileRequest_descriptor;
+        return GetRecvFile.internal_static_GetRecvFileRequest_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileRequest_fieldAccessorTable
+        return GetRecvFile.internal_static_GetRecvFileRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.class, com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.Builder.class);
+                GetRecvFileRequest.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.newBuilder()
@@ -1353,7 +1353,7 @@ public final class GetRecvFile {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1362,7 +1362,7 @@ public final class GetRecvFile {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         if (baseReqBuilder_ == null) {
@@ -1374,29 +1374,29 @@ public final class GetRecvFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileRequest_descriptor;
+        return GetRecvFile.internal_static_GetRecvFileRequest_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.GetRecvFileRequest getDefaultInstanceForType() {
-        return com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.getDefaultInstance();
+      @Override
+      public GetRecvFileRequest getDefaultInstanceForType() {
+        return GetRecvFileRequest.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.GetRecvFileRequest build() {
-        com.graduate.design.proto.GetRecvFile.GetRecvFileRequest result = buildPartial();
+      @Override
+      public GetRecvFileRequest build() {
+        GetRecvFileRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.GetRecvFileRequest buildPartial() {
-        com.graduate.design.proto.GetRecvFile.GetRecvFileRequest result = new com.graduate.design.proto.GetRecvFile.GetRecvFileRequest(this);
+      @Override
+      public GetRecvFileRequest buildPartial() {
+        GetRecvFileRequest result = new GetRecvFileRequest(this);
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -1406,50 +1406,50 @@ public final class GetRecvFile {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.GetRecvFile.GetRecvFileRequest) {
-          return mergeFrom((com.graduate.design.proto.GetRecvFile.GetRecvFileRequest)other);
+        if (other instanceof GetRecvFileRequest) {
+          return mergeFrom((GetRecvFileRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.GetRecvFile.GetRecvFileRequest other) {
-        if (other == com.graduate.design.proto.GetRecvFile.GetRecvFileRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(GetRecvFileRequest other) {
+        if (other == GetRecvFileRequest.getDefaultInstance()) return this;
         if (other.hasBaseReq()) {
           mergeBaseReq(other.getBaseReq());
         }
@@ -1458,21 +1458,21 @@ public final class GetRecvFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.GetRecvFile.GetRecvFileRequest parsedMessage = null;
+        GetRecvFileRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.GetRecvFile.GetRecvFileRequest) e.getUnfinishedMessage();
+          parsedMessage = (GetRecvFileRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1482,9 +1482,9 @@ public final class GetRecvFile {
         return this;
       }
 
-      private com.graduate.design.proto.Common.BaseReq baseReq_;
+      private Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
+          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -1496,9 +1496,9 @@ public final class GetRecvFile {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      public Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -1506,7 +1506,7 @@ public final class GetRecvFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
+      public Builder setBaseReq(Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1523,7 +1523,7 @@ public final class GetRecvFile {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
+          Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -1536,11 +1536,11 @@ public final class GetRecvFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
+      public Builder mergeBaseReq(Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -1568,7 +1568,7 @@ public final class GetRecvFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
+      public Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -1576,23 +1576,23 @@ public final class GetRecvFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+              Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
+          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
+              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -1600,13 +1600,13 @@ public final class GetRecvFile {
         }
         return baseReqBuilder_;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1617,18 +1617,18 @@ public final class GetRecvFile {
     }
 
     // @@protoc_insertion_point(class_scope:GetRecvFileRequest)
-    private static final com.graduate.design.proto.GetRecvFile.GetRecvFileRequest DEFAULT_INSTANCE;
+    private static final GetRecvFileRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.GetRecvFile.GetRecvFileRequest();
+      DEFAULT_INSTANCE = new GetRecvFileRequest();
     }
 
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileRequest getDefaultInstance() {
+    public static GetRecvFileRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<GetRecvFileRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetRecvFileRequest>() {
-      @java.lang.Override
+      @Override
       public GetRecvFileRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1641,13 +1641,13 @@ public final class GetRecvFile {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GetRecvFileRequest> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.GetRecvFile.GetRecvFileRequest getDefaultInstanceForType() {
+    @Override
+    public GetRecvFileRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1660,12 +1660,12 @@ public final class GetRecvFile {
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    java.util.List<com.graduate.design.proto.GetRecvFile.SharedFile> 
+    java.util.List<SharedFile>
         getShareFileListList();
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    com.graduate.design.proto.GetRecvFile.SharedFile getShareFileList(int index);
+    SharedFile getShareFileList(int index);
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
@@ -1673,12 +1673,12 @@ public final class GetRecvFile {
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    java.util.List<? extends com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder> 
+    java.util.List<? extends SharedFileOrBuilder>
         getShareFileListOrBuilderList();
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder getShareFileListOrBuilder(
+    SharedFileOrBuilder getShareFileListOrBuilder(
         int index);
 
     /**
@@ -1690,11 +1690,11 @@ public final class GetRecvFile {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    com.graduate.design.proto.Common.BaseResp getBaseResp();
+    Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code GetRecvFileResponse}
@@ -1712,14 +1712,14 @@ public final class GetRecvFile {
       shareFileList_ = java.util.Collections.emptyList();
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new GetRecvFileResponse();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1730,7 +1730,7 @@ public final class GetRecvFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1745,19 +1745,19 @@ public final class GetRecvFile {
               break;
             case 10: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                shareFileList_ = new java.util.ArrayList<com.graduate.design.proto.GetRecvFile.SharedFile>();
+                shareFileList_ = new java.util.ArrayList<SharedFile>();
                 mutable_bitField0_ |= 0x00000001;
               }
               shareFileList_.add(
-                  input.readMessage(com.graduate.design.proto.GetRecvFile.SharedFile.parser(), extensionRegistry));
+                  input.readMessage(SharedFile.parser(), extensionRegistry));
               break;
             }
             case 2042: {
-              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
+              Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1789,64 +1789,64 @@ public final class GetRecvFile {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileResponse_descriptor;
+      return GetRecvFile.internal_static_GetRecvFileResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileResponse_fieldAccessorTable
+      return GetRecvFile.internal_static_GetRecvFileResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.class, com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.Builder.class);
+              GetRecvFileResponse.class, Builder.class);
     }
 
     public static final int SHAREFILELIST_FIELD_NUMBER = 1;
-    private java.util.List<com.graduate.design.proto.GetRecvFile.SharedFile> shareFileList_;
+    private java.util.List<SharedFile> shareFileList_;
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    @java.lang.Override
-    public java.util.List<com.graduate.design.proto.GetRecvFile.SharedFile> getShareFileListList() {
+    @Override
+    public java.util.List<SharedFile> getShareFileListList() {
       return shareFileList_;
     }
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    @java.lang.Override
-    public java.util.List<? extends com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder> 
+    @Override
+    public java.util.List<? extends SharedFileOrBuilder>
         getShareFileListOrBuilderList() {
       return shareFileList_;
     }
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    @java.lang.Override
+    @Override
     public int getShareFileListCount() {
       return shareFileList_.size();
     }
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.GetRecvFile.SharedFile getShareFileList(int index) {
+    @Override
+    public SharedFile getShareFileList(int index) {
       return shareFileList_.get(index);
     }
     /**
      * <code>repeated .SharedFile shareFileList = 1;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder getShareFileListOrBuilder(
+    @Override
+    public SharedFileOrBuilder getShareFileListOrBuilder(
         int index) {
       return shareFileList_.get(index);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private com.graduate.design.proto.Common.BaseResp baseResp_;
+    private Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1854,20 +1854,20 @@ public final class GetRecvFile {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+    @Override
+    public Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @Override
+    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1877,7 +1877,7 @@ public final class GetRecvFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < shareFileList_.size(); i++) {
@@ -1889,7 +1889,7 @@ public final class GetRecvFile {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1908,15 +1908,15 @@ public final class GetRecvFile {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.GetRecvFile.GetRecvFileResponse)) {
+      if (!(obj instanceof GetRecvFileResponse)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.GetRecvFile.GetRecvFileResponse other = (com.graduate.design.proto.GetRecvFile.GetRecvFileResponse) obj;
+      GetRecvFileResponse other = (GetRecvFileResponse) obj;
 
       if (!getShareFileListList()
           .equals(other.getShareFileListList())) return false;
@@ -1929,7 +1929,7 @@ public final class GetRecvFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1949,69 +1949,69 @@ public final class GetRecvFile {
       return hash;
     }
 
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(byte[] data)
+    public static GetRecvFileResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(java.io.InputStream input)
+    public static GetRecvFileResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseDelimitedFrom(java.io.InputStream input)
+    public static GetRecvFileResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseDelimitedFrom(
+    public static GetRecvFileResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parseFrom(
+    public static GetRecvFileResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2019,23 +2019,23 @@ public final class GetRecvFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.GetRecvFile.GetRecvFileResponse prototype) {
+    public static Builder newBuilder(GetRecvFileResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2045,18 +2045,18 @@ public final class GetRecvFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:GetRecvFileResponse)
-        com.graduate.design.proto.GetRecvFile.GetRecvFileResponseOrBuilder {
+        GetRecvFileResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileResponse_descriptor;
+        return GetRecvFile.internal_static_GetRecvFileResponse_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileResponse_fieldAccessorTable
+        return GetRecvFile.internal_static_GetRecvFileResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.class, com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.Builder.class);
+                GetRecvFileResponse.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.newBuilder()
@@ -2065,7 +2065,7 @@ public final class GetRecvFile {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2075,7 +2075,7 @@ public final class GetRecvFile {
           getShareFileListFieldBuilder();
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         if (shareFileListBuilder_ == null) {
@@ -2093,29 +2093,29 @@ public final class GetRecvFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.GetRecvFile.internal_static_GetRecvFileResponse_descriptor;
+        return GetRecvFile.internal_static_GetRecvFileResponse_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.GetRecvFileResponse getDefaultInstanceForType() {
-        return com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.getDefaultInstance();
+      @Override
+      public GetRecvFileResponse getDefaultInstanceForType() {
+        return GetRecvFileResponse.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.GetRecvFileResponse build() {
-        com.graduate.design.proto.GetRecvFile.GetRecvFileResponse result = buildPartial();
+      @Override
+      public GetRecvFileResponse build() {
+        GetRecvFileResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetRecvFile.GetRecvFileResponse buildPartial() {
-        com.graduate.design.proto.GetRecvFile.GetRecvFileResponse result = new com.graduate.design.proto.GetRecvFile.GetRecvFileResponse(this);
+      @Override
+      public GetRecvFileResponse buildPartial() {
+        GetRecvFileResponse result = new GetRecvFileResponse(this);
         int from_bitField0_ = bitField0_;
         if (shareFileListBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
@@ -2135,50 +2135,50 @@ public final class GetRecvFile {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.GetRecvFile.GetRecvFileResponse) {
-          return mergeFrom((com.graduate.design.proto.GetRecvFile.GetRecvFileResponse)other);
+        if (other instanceof GetRecvFileResponse) {
+          return mergeFrom((GetRecvFileResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.GetRecvFile.GetRecvFileResponse other) {
-        if (other == com.graduate.design.proto.GetRecvFile.GetRecvFileResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(GetRecvFileResponse other) {
+        if (other == GetRecvFileResponse.getDefaultInstance()) return this;
         if (shareFileListBuilder_ == null) {
           if (!other.shareFileList_.isEmpty()) {
             if (shareFileList_.isEmpty()) {
@@ -2213,21 +2213,21 @@ public final class GetRecvFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.GetRecvFile.GetRecvFileResponse parsedMessage = null;
+        GetRecvFileResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.GetRecvFile.GetRecvFileResponse) e.getUnfinishedMessage();
+          parsedMessage = (GetRecvFileResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2238,22 +2238,22 @@ public final class GetRecvFile {
       }
       private int bitField0_;
 
-      private java.util.List<com.graduate.design.proto.GetRecvFile.SharedFile> shareFileList_ =
+      private java.util.List<SharedFile> shareFileList_ =
         java.util.Collections.emptyList();
       private void ensureShareFileListIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          shareFileList_ = new java.util.ArrayList<com.graduate.design.proto.GetRecvFile.SharedFile>(shareFileList_);
+          shareFileList_ = new java.util.ArrayList<SharedFile>(shareFileList_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.graduate.design.proto.GetRecvFile.SharedFile, com.graduate.design.proto.GetRecvFile.SharedFile.Builder, com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder> shareFileListBuilder_;
+          SharedFile, SharedFile.Builder, SharedFileOrBuilder> shareFileListBuilder_;
 
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public java.util.List<com.graduate.design.proto.GetRecvFile.SharedFile> getShareFileListList() {
+      public java.util.List<SharedFile> getShareFileListList() {
         if (shareFileListBuilder_ == null) {
           return java.util.Collections.unmodifiableList(shareFileList_);
         } else {
@@ -2273,7 +2273,7 @@ public final class GetRecvFile {
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public com.graduate.design.proto.GetRecvFile.SharedFile getShareFileList(int index) {
+      public SharedFile getShareFileList(int index) {
         if (shareFileListBuilder_ == null) {
           return shareFileList_.get(index);
         } else {
@@ -2284,7 +2284,7 @@ public final class GetRecvFile {
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
       public Builder setShareFileList(
-          int index, com.graduate.design.proto.GetRecvFile.SharedFile value) {
+          int index, SharedFile value) {
         if (shareFileListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2301,7 +2301,7 @@ public final class GetRecvFile {
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
       public Builder setShareFileList(
-          int index, com.graduate.design.proto.GetRecvFile.SharedFile.Builder builderForValue) {
+          int index, SharedFile.Builder builderForValue) {
         if (shareFileListBuilder_ == null) {
           ensureShareFileListIsMutable();
           shareFileList_.set(index, builderForValue.build());
@@ -2314,7 +2314,7 @@ public final class GetRecvFile {
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public Builder addShareFileList(com.graduate.design.proto.GetRecvFile.SharedFile value) {
+      public Builder addShareFileList(SharedFile value) {
         if (shareFileListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2331,7 +2331,7 @@ public final class GetRecvFile {
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
       public Builder addShareFileList(
-          int index, com.graduate.design.proto.GetRecvFile.SharedFile value) {
+          int index, SharedFile value) {
         if (shareFileListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2348,7 +2348,7 @@ public final class GetRecvFile {
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
       public Builder addShareFileList(
-          com.graduate.design.proto.GetRecvFile.SharedFile.Builder builderForValue) {
+          SharedFile.Builder builderForValue) {
         if (shareFileListBuilder_ == null) {
           ensureShareFileListIsMutable();
           shareFileList_.add(builderForValue.build());
@@ -2362,7 +2362,7 @@ public final class GetRecvFile {
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
       public Builder addShareFileList(
-          int index, com.graduate.design.proto.GetRecvFile.SharedFile.Builder builderForValue) {
+          int index, SharedFile.Builder builderForValue) {
         if (shareFileListBuilder_ == null) {
           ensureShareFileListIsMutable();
           shareFileList_.add(index, builderForValue.build());
@@ -2376,7 +2376,7 @@ public final class GetRecvFile {
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
       public Builder addAllShareFileList(
-          java.lang.Iterable<? extends com.graduate.design.proto.GetRecvFile.SharedFile> values) {
+          Iterable<? extends SharedFile> values) {
         if (shareFileListBuilder_ == null) {
           ensureShareFileListIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -2416,14 +2416,14 @@ public final class GetRecvFile {
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public com.graduate.design.proto.GetRecvFile.SharedFile.Builder getShareFileListBuilder(
+      public SharedFile.Builder getShareFileListBuilder(
           int index) {
         return getShareFileListFieldBuilder().getBuilder(index);
       }
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder getShareFileListOrBuilder(
+      public SharedFileOrBuilder getShareFileListOrBuilder(
           int index) {
         if (shareFileListBuilder_ == null) {
           return shareFileList_.get(index);  } else {
@@ -2433,7 +2433,7 @@ public final class GetRecvFile {
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public java.util.List<? extends com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder> 
+      public java.util.List<? extends SharedFileOrBuilder>
            getShareFileListOrBuilderList() {
         if (shareFileListBuilder_ != null) {
           return shareFileListBuilder_.getMessageOrBuilderList();
@@ -2444,31 +2444,31 @@ public final class GetRecvFile {
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public com.graduate.design.proto.GetRecvFile.SharedFile.Builder addShareFileListBuilder() {
+      public SharedFile.Builder addShareFileListBuilder() {
         return getShareFileListFieldBuilder().addBuilder(
-            com.graduate.design.proto.GetRecvFile.SharedFile.getDefaultInstance());
+            SharedFile.getDefaultInstance());
       }
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public com.graduate.design.proto.GetRecvFile.SharedFile.Builder addShareFileListBuilder(
+      public SharedFile.Builder addShareFileListBuilder(
           int index) {
         return getShareFileListFieldBuilder().addBuilder(
-            index, com.graduate.design.proto.GetRecvFile.SharedFile.getDefaultInstance());
+            index, SharedFile.getDefaultInstance());
       }
       /**
        * <code>repeated .SharedFile shareFileList = 1;</code>
        */
-      public java.util.List<com.graduate.design.proto.GetRecvFile.SharedFile.Builder> 
+      public java.util.List<SharedFile.Builder>
            getShareFileListBuilderList() {
         return getShareFileListFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          com.graduate.design.proto.GetRecvFile.SharedFile, com.graduate.design.proto.GetRecvFile.SharedFile.Builder, com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder> 
+          SharedFile, SharedFile.Builder, SharedFileOrBuilder>
           getShareFileListFieldBuilder() {
         if (shareFileListBuilder_ == null) {
           shareFileListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              com.graduate.design.proto.GetRecvFile.SharedFile, com.graduate.design.proto.GetRecvFile.SharedFile.Builder, com.graduate.design.proto.GetRecvFile.SharedFileOrBuilder>(
+              SharedFile, SharedFile.Builder, SharedFileOrBuilder>(
                   shareFileList_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -2478,9 +2478,9 @@ public final class GetRecvFile {
         return shareFileListBuilder_;
       }
 
-      private com.graduate.design.proto.Common.BaseResp baseResp_;
+      private Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
+          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -2492,9 +2492,9 @@ public final class GetRecvFile {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      public Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -2502,7 +2502,7 @@ public final class GetRecvFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
+      public Builder setBaseResp(Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2519,7 +2519,7 @@ public final class GetRecvFile {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
+          Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -2532,11 +2532,11 @@ public final class GetRecvFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
+      public Builder mergeBaseResp(Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -2564,7 +2564,7 @@ public final class GetRecvFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
+      public Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -2572,23 +2572,23 @@ public final class GetRecvFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+              Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
+          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
+              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -2596,13 +2596,13 @@ public final class GetRecvFile {
         }
         return baseRespBuilder_;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2613,18 +2613,18 @@ public final class GetRecvFile {
     }
 
     // @@protoc_insertion_point(class_scope:GetRecvFileResponse)
-    private static final com.graduate.design.proto.GetRecvFile.GetRecvFileResponse DEFAULT_INSTANCE;
+    private static final GetRecvFileResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.GetRecvFile.GetRecvFileResponse();
+      DEFAULT_INSTANCE = new GetRecvFileResponse();
     }
 
-    public static com.graduate.design.proto.GetRecvFile.GetRecvFileResponse getDefaultInstance() {
+    public static GetRecvFileResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<GetRecvFileResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetRecvFileResponse>() {
-      @java.lang.Override
+      @Override
       public GetRecvFileResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2637,13 +2637,13 @@ public final class GetRecvFile {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GetRecvFileResponse> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.GetRecvFile.GetRecvFileResponse getDefaultInstanceForType() {
+    @Override
+    public GetRecvFileResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2672,41 +2672,41 @@ public final class GetRecvFile {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\023get_recv_file.proto\032\014common.proto\"Z\n\nS" +
       "haredFile\022\017\n\007shareId\030\001 \001(\003\022\016\n\006fileId\030\002 \001" +
       "(\003\022\020\n\010fileName\030\003 \001(\t\022\013\n\003key\030\004 \001(\014\022\014\n\004fro" +
       "m\030\005 \001(\t\"0\n\022GetRecvFileRequest\022\032\n\007baseReq" +
       "\030\377\001 \001(\0132\010.BaseReq\"W\n\023GetRecvFileResponse" +
       "\022\"\n\rshareFileList\030\001 \003(\0132\013.SharedFile\022\034\n\010" +
-      "baseResp\030\377\001 \001(\0132\t.BaseRespBP\n\031com.gradua" +
-      "te.design.protoB\013GetRecvFileZ&github.com" +
-      "/JackTJC/gmFS_backend/pb_genb\006proto3"
+      "baseResp\030\377\001 \001(\0132\t.BaseRespB2\n\031com.gradua" +
+      "te.design.protoB\013GetRecvFileZ\010./pb_genb\006" +
+      "proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.graduate.design.proto.Common.getDescriptor(),
+          Common.getDescriptor(),
         });
     internal_static_SharedFile_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_SharedFile_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SharedFile_descriptor,
-        new java.lang.String[] { "ShareId", "FileId", "FileName", "Key", "From", });
+        new String[] { "ShareId", "FileId", "FileName", "Key", "From", });
     internal_static_GetRecvFileRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_GetRecvFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetRecvFileRequest_descriptor,
-        new java.lang.String[] { "BaseReq", });
+        new String[] { "BaseReq", });
     internal_static_GetRecvFileResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_GetRecvFileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetRecvFileResponse_descriptor,
-        new java.lang.String[] { "ShareFileList", "BaseResp", });
-    com.graduate.design.proto.Common.getDescriptor();
+        new String[] { "ShareFileList", "BaseResp", });
+    Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

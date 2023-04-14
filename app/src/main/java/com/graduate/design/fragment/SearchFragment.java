@@ -33,7 +33,10 @@ import com.graduate.design.utils.ToastUtils;
 import com.graduate.design.view.ClearEditText;
 
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class SearchFragment extends Fragment implements View.OnClickListener,
         TextView.OnEditorActionListener, AdapterView.OnItemClickListener {
@@ -77,7 +80,10 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
         token = GraduateDesignApplication.getToken();
         activity = (HomeActivity) getActivity();
         context = getContext();
-        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file);
+        long nodeId;
+        if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
+        else nodeId = getArguments().getLong("nodeId");
+        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, nodeId);
     }
 
     private void getComponentsById(View view){
@@ -136,8 +142,14 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
             List<String> Cw = userService.sendSearchToken(searchToken, token);
             // 根据Cw获取节点id
             List<Long> idList = encryptionService.getNodeIdByCw(Cw, keyword);
+            // 在这里添加一下查找所有存在的节点，并获得差集
+            Set<Long> allDeletedNodes = userService.getAllDeleteNodes(GraduateDesignApplication.getUsername(), token);
+            Set<Long> realSet = new HashSet<>(idList);
+            realSet.removeAll(allDeletedNodes);
+            // 注意处理空集的情况
             // 根据id获取文件
-            searchNodes = userService.searchFile(idList, token);
+//            searchNodes = userService.searchFile(idList, token);
+            searchNodes = userService.searchFile(new ArrayList<>(realSet), token);
             fileItemAdapter.addAllFileItem(searchNodes);
         }
     }

@@ -1,6 +1,4 @@
-package com.graduate.design.sharettokenprotocol;
-
-import android.util.Log;
+package com.graduate.design.sharettokenProtocol;
 
 import com.graduate.design.entity.BiIndex;
 import com.graduate.design.proto.Common;

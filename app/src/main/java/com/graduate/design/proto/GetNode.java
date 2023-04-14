@@ -19,8 +19,7 @@ public final class GetNode {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <pre>
-     * 节点id
+     * <pre>     * 节点id
      * </pre>
      *
      * <code>int64 nodeId = 1;</code>
@@ -37,11 +36,11 @@ public final class GetNode {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    com.graduate.design.proto.Common.BaseReq getBaseReq();
+    Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code GetNodeRequest}
@@ -58,14 +57,14 @@ public final class GetNode {
     private GetNodeRequest() {
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new GetNodeRequest();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -76,7 +75,7 @@ public final class GetNode {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -94,11 +93,11 @@ public final class GetNode {
               break;
             }
             case 2042: {
-              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
+              Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -127,15 +126,15 @@ public final class GetNode {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.GetNode.internal_static_GetNodeRequest_descriptor;
+      return GetNode.internal_static_GetNodeRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.GetNode.internal_static_GetNodeRequest_fieldAccessorTable
+      return GetNode.internal_static_GetNodeRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.GetNode.GetNodeRequest.class, com.graduate.design.proto.GetNode.GetNodeRequest.Builder.class);
+              GetNodeRequest.class, Builder.class);
     }
 
     public static final int NODEID_FIELD_NUMBER = 1;
@@ -148,18 +147,18 @@ public final class GetNode {
      * <code>int64 nodeId = 1;</code>
      * @return The nodeId.
      */
-    @java.lang.Override
+    @Override
     public long getNodeId() {
       return nodeId_;
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private com.graduate.design.proto.Common.BaseReq baseReq_;
+    private Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -167,20 +166,20 @@ public final class GetNode {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+    @Override
+    public Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @Override
+    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -190,7 +189,7 @@ public final class GetNode {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (nodeId_ != 0L) {
@@ -202,7 +201,7 @@ public final class GetNode {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -221,15 +220,15 @@ public final class GetNode {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.GetNode.GetNodeRequest)) {
+      if (!(obj instanceof GetNodeRequest)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.GetNode.GetNodeRequest other = (com.graduate.design.proto.GetNode.GetNodeRequest) obj;
+      GetNodeRequest other = (GetNodeRequest) obj;
 
       if (getNodeId()
           != other.getNodeId()) return false;
@@ -242,7 +241,7 @@ public final class GetNode {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -261,69 +260,69 @@ public final class GetNode {
       return hash;
     }
 
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(byte[] data)
+    public static GetNodeRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(java.io.InputStream input)
+    public static GetNodeRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseDelimitedFrom(java.io.InputStream input)
+    public static GetNodeRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseDelimitedFrom(
+    public static GetNodeRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeRequest parseFrom(
+    public static GetNodeRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -331,23 +330,23 @@ public final class GetNode {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.GetNode.GetNodeRequest prototype) {
+    public static Builder newBuilder(GetNodeRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -357,18 +356,18 @@ public final class GetNode {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:GetNodeRequest)
-        com.graduate.design.proto.GetNode.GetNodeRequestOrBuilder {
+        GetNodeRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.GetNode.internal_static_GetNodeRequest_descriptor;
+        return GetNode.internal_static_GetNodeRequest_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.GetNode.internal_static_GetNodeRequest_fieldAccessorTable
+        return GetNode.internal_static_GetNodeRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.GetNode.GetNodeRequest.class, com.graduate.design.proto.GetNode.GetNodeRequest.Builder.class);
+                GetNodeRequest.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.GetNode.GetNodeRequest.newBuilder()
@@ -377,7 +376,7 @@ public final class GetNode {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -386,7 +385,7 @@ public final class GetNode {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         nodeId_ = 0L;
@@ -400,29 +399,29 @@ public final class GetNode {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.GetNode.internal_static_GetNodeRequest_descriptor;
+        return GetNode.internal_static_GetNodeRequest_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetNode.GetNodeRequest getDefaultInstanceForType() {
-        return com.graduate.design.proto.GetNode.GetNodeRequest.getDefaultInstance();
+      @Override
+      public GetNodeRequest getDefaultInstanceForType() {
+        return GetNodeRequest.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetNode.GetNodeRequest build() {
-        com.graduate.design.proto.GetNode.GetNodeRequest result = buildPartial();
+      @Override
+      public GetNodeRequest build() {
+        GetNodeRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetNode.GetNodeRequest buildPartial() {
-        com.graduate.design.proto.GetNode.GetNodeRequest result = new com.graduate.design.proto.GetNode.GetNodeRequest(this);
+      @Override
+      public GetNodeRequest buildPartial() {
+        GetNodeRequest result = new GetNodeRequest(this);
         result.nodeId_ = nodeId_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
@@ -433,50 +432,50 @@ public final class GetNode {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.GetNode.GetNodeRequest) {
-          return mergeFrom((com.graduate.design.proto.GetNode.GetNodeRequest)other);
+        if (other instanceof GetNodeRequest) {
+          return mergeFrom((GetNodeRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.GetNode.GetNodeRequest other) {
-        if (other == com.graduate.design.proto.GetNode.GetNodeRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(GetNodeRequest other) {
+        if (other == GetNodeRequest.getDefaultInstance()) return this;
         if (other.getNodeId() != 0L) {
           setNodeId(other.getNodeId());
         }
@@ -488,21 +487,21 @@ public final class GetNode {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.GetNode.GetNodeRequest parsedMessage = null;
+        GetNodeRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.GetNode.GetNodeRequest) e.getUnfinishedMessage();
+          parsedMessage = (GetNodeRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -521,7 +520,7 @@ public final class GetNode {
        * <code>int64 nodeId = 1;</code>
        * @return The nodeId.
        */
-      @java.lang.Override
+      @Override
       public long getNodeId() {
         return nodeId_;
       }
@@ -555,9 +554,9 @@ public final class GetNode {
         return this;
       }
 
-      private com.graduate.design.proto.Common.BaseReq baseReq_;
+      private Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
+          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -569,9 +568,9 @@ public final class GetNode {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      public Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -579,7 +578,7 @@ public final class GetNode {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
+      public Builder setBaseReq(Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -596,7 +595,7 @@ public final class GetNode {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
+          Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -609,11 +608,11 @@ public final class GetNode {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
+      public Builder mergeBaseReq(Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -641,7 +640,7 @@ public final class GetNode {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
+      public Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -649,23 +648,23 @@ public final class GetNode {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+              Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
+          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
+              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -673,13 +672,13 @@ public final class GetNode {
         }
         return baseReqBuilder_;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -690,18 +689,18 @@ public final class GetNode {
     }
 
     // @@protoc_insertion_point(class_scope:GetNodeRequest)
-    private static final com.graduate.design.proto.GetNode.GetNodeRequest DEFAULT_INSTANCE;
+    private static final GetNodeRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.GetNode.GetNodeRequest();
+      DEFAULT_INSTANCE = new GetNodeRequest();
     }
 
-    public static com.graduate.design.proto.GetNode.GetNodeRequest getDefaultInstance() {
+    public static GetNodeRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<GetNodeRequest>
         PARSER = new com.google.protobuf.AbstractParser<GetNodeRequest>() {
-      @java.lang.Override
+      @Override
       public GetNodeRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -714,13 +713,13 @@ public final class GetNode {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GetNodeRequest> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.GetNode.GetNodeRequest getDefaultInstanceForType() {
+    @Override
+    public GetNodeRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -747,7 +746,7 @@ public final class GetNode {
      * <code>.Node node = 1;</code>
      * @return The node.
      */
-    com.graduate.design.proto.Common.Node getNode();
+    Common.Node getNode();
     /**
      * <pre>
      * 节点
@@ -755,7 +754,7 @@ public final class GetNode {
      *
      * <code>.Node node = 1;</code>
      */
-    com.graduate.design.proto.Common.NodeOrBuilder getNodeOrBuilder();
+    Common.NodeOrBuilder getNodeOrBuilder();
 
     /**
      * <code>.BaseResp baseResp = 255;</code>
@@ -766,11 +765,11 @@ public final class GetNode {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    com.graduate.design.proto.Common.BaseResp getBaseResp();
+    Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code GetNodeResponse}
@@ -787,14 +786,14 @@ public final class GetNode {
     private GetNodeResponse() {
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new GetNodeResponse();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -805,7 +804,7 @@ public final class GetNode {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -818,11 +817,11 @@ public final class GetNode {
               done = true;
               break;
             case 10: {
-              com.graduate.design.proto.Common.Node.Builder subBuilder = null;
+              Common.Node.Builder subBuilder = null;
               if (node_ != null) {
                 subBuilder = node_.toBuilder();
               }
-              node_ = input.readMessage(com.graduate.design.proto.Common.Node.parser(), extensionRegistry);
+              node_ = input.readMessage(Common.Node.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(node_);
                 node_ = subBuilder.buildPartial();
@@ -831,11 +830,11 @@ public final class GetNode {
               break;
             }
             case 2042: {
-              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
+              Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -864,19 +863,19 @@ public final class GetNode {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.GetNode.internal_static_GetNodeResponse_descriptor;
+      return GetNode.internal_static_GetNodeResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.GetNode.internal_static_GetNodeResponse_fieldAccessorTable
+      return GetNode.internal_static_GetNodeResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.GetNode.GetNodeResponse.class, com.graduate.design.proto.GetNode.GetNodeResponse.Builder.class);
+              GetNodeResponse.class, Builder.class);
     }
 
     public static final int NODE_FIELD_NUMBER = 1;
-    private com.graduate.design.proto.Common.Node node_;
+    private Common.Node node_;
     /**
      * <pre>
      * 节点
@@ -885,7 +884,7 @@ public final class GetNode {
      * <code>.Node node = 1;</code>
      * @return Whether the node field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasNode() {
       return node_ != null;
     }
@@ -897,9 +896,9 @@ public final class GetNode {
      * <code>.Node node = 1;</code>
      * @return The node.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.Node getNode() {
-      return node_ == null ? com.graduate.design.proto.Common.Node.getDefaultInstance() : node_;
+    @Override
+    public Common.Node getNode() {
+      return node_ == null ? Common.Node.getDefaultInstance() : node_;
     }
     /**
      * <pre>
@@ -908,18 +907,18 @@ public final class GetNode {
      *
      * <code>.Node node = 1;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.NodeOrBuilder getNodeOrBuilder() {
+    @Override
+    public Common.NodeOrBuilder getNodeOrBuilder() {
       return getNode();
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private com.graduate.design.proto.Common.BaseResp baseResp_;
+    private Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -927,20 +926,20 @@ public final class GetNode {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+    @Override
+    public Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @Override
+    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -950,7 +949,7 @@ public final class GetNode {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (node_ != null) {
@@ -962,7 +961,7 @@ public final class GetNode {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -981,15 +980,15 @@ public final class GetNode {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.GetNode.GetNodeResponse)) {
+      if (!(obj instanceof GetNodeResponse)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.GetNode.GetNodeResponse other = (com.graduate.design.proto.GetNode.GetNodeResponse) obj;
+      GetNodeResponse other = (GetNodeResponse) obj;
 
       if (hasNode() != other.hasNode()) return false;
       if (hasNode()) {
@@ -1005,7 +1004,7 @@ public final class GetNode {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1025,69 +1024,69 @@ public final class GetNode {
       return hash;
     }
 
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(byte[] data)
+    public static GetNodeResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(java.io.InputStream input)
+    public static GetNodeResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseDelimitedFrom(java.io.InputStream input)
+    public static GetNodeResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseDelimitedFrom(
+    public static GetNodeResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.GetNode.GetNodeResponse parseFrom(
+    public static GetNodeResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1095,23 +1094,23 @@ public final class GetNode {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.GetNode.GetNodeResponse prototype) {
+    public static Builder newBuilder(GetNodeResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1121,18 +1120,18 @@ public final class GetNode {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:GetNodeResponse)
-        com.graduate.design.proto.GetNode.GetNodeResponseOrBuilder {
+        GetNodeResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.GetNode.internal_static_GetNodeResponse_descriptor;
+        return GetNode.internal_static_GetNodeResponse_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.GetNode.internal_static_GetNodeResponse_fieldAccessorTable
+        return GetNode.internal_static_GetNodeResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.GetNode.GetNodeResponse.class, com.graduate.design.proto.GetNode.GetNodeResponse.Builder.class);
+                GetNodeResponse.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.GetNode.GetNodeResponse.newBuilder()
@@ -1141,7 +1140,7 @@ public final class GetNode {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1150,7 +1149,7 @@ public final class GetNode {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         if (nodeBuilder_ == null) {
@@ -1168,29 +1167,29 @@ public final class GetNode {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.GetNode.internal_static_GetNodeResponse_descriptor;
+        return GetNode.internal_static_GetNodeResponse_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetNode.GetNodeResponse getDefaultInstanceForType() {
-        return com.graduate.design.proto.GetNode.GetNodeResponse.getDefaultInstance();
+      @Override
+      public GetNodeResponse getDefaultInstanceForType() {
+        return GetNodeResponse.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetNode.GetNodeResponse build() {
-        com.graduate.design.proto.GetNode.GetNodeResponse result = buildPartial();
+      @Override
+      public GetNodeResponse build() {
+        GetNodeResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.GetNode.GetNodeResponse buildPartial() {
-        com.graduate.design.proto.GetNode.GetNodeResponse result = new com.graduate.design.proto.GetNode.GetNodeResponse(this);
+      @Override
+      public GetNodeResponse buildPartial() {
+        GetNodeResponse result = new GetNodeResponse(this);
         if (nodeBuilder_ == null) {
           result.node_ = node_;
         } else {
@@ -1205,50 +1204,50 @@ public final class GetNode {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.GetNode.GetNodeResponse) {
-          return mergeFrom((com.graduate.design.proto.GetNode.GetNodeResponse)other);
+        if (other instanceof GetNodeResponse) {
+          return mergeFrom((GetNodeResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.GetNode.GetNodeResponse other) {
-        if (other == com.graduate.design.proto.GetNode.GetNodeResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(GetNodeResponse other) {
+        if (other == GetNodeResponse.getDefaultInstance()) return this;
         if (other.hasNode()) {
           mergeNode(other.getNode());
         }
@@ -1260,21 +1259,21 @@ public final class GetNode {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.GetNode.GetNodeResponse parsedMessage = null;
+        GetNodeResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.GetNode.GetNodeResponse) e.getUnfinishedMessage();
+          parsedMessage = (GetNodeResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1284,9 +1283,9 @@ public final class GetNode {
         return this;
       }
 
-      private com.graduate.design.proto.Common.Node node_;
+      private Common.Node node_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.Node, com.graduate.design.proto.Common.Node.Builder, com.graduate.design.proto.Common.NodeOrBuilder> nodeBuilder_;
+          Common.Node, Common.Node.Builder, Common.NodeOrBuilder> nodeBuilder_;
       /**
        * <pre>
        * 节点
@@ -1306,9 +1305,9 @@ public final class GetNode {
        * <code>.Node node = 1;</code>
        * @return The node.
        */
-      public com.graduate.design.proto.Common.Node getNode() {
+      public Common.Node getNode() {
         if (nodeBuilder_ == null) {
-          return node_ == null ? com.graduate.design.proto.Common.Node.getDefaultInstance() : node_;
+          return node_ == null ? Common.Node.getDefaultInstance() : node_;
         } else {
           return nodeBuilder_.getMessage();
         }
@@ -1320,7 +1319,7 @@ public final class GetNode {
        *
        * <code>.Node node = 1;</code>
        */
-      public Builder setNode(com.graduate.design.proto.Common.Node value) {
+      public Builder setNode(Common.Node value) {
         if (nodeBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1341,7 +1340,7 @@ public final class GetNode {
        * <code>.Node node = 1;</code>
        */
       public Builder setNode(
-          com.graduate.design.proto.Common.Node.Builder builderForValue) {
+          Common.Node.Builder builderForValue) {
         if (nodeBuilder_ == null) {
           node_ = builderForValue.build();
           onChanged();
@@ -1358,11 +1357,11 @@ public final class GetNode {
        *
        * <code>.Node node = 1;</code>
        */
-      public Builder mergeNode(com.graduate.design.proto.Common.Node value) {
+      public Builder mergeNode(Common.Node value) {
         if (nodeBuilder_ == null) {
           if (node_ != null) {
             node_ =
-              com.graduate.design.proto.Common.Node.newBuilder(node_).mergeFrom(value).buildPartial();
+              Common.Node.newBuilder(node_).mergeFrom(value).buildPartial();
           } else {
             node_ = value;
           }
@@ -1398,7 +1397,7 @@ public final class GetNode {
        *
        * <code>.Node node = 1;</code>
        */
-      public com.graduate.design.proto.Common.Node.Builder getNodeBuilder() {
+      public Common.Node.Builder getNodeBuilder() {
         
         onChanged();
         return getNodeFieldBuilder().getBuilder();
@@ -1410,12 +1409,12 @@ public final class GetNode {
        *
        * <code>.Node node = 1;</code>
        */
-      public com.graduate.design.proto.Common.NodeOrBuilder getNodeOrBuilder() {
+      public Common.NodeOrBuilder getNodeOrBuilder() {
         if (nodeBuilder_ != null) {
           return nodeBuilder_.getMessageOrBuilder();
         } else {
           return node_ == null ?
-              com.graduate.design.proto.Common.Node.getDefaultInstance() : node_;
+              Common.Node.getDefaultInstance() : node_;
         }
       }
       /**
@@ -1426,11 +1425,11 @@ public final class GetNode {
        * <code>.Node node = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.Node, com.graduate.design.proto.Common.Node.Builder, com.graduate.design.proto.Common.NodeOrBuilder> 
+          Common.Node, Common.Node.Builder, Common.NodeOrBuilder>
           getNodeFieldBuilder() {
         if (nodeBuilder_ == null) {
           nodeBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.Node, com.graduate.design.proto.Common.Node.Builder, com.graduate.design.proto.Common.NodeOrBuilder>(
+              Common.Node, Common.Node.Builder, Common.NodeOrBuilder>(
                   getNode(),
                   getParentForChildren(),
                   isClean());
@@ -1439,9 +1438,9 @@ public final class GetNode {
         return nodeBuilder_;
       }
 
-      private com.graduate.design.proto.Common.BaseResp baseResp_;
+      private Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
+          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1453,9 +1452,9 @@ public final class GetNode {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      public Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -1463,7 +1462,7 @@ public final class GetNode {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
+      public Builder setBaseResp(Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1480,7 +1479,7 @@ public final class GetNode {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
+          Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -1493,11 +1492,11 @@ public final class GetNode {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
+      public Builder mergeBaseResp(Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -1525,7 +1524,7 @@ public final class GetNode {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
+      public Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -1533,23 +1532,23 @@ public final class GetNode {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+              Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
+          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
+              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -1557,13 +1556,13 @@ public final class GetNode {
         }
         return baseRespBuilder_;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1574,18 +1573,18 @@ public final class GetNode {
     }
 
     // @@protoc_insertion_point(class_scope:GetNodeResponse)
-    private static final com.graduate.design.proto.GetNode.GetNodeResponse DEFAULT_INSTANCE;
+    private static final GetNodeResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.GetNode.GetNodeResponse();
+      DEFAULT_INSTANCE = new GetNodeResponse();
     }
 
-    public static com.graduate.design.proto.GetNode.GetNodeResponse getDefaultInstance() {
+    public static GetNodeResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<GetNodeResponse>
         PARSER = new com.google.protobuf.AbstractParser<GetNodeResponse>() {
-      @java.lang.Override
+      @Override
       public GetNodeResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1598,13 +1597,13 @@ public final class GetNode {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<GetNodeResponse> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.GetNode.GetNodeResponse getDefaultInstanceForType() {
+    @Override
+    public GetNodeResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1628,33 +1627,32 @@ public final class GetNode {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\016get_node.proto\032\014common.proto\"<\n\016GetNod" +
       "eRequest\022\016\n\006nodeId\030\001 \001(\003\022\032\n\007baseReq\030\377\001 \001" +
       "(\0132\010.BaseReq\"D\n\017GetNodeResponse\022\023\n\004node\030" +
       "\001 \001(\0132\005.Node\022\034\n\010baseResp\030\377\001 \001(\0132\t.BaseRe" +
-      "spBL\n\031com.graduate.design.protoB\007GetNode" +
-      "Z&github.com/JackTJC/gmFS_backend/pb_gen" +
-      "b\006proto3"
+      "spB.\n\031com.graduate.design.protoB\007GetNode" +
+      "Z\010./pb_genb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.graduate.design.proto.Common.getDescriptor(),
+          Common.getDescriptor(),
         });
     internal_static_GetNodeRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_GetNodeRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetNodeRequest_descriptor,
-        new java.lang.String[] { "NodeId", "BaseReq", });
+        new String[] { "NodeId", "BaseReq", });
     internal_static_GetNodeResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_GetNodeResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_GetNodeResponse_descriptor,
-        new java.lang.String[] { "Node", "BaseResp", });
-    com.graduate.design.proto.Common.getDescriptor();
+        new String[] { "Node", "BaseResp", });
+    Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
