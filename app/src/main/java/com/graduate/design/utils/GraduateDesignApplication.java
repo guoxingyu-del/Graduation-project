@@ -9,9 +9,14 @@ import com.allenliu.classicbt.Connect;
 // import com.graduate.design.exception.GlobalCrashHandler;
 import com.graduate.design.R;
 import com.graduate.design.entity.BiIndex;
+import com.graduate.design.entity.GotNodeList;
+import com.graduate.design.proto.Common;
 import com.graduate.design.proto.UserLogin;
 
 import java.nio.charset.StandardCharsets;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 
 public class GraduateDesignApplication extends Application {
@@ -37,6 +42,7 @@ public class GraduateDesignApplication extends Application {
     private static byte[] key2;
     private static BiIndex biIndex;
     private static String username;
+    private static Map<Long, GotNodeList> allNodeList;
 
     @Override
     public void onCreate() {
@@ -45,6 +51,7 @@ public class GraduateDesignApplication extends Application {
         mAppContext = getApplicationContext();
         start = mAppContext.getString(R.string.startMsg).getBytes(StandardCharsets.UTF_8);
         end = mAppContext.getString(R.string.endMsg).getBytes(StandardCharsets.UTF_8);
+        allNodeList = new HashMap<>();
 
         // 初始化bleManager
         BleManager.getInstance().init(mAppContext);
@@ -119,5 +126,13 @@ public class GraduateDesignApplication extends Application {
 
     public static void setUsername(String username) {
         GraduateDesignApplication.username = username;
+    }
+
+    public static Map<Long, GotNodeList> getAllNodeList() {
+        return allNodeList;
+    }
+
+    public static void setAllNodeList(Map<Long, GotNodeList> allNodeList) {
+        GraduateDesignApplication.allNodeList = allNodeList;
     }
 }
