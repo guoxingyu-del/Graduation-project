@@ -22,7 +22,7 @@ import com.graduate.design.adapter.fileItem.ShareFileItemAdapter;
 import com.graduate.design.proto.Common;
 import com.graduate.design.service.UserService;
 import com.graduate.design.service.impl.UserServiceImpl;
-import com.graduate.design.sharettokenprotocol.ShareTokenGen;
+import com.graduate.design.sharettokenProtocol.ShareTokenGen;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;

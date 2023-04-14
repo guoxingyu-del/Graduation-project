@@ -9,13 +9,17 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.graduate.design.R;
+import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.entity.BiIndex;
 import com.graduate.design.proto.ChangePassword;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.CreateDir;
 import com.graduate.design.proto.FileUpload;
+import com.graduate.design.proto.GetAllNodes;
+import com.graduate.design.proto.GetDir;
 import com.graduate.design.proto.GetNode;
 import com.graduate.design.proto.GetNodeId;
+import com.graduate.design.proto.GetNodes;
 import com.graduate.design.proto.GetRecvFile;
 import com.graduate.design.proto.GetShareTokens;
 import com.graduate.design.proto.Ping;
@@ -44,8 +48,10 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
@@ -125,11 +131,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int createDir(String dirName, Long parentId, String token) {
+    public int createDir(String dirName, Long parentId, String token, Long dirId, String nodeIdOpPair, String userName) {
         CreateDir.CreateDirRequest req = CreateDir.CreateDirRequest.newBuilder()
                 .setDirName(dirName)
                 .setParentId(parentId)
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .setDirId(dirId)
+                .setNodeIdOpPair(nodeIdOpPair)
+                .setUserName(userName)
                 .build();
 
         return sendData(req, 3) == null ? 1 : 0;
@@ -137,7 +146,8 @@ public class UserServiceImpl implements UserService {
 
 
     @Override
-    public int uploadFile(String fileName, Long parentId, List<FileUpload.indexToken> indexList, ByteString content, String biIndex, Long fileId, String token) {
+    public int uploadFile(String fileName, Long parentId, List<FileUpload.indexToken> indexList, ByteString content
+            , String biIndex, Long fileId, String token, String nodeIdOpPair, String userName) {
         FileUpload.UploadFileRequest req = FileUpload.UploadFileRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setFileName(fileName)
@@ -145,6 +155,8 @@ public class UserServiceImpl implements UserService {
                 .setContent(content)
                 .setBiIndex(biIndex)
                 .setNodeId(fileId)
+                .setNodeIdOpPair(nodeIdOpPair)
+                .setUserName(userName)
                 .addAllIndexList(indexList)
                 .build();
 
@@ -205,19 +217,51 @@ public class UserServiceImpl implements UserService {
     public List<Common.Node> getNodeList(Long nodeId, String token) {
         List<Common.Node> res = new ArrayList<>();
 
-        GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
-                .setNodeId(nodeId)
+        // 这里需要使用getDir获取当下所有的idOpPair，进行比对后生成原来的文件数组
+//        GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
+//                .setNodeId(nodeId)
+//                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+//                .build();
+//
+//        JSONObject jsonObject = sendData(req, 6);
+//        // 请求失败
+//        if (jsonObject == null) return null;
+//
+//        JSONObject node = jsonObject.getJSONObject("node");
+//
+//        // 拿到子节点数组，即文件数组
+//        JSONArray subNodeList = node.getJSONArray("subNodeList");
+        GetDir.GetDirRequest req = GetDir.GetDirRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .setNodeId(nodeId)
                 .build();
-
-        JSONObject jsonObject = sendData(req, 6);
-        // 请求失败
+        JSONObject jsonObject = sendData(req, 17);
         if (jsonObject == null) return null;
-
-        JSONObject node = jsonObject.getJSONObject("node");
-
-        // 拿到子节点数组，即文件数组
-        JSONArray subNodeList = node.getJSONArray("subNodeList");
+        Log.e("ssssssssssssss", jsonObject.toJSONString());
+        JSONArray idOpPairCipher = jsonObject.getJSONArray("idOpPairCipherTexts");
+//        Log.e("sssssssssssss", String.valueOf(idOpPairCipher.size()));
+        if (idOpPairCipher == null) {
+            return new ArrayList<>();
+        }
+        Set<Long> addSet = new HashSet<>();
+        Set<Long> deleteSet = new HashSet<>();
+        for (int i = 0; i < idOpPairCipher.size(); i++) {
+            String[] strings = DeleteProtocol.idOpPairDecrypt(GraduateDesignApplication.getKey1(), idOpPairCipher.getString(i));
+            if (strings[1].equals("add")) {
+                addSet.add(Long.parseLong(strings[0]));
+            } else deleteSet.add(Long.parseLong(strings[0]));
+        }
+        Set<Long> realSet = new HashSet<>(addSet); // 这些就是没有被删除的id，可以再次与后端交互，获取其详细信息
+        realSet.addAll(addSet);
+        realSet.removeAll(deleteSet);
+        GetNodes.GetNodesRequest getNodesRequest = GetNodes.GetNodesRequest.newBuilder()
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .addAllNodeId(new ArrayList<>(realSet))
+                .build();
+        jsonObject = sendData(getNodesRequest, 18);
+        if (jsonObject == null) return null;
+        JSONArray subNodeList = jsonObject.getJSONArray("node");
+        // 对于每一个密文对进行解密，将其中被删除了的文件直接排除
         // 没有文件节点
         if (subNodeList == null) return res;
         // 遍历所有文件节点
@@ -248,6 +292,41 @@ public class UserServiceImpl implements UserService {
             res.add(son);
         }
         return res;
+    }
+
+    /**
+     *
+     * @param userName 用户名
+     * @param token 用户token
+     * @return 指定用户名下的所有存在id(由于用户名是唯一的，因此此处返回的所有id都是指定用户下的)
+     */
+    public Set<Long> getAllDeleteNodes(String userName, String token) {
+        List<Common.Node> res = new ArrayList<>();
+        GetAllNodes.GetAllNodesRequest getAllNodesRequest = GetAllNodes.GetAllNodesRequest.newBuilder()
+                .setUsername(userName)
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .build();
+        JSONObject jsonObject = sendData(getAllNodesRequest, 19);
+        if (jsonObject == null) return null;
+//        Log.e("ssssssssssssss", jsonObject.toJSONString());
+        JSONArray idOpPairCipher = jsonObject.getJSONArray("idOpPairCipher");
+//        Log.e("sssssssssssss", String.valueOf(idOpPairCipher.size()));
+        if (idOpPairCipher == null) {
+            return new HashSet<>();
+        }
+//        Set<Long> addSet = new HashSet<>();
+        Set<Long> deleteSet = new HashSet<>();
+        for (int i = 0; i < idOpPairCipher.size(); i++) {
+            String[] strings = DeleteProtocol.idOpPairDecrypt(GraduateDesignApplication.getKey1(), idOpPairCipher.getString(i));
+            if (strings[1].equals("add")) {
+//                addSet.add(Long.parseLong(strings[0]));
+            } else deleteSet.add(Long.parseLong(strings[0]));
+        }
+//        Set<Long> realSet = new HashSet<>(addSet); // 这些就是没有被删除的id，可以再次与后端交互，获取其详细信息
+//        realSet.addAll(addSet);
+//        realSet.removeAll(deleteSet);
+//        return new ArrayList<>(deleteSet);
+        return deleteSet;
     }
 
     @Override
@@ -398,7 +477,7 @@ public class UserServiceImpl implements UserService {
      * @param token      用户token
      * @return 上传情况
      */
-    public int uploadShareToken(Common.ShareToken shareToken, String token) {
+    public int uploadShareToken(Common.ShareToken shareToken, String token) { // 还没有经过测试
         UpLoadShareToken.UpLoadShareTokenRequest req = UpLoadShareToken.UpLoadShareTokenRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setShareToken(shareToken)
@@ -415,7 +494,7 @@ public class UserServiceImpl implements UserService {
      * @param token  用户token
      * @return 所有的shareToken
      */
-    public List<Common.ShareToken> getAllShareToken(String userid, String token) {
+    public List<Common.ShareToken> getAllShareToken(String userid, String token) { // 这个还没有经过测试
         GetShareTokens.GetShareTokensRequest req = GetShareTokens.GetShareTokensRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setUserId(userid)
@@ -523,21 +602,19 @@ public class UserServiceImpl implements UserService {
 //        jsonObject = sendData(shareSecondRequest, 15);
 //        return jsonObject == null ? 0 : 1;
 //    }
+    // 检查一下搜索界面查看分享文件是否存在问题
     public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token) {
         ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setL(shareToken.getL())
                 .setJId(shareToken.getJId())
                 .build();
-//        Log.e("llllllllllllllllllL", shareToken.getL());
-//        Log.e("Jid", shareToken.getJId());
         JSONObject jsonObject = sendData(req, 15);
         if (jsonObject == null) return null;
         List<String> S = new ArrayList<>();
         JSONArray jsonArray = jsonObject.getJSONArray("S");
         for (int i = 0; i < jsonArray.size(); i++) {
             S.add(jsonArray.getString(i));
-            Log.e("S", jsonArray.getString(i));
         }
 
 
@@ -612,7 +689,6 @@ public class UserServiceImpl implements UserService {
 //        jsonObject = sendData(shareSecondRequest, 15);
         return newS;
     }
-
     private JSONObject sendData(Object req, int number) {
         String[] urls = {
                 "ping", // 0
@@ -631,7 +707,10 @@ public class UserServiceImpl implements UserService {
                 "/file/uploadShareToken", // 13
                 "/file/getShareTokens", // 14
                 "/file/shareFirst", // 15
-                "/file/shareSecond" // 16
+                "/file/shareSecond", // 16
+                "/dir/get", // 17 用于请求文件夹下的所有结点idOpPair信息
+                "/node/gets", // 18 用户请求所有存在的文件
+                "/node/username" // 19
         };
         // 将请求对象转换成json格式，不要使用Gson
         String data = JsonUtils.toJson(req);

@@ -31,6 +31,7 @@ import com.graduate.design.activity.BtClientActivity;
 import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
+import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
@@ -110,10 +111,10 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         context = getContext();
         userService = new UserServiceImpl();
         encryptionService = new EncryptionServiceImpl();
-        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file);
         // 拿到当前节点id
         if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
         else nodeId = getArguments().getLong("nodeId");
+        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, nodeId);
     }
 
     private void getComponentsById(View view){
@@ -266,8 +267,12 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                         // 同步上传biIndex进行更新
                                         String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
 
+                                        // 这个nodeId的形式的改，得改成密文对的形式，初次之外，其中share中的uploadFile也需要进行修改
+                                        // 还需要上传username
                                         int res = userService.uploadFile(fileBean.getName(), nodeId, indexTokens,
-                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)), biIndexString, fileId, token);
+                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)), biIndexString, fileId, token,
+                                                DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
+                                                        String.valueOf(fileId), "add"), GraduateDesignApplication.getUsername());
 
                                         if(res==1) {
                                             ToastUtils.showShortToastCenter("上传文件失败" + fileBean.getName());
@@ -328,7 +333,13 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
             public void onClick(View view) {
                 closeDialog();
                 String dirName = createDirName.getText().toString();
-                int res = userService.createDir(dirName, nodeId, token);
+                // 创建文件夹也同样需要和创建文件一样，修改传递上去的东西，id_op密文对，然username
+                // 同时这个dir的id也只能够在本地进行生成了
+                Long dirId = userService.getNodeId(token);
+                // 将相关信息保存进去
+                int res = userService.createDir(dirName, nodeId, token, dirId,
+                        DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
+                                String.valueOf(dirId), "add"), GraduateDesignApplication.getUsername());
                 if(res==0) ToastUtils.showShortToastCenter("添加文件夹成功");
                 else ToastUtils.showShortToastCenter("添加文件夹失败");
                 // 更新文件列表

@@ -65,11 +65,11 @@ public final class RegisterFile {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    com.graduate.design.proto.Common.BaseReq getBaseReq();
+    Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code RegisterFileRequest}
@@ -87,14 +87,14 @@ public final class RegisterFile {
       secretKey_ = com.google.protobuf.ByteString.EMPTY;
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new RegisterFileRequest();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -105,7 +105,7 @@ public final class RegisterFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -143,11 +143,11 @@ public final class RegisterFile {
               break;
             }
             case 2042: {
-              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
+              Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -176,15 +176,15 @@ public final class RegisterFile {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileRequest_descriptor;
+      return RegisterFile.internal_static_RegisterFileRequest_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileRequest_fieldAccessorTable
+      return RegisterFile.internal_static_RegisterFileRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.RegisterFile.RegisterFileRequest.class, com.graduate.design.proto.RegisterFile.RegisterFileRequest.Builder.class);
+              RegisterFileRequest.class, Builder.class);
     }
 
     public static final int FILEID_FIELD_NUMBER = 1;
@@ -193,7 +193,7 @@ public final class RegisterFile {
      * <code>int64 fileId = 1;</code>
      * @return The fileId.
      */
-    @java.lang.Override
+    @Override
     public long getFileId() {
       return fileId_;
     }
@@ -204,7 +204,7 @@ public final class RegisterFile {
      * <code>int64 dirId = 2;</code>
      * @return The dirId.
      */
-    @java.lang.Override
+    @Override
     public long getDirId() {
       return dirId_;
     }
@@ -219,7 +219,7 @@ public final class RegisterFile {
      * <code>bytes secretKey = 3;</code>
      * @return The secretKey.
      */
-    @java.lang.Override
+    @Override
     public com.google.protobuf.ByteString getSecretKey() {
       return secretKey_;
     }
@@ -234,7 +234,7 @@ public final class RegisterFile {
      * <code>bool isWeb = 100;</code>
      * @return The isWeb.
      */
-    @java.lang.Override
+    @Override
     public boolean getIsWeb() {
       return isWeb_;
     }
@@ -245,18 +245,18 @@ public final class RegisterFile {
      * <code>int64 shareId = 101;</code>
      * @return The shareId.
      */
-    @java.lang.Override
+    @Override
     public long getShareId() {
       return shareId_;
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private com.graduate.design.proto.Common.BaseReq baseReq_;
+    private Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -264,20 +264,20 @@ public final class RegisterFile {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+    @Override
+    public Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @Override
+    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -287,7 +287,7 @@ public final class RegisterFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (fileId_ != 0L) {
@@ -311,7 +311,7 @@ public final class RegisterFile {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -346,15 +346,15 @@ public final class RegisterFile {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.RegisterFile.RegisterFileRequest)) {
+      if (!(obj instanceof RegisterFileRequest)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.RegisterFile.RegisterFileRequest other = (com.graduate.design.proto.RegisterFile.RegisterFileRequest) obj;
+      RegisterFileRequest other = (RegisterFileRequest) obj;
 
       if (getFileId()
           != other.getFileId()) return false;
@@ -375,7 +375,7 @@ public final class RegisterFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -405,69 +405,69 @@ public final class RegisterFile {
       return hash;
     }
 
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(byte[] data)
+    public static RegisterFileRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(java.io.InputStream input)
+    public static RegisterFileRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseDelimitedFrom(java.io.InputStream input)
+    public static RegisterFileRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseDelimitedFrom(
+    public static RegisterFileRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest parseFrom(
+    public static RegisterFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -475,23 +475,23 @@ public final class RegisterFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.RegisterFile.RegisterFileRequest prototype) {
+    public static Builder newBuilder(RegisterFileRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -501,18 +501,18 @@ public final class RegisterFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:RegisterFileRequest)
-        com.graduate.design.proto.RegisterFile.RegisterFileRequestOrBuilder {
+        RegisterFileRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileRequest_descriptor;
+        return RegisterFile.internal_static_RegisterFileRequest_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileRequest_fieldAccessorTable
+        return RegisterFile.internal_static_RegisterFileRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.RegisterFile.RegisterFileRequest.class, com.graduate.design.proto.RegisterFile.RegisterFileRequest.Builder.class);
+                RegisterFileRequest.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.RegisterFile.RegisterFileRequest.newBuilder()
@@ -521,7 +521,7 @@ public final class RegisterFile {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -530,7 +530,7 @@ public final class RegisterFile {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         fileId_ = 0L;
@@ -552,29 +552,29 @@ public final class RegisterFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileRequest_descriptor;
+        return RegisterFile.internal_static_RegisterFileRequest_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.RegisterFile.RegisterFileRequest getDefaultInstanceForType() {
-        return com.graduate.design.proto.RegisterFile.RegisterFileRequest.getDefaultInstance();
+      @Override
+      public RegisterFileRequest getDefaultInstanceForType() {
+        return RegisterFileRequest.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.RegisterFile.RegisterFileRequest build() {
-        com.graduate.design.proto.RegisterFile.RegisterFileRequest result = buildPartial();
+      @Override
+      public RegisterFileRequest build() {
+        RegisterFileRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.RegisterFile.RegisterFileRequest buildPartial() {
-        com.graduate.design.proto.RegisterFile.RegisterFileRequest result = new com.graduate.design.proto.RegisterFile.RegisterFileRequest(this);
+      @Override
+      public RegisterFileRequest buildPartial() {
+        RegisterFileRequest result = new RegisterFileRequest(this);
         result.fileId_ = fileId_;
         result.dirId_ = dirId_;
         result.secretKey_ = secretKey_;
@@ -589,50 +589,50 @@ public final class RegisterFile {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.RegisterFile.RegisterFileRequest) {
-          return mergeFrom((com.graduate.design.proto.RegisterFile.RegisterFileRequest)other);
+        if (other instanceof RegisterFileRequest) {
+          return mergeFrom((RegisterFileRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.RegisterFile.RegisterFileRequest other) {
-        if (other == com.graduate.design.proto.RegisterFile.RegisterFileRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(RegisterFileRequest other) {
+        if (other == RegisterFileRequest.getDefaultInstance()) return this;
         if (other.getFileId() != 0L) {
           setFileId(other.getFileId());
         }
@@ -656,21 +656,21 @@ public final class RegisterFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.RegisterFile.RegisterFileRequest parsedMessage = null;
+        RegisterFileRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.RegisterFile.RegisterFileRequest) e.getUnfinishedMessage();
+          parsedMessage = (RegisterFileRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -685,7 +685,7 @@ public final class RegisterFile {
        * <code>int64 fileId = 1;</code>
        * @return The fileId.
        */
-      @java.lang.Override
+      @Override
       public long getFileId() {
         return fileId_;
       }
@@ -716,7 +716,7 @@ public final class RegisterFile {
        * <code>int64 dirId = 2;</code>
        * @return The dirId.
        */
-      @java.lang.Override
+      @Override
       public long getDirId() {
         return dirId_;
       }
@@ -751,7 +751,7 @@ public final class RegisterFile {
        * <code>bytes secretKey = 3;</code>
        * @return The secretKey.
        */
-      @java.lang.Override
+      @Override
       public com.google.protobuf.ByteString getSecretKey() {
         return secretKey_;
       }
@@ -797,7 +797,7 @@ public final class RegisterFile {
        * <code>bool isWeb = 100;</code>
        * @return The isWeb.
        */
-      @java.lang.Override
+      @Override
       public boolean getIsWeb() {
         return isWeb_;
       }
@@ -836,7 +836,7 @@ public final class RegisterFile {
        * <code>int64 shareId = 101;</code>
        * @return The shareId.
        */
-      @java.lang.Override
+      @Override
       public long getShareId() {
         return shareId_;
       }
@@ -862,9 +862,9 @@ public final class RegisterFile {
         return this;
       }
 
-      private com.graduate.design.proto.Common.BaseReq baseReq_;
+      private Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
+          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -876,9 +876,9 @@ public final class RegisterFile {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      public Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -886,7 +886,7 @@ public final class RegisterFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
+      public Builder setBaseReq(Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -903,7 +903,7 @@ public final class RegisterFile {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
+          Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -916,11 +916,11 @@ public final class RegisterFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
+      public Builder mergeBaseReq(Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -948,7 +948,7 @@ public final class RegisterFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
+      public Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -956,23 +956,23 @@ public final class RegisterFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
+              Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
+          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
+              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -980,13 +980,13 @@ public final class RegisterFile {
         }
         return baseReqBuilder_;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -997,18 +997,18 @@ public final class RegisterFile {
     }
 
     // @@protoc_insertion_point(class_scope:RegisterFileRequest)
-    private static final com.graduate.design.proto.RegisterFile.RegisterFileRequest DEFAULT_INSTANCE;
+    private static final RegisterFileRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.RegisterFile.RegisterFileRequest();
+      DEFAULT_INSTANCE = new RegisterFileRequest();
     }
 
-    public static com.graduate.design.proto.RegisterFile.RegisterFileRequest getDefaultInstance() {
+    public static RegisterFileRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<RegisterFileRequest>
         PARSER = new com.google.protobuf.AbstractParser<RegisterFileRequest>() {
-      @java.lang.Override
+      @Override
       public RegisterFileRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1021,13 +1021,13 @@ public final class RegisterFile {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RegisterFileRequest> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.RegisterFile.RegisterFileRequest getDefaultInstanceForType() {
+    @Override
+    public RegisterFileRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1046,11 +1046,11 @@ public final class RegisterFile {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    com.graduate.design.proto.Common.BaseResp getBaseResp();
+    Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code RegisterFileResponse}
@@ -1067,14 +1067,14 @@ public final class RegisterFile {
     private RegisterFileResponse() {
     }
 
-    @java.lang.Override
+    @Override
     @SuppressWarnings({"unused"})
-    protected java.lang.Object newInstance(
+    protected Object newInstance(
         UnusedPrivateParameter unused) {
       return new RegisterFileResponse();
     }
 
-    @java.lang.Override
+    @Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1085,7 +1085,7 @@ public final class RegisterFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new java.lang.NullPointerException();
+        throw new NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1098,11 +1098,11 @@ public final class RegisterFile {
               done = true;
               break;
             case 2042: {
-              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
+              Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1131,24 +1131,24 @@ public final class RegisterFile {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileResponse_descriptor;
+      return RegisterFile.internal_static_RegisterFileResponse_descriptor;
     }
 
-    @java.lang.Override
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+    @Override
+    protected FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileResponse_fieldAccessorTable
+      return RegisterFile.internal_static_RegisterFileResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              com.graduate.design.proto.RegisterFile.RegisterFileResponse.class, com.graduate.design.proto.RegisterFile.RegisterFileResponse.Builder.class);
+              RegisterFileResponse.class, Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private com.graduate.design.proto.Common.BaseResp baseResp_;
+    private Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @java.lang.Override
+    @Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1156,20 +1156,20 @@ public final class RegisterFile {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+    @Override
+    public Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @java.lang.Override
-    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @Override
+    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @java.lang.Override
+    @Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1179,7 +1179,7 @@ public final class RegisterFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -1188,7 +1188,7 @@ public final class RegisterFile {
       unknownFields.writeTo(output);
     }
 
-    @java.lang.Override
+    @Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1203,15 +1203,15 @@ public final class RegisterFile {
       return size;
     }
 
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
+    @Override
+    public boolean equals(final Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof com.graduate.design.proto.RegisterFile.RegisterFileResponse)) {
+      if (!(obj instanceof RegisterFileResponse)) {
         return super.equals(obj);
       }
-      com.graduate.design.proto.RegisterFile.RegisterFileResponse other = (com.graduate.design.proto.RegisterFile.RegisterFileResponse) obj;
+      RegisterFileResponse other = (RegisterFileResponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -1222,7 +1222,7 @@ public final class RegisterFile {
       return true;
     }
 
-    @java.lang.Override
+    @Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1238,69 +1238,69 @@ public final class RegisterFile {
       return hash;
     }
 
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(byte[] data)
+    public static RegisterFileResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(java.io.InputStream input)
+    public static RegisterFileResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseDelimitedFrom(java.io.InputStream input)
+    public static RegisterFileResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseDelimitedFrom(
+    public static RegisterFileResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse parseFrom(
+    public static RegisterFileResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1308,23 +1308,23 @@ public final class RegisterFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @java.lang.Override
+    @Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(com.graduate.design.proto.RegisterFile.RegisterFileResponse prototype) {
+    public static Builder newBuilder(RegisterFileResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @java.lang.Override
+    @Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @java.lang.Override
+    @Override
     protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1334,18 +1334,18 @@ public final class RegisterFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:RegisterFileResponse)
-        com.graduate.design.proto.RegisterFile.RegisterFileResponseOrBuilder {
+        RegisterFileResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileResponse_descriptor;
+        return RegisterFile.internal_static_RegisterFileResponse_descriptor;
       }
 
-      @java.lang.Override
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      @Override
+      protected FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileResponse_fieldAccessorTable
+        return RegisterFile.internal_static_RegisterFileResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                com.graduate.design.proto.RegisterFile.RegisterFileResponse.class, com.graduate.design.proto.RegisterFile.RegisterFileResponse.Builder.class);
+                RegisterFileResponse.class, Builder.class);
       }
 
       // Construct using com.graduate.design.proto.RegisterFile.RegisterFileResponse.newBuilder()
@@ -1354,7 +1354,7 @@ public final class RegisterFile {
       }
 
       private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+          BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1363,7 +1363,7 @@ public final class RegisterFile {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @java.lang.Override
+      @Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -1375,29 +1375,29 @@ public final class RegisterFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return com.graduate.design.proto.RegisterFile.internal_static_RegisterFileResponse_descriptor;
+        return RegisterFile.internal_static_RegisterFileResponse_descriptor;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.RegisterFile.RegisterFileResponse getDefaultInstanceForType() {
-        return com.graduate.design.proto.RegisterFile.RegisterFileResponse.getDefaultInstance();
+      @Override
+      public RegisterFileResponse getDefaultInstanceForType() {
+        return RegisterFileResponse.getDefaultInstance();
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.RegisterFile.RegisterFileResponse build() {
-        com.graduate.design.proto.RegisterFile.RegisterFileResponse result = buildPartial();
+      @Override
+      public RegisterFileResponse build() {
+        RegisterFileResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @java.lang.Override
-      public com.graduate.design.proto.RegisterFile.RegisterFileResponse buildPartial() {
-        com.graduate.design.proto.RegisterFile.RegisterFileResponse result = new com.graduate.design.proto.RegisterFile.RegisterFileResponse(this);
+      @Override
+      public RegisterFileResponse buildPartial() {
+        RegisterFileResponse result = new RegisterFileResponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -1407,50 +1407,50 @@ public final class RegisterFile {
         return result;
       }
 
-      @java.lang.Override
+      @Override
       public Builder clone() {
         return super.clone();
       }
-      @java.lang.Override
+      @Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.setField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @java.lang.Override
+      @Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @java.lang.Override
+      @Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, java.lang.Object value) {
+          int index, Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @java.lang.Override
+      @Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          java.lang.Object value) {
+          Object value) {
         return super.addRepeatedField(field, value);
       }
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.graduate.design.proto.RegisterFile.RegisterFileResponse) {
-          return mergeFrom((com.graduate.design.proto.RegisterFile.RegisterFileResponse)other);
+        if (other instanceof RegisterFileResponse) {
+          return mergeFrom((RegisterFileResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(com.graduate.design.proto.RegisterFile.RegisterFileResponse other) {
-        if (other == com.graduate.design.proto.RegisterFile.RegisterFileResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(RegisterFileResponse other) {
+        if (other == RegisterFileResponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -1459,21 +1459,21 @@ public final class RegisterFile {
         return this;
       }
 
-      @java.lang.Override
+      @Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @java.lang.Override
+      @Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        com.graduate.design.proto.RegisterFile.RegisterFileResponse parsedMessage = null;
+        RegisterFileResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.graduate.design.proto.RegisterFile.RegisterFileResponse) e.getUnfinishedMessage();
+          parsedMessage = (RegisterFileResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1483,9 +1483,9 @@ public final class RegisterFile {
         return this;
       }
 
-      private com.graduate.design.proto.Common.BaseResp baseResp_;
+      private Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
+          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1497,9 +1497,9 @@ public final class RegisterFile {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      public Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -1507,7 +1507,7 @@ public final class RegisterFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
+      public Builder setBaseResp(Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1524,7 +1524,7 @@ public final class RegisterFile {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
+          Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -1537,11 +1537,11 @@ public final class RegisterFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
+      public Builder mergeBaseResp(Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -1569,7 +1569,7 @@ public final class RegisterFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
+      public Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -1577,23 +1577,23 @@ public final class RegisterFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
+              Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
+          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
+              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -1601,13 +1601,13 @@ public final class RegisterFile {
         }
         return baseRespBuilder_;
       }
-      @java.lang.Override
+      @Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @java.lang.Override
+      @Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1618,18 +1618,18 @@ public final class RegisterFile {
     }
 
     // @@protoc_insertion_point(class_scope:RegisterFileResponse)
-    private static final com.graduate.design.proto.RegisterFile.RegisterFileResponse DEFAULT_INSTANCE;
+    private static final RegisterFileResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new com.graduate.design.proto.RegisterFile.RegisterFileResponse();
+      DEFAULT_INSTANCE = new RegisterFileResponse();
     }
 
-    public static com.graduate.design.proto.RegisterFile.RegisterFileResponse getDefaultInstance() {
+    public static RegisterFileResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<RegisterFileResponse>
         PARSER = new com.google.protobuf.AbstractParser<RegisterFileResponse>() {
-      @java.lang.Override
+      @Override
       public RegisterFileResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1642,13 +1642,13 @@ public final class RegisterFile {
       return PARSER;
     }
 
-    @java.lang.Override
+    @Override
     public com.google.protobuf.Parser<RegisterFileResponse> getParserForType() {
       return PARSER;
     }
 
-    @java.lang.Override
-    public com.graduate.design.proto.RegisterFile.RegisterFileResponse getDefaultInstanceForType() {
+    @Override
+    public RegisterFileResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1672,34 +1672,34 @@ public final class RegisterFile {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    java.lang.String[] descriptorData = {
+    String[] descriptorData = {
       "\n\023register_file.proto\032\014common.proto\"\203\001\n\023" +
       "RegisterFileRequest\022\016\n\006fileId\030\001 \001(\003\022\r\n\005d" +
       "irId\030\002 \001(\003\022\021\n\tsecretKey\030\003 \001(\014\022\r\n\005isWeb\030d" +
       " \001(\010\022\017\n\007shareId\030e \001(\003\022\032\n\007baseReq\030\377\001 \001(\0132" +
       "\010.BaseReq\"4\n\024RegisterFileResponse\022\034\n\010bas" +
-      "eResp\030\377\001 \001(\0132\t.BaseRespBQ\n\031com.graduate." +
-      "design.protoB\014RegisterFileZ&github.com/J" +
-      "ackTJC/gmFS_backend/pb_genb\006proto3"
+      "eResp\030\377\001 \001(\0132\t.BaseRespB3\n\031com.graduate." +
+      "design.protoB\014RegisterFileZ\010./pb_genb\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          com.graduate.design.proto.Common.getDescriptor(),
+          Common.getDescriptor(),
         });
     internal_static_RegisterFileRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_RegisterFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegisterFileRequest_descriptor,
-        new java.lang.String[] { "FileId", "DirId", "SecretKey", "IsWeb", "ShareId", "BaseReq", });
+        new String[] { "FileId", "DirId", "SecretKey", "IsWeb", "ShareId", "BaseReq", });
     internal_static_RegisterFileResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_RegisterFileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_RegisterFileResponse_descriptor,
-        new java.lang.String[] { "BaseResp", });
-    com.graduate.design.proto.Common.getDescriptor();
+        new String[] { "BaseResp", });
+    Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)
