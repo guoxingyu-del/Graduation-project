@@ -22,4 +22,5 @@ public interface EncryptionService {
     SendSearchToken.SearchToken getSearchToken(String word);
 
     List<Long> getNodeIdByCw(List<String> Cw, String word);
+    public byte[] HmacSha256(byte[] key, byte[] data);
 }

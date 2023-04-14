@@ -213,36 +213,28 @@ public class UserServiceImpl implements UserService {
         return res;
     }
 
+    /**
+     * @param nodeId dirId
+     * @param token  用户token
+     * @return dirId下的所有确定存在的Node信息
+     */
     @Override
     public List<Common.Node> getNodeList(Long nodeId, String token) {
         List<Common.Node> res = new ArrayList<>();
 
-        // 这里需要使用getDir获取当下所有的idOpPair，进行比对后生成原来的文件数组
-//        GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
-//                .setNodeId(nodeId)
-//                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-//                .build();
-//
-//        JSONObject jsonObject = sendData(req, 6);
-//        // 请求失败
-//        if (jsonObject == null) return null;
-//
-//        JSONObject node = jsonObject.getJSONObject("node");
-//
-//        // 拿到子节点数组，即文件数组
-//        JSONArray subNodeList = node.getJSONArray("subNodeList");
         GetDir.GetDirRequest req = GetDir.GetDirRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setNodeId(nodeId)
                 .build();
+
         JSONObject jsonObject = sendData(req, 17);
         if (jsonObject == null) return null;
-        Log.e("ssssssssssssss", jsonObject.toJSONString());
         JSONArray idOpPairCipher = jsonObject.getJSONArray("idOpPairCipherTexts");
-//        Log.e("sssssssssssss", String.valueOf(idOpPairCipher.size()));
+        // 这个必须得判断 因为如果idOpPairCipherTexts为空集，在jsonObject中是不存在空集(length = 0)这个表示的 而是直接为null
         if (idOpPairCipher == null) {
             return new ArrayList<>();
         }
+
         Set<Long> addSet = new HashSet<>();
         Set<Long> deleteSet = new HashSet<>();
         for (int i = 0; i < idOpPairCipher.size(); i++) {
@@ -252,13 +244,16 @@ public class UserServiceImpl implements UserService {
             } else deleteSet.add(Long.parseLong(strings[0]));
         }
         Set<Long> realSet = new HashSet<>(addSet); // 这些就是没有被删除的id，可以再次与后端交互，获取其详细信息
+        // 利用set模拟差集运算
         realSet.addAll(addSet);
         realSet.removeAll(deleteSet);
+
         GetNodes.GetNodesRequest getNodesRequest = GetNodes.GetNodesRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .addAllNodeId(new ArrayList<>(realSet))
                 .build();
         jsonObject = sendData(getNodesRequest, 18);
+
         if (jsonObject == null) return null;
         JSONArray subNodeList = jsonObject.getJSONArray("node");
         // 对于每一个密文对进行解密，将其中被删除了的文件直接排除
@@ -295,37 +290,28 @@ public class UserServiceImpl implements UserService {
     }
 
     /**
-     *
      * @param userName 用户名
-     * @param token 用户token
-     * @return 指定用户名下的所有存在id(由于用户名是唯一的，因此此处返回的所有id都是指定用户下的)
+     * @param token    用户token
+     * @return 指定用户名下的所有被删除的id(由于用户名是唯一的 ， 因此此处返回的所有id都是指定用户下的)
      */
     public Set<Long> getAllDeleteNodes(String userName, String token) {
-        List<Common.Node> res = new ArrayList<>();
         GetAllNodes.GetAllNodesRequest getAllNodesRequest = GetAllNodes.GetAllNodesRequest.newBuilder()
                 .setUsername(userName)
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .build();
         JSONObject jsonObject = sendData(getAllNodesRequest, 19);
         if (jsonObject == null) return null;
-//        Log.e("ssssssssssssss", jsonObject.toJSONString());
         JSONArray idOpPairCipher = jsonObject.getJSONArray("idOpPairCipher");
-//        Log.e("sssssssssssss", String.valueOf(idOpPairCipher.size()));
         if (idOpPairCipher == null) {
             return new HashSet<>();
         }
-//        Set<Long> addSet = new HashSet<>();
         Set<Long> deleteSet = new HashSet<>();
         for (int i = 0; i < idOpPairCipher.size(); i++) {
             String[] strings = DeleteProtocol.idOpPairDecrypt(GraduateDesignApplication.getKey1(), idOpPairCipher.getString(i));
-            if (strings[1].equals("add")) {
-//                addSet.add(Long.parseLong(strings[0]));
-            } else deleteSet.add(Long.parseLong(strings[0]));
+            if (strings[1].equals("del")) {
+                deleteSet.add(Long.parseLong(strings[0]));
+            }
         }
-//        Set<Long> realSet = new HashSet<>(addSet); // 这些就是没有被删除的id，可以再次与后端交互，获取其详细信息
-//        realSet.addAll(addSet);
-//        realSet.removeAll(deleteSet);
-//        return new ArrayList<>(deleteSet);
         return deleteSet;
     }
 
@@ -509,13 +495,7 @@ public class UserServiceImpl implements UserService {
         return shareTokens;
     }
 
-    /**
-     * 将接收方选择接受的shareToken进行注册
-     *
-     * @param shareToken 分享令牌
-     * @param token      用户token
-     * @return 0表示注册失败 1表示注册成功
-     */
+//   这部分代码应该是在不使用蓝牙时，直接在server上保存shareToken时所使用的register
 //    public int shareTokenRegister(Common.ShareToken shareToken, String token) {
 //        ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
 //                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
@@ -602,7 +582,15 @@ public class UserServiceImpl implements UserService {
 //        jsonObject = sendData(shareSecondRequest, 15);
 //        return jsonObject == null ? 0 : 1;
 //    }
-    // 检查一下搜索界面查看分享文件是否存在问题
+
+    /**
+     * 将接收方选择接受的shareToken进行注册
+     *
+     * @param shareToken 分享令牌
+     * @param token      用户token
+     * @return 0表示注册失败 1表示注册成功
+     */
+    // 检查一下搜索界面查看分享文件是否存在问题，这部分最好其实应该放置到EncryptionServiceImpl中
     public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token) {
         ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
@@ -625,45 +613,43 @@ public class UserServiceImpl implements UserService {
         byte[] KidBytes = FileUtils.Base64ToBytes(Kid);
         byte[] key1 = GraduateDesignApplication.getKey1();
         byte[] key2 = GraduateDesignApplication.getKey2();
-//        List<Common.SearchIndexSecond> newS = new ArrayList<>();
         List<FileUpload.indexToken> newS = new ArrayList<>();
         BiIndex biIndex = GraduateDesignApplication.getBiIndex();
         Map<String, Long> lastID = biIndex.getLastID();
         Map<Long, String> lastW = biIndex.getLastW();
         for (String s : S) {
             byte[] w = encryptionService.decryptByAES256(s, KidBytes);
-//            Long lastId = lastID.get(FileUtils.bytes2Base64(w));
             Long lastId = lastID.get(new String(w));
             String lastw = lastW.get(Long.parseLong(id));
             byte[] Cw = encryptionService.encryptByAES256(id,
-                    HmacSha256(key2, w));
+                    encryptionService.HmacSha256(key2, w));
             byte[] Cid = encryptionService.encryptByAES256(w,
-                    HmacSha256(key2, idBytes));
+                    encryptionService.HmacSha256(key2, idBytes));
 
             byte[] w_id = ByteUtils.mergeBytes(w, idBytes);
             byte[] id_w = ByteUtils.mergeBytes(idBytes, w);
 
-            byte[] L = HmacSha256(key1, w_id);
+            byte[] L = encryptionService.HmacSha256(key1, w_id);
             byte[] Rw = ByteUtils.getRandomBytes(32);
             byte[] Rid = ByteUtils.getRandomBytes(32);
             byte[] Iw, Iid;
             if (lastId == null) {
-                Iw = encryptionService.SHA512(ByteUtils.mergeBytes(HmacSha256(key2, w_id), Rw));
+                Iw = encryptionService.SHA512(ByteUtils.mergeBytes(encryptionService.HmacSha256(key2, w_id), Rw));
             } else {
                 byte[] oldIDBytes = String.valueOf(lastId).getBytes(StandardCharsets.UTF_8);
-                byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(w, oldIDBytes));
-                byte[] oldJw = HmacSha256(key2, ByteUtils.mergeBytes(w, oldIDBytes));
-                byte[] Jw = HmacSha256(key2, w_id);
+                byte[] oldL = encryptionService.HmacSha256(key1, ByteUtils.mergeBytes(w, oldIDBytes));
+                byte[] oldJw = encryptionService.HmacSha256(key2, ByteUtils.mergeBytes(w, oldIDBytes));
+                byte[] Jw = encryptionService.HmacSha256(key2, w_id);
                 Iw = ByteUtils.xor(encryptionService.SHA512(ByteUtils.mergeBytes(Jw, Rw)), ByteUtils.mergeBytes(oldL, oldJw));
             }
             if (lastw == null) {
-                byte[] Jid = HmacSha256(key2, id_w);
+                byte[] Jid = encryptionService.HmacSha256(key2, id_w);
                 Iid = encryptionService.SHA512(ByteUtils.mergeBytes(Jid, Rid));
             } else {
                 byte[] oldWordBytes = lastw.getBytes(StandardCharsets.UTF_8);
-                byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes));
-                byte[] oldJid = HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes));
-                byte[] Jid = HmacSha256(key2, id_w);
+                byte[] oldL = encryptionService.HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes));
+                byte[] oldJid = encryptionService.HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes));
+                byte[] Jid = encryptionService.HmacSha256(key2, id_w);
                 Iid = ByteUtils.xor(encryptionService.SHA512(ByteUtils.mergeBytes(Jid, Rid)), ByteUtils.mergeBytes(oldL, oldJid));
             }
             lastW.put(Long.valueOf(id), new String(w));
@@ -681,14 +667,9 @@ public class UserServiceImpl implements UserService {
                     .setCid(FileUtils.bytes2Base64(Cid))
                     .build());
         }
-//        Log.e("length", String.valueOf(newS.size()));
-//        ShareSecond.ShareSecondRequest shareSecondRequest = ShareSecond.ShareSecondRequest.newBuilder()
-//                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-//                .addAllSearchIndexSecond(newS)
-//                .build();
-//        jsonObject = sendData(shareSecondRequest, 15);
         return newS;
     }
+
     private JSONObject sendData(Object req, int number) {
         String[] urls = {
                 "ping", // 0
@@ -710,7 +691,7 @@ public class UserServiceImpl implements UserService {
                 "/file/shareSecond", // 16
                 "/dir/get", // 17 用于请求文件夹下的所有结点idOpPair信息
                 "/node/gets", // 18 用户请求所有存在的文件
-                "/node/username" // 19
+                "/node/username" // 19 用于请求特定用户下所有的idOpPair
         };
         // 将请求对象转换成json格式，不要使用Gson
         String data = JsonUtils.toJson(req);
@@ -728,29 +709,5 @@ public class UserServiceImpl implements UserService {
         if (!"success".equals(message)) return null;
 
         return jsonObject;
-    }
-
-    // 这两个函数后面需要封装一下
-    public byte[] cutOffTo128(byte[] data) {
-        byte[] res = new byte[16];
-        for (int i = 0; i < 16; i++) {
-            res[i] = data[i];
-        }
-        return res;
-    }
-
-    public byte[] HmacSha256(byte[] key, byte[] data) {
-        byte[] res;
-        try {
-            SecretKeySpec secret = new SecretKeySpec(key, "HmacSha256");
-            Mac mac = Mac.getInstance("HmacSha256");
-            mac.init(secret);
-            res = mac.doFinal(data);
-        } catch (NoSuchAlgorithmException e) {
-            throw new RuntimeException(e);
-        } catch (InvalidKeyException e) {
-            throw new RuntimeException(e);
-        }
-        return res;
     }
 }

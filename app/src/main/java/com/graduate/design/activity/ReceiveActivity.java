@@ -150,20 +150,15 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         // 利用文件名和用户密码生成文件密钥
         byte[] fileSecret = GraduateDesignApplication.getKey2();
         // 将加密结果转为Base64编码
+        // 这部分文件内容的来源后面应该也需要修改
         String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
         if (encryptContent == null) encryptContent = "";
 
         // 先从服务器中拿到文件节点
         Long fileId = userService.getNodeId(token);
-//        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
-        // 同步上传biIndex进行更新
 
-
-//        Log.d("ssssssssss", "go receive");
-//    Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(shareTokenFileId).build();
         Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(String.valueOf(fileId)).build();
         List<FileUpload.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
-//        ToastUtils.showShortToastCenter("保存成功");
         String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
         // 这个保存形式也需要改
         userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,

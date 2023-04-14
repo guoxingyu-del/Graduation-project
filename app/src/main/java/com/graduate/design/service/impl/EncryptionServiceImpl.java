@@ -242,11 +242,4 @@ public class EncryptionServiceImpl implements EncryptionService {
         return res;
     }
 
-    public byte[] cutOffTo128(byte[] data){
-        byte[] res = new byte[16];
-        for(int i=0;i<16;i++){
-            res[i] = data[i];
-        }
-        return res;
-    }
 }
