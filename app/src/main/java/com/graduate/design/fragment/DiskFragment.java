@@ -32,6 +32,7 @@ import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.delete.DeleteProtocol;
+import com.graduate.design.entity.GotNodeList;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
@@ -112,7 +113,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         context = getContext();
         userService = new UserServiceImpl();
         encryptionService = new EncryptionServiceImpl();
-        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file);
+//        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, nodeId);
         // 拿到当前节点id
         if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
         else nodeId = getArguments().getLong("nodeId");
@@ -281,7 +282,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                                 ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)), biIndexString, fileId, token,
                                                 DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
                                                         String.valueOf(fileId), "add"), GraduateDesignApplication.getUsername());
-
+                                        GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
                                         if(res==1) {
                                             ToastUtils.showShortToastCenter("上传文件失败" + fileBean.getName());
                                         }
@@ -349,6 +350,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 int res = userService.createDir(dirName, nodeId, token, dirId,
                         DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
                                 String.valueOf(dirId), "add"), GraduateDesignApplication.getUsername());
+                GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
                 if(res==0) ToastUtils.showShortToastCenter("添加文件夹成功");
                 else ToastUtils.showShortToastCenter("添加文件夹失败");
                 // 更新文件列表

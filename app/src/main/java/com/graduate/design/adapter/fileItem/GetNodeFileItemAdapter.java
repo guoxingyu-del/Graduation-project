@@ -122,6 +122,7 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
 
                         if (res == 0) {
                             ToastUtils.showShortToastCenter("删除文件成功" + fileBean.getNodeName());
+                            GraduateDesignApplication.getAllNodeList().get(parentId).setUpdate(true);
                         } else {
                             ToastUtils.showShortToastCenter("删除文件失败" + fileBean.getNodeName());
                         }
