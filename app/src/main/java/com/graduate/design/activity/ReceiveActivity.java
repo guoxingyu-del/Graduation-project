@@ -30,6 +30,7 @@ import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
 import java.util.List;
+import java.util.Map;
 
 public class ReceiveActivity extends AppCompatActivity implements View.OnClickListener,
         AdapterView.OnItemClickListener {
