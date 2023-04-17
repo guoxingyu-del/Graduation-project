@@ -188,9 +188,7 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
                 shareTokenFileId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(FileIdIndex + getString(R.string.shareTokenFileId).length(), filenameIndex));
                 filename = FileUtils.removeLineBreak(resWithoutStartEnd.substring(filenameIndex + getString(R.string.filename).length(), fileContentIndex));
                 fileContent = resWithoutStartEnd.substring(fileContentIndex + getString(R.string.fileContent).length());
-//                String[] fileInfo = new String[]{filename, fileContent};
                 String[] shareToken = new String[]{filename, fileContent, shareTokenL, shareTokenJId, shareTokenKId, shareTokenFileId};
-//                fileItemAdapter.addFileItem(fileInfo);
                 fileItemAdapter.addFileItem(shareToken);
             }
 

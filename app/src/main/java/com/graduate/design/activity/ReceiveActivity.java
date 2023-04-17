@@ -173,6 +173,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
                 fileId, token,
                 DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
                         String.valueOf(fileId), "add"), GraduateDesignApplication.getUsername());
+        GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
         ToastUtils.showShortToastCenter("保存成功");
     }
 

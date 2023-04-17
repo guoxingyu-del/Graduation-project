@@ -25,6 +25,7 @@ import com.graduate.design.utils.ByteUtils;
 import com.graduate.design.utils.DateTimeUtils;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
+import com.graduate.design.utils.StringUtils;
 import com.graduate.design.utils.ToastUtils;
 
 import java.io.FileInputStream;
@@ -49,6 +50,7 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
     private final UserService userService;
     private final EncryptionService encryptionService;
     private final String token;
+    private final Random random = new Random();
 
     public GetNodeFileItemAdapter(Context context, int layoutId, Long nodeId) {
         super(context, layoutId);
@@ -107,7 +109,9 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
                         while (!queueNode.isEmpty()) {
                             Common.Node node = queueNode.poll();
                             if (node.getNodeType() == Common.NodeType.File) {
-                                res += deleteFile(node.getNodeName(), queueParentId.poll(), node.getNodeId());
+                                String nodeName = StringUtils.getRandomName(random.nextInt(10) + 1,".txt");
+//                                res += deleteFile(node.getNodeName(), queueParentId.poll(), node.getNodeId());
+                                res += deleteFile(nodeName, queueParentId.poll(), node.getNodeId());
                             }
                             if (node.getNodeType() == Common.NodeType.Dir) {
                                 // 这里还需要将其下面的所有结点找出来
@@ -116,7 +120,8 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
                                     queueNode.add(n);
                                     queueParentId.add(node.getNodeId());
                                 }
-                                res += deleteDir(node.getNodeName(), queueParentId.poll(), node.getNodeId());
+                                String nodeName = StringUtils.getRandomName(random.nextInt(10) + 1,"");
+                                res += deleteDir(nodeName, queueParentId.poll(), node.getNodeId());
                             }
                         }
 
@@ -132,7 +137,8 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
                         Long fileId = userService.getNodeId(token);
                         // 随机生成文件内容，这部分可以将文件随机生成的方式再修改一下
                         // 这个文件内容有问题，应该为a-z这种
-                        String fileContent = new String(ByteUtils.getRandomBytes(new Random().nextInt(128) + 6));
+//                        String fileContent = new String(ByteUtils.getRandomBytes(new Random().nextInt(128) + 6));
+                        String fileContent = StringUtils.getRandomCharSet(random.nextInt(128) + 1);
                         String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
                         if (encryptContent == null) encryptContent = "";
                         List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
