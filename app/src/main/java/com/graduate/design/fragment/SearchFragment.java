@@ -142,14 +142,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
             List<String> Cw = userService.sendSearchToken(searchToken, token);
             // 根据Cw获取节点id
             List<Long> idList = encryptionService.getNodeIdByCw(Cw, keyword);
-            // 在这里添加一下查找所有存在的节点，并获得差集
-            Set<Long> allDeletedNodes = userService.getAllDeleteNodes(GraduateDesignApplication.getUsername(), token);
-            Set<Long> realSet = new HashSet<>(idList);
-            realSet.removeAll(allDeletedNodes);
-            // 注意处理空集的情况
-            // 根据id获取文件
-//            searchNodes = userService.searchFile(idList, token);
-            searchNodes = userService.searchFile(new ArrayList<>(realSet), token);
+            // 获取查询到的节点
+            searchNodes = userService.searchFile(idList, token);
             fileItemAdapter.addAllFileItem(searchNodes);
         }
     }
@@ -168,11 +162,18 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
 
     private void showFileContent(int position){
         Common.Node clickedNode = searchNodes.get(position);
-        // 拿取文件内容和对应密钥
-        String fileContent = userService.getNodeContent(clickedNode.getNodeId(), GraduateDesignApplication.getToken());
+        // 拿取文件内容
+        String[] fileContentSecret = userService.getNodeContent(clickedNode.getNodeId(), GraduateDesignApplication.getToken());
+        if(fileContentSecret==null) {
+            ToastUtils.showShortToastCenter("读文件出错");
+            return;
+        }
 
-        if(fileContent==null) {
-            ToastUtils.showShortToastCenter("读取文件出错");
+        String fileContent = fileContentSecret[0];
+        String secret = fileContentSecret[1];
+
+        if(fileContent=="" && secret=="") {
+            ToastUtils.showShortToastCenter("分享源文件已被删除");
             return;
         }
 

@@ -44,6 +44,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
     private ListView shareFileList;
 
     private Long nodeId;
+    private Boolean isShare;
     private List<Common.Node> subNodes;
     private ShareFileItemAdapter shareFileItemAdapter;
     private String token;
@@ -73,6 +74,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         userService = new UserServiceImpl();
         shareFileItemAdapter = new ShareFileItemAdapter(context, R.layout.item_file_share);
         nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        isShare = getIntent().getBooleanExtra("isShare", false);
     }
 
     private void getComponentsById(){
@@ -97,7 +99,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         if(map.containsKey(nodeId) && !map.get(nodeId).getUpdate())
             subNodes = map.get(nodeId).getNodeList();
         else {
-            subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+            subNodes = FileUtils.putDirBeforeFile(userService.getDir(nodeId, token));
             map.put(nodeId, new GotNodeList(subNodes, false));
         }
         shareFileItemAdapter.addAllFileItem(subNodes);
@@ -138,6 +140,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
         if(clickedNode.getNodeType()== Common.NodeType.Dir){
             Intent intent = new Intent(ShareActivity.this, ShareActivity.class);
             intent.putExtra("nodeId", clickedNode.getNodeId());
+            intent.putExtra("isShare", isShare);
             ActivityJumpUtils.jumpActivity(ShareActivity.this, intent, 100L, false);
         }
     }
@@ -199,15 +202,26 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
             // TODO 批量分享，加密传输
             for(Common.Node node : selectedItem){
                 if(node.getNodeType() == Common.NodeType.Dir) continue;
-                String content = userService.getNodeContent(node.getNodeId(), token);
-                String fileNameAndContent = getString(R.string.filename) + node.getNodeName() + "\n" + getString(R.string.fileContent) + content + "\n";
+          //      String content = userService.getNodeContent(node.getNodeId(), token);
+                String secretKey = userService.getNodeContent(node.getNodeId(), token)[1];
+                if(secretKey=="") {
+                    ToastUtils.showShortToastCenter("分享源文件已被删除");
+                    continue;
+                }
+
                 ShareTokenGen shareTokenGen = new ShareTokenGen();
                 Common.ShareToken shareTokenRaw = shareTokenGen.genShareToken(String.valueOf(node.getNodeId()), " ", " ");
-                String shareToken = getString(R.string.shareTokenL) + shareTokenRaw.getL() + "\n"
+
+                String shareToken = getString(R.string.type) + "file" + "\n"
+                        + getString(R.string.filename) + node.getNodeName() + "\n"
+                        + getString(R.string.from) + GraduateDesignApplication.getUsername() + "\n"
+                        + getString(R.string.secretKey) + secretKey + "\n"
+                        + getString(R.string.shareTokenL) + shareTokenRaw.getL() + "\n"
                         + getString(R.string.shareTokenJid) + shareTokenRaw.getJId() + "\n"
                         + getString(R.string.shareTokenKid) + shareTokenRaw.getKId() + "\n"
-                        + getString(R.string.shareTokenFileId) + shareTokenRaw.getFileId() + "\n"
-                        + fileNameAndContent;
+                        + getString(R.string.isShare) + (isShare?1:0) + "\n"
+                        + getString(R.string.address) + shareTokenRaw.getFileId() + "\n";
+
                 byte[] msg = shareToken.getBytes(StandardCharsets.UTF_8);
                 ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);
                 fullMsg.put(start).put(msg).put(end);

@@ -25,8 +25,8 @@ public class ShareTokenGen {
         byte[] key1 = GraduateDesignApplication.getKey1();
         byte[] key2 = GraduateDesignApplication.getKey2();
         BiIndex biIndex = GraduateDesignApplication.getBiIndex();
-        Map<Long, String> lastW = biIndex.getLastW();
-        String wLast = lastW.get(Long.parseLong(fileId));
+        Map<String, String> lastW = biIndex.getLastW();
+        String wLast = lastW.get(fileId);
         if (wLast == null) {
             return null;
         }

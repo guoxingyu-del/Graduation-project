@@ -3,6 +3,7 @@ package com.graduate.design.service.impl;
 import android.os.Build;
 
 import com.graduate.design.entity.BiIndex;
+import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.proto.SearchFile;
 import com.graduate.design.proto.SendSearchToken;
@@ -138,15 +139,15 @@ public class EncryptionServiceImpl implements EncryptionService {
 
     // 上传加密搜索索引
     @Override
-    public FileUpload.indexToken uploadIndex(Long id, String word) {
+    public Common.indexToken uploadIndex(Long id, String word) {
         BiIndex biIndex = GraduateDesignApplication.getBiIndex();
-        Map<Long, String> lastW = biIndex.getLastW();
-        Map<String, Long> lastID = biIndex.getLastID();
+        Map<String, String> lastW = biIndex.getLastW();
+        Map<String, String> lastID = biIndex.getLastID();
         byte[] key1 = GraduateDesignApplication.getKey1();
         byte[] key2 = GraduateDesignApplication.getKey2();
 
-        String oldWord = lastW.get(id);
-        Long oldID = lastID.get(word);
+        String oldWord = lastW.get(String.valueOf(id));
+        String oldIDString = lastID.get(word);
 
         byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.UTF_8);
         byte[] wordBytes = word.getBytes(StandardCharsets.UTF_8);
@@ -165,11 +166,12 @@ public class EncryptionServiceImpl implements EncryptionService {
         byte[] Cid = encryptByAES256(word, kid);
         byte[] Iw;
 
-        if(oldID == null) {
+        if(oldIDString == null) {
             byte[] Jw = HmacSha256(key2, word_id);
             Iw = SHA512(ByteUtils.mergeBytes(Jw, Rw));
         }
         else {
+            Long oldID = Long.parseLong(oldIDString);
             byte[] oldIDBytes = String.valueOf(oldID).getBytes(StandardCharsets.UTF_8);
             byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(wordBytes, oldIDBytes));
             byte[] oldJw = HmacSha256(key2, ByteUtils.mergeBytes(wordBytes, oldIDBytes));
@@ -188,13 +190,13 @@ public class EncryptionServiceImpl implements EncryptionService {
             byte[] Jid = HmacSha256(key2, id_word);
             Iid = ByteUtils.xor(SHA512(ByteUtils.mergeBytes(Jid, Rid)), ByteUtils.mergeBytes(oldL, oldJid));
         }
-        lastW.put(id, word);
-        lastID.put(word, id);
+        lastW.put(String.valueOf(id), word);
+        lastID.put(word, String.valueOf(id));
 
         biIndex.setLastID(lastID);
         biIndex.setLastW(lastW);
 
-        return FileUpload.indexToken.newBuilder().setL(FileUtils.bytes2Base64(L))
+        return Common.indexToken.newBuilder().setL(FileUtils.bytes2Base64(L))
                 .setIw(FileUtils.bytes2Base64(Iw))
                 .setRw(FileUtils.bytes2Base64(Rw))
                 .setCw(FileUtils.bytes2Base64(Cw))
@@ -207,13 +209,14 @@ public class EncryptionServiceImpl implements EncryptionService {
     @Override
     public SendSearchToken.SearchToken getSearchToken(String word) {
         BiIndex biIndex = GraduateDesignApplication.getBiIndex();
-        Map<String, Long> lastID = biIndex.getLastID();
+        Map<String, String> lastID = biIndex.getLastID();
         byte[] key1 = GraduateDesignApplication.getKey1();
         byte[] key2 = GraduateDesignApplication.getKey2();
 
-        Long id = lastID.get(word);
-        if(id==null) return null;
+        String idString = lastID.get(word);
+        if(idString==null) return null;
 
+        Long id = Long.parseLong(idString);
         byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.UTF_8);
         byte[] wordBytes = word.getBytes(StandardCharsets.UTF_8);
         byte[] word_id = ByteUtils.mergeBytes(wordBytes, idBytes);
@@ -241,5 +244,6 @@ public class EncryptionServiceImpl implements EncryptionService {
         }
         return res;
     }
+
 
 }

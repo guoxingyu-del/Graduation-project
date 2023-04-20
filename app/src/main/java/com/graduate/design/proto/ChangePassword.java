@@ -22,7 +22,7 @@ public final class ChangePassword {
      * <code>string oldHashId = 1;</code>
      * @return The oldHashId.
      */
-    String getOldHashId();
+    java.lang.String getOldHashId();
     /**
      * <code>string oldHashId = 1;</code>
      * @return The bytes for oldHashId.
@@ -34,7 +34,7 @@ public final class ChangePassword {
      * <code>string newHashId = 2;</code>
      * @return The newHashId.
      */
-    String getNewHashId();
+    java.lang.String getNewHashId();
     /**
      * <code>string newHashId = 2;</code>
      * @return The bytes for newHashId.
@@ -46,7 +46,7 @@ public final class ChangePassword {
      * <code>string key1 = 4;</code>
      * @return The key1.
      */
-    String getKey1();
+    java.lang.String getKey1();
     /**
      * <code>string key1 = 4;</code>
      * @return The bytes for key1.
@@ -58,7 +58,7 @@ public final class ChangePassword {
      * <code>string key2 = 5;</code>
      * @return The key2.
      */
-    String getKey2();
+    java.lang.String getKey2();
     /**
      * <code>string key2 = 5;</code>
      * @return The bytes for key2.
@@ -75,11 +75,11 @@ public final class ChangePassword {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code ChangePasswordRequest}
@@ -100,14 +100,14 @@ public final class ChangePassword {
       key2_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new ChangePasswordRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -118,7 +118,7 @@ public final class ChangePassword {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -131,35 +131,35 @@ public final class ChangePassword {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               oldHashId_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               newHashId_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key1_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key2_ = s;
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -188,32 +188,32 @@ public final class ChangePassword {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChangePassword.internal_static_ChangePasswordRequest_descriptor;
+      return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChangePassword.internal_static_ChangePasswordRequest_fieldAccessorTable
+      return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ChangePasswordRequest.class, Builder.class);
+              com.graduate.design.proto.ChangePassword.ChangePasswordRequest.class, com.graduate.design.proto.ChangePassword.ChangePasswordRequest.Builder.class);
     }
 
     public static final int OLDHASHID_FIELD_NUMBER = 1;
-    private volatile Object oldHashId_;
+    private volatile java.lang.Object oldHashId_;
     /**
      * <code>string oldHashId = 1;</code>
      * @return The oldHashId.
      */
-    @Override
-    public String getOldHashId() {
-      Object ref = oldHashId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getOldHashId() {
+      java.lang.Object ref = oldHashId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         oldHashId_ = s;
         return s;
       }
@@ -222,14 +222,14 @@ public final class ChangePassword {
      * <code>string oldHashId = 1;</code>
      * @return The bytes for oldHashId.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getOldHashIdBytes() {
-      Object ref = oldHashId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = oldHashId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         oldHashId_ = b;
         return b;
       } else {
@@ -238,20 +238,20 @@ public final class ChangePassword {
     }
 
     public static final int NEWHASHID_FIELD_NUMBER = 2;
-    private volatile Object newHashId_;
+    private volatile java.lang.Object newHashId_;
     /**
      * <code>string newHashId = 2;</code>
      * @return The newHashId.
      */
-    @Override
-    public String getNewHashId() {
-      Object ref = newHashId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getNewHashId() {
+      java.lang.Object ref = newHashId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         newHashId_ = s;
         return s;
       }
@@ -260,14 +260,14 @@ public final class ChangePassword {
      * <code>string newHashId = 2;</code>
      * @return The bytes for newHashId.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getNewHashIdBytes() {
-      Object ref = newHashId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = newHashId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         newHashId_ = b;
         return b;
       } else {
@@ -276,20 +276,20 @@ public final class ChangePassword {
     }
 
     public static final int KEY1_FIELD_NUMBER = 4;
-    private volatile Object key1_;
+    private volatile java.lang.Object key1_;
     /**
      * <code>string key1 = 4;</code>
      * @return The key1.
      */
-    @Override
-    public String getKey1() {
-      Object ref = key1_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getKey1() {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key1_ = s;
         return s;
       }
@@ -298,14 +298,14 @@ public final class ChangePassword {
      * <code>string key1 = 4;</code>
      * @return The bytes for key1.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKey1Bytes() {
-      Object ref = key1_;
-      if (ref instanceof String) {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key1_ = b;
         return b;
       } else {
@@ -314,20 +314,20 @@ public final class ChangePassword {
     }
 
     public static final int KEY2_FIELD_NUMBER = 5;
-    private volatile Object key2_;
+    private volatile java.lang.Object key2_;
     /**
      * <code>string key2 = 5;</code>
      * @return The key2.
      */
-    @Override
-    public String getKey2() {
-      Object ref = key2_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getKey2() {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key2_ = s;
         return s;
       }
@@ -336,14 +336,14 @@ public final class ChangePassword {
      * <code>string key2 = 5;</code>
      * @return The bytes for key2.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKey2Bytes() {
-      Object ref = key2_;
-      if (ref instanceof String) {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key2_ = b;
         return b;
       } else {
@@ -352,12 +352,12 @@ public final class ChangePassword {
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -365,20 +365,20 @@ public final class ChangePassword {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -388,7 +388,7 @@ public final class ChangePassword {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(oldHashId_)) {
@@ -409,7 +409,7 @@ public final class ChangePassword {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -436,15 +436,15 @@ public final class ChangePassword {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ChangePasswordRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.ChangePassword.ChangePasswordRequest)) {
         return super.equals(obj);
       }
-      ChangePasswordRequest other = (ChangePasswordRequest) obj;
+      com.graduate.design.proto.ChangePassword.ChangePasswordRequest other = (com.graduate.design.proto.ChangePassword.ChangePasswordRequest) obj;
 
       if (!getOldHashId()
           .equals(other.getOldHashId())) return false;
@@ -463,7 +463,7 @@ public final class ChangePassword {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -487,69 +487,69 @@ public final class ChangePassword {
       return hash;
     }
 
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChangePasswordRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChangePasswordRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ChangePasswordRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ChangePasswordRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ChangePasswordRequest parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -557,23 +557,23 @@ public final class ChangePassword {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ChangePasswordRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.ChangePassword.ChangePasswordRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -583,18 +583,18 @@ public final class ChangePassword {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ChangePasswordRequest)
-        ChangePasswordRequestOrBuilder {
+        com.graduate.design.proto.ChangePassword.ChangePasswordRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChangePassword.internal_static_ChangePasswordRequest_descriptor;
+        return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChangePassword.internal_static_ChangePasswordRequest_fieldAccessorTable
+        return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ChangePasswordRequest.class, Builder.class);
+                com.graduate.design.proto.ChangePassword.ChangePasswordRequest.class, com.graduate.design.proto.ChangePassword.ChangePasswordRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.ChangePassword.ChangePasswordRequest.newBuilder()
@@ -603,7 +603,7 @@ public final class ChangePassword {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -612,7 +612,7 @@ public final class ChangePassword {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         oldHashId_ = "";
@@ -632,29 +632,29 @@ public final class ChangePassword {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChangePassword.internal_static_ChangePasswordRequest_descriptor;
+        return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordRequest_descriptor;
       }
 
-      @Override
-      public ChangePasswordRequest getDefaultInstanceForType() {
-        return ChangePasswordRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.ChangePassword.ChangePasswordRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.ChangePassword.ChangePasswordRequest.getDefaultInstance();
       }
 
-      @Override
-      public ChangePasswordRequest build() {
-        ChangePasswordRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.ChangePassword.ChangePasswordRequest build() {
+        com.graduate.design.proto.ChangePassword.ChangePasswordRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public ChangePasswordRequest buildPartial() {
-        ChangePasswordRequest result = new ChangePasswordRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.ChangePassword.ChangePasswordRequest buildPartial() {
+        com.graduate.design.proto.ChangePassword.ChangePasswordRequest result = new com.graduate.design.proto.ChangePassword.ChangePasswordRequest(this);
         result.oldHashId_ = oldHashId_;
         result.newHashId_ = newHashId_;
         result.key1_ = key1_;
@@ -668,50 +668,50 @@ public final class ChangePassword {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ChangePasswordRequest) {
-          return mergeFrom((ChangePasswordRequest)other);
+        if (other instanceof com.graduate.design.proto.ChangePassword.ChangePasswordRequest) {
+          return mergeFrom((com.graduate.design.proto.ChangePassword.ChangePasswordRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ChangePasswordRequest other) {
-        if (other == ChangePasswordRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.ChangePassword.ChangePasswordRequest other) {
+        if (other == com.graduate.design.proto.ChangePassword.ChangePasswordRequest.getDefaultInstance()) return this;
         if (!other.getOldHashId().isEmpty()) {
           oldHashId_ = other.oldHashId_;
           onChanged();
@@ -736,21 +736,21 @@ public final class ChangePassword {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ChangePasswordRequest parsedMessage = null;
+        com.graduate.design.proto.ChangePassword.ChangePasswordRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ChangePasswordRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.ChangePassword.ChangePasswordRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -760,21 +760,21 @@ public final class ChangePassword {
         return this;
       }
 
-      private Object oldHashId_ = "";
+      private java.lang.Object oldHashId_ = "";
       /**
        * <code>string oldHashId = 1;</code>
        * @return The oldHashId.
        */
-      public String getOldHashId() {
-        Object ref = oldHashId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getOldHashId() {
+        java.lang.Object ref = oldHashId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           oldHashId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -783,11 +783,11 @@ public final class ChangePassword {
        */
       public com.google.protobuf.ByteString
           getOldHashIdBytes() {
-        Object ref = oldHashId_;
+        java.lang.Object ref = oldHashId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           oldHashId_ = b;
           return b;
         } else {
@@ -800,7 +800,7 @@ public final class ChangePassword {
        * @return This builder for chaining.
        */
       public Builder setOldHashId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -836,21 +836,21 @@ public final class ChangePassword {
         return this;
       }
 
-      private Object newHashId_ = "";
+      private java.lang.Object newHashId_ = "";
       /**
        * <code>string newHashId = 2;</code>
        * @return The newHashId.
        */
-      public String getNewHashId() {
-        Object ref = newHashId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getNewHashId() {
+        java.lang.Object ref = newHashId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           newHashId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -859,11 +859,11 @@ public final class ChangePassword {
        */
       public com.google.protobuf.ByteString
           getNewHashIdBytes() {
-        Object ref = newHashId_;
+        java.lang.Object ref = newHashId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           newHashId_ = b;
           return b;
         } else {
@@ -876,7 +876,7 @@ public final class ChangePassword {
        * @return This builder for chaining.
        */
       public Builder setNewHashId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -912,21 +912,21 @@ public final class ChangePassword {
         return this;
       }
 
-      private Object key1_ = "";
+      private java.lang.Object key1_ = "";
       /**
        * <code>string key1 = 4;</code>
        * @return The key1.
        */
-      public String getKey1() {
-        Object ref = key1_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey1() {
+        java.lang.Object ref = key1_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key1_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -935,11 +935,11 @@ public final class ChangePassword {
        */
       public com.google.protobuf.ByteString
           getKey1Bytes() {
-        Object ref = key1_;
+        java.lang.Object ref = key1_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key1_ = b;
           return b;
         } else {
@@ -952,7 +952,7 @@ public final class ChangePassword {
        * @return This builder for chaining.
        */
       public Builder setKey1(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -988,21 +988,21 @@ public final class ChangePassword {
         return this;
       }
 
-      private Object key2_ = "";
+      private java.lang.Object key2_ = "";
       /**
        * <code>string key2 = 5;</code>
        * @return The key2.
        */
-      public String getKey2() {
-        Object ref = key2_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey2() {
+        java.lang.Object ref = key2_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key2_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1011,11 +1011,11 @@ public final class ChangePassword {
        */
       public com.google.protobuf.ByteString
           getKey2Bytes() {
-        Object ref = key2_;
+        java.lang.Object ref = key2_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key2_ = b;
           return b;
         } else {
@@ -1028,7 +1028,7 @@ public final class ChangePassword {
        * @return This builder for chaining.
        */
       public Builder setKey2(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1064,9 +1064,9 @@ public final class ChangePassword {
         return this;
       }
 
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -1078,9 +1078,9 @@ public final class ChangePassword {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -1088,7 +1088,7 @@ public final class ChangePassword {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1105,7 +1105,7 @@ public final class ChangePassword {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -1118,11 +1118,11 @@ public final class ChangePassword {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -1150,7 +1150,7 @@ public final class ChangePassword {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -1158,23 +1158,23 @@ public final class ChangePassword {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -1182,13 +1182,13 @@ public final class ChangePassword {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1199,18 +1199,18 @@ public final class ChangePassword {
     }
 
     // @@protoc_insertion_point(class_scope:ChangePasswordRequest)
-    private static final ChangePasswordRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.ChangePassword.ChangePasswordRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ChangePasswordRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.ChangePassword.ChangePasswordRequest();
     }
 
-    public static ChangePasswordRequest getDefaultInstance() {
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ChangePasswordRequest>
         PARSER = new com.google.protobuf.AbstractParser<ChangePasswordRequest>() {
-      @Override
+      @java.lang.Override
       public ChangePasswordRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1223,13 +1223,13 @@ public final class ChangePassword {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ChangePasswordRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public ChangePasswordRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.ChangePassword.ChangePasswordRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1248,11 +1248,11 @@ public final class ChangePassword {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code ChangePasswordResponse}
@@ -1269,14 +1269,14 @@ public final class ChangePassword {
     private ChangePasswordResponse() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new ChangePasswordResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1287,7 +1287,7 @@ public final class ChangePassword {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1300,11 +1300,11 @@ public final class ChangePassword {
               done = true;
               break;
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1333,24 +1333,24 @@ public final class ChangePassword {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ChangePassword.internal_static_ChangePasswordResponse_descriptor;
+      return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ChangePassword.internal_static_ChangePasswordResponse_fieldAccessorTable
+      return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ChangePasswordResponse.class, Builder.class);
+              com.graduate.design.proto.ChangePassword.ChangePasswordResponse.class, com.graduate.design.proto.ChangePassword.ChangePasswordResponse.Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1358,20 +1358,20 @@ public final class ChangePassword {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1381,7 +1381,7 @@ public final class ChangePassword {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -1390,7 +1390,7 @@ public final class ChangePassword {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1405,15 +1405,15 @@ public final class ChangePassword {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ChangePasswordResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.ChangePassword.ChangePasswordResponse)) {
         return super.equals(obj);
       }
-      ChangePasswordResponse other = (ChangePasswordResponse) obj;
+      com.graduate.design.proto.ChangePassword.ChangePasswordResponse other = (com.graduate.design.proto.ChangePassword.ChangePasswordResponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -1424,7 +1424,7 @@ public final class ChangePassword {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1440,69 +1440,69 @@ public final class ChangePassword {
       return hash;
     }
 
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChangePasswordResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ChangePasswordResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ChangePasswordResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ChangePasswordResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ChangePasswordResponse parseFrom(
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1510,23 +1510,23 @@ public final class ChangePassword {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ChangePasswordResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.ChangePassword.ChangePasswordResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1536,18 +1536,18 @@ public final class ChangePassword {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ChangePasswordResponse)
-        ChangePasswordResponseOrBuilder {
+        com.graduate.design.proto.ChangePassword.ChangePasswordResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ChangePassword.internal_static_ChangePasswordResponse_descriptor;
+        return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ChangePassword.internal_static_ChangePasswordResponse_fieldAccessorTable
+        return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ChangePasswordResponse.class, Builder.class);
+                com.graduate.design.proto.ChangePassword.ChangePasswordResponse.class, com.graduate.design.proto.ChangePassword.ChangePasswordResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.ChangePassword.ChangePasswordResponse.newBuilder()
@@ -1556,7 +1556,7 @@ public final class ChangePassword {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1565,7 +1565,7 @@ public final class ChangePassword {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -1577,29 +1577,29 @@ public final class ChangePassword {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ChangePassword.internal_static_ChangePasswordResponse_descriptor;
+        return com.graduate.design.proto.ChangePassword.internal_static_ChangePasswordResponse_descriptor;
       }
 
-      @Override
-      public ChangePasswordResponse getDefaultInstanceForType() {
-        return ChangePasswordResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.ChangePassword.ChangePasswordResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.ChangePassword.ChangePasswordResponse.getDefaultInstance();
       }
 
-      @Override
-      public ChangePasswordResponse build() {
-        ChangePasswordResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.ChangePassword.ChangePasswordResponse build() {
+        com.graduate.design.proto.ChangePassword.ChangePasswordResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public ChangePasswordResponse buildPartial() {
-        ChangePasswordResponse result = new ChangePasswordResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.ChangePassword.ChangePasswordResponse buildPartial() {
+        com.graduate.design.proto.ChangePassword.ChangePasswordResponse result = new com.graduate.design.proto.ChangePassword.ChangePasswordResponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -1609,50 +1609,50 @@ public final class ChangePassword {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ChangePasswordResponse) {
-          return mergeFrom((ChangePasswordResponse)other);
+        if (other instanceof com.graduate.design.proto.ChangePassword.ChangePasswordResponse) {
+          return mergeFrom((com.graduate.design.proto.ChangePassword.ChangePasswordResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ChangePasswordResponse other) {
-        if (other == ChangePasswordResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.ChangePassword.ChangePasswordResponse other) {
+        if (other == com.graduate.design.proto.ChangePassword.ChangePasswordResponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -1661,21 +1661,21 @@ public final class ChangePassword {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ChangePasswordResponse parsedMessage = null;
+        com.graduate.design.proto.ChangePassword.ChangePasswordResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ChangePasswordResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.ChangePassword.ChangePasswordResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1685,9 +1685,9 @@ public final class ChangePassword {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1699,9 +1699,9 @@ public final class ChangePassword {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -1709,7 +1709,7 @@ public final class ChangePassword {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1726,7 +1726,7 @@ public final class ChangePassword {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -1739,11 +1739,11 @@ public final class ChangePassword {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -1771,7 +1771,7 @@ public final class ChangePassword {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -1779,23 +1779,23 @@ public final class ChangePassword {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -1803,13 +1803,13 @@ public final class ChangePassword {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1820,18 +1820,18 @@ public final class ChangePassword {
     }
 
     // @@protoc_insertion_point(class_scope:ChangePasswordResponse)
-    private static final ChangePasswordResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.ChangePassword.ChangePasswordResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ChangePasswordResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.ChangePassword.ChangePasswordResponse();
     }
 
-    public static ChangePasswordResponse getDefaultInstance() {
+    public static com.graduate.design.proto.ChangePassword.ChangePasswordResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ChangePasswordResponse>
         PARSER = new com.google.protobuf.AbstractParser<ChangePasswordResponse>() {
-      @Override
+      @java.lang.Override
       public ChangePasswordResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1844,13 +1844,13 @@ public final class ChangePassword {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ChangePasswordResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public ChangePasswordResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.ChangePassword.ChangePasswordResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1874,34 +1874,33 @@ public final class ChangePassword {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\025change_password.proto\032\014common.proto\"u\n" +
       "\025ChangePasswordRequest\022\021\n\toldHashId\030\001 \001(" +
       "\t\022\021\n\tnewHashId\030\002 \001(\t\022\014\n\004key1\030\004 \001(\t\022\014\n\004ke" +
       "y2\030\005 \001(\t\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\"6\n\026" +
       "ChangePasswordResponse\022\034\n\010baseResp\030\377\001 \001(" +
-      "\0132\t.BaseRespBS\n\031com.graduate.design.prot" +
-      "oB\016ChangePasswordZ&github.com/JackTJC/gm" +
-      "FS_backend/pb_genb\006proto3"
+      "\0132\t.BaseRespB5\n\031com.graduate.design.prot" +
+      "oB\016ChangePasswordZ\010./pb_genb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_ChangePasswordRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_ChangePasswordRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChangePasswordRequest_descriptor,
-        new String[] { "OldHashId", "NewHashId", "Key1", "Key2", "BaseReq", });
+        new java.lang.String[] { "OldHashId", "NewHashId", "Key1", "Key2", "BaseReq", });
     internal_static_ChangePasswordResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ChangePasswordResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ChangePasswordResponse_descriptor,
-        new String[] { "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

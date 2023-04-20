@@ -72,6 +72,13 @@
                 android:text="分享"
                 android:background="@color/common_orange"
                 android:enabled="false" />
+            <Button
+                android:id="@+id/transfer_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="转存"
+                android:background="@color/common_orange"
+                android:enabled="false" />
 
         </LinearLayout>
 

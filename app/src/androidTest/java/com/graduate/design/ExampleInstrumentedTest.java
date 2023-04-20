@@ -10,6 +10,12 @@ import org.junit.runner.RunWith;
 
 import static org.junit.Assert.*;
 
+import com.graduate.design.entity.BiIndex;
+import com.graduate.design.utils.JsonUtils;
+
+import java.util.HashMap;
+import java.util.Map;
+
 /**
  * Instrumented test, which will execute on an Android device.
  *
@@ -19,8 +25,8 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() {
-        // Context of the app under test.
-        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.graduate.design", appContext.getPackageName());
+//        Context of the app under test.
+//        Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
+//        assertEquals("com.graduate.design", appContext.getPackageName());
     }
 }

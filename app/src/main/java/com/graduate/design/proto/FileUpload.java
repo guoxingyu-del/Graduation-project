@@ -14,1510 +14,6 @@ public final class FileUpload {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
-  public interface indexTokenOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:indexToken)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <pre>
-     * 均以base64格式存储
-     * </pre>
-     *
-     * <code>string L = 1;</code>
-     * @return The l.
-     */
-    String getL();
-    /**
-     * <pre>
-     * 均以base64格式存储
-     * </pre>
-     *
-     * <code>string L = 1;</code>
-     * @return The bytes for l.
-     */
-    com.google.protobuf.ByteString
-        getLBytes();
-
-    /**
-     * <code>string Iw = 2;</code>
-     * @return The iw.
-     */
-    String getIw();
-    /**
-     * <code>string Iw = 2;</code>
-     * @return The bytes for iw.
-     */
-    com.google.protobuf.ByteString
-        getIwBytes();
-
-    /**
-     * <code>string Rw = 3;</code>
-     * @return The rw.
-     */
-    String getRw();
-    /**
-     * <code>string Rw = 3;</code>
-     * @return The bytes for rw.
-     */
-    com.google.protobuf.ByteString
-        getRwBytes();
-
-    /**
-     * <code>string Cw = 4;</code>
-     * @return The cw.
-     */
-    String getCw();
-    /**
-     * <code>string Cw = 4;</code>
-     * @return The bytes for cw.
-     */
-    com.google.protobuf.ByteString
-        getCwBytes();
-
-    /**
-     * <code>string Iid = 5;</code>
-     * @return The iid.
-     */
-    String getIid();
-    /**
-     * <code>string Iid = 5;</code>
-     * @return The bytes for iid.
-     */
-    com.google.protobuf.ByteString
-        getIidBytes();
-
-    /**
-     * <code>string Rid = 6;</code>
-     * @return The rid.
-     */
-    String getRid();
-    /**
-     * <code>string Rid = 6;</code>
-     * @return The bytes for rid.
-     */
-    com.google.protobuf.ByteString
-        getRidBytes();
-
-    /**
-     * <code>string Cid = 7;</code>
-     * @return The cid.
-     */
-    String getCid();
-    /**
-     * <code>string Cid = 7;</code>
-     * @return The bytes for cid.
-     */
-    com.google.protobuf.ByteString
-        getCidBytes();
-  }
-  /**
-   * Protobuf type {@code indexToken}
-   */
-  public static final class indexToken extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:indexToken)
-      indexTokenOrBuilder {
-  private static final long serialVersionUID = 0L;
-    // Use indexToken.newBuilder() to construct.
-    private indexToken(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private indexToken() {
-      l_ = "";
-      iw_ = "";
-      rw_ = "";
-      cw_ = "";
-      iid_ = "";
-      rid_ = "";
-      cid_ = "";
-    }
-
-    @Override
-    @SuppressWarnings({"unused"})
-    protected Object newInstance(
-        UnusedPrivateParameter unused) {
-      return new indexToken();
-    }
-
-    @Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return this.unknownFields;
-    }
-    private indexToken(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      if (extensionRegistry == null) {
-        throw new NullPointerException();
-      }
-      com.google.protobuf.UnknownFieldSet.Builder unknownFields =
-          com.google.protobuf.UnknownFieldSet.newBuilder();
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            case 10: {
-              String s = input.readStringRequireUtf8();
-
-              l_ = s;
-              break;
-            }
-            case 18: {
-              String s = input.readStringRequireUtf8();
-
-              iw_ = s;
-              break;
-            }
-            case 26: {
-              String s = input.readStringRequireUtf8();
-
-              rw_ = s;
-              break;
-            }
-            case 34: {
-              String s = input.readStringRequireUtf8();
-
-              cw_ = s;
-              break;
-            }
-            case 42: {
-              String s = input.readStringRequireUtf8();
-
-              iid_ = s;
-              break;
-            }
-            case 50: {
-              String s = input.readStringRequireUtf8();
-
-              rid_ = s;
-              break;
-            }
-            case 58: {
-              String s = input.readStringRequireUtf8();
-
-              cid_ = s;
-              break;
-            }
-            default: {
-              if (!parseUnknownField(
-                  input, unknownFields, extensionRegistry, tag)) {
-                done = true;
-              }
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        this.unknownFields = unknownFields.build();
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return FileUpload.internal_static_indexToken_descriptor;
-    }
-
-    @Override
-    protected FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return FileUpload.internal_static_indexToken_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              indexToken.class, Builder.class);
-    }
-
-    public static final int L_FIELD_NUMBER = 1;
-    private volatile Object l_;
-    /**
-     * <pre>
-     * 均以base64格式存储
-     * </pre>
-     *
-     * <code>string L = 1;</code>
-     * @return The l.
-     */
-    @Override
-    public String getL() {
-      Object ref = l_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        l_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 均以base64格式存储
-     * </pre>
-     *
-     * <code>string L = 1;</code>
-     * @return The bytes for l.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getLBytes() {
-      Object ref = l_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        l_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IW_FIELD_NUMBER = 2;
-    private volatile Object iw_;
-    /**
-     * <code>string Iw = 2;</code>
-     * @return The iw.
-     */
-    @Override
-    public String getIw() {
-      Object ref = iw_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        iw_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Iw = 2;</code>
-     * @return The bytes for iw.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getIwBytes() {
-      Object ref = iw_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        iw_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int RW_FIELD_NUMBER = 3;
-    private volatile Object rw_;
-    /**
-     * <code>string Rw = 3;</code>
-     * @return The rw.
-     */
-    @Override
-    public String getRw() {
-      Object ref = rw_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        rw_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Rw = 3;</code>
-     * @return The bytes for rw.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getRwBytes() {
-      Object ref = rw_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        rw_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CW_FIELD_NUMBER = 4;
-    private volatile Object cw_;
-    /**
-     * <code>string Cw = 4;</code>
-     * @return The cw.
-     */
-    @Override
-    public String getCw() {
-      Object ref = cw_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        cw_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Cw = 4;</code>
-     * @return The bytes for cw.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getCwBytes() {
-      Object ref = cw_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        cw_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int IID_FIELD_NUMBER = 5;
-    private volatile Object iid_;
-    /**
-     * <code>string Iid = 5;</code>
-     * @return The iid.
-     */
-    @Override
-    public String getIid() {
-      Object ref = iid_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        iid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Iid = 5;</code>
-     * @return The bytes for iid.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getIidBytes() {
-      Object ref = iid_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        iid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int RID_FIELD_NUMBER = 6;
-    private volatile Object rid_;
-    /**
-     * <code>string Rid = 6;</code>
-     * @return The rid.
-     */
-    @Override
-    public String getRid() {
-      Object ref = rid_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        rid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Rid = 6;</code>
-     * @return The bytes for rid.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getRidBytes() {
-      Object ref = rid_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        rid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int CID_FIELD_NUMBER = 7;
-    private volatile Object cid_;
-    /**
-     * <code>string Cid = 7;</code>
-     * @return The cid.
-     */
-    @Override
-    public String getCid() {
-      Object ref = cid_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        cid_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>string Cid = 7;</code>
-     * @return The bytes for cid.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getCidBytes() {
-      Object ref = cid_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        cid_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    @Override
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    @Override
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(l_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, l_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iw_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, iw_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rw_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, rw_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cw_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, cw_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, iid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, rid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cid_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, cid_);
-      }
-      unknownFields.writeTo(output);
-    }
-
-    @Override
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(l_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, l_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iw_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, iw_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rw_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, rw_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cw_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, cw_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(iid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, iid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(rid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, rid_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(cid_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, cid_);
-      }
-      size += unknownFields.getSerializedSize();
-      memoizedSize = size;
-      return size;
-    }
-
-    @Override
-    public boolean equals(final Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof indexToken)) {
-        return super.equals(obj);
-      }
-      indexToken other = (indexToken) obj;
-
-      if (!getL()
-          .equals(other.getL())) return false;
-      if (!getIw()
-          .equals(other.getIw())) return false;
-      if (!getRw()
-          .equals(other.getRw())) return false;
-      if (!getCw()
-          .equals(other.getCw())) return false;
-      if (!getIid()
-          .equals(other.getIid())) return false;
-      if (!getRid()
-          .equals(other.getRid())) return false;
-      if (!getCid()
-          .equals(other.getCid())) return false;
-      if (!unknownFields.equals(other.unknownFields)) return false;
-      return true;
-    }
-
-    @Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + L_FIELD_NUMBER;
-      hash = (53 * hash) + getL().hashCode();
-      hash = (37 * hash) + IW_FIELD_NUMBER;
-      hash = (53 * hash) + getIw().hashCode();
-      hash = (37 * hash) + RW_FIELD_NUMBER;
-      hash = (53 * hash) + getRw().hashCode();
-      hash = (37 * hash) + CW_FIELD_NUMBER;
-      hash = (53 * hash) + getCw().hashCode();
-      hash = (37 * hash) + IID_FIELD_NUMBER;
-      hash = (53 * hash) + getIid().hashCode();
-      hash = (37 * hash) + RID_FIELD_NUMBER;
-      hash = (53 * hash) + getRid().hashCode();
-      hash = (37 * hash) + CID_FIELD_NUMBER;
-      hash = (53 * hash) + getCid().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static indexToken parseFrom(
-        java.nio.ByteBuffer data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static indexToken parseFrom(
-        java.nio.ByteBuffer data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static indexToken parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static indexToken parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static indexToken parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static indexToken parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static indexToken parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static indexToken parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static indexToken parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static indexToken parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static indexToken parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static indexToken parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    @Override
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(indexToken prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    @Override
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @Override
-    protected Builder newBuilderForType(
-        BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code indexToken}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:indexToken)
-        indexTokenOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return FileUpload.internal_static_indexToken_descriptor;
-      }
-
-      @Override
-      protected FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return FileUpload.internal_static_indexToken_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                indexToken.class, Builder.class);
-      }
-
-      // Construct using com.graduate.design.proto.FileUpload.indexToken.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      @Override
-      public Builder clear() {
-        super.clear();
-        l_ = "";
-
-        iw_ = "";
-
-        rw_ = "";
-
-        cw_ = "";
-
-        iid_ = "";
-
-        rid_ = "";
-
-        cid_ = "";
-
-        return this;
-      }
-
-      @Override
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return FileUpload.internal_static_indexToken_descriptor;
-      }
-
-      @Override
-      public indexToken getDefaultInstanceForType() {
-        return indexToken.getDefaultInstance();
-      }
-
-      @Override
-      public indexToken build() {
-        indexToken result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      @Override
-      public indexToken buildPartial() {
-        indexToken result = new indexToken(this);
-        result.l_ = l_;
-        result.iw_ = iw_;
-        result.rw_ = rw_;
-        result.cw_ = cw_;
-        result.iid_ = iid_;
-        result.rid_ = rid_;
-        result.cid_ = cid_;
-        onBuilt();
-        return result;
-      }
-
-      @Override
-      public Builder clone() {
-        return super.clone();
-      }
-      @Override
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.setField(field, value);
-      }
-      @Override
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return super.clearField(field);
-      }
-      @Override
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return super.clearOneof(oneof);
-      }
-      @Override
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return super.setRepeatedField(field, index, value);
-      }
-      @Override
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return super.addRepeatedField(field, value);
-      }
-      @Override
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof indexToken) {
-          return mergeFrom((indexToken)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(indexToken other) {
-        if (other == indexToken.getDefaultInstance()) return this;
-        if (!other.getL().isEmpty()) {
-          l_ = other.l_;
-          onChanged();
-        }
-        if (!other.getIw().isEmpty()) {
-          iw_ = other.iw_;
-          onChanged();
-        }
-        if (!other.getRw().isEmpty()) {
-          rw_ = other.rw_;
-          onChanged();
-        }
-        if (!other.getCw().isEmpty()) {
-          cw_ = other.cw_;
-          onChanged();
-        }
-        if (!other.getIid().isEmpty()) {
-          iid_ = other.iid_;
-          onChanged();
-        }
-        if (!other.getRid().isEmpty()) {
-          rid_ = other.rid_;
-          onChanged();
-        }
-        if (!other.getCid().isEmpty()) {
-          cid_ = other.cid_;
-          onChanged();
-        }
-        this.mergeUnknownFields(other.unknownFields);
-        onChanged();
-        return this;
-      }
-
-      @Override
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      @Override
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        indexToken parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (indexToken) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private Object l_ = "";
-      /**
-       * <pre>
-       * 均以base64格式存储
-       * </pre>
-       *
-       * <code>string L = 1;</code>
-       * @return The l.
-       */
-      public String getL() {
-        Object ref = l_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          l_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 均以base64格式存储
-       * </pre>
-       *
-       * <code>string L = 1;</code>
-       * @return The bytes for l.
-       */
-      public com.google.protobuf.ByteString
-          getLBytes() {
-        Object ref = l_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          l_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 均以base64格式存储
-       * </pre>
-       *
-       * <code>string L = 1;</code>
-       * @param value The l to set.
-       * @return This builder for chaining.
-       */
-      public Builder setL(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        l_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 均以base64格式存储
-       * </pre>
-       *
-       * <code>string L = 1;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearL() {
-        
-        l_ = getDefaultInstance().getL();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 均以base64格式存储
-       * </pre>
-       *
-       * <code>string L = 1;</code>
-       * @param value The bytes for l to set.
-       * @return This builder for chaining.
-       */
-      public Builder setLBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        l_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object iw_ = "";
-      /**
-       * <code>string Iw = 2;</code>
-       * @return The iw.
-       */
-      public String getIw() {
-        Object ref = iw_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          iw_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string Iw = 2;</code>
-       * @return The bytes for iw.
-       */
-      public com.google.protobuf.ByteString
-          getIwBytes() {
-        Object ref = iw_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          iw_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Iw = 2;</code>
-       * @param value The iw to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIw(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        iw_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Iw = 2;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIw() {
-        
-        iw_ = getDefaultInstance().getIw();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Iw = 2;</code>
-       * @param value The bytes for iw to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIwBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        iw_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object rw_ = "";
-      /**
-       * <code>string Rw = 3;</code>
-       * @return The rw.
-       */
-      public String getRw() {
-        Object ref = rw_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          rw_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string Rw = 3;</code>
-       * @return The bytes for rw.
-       */
-      public com.google.protobuf.ByteString
-          getRwBytes() {
-        Object ref = rw_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          rw_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Rw = 3;</code>
-       * @param value The rw to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRw(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        rw_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Rw = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRw() {
-        
-        rw_ = getDefaultInstance().getRw();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Rw = 3;</code>
-       * @param value The bytes for rw to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRwBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        rw_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object cw_ = "";
-      /**
-       * <code>string Cw = 4;</code>
-       * @return The cw.
-       */
-      public String getCw() {
-        Object ref = cw_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          cw_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string Cw = 4;</code>
-       * @return The bytes for cw.
-       */
-      public com.google.protobuf.ByteString
-          getCwBytes() {
-        Object ref = cw_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          cw_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Cw = 4;</code>
-       * @param value The cw to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCw(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        cw_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Cw = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCw() {
-        
-        cw_ = getDefaultInstance().getCw();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Cw = 4;</code>
-       * @param value The bytes for cw to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCwBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        cw_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object iid_ = "";
-      /**
-       * <code>string Iid = 5;</code>
-       * @return The iid.
-       */
-      public String getIid() {
-        Object ref = iid_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          iid_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string Iid = 5;</code>
-       * @return The bytes for iid.
-       */
-      public com.google.protobuf.ByteString
-          getIidBytes() {
-        Object ref = iid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          iid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Iid = 5;</code>
-       * @param value The iid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIid(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        iid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Iid = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearIid() {
-        
-        iid_ = getDefaultInstance().getIid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Iid = 5;</code>
-       * @param value The bytes for iid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setIidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        iid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object rid_ = "";
-      /**
-       * <code>string Rid = 6;</code>
-       * @return The rid.
-       */
-      public String getRid() {
-        Object ref = rid_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          rid_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string Rid = 6;</code>
-       * @return The bytes for rid.
-       */
-      public com.google.protobuf.ByteString
-          getRidBytes() {
-        Object ref = rid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          rid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Rid = 6;</code>
-       * @param value The rid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRid(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        rid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Rid = 6;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearRid() {
-        
-        rid_ = getDefaultInstance().getRid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Rid = 6;</code>
-       * @param value The bytes for rid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setRidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        rid_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object cid_ = "";
-      /**
-       * <code>string Cid = 7;</code>
-       * @return The cid.
-       */
-      public String getCid() {
-        Object ref = cid_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          cid_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <code>string Cid = 7;</code>
-       * @return The bytes for cid.
-       */
-      public com.google.protobuf.ByteString
-          getCidBytes() {
-        Object ref = cid_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          cid_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>string Cid = 7;</code>
-       * @param value The cid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCid(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        cid_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Cid = 7;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearCid() {
-        
-        cid_ = getDefaultInstance().getCid();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>string Cid = 7;</code>
-       * @param value The bytes for cid to set.
-       * @return This builder for chaining.
-       */
-      public Builder setCidBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        cid_ = value;
-        onChanged();
-        return this;
-      }
-      @Override
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.setUnknownFields(unknownFields);
-      }
-
-      @Override
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return super.mergeUnknownFields(unknownFields);
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:indexToken)
-    }
-
-    // @@protoc_insertion_point(class_scope:indexToken)
-    private static final indexToken DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new indexToken();
-    }
-
-    public static indexToken getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<indexToken>
-        PARSER = new com.google.protobuf.AbstractParser<indexToken>() {
-      @Override
-      public indexToken parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-        return new indexToken(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<indexToken> parser() {
-      return PARSER;
-    }
-
-    @Override
-    public com.google.protobuf.Parser<indexToken> getParserForType() {
-      return PARSER;
-    }
-
-    @Override
-    public indexToken getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface UploadFileRequestOrBuilder extends
       // @@protoc_insertion_point(interface_extends:UploadFileRequest)
       com.google.protobuf.MessageOrBuilder {
@@ -1530,7 +26,7 @@ public final class FileUpload {
      * <code>string fileName = 1;</code>
      * @return The fileName.
      */
-    String getFileName();
+    java.lang.String getFileName();
     /**
      * <pre>
      * 文件名称
@@ -1559,7 +55,7 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    java.util.List<indexToken>
+    java.util.List<com.graduate.design.proto.Common.indexToken> 
         getIndexListList();
     /**
      * <pre>
@@ -1568,7 +64,7 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    indexToken getIndexList(int index);
+    com.graduate.design.proto.Common.indexToken getIndexList(int index);
     /**
      * <pre>
      * 文件的关键词列表，用于后续可加密搜索
@@ -1584,7 +80,7 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    java.util.List<? extends indexTokenOrBuilder>
+    java.util.List<? extends com.graduate.design.proto.Common.indexTokenOrBuilder> 
         getIndexListOrBuilderList();
     /**
      * <pre>
@@ -1593,7 +89,7 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    indexTokenOrBuilder getIndexListOrBuilder(
+    com.graduate.design.proto.Common.indexTokenOrBuilder getIndexListOrBuilder(
         int index);
 
     /**
@@ -1614,7 +110,7 @@ public final class FileUpload {
      * <code>string biIndex = 5;</code>
      * @return The biIndex.
      */
-    String getBiIndex();
+    java.lang.String getBiIndex();
     /**
      * <pre>
      * 用户索引
@@ -1638,43 +134,23 @@ public final class FileUpload {
 
     /**
      * <pre>
-     * 文件Id与操作op对的密文
+     * 文件密钥
      * </pre>
      *
-     * <code>string nodeIdOpPair = 7;</code>
-     * @return The nodeIdOpPair.
+     * <code>string fileSecret = 7;</code>
+     * @return The fileSecret.
      */
-    String getNodeIdOpPair();
+    java.lang.String getFileSecret();
     /**
      * <pre>
-     * 文件Id与操作op对的密文
+     * 文件密钥
      * </pre>
      *
-     * <code>string nodeIdOpPair = 7;</code>
-     * @return The bytes for nodeIdOpPair.
+     * <code>string fileSecret = 7;</code>
+     * @return The bytes for fileSecret.
      */
     com.google.protobuf.ByteString
-        getNodeIdOpPairBytes();
-
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 8;</code>
-     * @return The userName.
-     */
-    String getUserName();
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 8;</code>
-     * @return The bytes for userName.
-     */
-    com.google.protobuf.ByteString
-        getUserNameBytes();
+        getFileSecretBytes();
 
     /**
      * <code>.BaseReq baseReq = 255;</code>
@@ -1685,11 +161,11 @@ public final class FileUpload {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * <pre>
@@ -1712,18 +188,17 @@ public final class FileUpload {
       indexList_ = java.util.Collections.emptyList();
       content_ = com.google.protobuf.ByteString.EMPTY;
       biIndex_ = "";
-      nodeIdOpPair_ = "";
-      userName_ = "";
+      fileSecret_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UploadFileRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1734,7 +209,7 @@ public final class FileUpload {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1748,7 +223,7 @@ public final class FileUpload {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               fileName_ = s;
               break;
@@ -1760,11 +235,11 @@ public final class FileUpload {
             }
             case 26: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                indexList_ = new java.util.ArrayList<indexToken>();
+                indexList_ = new java.util.ArrayList<com.graduate.design.proto.Common.indexToken>();
                 mutable_bitField0_ |= 0x00000001;
               }
               indexList_.add(
-                  input.readMessage(indexToken.parser(), extensionRegistry));
+                  input.readMessage(com.graduate.design.proto.Common.indexToken.parser(), extensionRegistry));
               break;
             }
             case 34: {
@@ -1773,7 +248,7 @@ public final class FileUpload {
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               biIndex_ = s;
               break;
@@ -1784,23 +259,17 @@ public final class FileUpload {
               break;
             }
             case 58: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
-              nodeIdOpPair_ = s;
-              break;
-            }
-            case 66: {
-              String s = input.readStringRequireUtf8();
-
-              userName_ = s;
+              fileSecret_ = s;
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -1832,19 +301,19 @@ public final class FileUpload {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return FileUpload.internal_static_UploadFileRequest_descriptor;
+      return com.graduate.design.proto.FileUpload.internal_static_UploadFileRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return FileUpload.internal_static_UploadFileRequest_fieldAccessorTable
+      return com.graduate.design.proto.FileUpload.internal_static_UploadFileRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UploadFileRequest.class, Builder.class);
+              com.graduate.design.proto.FileUpload.UploadFileRequest.class, com.graduate.design.proto.FileUpload.UploadFileRequest.Builder.class);
     }
 
     public static final int FILENAME_FIELD_NUMBER = 1;
-    private volatile Object fileName_;
+    private volatile java.lang.Object fileName_;
     /**
      * <pre>
      * 文件名称
@@ -1853,15 +322,15 @@ public final class FileUpload {
      * <code>string fileName = 1;</code>
      * @return The fileName.
      */
-    @Override
-    public String getFileName() {
-      Object ref = fileName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         fileName_ = s;
         return s;
       }
@@ -1874,14 +343,14 @@ public final class FileUpload {
      * <code>string fileName = 1;</code>
      * @return The bytes for fileName.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getFileNameBytes() {
-      Object ref = fileName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         fileName_ = b;
         return b;
       } else {
@@ -1899,13 +368,13 @@ public final class FileUpload {
      * <code>int64 parentId = 2;</code>
      * @return The parentId.
      */
-    @Override
+    @java.lang.Override
     public long getParentId() {
       return parentId_;
     }
 
     public static final int INDEXLIST_FIELD_NUMBER = 3;
-    private java.util.List<indexToken> indexList_;
+    private java.util.List<com.graduate.design.proto.Common.indexToken> indexList_;
     /**
      * <pre>
      * 文件的关键词列表，用于后续可加密搜索
@@ -1913,8 +382,8 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    @Override
-    public java.util.List<indexToken> getIndexListList() {
+    @java.lang.Override
+    public java.util.List<com.graduate.design.proto.Common.indexToken> getIndexListList() {
       return indexList_;
     }
     /**
@@ -1924,8 +393,8 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    @Override
-    public java.util.List<? extends indexTokenOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends com.graduate.design.proto.Common.indexTokenOrBuilder> 
         getIndexListOrBuilderList() {
       return indexList_;
     }
@@ -1936,7 +405,7 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    @Override
+    @java.lang.Override
     public int getIndexListCount() {
       return indexList_.size();
     }
@@ -1947,8 +416,8 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    @Override
-    public indexToken getIndexList(int index) {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.indexToken getIndexList(int index) {
       return indexList_.get(index);
     }
     /**
@@ -1958,8 +427,8 @@ public final class FileUpload {
      *
      * <code>repeated .indexToken indexList = 3;</code>
      */
-    @Override
-    public indexTokenOrBuilder getIndexListOrBuilder(
+    @java.lang.Override
+    public com.graduate.design.proto.Common.indexTokenOrBuilder getIndexListOrBuilder(
         int index) {
       return indexList_.get(index);
     }
@@ -1974,13 +443,13 @@ public final class FileUpload {
      * <code>bytes content = 4;</code>
      * @return The content.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString getContent() {
       return content_;
     }
 
     public static final int BIINDEX_FIELD_NUMBER = 5;
-    private volatile Object biIndex_;
+    private volatile java.lang.Object biIndex_;
     /**
      * <pre>
      * 用户索引
@@ -1989,15 +458,15 @@ public final class FileUpload {
      * <code>string biIndex = 5;</code>
      * @return The biIndex.
      */
-    @Override
-    public String getBiIndex() {
-      Object ref = biIndex_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getBiIndex() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         biIndex_ = s;
         return s;
       }
@@ -2010,14 +479,14 @@ public final class FileUpload {
      * <code>string biIndex = 5;</code>
      * @return The bytes for biIndex.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getBiIndexBytes() {
-      Object ref = biIndex_;
-      if (ref instanceof String) {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         biIndex_ = b;
         return b;
       } else {
@@ -2035,97 +504,51 @@ public final class FileUpload {
      * <code>int64 nodeId = 6;</code>
      * @return The nodeId.
      */
-    @Override
+    @java.lang.Override
     public long getNodeId() {
       return nodeId_;
     }
 
-    public static final int NODEIDOPPAIR_FIELD_NUMBER = 7;
-    private volatile Object nodeIdOpPair_;
+    public static final int FILESECRET_FIELD_NUMBER = 7;
+    private volatile java.lang.Object fileSecret_;
     /**
      * <pre>
-     * 文件Id与操作op对的密文
+     * 文件密钥
      * </pre>
      *
-     * <code>string nodeIdOpPair = 7;</code>
-     * @return The nodeIdOpPair.
+     * <code>string fileSecret = 7;</code>
+     * @return The fileSecret.
      */
-    @Override
-    public String getNodeIdOpPair() {
-      Object ref = nodeIdOpPair_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getFileSecret() {
+      java.lang.Object ref = fileSecret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        nodeIdOpPair_ = s;
+        java.lang.String s = bs.toStringUtf8();
+        fileSecret_ = s;
         return s;
       }
     }
     /**
      * <pre>
-     * 文件Id与操作op对的密文
+     * 文件密钥
      * </pre>
      *
-     * <code>string nodeIdOpPair = 7;</code>
-     * @return The bytes for nodeIdOpPair.
+     * <code>string fileSecret = 7;</code>
+     * @return The bytes for fileSecret.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
-        getNodeIdOpPairBytes() {
-      Object ref = nodeIdOpPair_;
-      if (ref instanceof String) {
+        getFileSecretBytes() {
+      java.lang.Object ref = fileSecret_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        nodeIdOpPair_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int USERNAME_FIELD_NUMBER = 8;
-    private volatile Object userName_;
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 8;</code>
-     * @return The userName.
-     */
-    @Override
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        userName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 8;</code>
-     * @return The bytes for userName.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        userName_ = b;
+                (java.lang.String) ref);
+        fileSecret_ = b;
         return b;
       } else {
         return (com.google.protobuf.ByteString) ref;
@@ -2133,12 +556,12 @@ public final class FileUpload {
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -2146,20 +569,20 @@ public final class FileUpload {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2169,7 +592,7 @@ public final class FileUpload {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
@@ -2190,11 +613,8 @@ public final class FileUpload {
       if (nodeId_ != 0L) {
         output.writeInt64(6, nodeId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nodeIdOpPair_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, nodeIdOpPair_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, userName_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileSecret_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fileSecret_);
       }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
@@ -2202,7 +622,7 @@ public final class FileUpload {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2230,11 +650,8 @@ public final class FileUpload {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(6, nodeId_);
       }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nodeIdOpPair_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, nodeIdOpPair_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, userName_);
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileSecret_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, fileSecret_);
       }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -2245,15 +662,15 @@ public final class FileUpload {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UploadFileRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.FileUpload.UploadFileRequest)) {
         return super.equals(obj);
       }
-      UploadFileRequest other = (UploadFileRequest) obj;
+      com.graduate.design.proto.FileUpload.UploadFileRequest other = (com.graduate.design.proto.FileUpload.UploadFileRequest) obj;
 
       if (!getFileName()
           .equals(other.getFileName())) return false;
@@ -2267,10 +684,8 @@ public final class FileUpload {
           .equals(other.getBiIndex())) return false;
       if (getNodeId()
           != other.getNodeId()) return false;
-      if (!getNodeIdOpPair()
-          .equals(other.getNodeIdOpPair())) return false;
-      if (!getUserName()
-          .equals(other.getUserName())) return false;
+      if (!getFileSecret()
+          .equals(other.getFileSecret())) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
         if (!getBaseReq()
@@ -2280,7 +695,7 @@ public final class FileUpload {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2303,10 +718,8 @@ public final class FileUpload {
       hash = (37 * hash) + NODEID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getNodeId());
-      hash = (37 * hash) + NODEIDOPPAIR_FIELD_NUMBER;
-      hash = (53 * hash) + getNodeIdOpPair().hashCode();
-      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getUserName().hashCode();
+      hash = (37 * hash) + FILESECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getFileSecret().hashCode();
       if (hasBaseReq()) {
         hash = (37 * hash) + BASEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getBaseReq().hashCode();
@@ -2316,69 +729,69 @@ public final class FileUpload {
       return hash;
     }
 
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UploadFileRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UploadFileRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UploadFileRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UploadFileRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UploadFileRequest parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2386,23 +799,23 @@ public final class FileUpload {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UploadFileRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.FileUpload.UploadFileRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2416,18 +829,18 @@ public final class FileUpload {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UploadFileRequest)
-        UploadFileRequestOrBuilder {
+        com.graduate.design.proto.FileUpload.UploadFileRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return FileUpload.internal_static_UploadFileRequest_descriptor;
+        return com.graduate.design.proto.FileUpload.internal_static_UploadFileRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return FileUpload.internal_static_UploadFileRequest_fieldAccessorTable
+        return com.graduate.design.proto.FileUpload.internal_static_UploadFileRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UploadFileRequest.class, Builder.class);
+                com.graduate.design.proto.FileUpload.UploadFileRequest.class, com.graduate.design.proto.FileUpload.UploadFileRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.FileUpload.UploadFileRequest.newBuilder()
@@ -2436,7 +849,7 @@ public final class FileUpload {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2446,7 +859,7 @@ public final class FileUpload {
           getIndexListFieldBuilder();
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         fileName_ = "";
@@ -2465,9 +878,7 @@ public final class FileUpload {
 
         nodeId_ = 0L;
 
-        nodeIdOpPair_ = "";
-
-        userName_ = "";
+        fileSecret_ = "";
 
         if (baseReqBuilder_ == null) {
           baseReq_ = null;
@@ -2478,29 +889,29 @@ public final class FileUpload {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return FileUpload.internal_static_UploadFileRequest_descriptor;
+        return com.graduate.design.proto.FileUpload.internal_static_UploadFileRequest_descriptor;
       }
 
-      @Override
-      public UploadFileRequest getDefaultInstanceForType() {
-        return UploadFileRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.UploadFileRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.FileUpload.UploadFileRequest.getDefaultInstance();
       }
 
-      @Override
-      public UploadFileRequest build() {
-        UploadFileRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.UploadFileRequest build() {
+        com.graduate.design.proto.FileUpload.UploadFileRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UploadFileRequest buildPartial() {
-        UploadFileRequest result = new UploadFileRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.UploadFileRequest buildPartial() {
+        com.graduate.design.proto.FileUpload.UploadFileRequest result = new com.graduate.design.proto.FileUpload.UploadFileRequest(this);
         int from_bitField0_ = bitField0_;
         result.fileName_ = fileName_;
         result.parentId_ = parentId_;
@@ -2516,8 +927,7 @@ public final class FileUpload {
         result.content_ = content_;
         result.biIndex_ = biIndex_;
         result.nodeId_ = nodeId_;
-        result.nodeIdOpPair_ = nodeIdOpPair_;
-        result.userName_ = userName_;
+        result.fileSecret_ = fileSecret_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -2527,50 +937,50 @@ public final class FileUpload {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UploadFileRequest) {
-          return mergeFrom((UploadFileRequest)other);
+        if (other instanceof com.graduate.design.proto.FileUpload.UploadFileRequest) {
+          return mergeFrom((com.graduate.design.proto.FileUpload.UploadFileRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UploadFileRequest other) {
-        if (other == UploadFileRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.FileUpload.UploadFileRequest other) {
+        if (other == com.graduate.design.proto.FileUpload.UploadFileRequest.getDefaultInstance()) return this;
         if (!other.getFileName().isEmpty()) {
           fileName_ = other.fileName_;
           onChanged();
@@ -2614,12 +1024,8 @@ public final class FileUpload {
         if (other.getNodeId() != 0L) {
           setNodeId(other.getNodeId());
         }
-        if (!other.getNodeIdOpPair().isEmpty()) {
-          nodeIdOpPair_ = other.nodeIdOpPair_;
-          onChanged();
-        }
-        if (!other.getUserName().isEmpty()) {
-          userName_ = other.userName_;
+        if (!other.getFileSecret().isEmpty()) {
+          fileSecret_ = other.fileSecret_;
           onChanged();
         }
         if (other.hasBaseReq()) {
@@ -2630,21 +1036,21 @@ public final class FileUpload {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UploadFileRequest parsedMessage = null;
+        com.graduate.design.proto.FileUpload.UploadFileRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UploadFileRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.FileUpload.UploadFileRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2655,7 +1061,7 @@ public final class FileUpload {
       }
       private int bitField0_;
 
-      private Object fileName_ = "";
+      private java.lang.Object fileName_ = "";
       /**
        * <pre>
        * 文件名称
@@ -2664,16 +1070,16 @@ public final class FileUpload {
        * <code>string fileName = 1;</code>
        * @return The fileName.
        */
-      public String getFileName() {
-        Object ref = fileName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           fileName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2686,11 +1092,11 @@ public final class FileUpload {
        */
       public com.google.protobuf.ByteString
           getFileNameBytes() {
-        Object ref = fileName_;
+        java.lang.Object ref = fileName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           fileName_ = b;
           return b;
         } else {
@@ -2707,7 +1113,7 @@ public final class FileUpload {
        * @return This builder for chaining.
        */
       public Builder setFileName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2760,7 +1166,7 @@ public final class FileUpload {
        * <code>int64 parentId = 2;</code>
        * @return The parentId.
        */
-      @Override
+      @java.lang.Override
       public long getParentId() {
         return parentId_;
       }
@@ -2794,17 +1200,17 @@ public final class FileUpload {
         return this;
       }
 
-      private java.util.List<indexToken> indexList_ =
+      private java.util.List<com.graduate.design.proto.Common.indexToken> indexList_ =
         java.util.Collections.emptyList();
       private void ensureIndexListIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          indexList_ = new java.util.ArrayList<indexToken>(indexList_);
+          indexList_ = new java.util.ArrayList<com.graduate.design.proto.Common.indexToken>(indexList_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          indexToken, indexToken.Builder, indexTokenOrBuilder> indexListBuilder_;
+          com.graduate.design.proto.Common.indexToken, com.graduate.design.proto.Common.indexToken.Builder, com.graduate.design.proto.Common.indexTokenOrBuilder> indexListBuilder_;
 
       /**
        * <pre>
@@ -2813,7 +1219,7 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public java.util.List<indexToken> getIndexListList() {
+      public java.util.List<com.graduate.design.proto.Common.indexToken> getIndexListList() {
         if (indexListBuilder_ == null) {
           return java.util.Collections.unmodifiableList(indexList_);
         } else {
@@ -2841,7 +1247,7 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public indexToken getIndexList(int index) {
+      public com.graduate.design.proto.Common.indexToken getIndexList(int index) {
         if (indexListBuilder_ == null) {
           return indexList_.get(index);
         } else {
@@ -2856,7 +1262,7 @@ public final class FileUpload {
        * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder setIndexList(
-          int index, indexToken value) {
+          int index, com.graduate.design.proto.Common.indexToken value) {
         if (indexListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2877,7 +1283,7 @@ public final class FileUpload {
        * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder setIndexList(
-          int index, indexToken.Builder builderForValue) {
+          int index, com.graduate.design.proto.Common.indexToken.Builder builderForValue) {
         if (indexListBuilder_ == null) {
           ensureIndexListIsMutable();
           indexList_.set(index, builderForValue.build());
@@ -2894,7 +1300,7 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public Builder addIndexList(indexToken value) {
+      public Builder addIndexList(com.graduate.design.proto.Common.indexToken value) {
         if (indexListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2915,7 +1321,7 @@ public final class FileUpload {
        * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder addIndexList(
-          int index, indexToken value) {
+          int index, com.graduate.design.proto.Common.indexToken value) {
         if (indexListBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2936,7 +1342,7 @@ public final class FileUpload {
        * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder addIndexList(
-          indexToken.Builder builderForValue) {
+          com.graduate.design.proto.Common.indexToken.Builder builderForValue) {
         if (indexListBuilder_ == null) {
           ensureIndexListIsMutable();
           indexList_.add(builderForValue.build());
@@ -2954,7 +1360,7 @@ public final class FileUpload {
        * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder addIndexList(
-          int index, indexToken.Builder builderForValue) {
+          int index, com.graduate.design.proto.Common.indexToken.Builder builderForValue) {
         if (indexListBuilder_ == null) {
           ensureIndexListIsMutable();
           indexList_.add(index, builderForValue.build());
@@ -2972,7 +1378,7 @@ public final class FileUpload {
        * <code>repeated .indexToken indexList = 3;</code>
        */
       public Builder addAllIndexList(
-          Iterable<? extends indexToken> values) {
+          java.lang.Iterable<? extends com.graduate.design.proto.Common.indexToken> values) {
         if (indexListBuilder_ == null) {
           ensureIndexListIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -3024,7 +1430,7 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public indexToken.Builder getIndexListBuilder(
+      public com.graduate.design.proto.Common.indexToken.Builder getIndexListBuilder(
           int index) {
         return getIndexListFieldBuilder().getBuilder(index);
       }
@@ -3035,7 +1441,7 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public indexTokenOrBuilder getIndexListOrBuilder(
+      public com.graduate.design.proto.Common.indexTokenOrBuilder getIndexListOrBuilder(
           int index) {
         if (indexListBuilder_ == null) {
           return indexList_.get(index);  } else {
@@ -3049,7 +1455,7 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public java.util.List<? extends indexTokenOrBuilder>
+      public java.util.List<? extends com.graduate.design.proto.Common.indexTokenOrBuilder> 
            getIndexListOrBuilderList() {
         if (indexListBuilder_ != null) {
           return indexListBuilder_.getMessageOrBuilderList();
@@ -3064,9 +1470,9 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public indexToken.Builder addIndexListBuilder() {
+      public com.graduate.design.proto.Common.indexToken.Builder addIndexListBuilder() {
         return getIndexListFieldBuilder().addBuilder(
-            indexToken.getDefaultInstance());
+            com.graduate.design.proto.Common.indexToken.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3075,10 +1481,10 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public indexToken.Builder addIndexListBuilder(
+      public com.graduate.design.proto.Common.indexToken.Builder addIndexListBuilder(
           int index) {
         return getIndexListFieldBuilder().addBuilder(
-            index, indexToken.getDefaultInstance());
+            index, com.graduate.design.proto.Common.indexToken.getDefaultInstance());
       }
       /**
        * <pre>
@@ -3087,16 +1493,16 @@ public final class FileUpload {
        *
        * <code>repeated .indexToken indexList = 3;</code>
        */
-      public java.util.List<indexToken.Builder>
+      public java.util.List<com.graduate.design.proto.Common.indexToken.Builder> 
            getIndexListBuilderList() {
         return getIndexListFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          indexToken, indexToken.Builder, indexTokenOrBuilder>
+          com.graduate.design.proto.Common.indexToken, com.graduate.design.proto.Common.indexToken.Builder, com.graduate.design.proto.Common.indexTokenOrBuilder> 
           getIndexListFieldBuilder() {
         if (indexListBuilder_ == null) {
           indexListBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              indexToken, indexToken.Builder, indexTokenOrBuilder>(
+              com.graduate.design.proto.Common.indexToken, com.graduate.design.proto.Common.indexToken.Builder, com.graduate.design.proto.Common.indexTokenOrBuilder>(
                   indexList_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -3115,7 +1521,7 @@ public final class FileUpload {
        * <code>bytes content = 4;</code>
        * @return The content.
        */
-      @Override
+      @java.lang.Override
       public com.google.protobuf.ByteString getContent() {
         return content_;
       }
@@ -3152,7 +1558,7 @@ public final class FileUpload {
         return this;
       }
 
-      private Object biIndex_ = "";
+      private java.lang.Object biIndex_ = "";
       /**
        * <pre>
        * 用户索引
@@ -3161,16 +1567,16 @@ public final class FileUpload {
        * <code>string biIndex = 5;</code>
        * @return The biIndex.
        */
-      public String getBiIndex() {
-        Object ref = biIndex_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getBiIndex() {
+        java.lang.Object ref = biIndex_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           biIndex_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -3183,11 +1589,11 @@ public final class FileUpload {
        */
       public com.google.protobuf.ByteString
           getBiIndexBytes() {
-        Object ref = biIndex_;
+        java.lang.Object ref = biIndex_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           biIndex_ = b;
           return b;
         } else {
@@ -3204,7 +1610,7 @@ public final class FileUpload {
        * @return This builder for chaining.
        */
       public Builder setBiIndex(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -3257,7 +1663,7 @@ public final class FileUpload {
        * <code>int64 nodeId = 6;</code>
        * @return The nodeId.
        */
-      @Override
+      @java.lang.Override
       public long getNodeId() {
         return nodeId_;
       }
@@ -3291,43 +1697,43 @@ public final class FileUpload {
         return this;
       }
 
-      private Object nodeIdOpPair_ = "";
+      private java.lang.Object fileSecret_ = "";
       /**
        * <pre>
-       * 文件Id与操作op对的密文
+       * 文件密钥
        * </pre>
        *
-       * <code>string nodeIdOpPair = 7;</code>
-       * @return The nodeIdOpPair.
+       * <code>string fileSecret = 7;</code>
+       * @return The fileSecret.
        */
-      public String getNodeIdOpPair() {
-        Object ref = nodeIdOpPair_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getFileSecret() {
+        java.lang.Object ref = fileSecret_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          nodeIdOpPair_ = s;
+          java.lang.String s = bs.toStringUtf8();
+          fileSecret_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
        * <pre>
-       * 文件Id与操作op对的密文
+       * 文件密钥
        * </pre>
        *
-       * <code>string nodeIdOpPair = 7;</code>
-       * @return The bytes for nodeIdOpPair.
+       * <code>string fileSecret = 7;</code>
+       * @return The bytes for fileSecret.
        */
       public com.google.protobuf.ByteString
-          getNodeIdOpPairBytes() {
-        Object ref = nodeIdOpPair_;
+          getFileSecretBytes() {
+        java.lang.Object ref = fileSecret_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          nodeIdOpPair_ = b;
+                  (java.lang.String) ref);
+          fileSecret_ = b;
           return b;
         } else {
           return (com.google.protobuf.ByteString) ref;
@@ -3335,157 +1741,61 @@ public final class FileUpload {
       }
       /**
        * <pre>
-       * 文件Id与操作op对的密文
+       * 文件密钥
        * </pre>
        *
-       * <code>string nodeIdOpPair = 7;</code>
-       * @param value The nodeIdOpPair to set.
+       * <code>string fileSecret = 7;</code>
+       * @param value The fileSecret to set.
        * @return This builder for chaining.
        */
-      public Builder setNodeIdOpPair(
-          String value) {
+      public Builder setFileSecret(
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
   
-        nodeIdOpPair_ = value;
+        fileSecret_ = value;
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 文件Id与操作op对的密文
+       * 文件密钥
        * </pre>
        *
-       * <code>string nodeIdOpPair = 7;</code>
+       * <code>string fileSecret = 7;</code>
        * @return This builder for chaining.
        */
-      public Builder clearNodeIdOpPair() {
+      public Builder clearFileSecret() {
         
-        nodeIdOpPair_ = getDefaultInstance().getNodeIdOpPair();
+        fileSecret_ = getDefaultInstance().getFileSecret();
         onChanged();
         return this;
       }
       /**
        * <pre>
-       * 文件Id与操作op对的密文
+       * 文件密钥
        * </pre>
        *
-       * <code>string nodeIdOpPair = 7;</code>
-       * @param value The bytes for nodeIdOpPair to set.
+       * <code>string fileSecret = 7;</code>
+       * @param value The bytes for fileSecret to set.
        * @return This builder for chaining.
        */
-      public Builder setNodeIdOpPairBytes(
+      public Builder setFileSecretBytes(
           com.google.protobuf.ByteString value) {
         if (value == null) {
     throw new NullPointerException();
   }
   checkByteStringIsUtf8(value);
         
-        nodeIdOpPair_ = value;
+        fileSecret_ = value;
         onChanged();
         return this;
       }
 
-      private Object userName_ = "";
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 8;</code>
-       * @return The userName.
-       */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          userName_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 8;</code>
-       * @return The bytes for userName.
-       */
-      public com.google.protobuf.ByteString
-          getUserNameBytes() {
-        Object ref = userName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          userName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 8;</code>
-       * @param value The userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserName(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 8;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserName() {
-        
-        userName_ = getDefaultInstance().getUserName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 8;</code>
-       * @param value The bytes for userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -3497,9 +1807,9 @@ public final class FileUpload {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -3507,7 +1817,7 @@ public final class FileUpload {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3524,7 +1834,7 @@ public final class FileUpload {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -3537,11 +1847,11 @@ public final class FileUpload {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -3569,7 +1879,7 @@ public final class FileUpload {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -3577,23 +1887,23 @@ public final class FileUpload {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -3601,13 +1911,13 @@ public final class FileUpload {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3618,18 +1928,18 @@ public final class FileUpload {
     }
 
     // @@protoc_insertion_point(class_scope:UploadFileRequest)
-    private static final UploadFileRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.FileUpload.UploadFileRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UploadFileRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.FileUpload.UploadFileRequest();
     }
 
-    public static UploadFileRequest getDefaultInstance() {
+    public static com.graduate.design.proto.FileUpload.UploadFileRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UploadFileRequest>
         PARSER = new com.google.protobuf.AbstractParser<UploadFileRequest>() {
-      @Override
+      @java.lang.Override
       public UploadFileRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3642,13 +1952,13 @@ public final class FileUpload {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UploadFileRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UploadFileRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.FileUpload.UploadFileRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3667,11 +1977,11 @@ public final class FileUpload {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code UploadFileReponse}
@@ -3688,14 +1998,14 @@ public final class FileUpload {
     private UploadFileReponse() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UploadFileReponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -3706,7 +2016,7 @@ public final class FileUpload {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -3719,11 +2029,11 @@ public final class FileUpload {
               done = true;
               break;
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -3752,24 +2062,24 @@ public final class FileUpload {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return FileUpload.internal_static_UploadFileReponse_descriptor;
+      return com.graduate.design.proto.FileUpload.internal_static_UploadFileReponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return FileUpload.internal_static_UploadFileReponse_fieldAccessorTable
+      return com.graduate.design.proto.FileUpload.internal_static_UploadFileReponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UploadFileReponse.class, Builder.class);
+              com.graduate.design.proto.FileUpload.UploadFileReponse.class, com.graduate.design.proto.FileUpload.UploadFileReponse.Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -3777,20 +2087,20 @@ public final class FileUpload {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -3800,7 +2110,7 @@ public final class FileUpload {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -3809,7 +2119,7 @@ public final class FileUpload {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -3824,15 +2134,15 @@ public final class FileUpload {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UploadFileReponse)) {
+      if (!(obj instanceof com.graduate.design.proto.FileUpload.UploadFileReponse)) {
         return super.equals(obj);
       }
-      UploadFileReponse other = (UploadFileReponse) obj;
+      com.graduate.design.proto.FileUpload.UploadFileReponse other = (com.graduate.design.proto.FileUpload.UploadFileReponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -3843,7 +2153,7 @@ public final class FileUpload {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -3859,69 +2169,69 @@ public final class FileUpload {
       return hash;
     }
 
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UploadFileReponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UploadFileReponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UploadFileReponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UploadFileReponse parseDelimitedFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UploadFileReponse parseFrom(
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -3929,23 +2239,23 @@ public final class FileUpload {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UploadFileReponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.FileUpload.UploadFileReponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -3955,18 +2265,18 @@ public final class FileUpload {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UploadFileReponse)
-        UploadFileReponseOrBuilder {
+        com.graduate.design.proto.FileUpload.UploadFileReponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return FileUpload.internal_static_UploadFileReponse_descriptor;
+        return com.graduate.design.proto.FileUpload.internal_static_UploadFileReponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return FileUpload.internal_static_UploadFileReponse_fieldAccessorTable
+        return com.graduate.design.proto.FileUpload.internal_static_UploadFileReponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UploadFileReponse.class, Builder.class);
+                com.graduate.design.proto.FileUpload.UploadFileReponse.class, com.graduate.design.proto.FileUpload.UploadFileReponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.FileUpload.UploadFileReponse.newBuilder()
@@ -3975,7 +2285,7 @@ public final class FileUpload {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -3984,7 +2294,7 @@ public final class FileUpload {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -3996,29 +2306,29 @@ public final class FileUpload {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return FileUpload.internal_static_UploadFileReponse_descriptor;
+        return com.graduate.design.proto.FileUpload.internal_static_UploadFileReponse_descriptor;
       }
 
-      @Override
-      public UploadFileReponse getDefaultInstanceForType() {
-        return UploadFileReponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.UploadFileReponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.FileUpload.UploadFileReponse.getDefaultInstance();
       }
 
-      @Override
-      public UploadFileReponse build() {
-        UploadFileReponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.UploadFileReponse build() {
+        com.graduate.design.proto.FileUpload.UploadFileReponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UploadFileReponse buildPartial() {
-        UploadFileReponse result = new UploadFileReponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.FileUpload.UploadFileReponse buildPartial() {
+        com.graduate.design.proto.FileUpload.UploadFileReponse result = new com.graduate.design.proto.FileUpload.UploadFileReponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -4028,50 +2338,50 @@ public final class FileUpload {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UploadFileReponse) {
-          return mergeFrom((UploadFileReponse)other);
+        if (other instanceof com.graduate.design.proto.FileUpload.UploadFileReponse) {
+          return mergeFrom((com.graduate.design.proto.FileUpload.UploadFileReponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UploadFileReponse other) {
-        if (other == UploadFileReponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.FileUpload.UploadFileReponse other) {
+        if (other == com.graduate.design.proto.FileUpload.UploadFileReponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -4080,21 +2390,21 @@ public final class FileUpload {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UploadFileReponse parsedMessage = null;
+        com.graduate.design.proto.FileUpload.UploadFileReponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UploadFileReponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.FileUpload.UploadFileReponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -4104,9 +2414,9 @@ public final class FileUpload {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -4118,9 +2428,9 @@ public final class FileUpload {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -4128,7 +2438,7 @@ public final class FileUpload {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -4145,7 +2455,7 @@ public final class FileUpload {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -4158,11 +2468,11 @@ public final class FileUpload {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -4190,7 +2500,7 @@ public final class FileUpload {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -4198,23 +2508,23 @@ public final class FileUpload {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -4222,13 +2532,13 @@ public final class FileUpload {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -4239,18 +2549,18 @@ public final class FileUpload {
     }
 
     // @@protoc_insertion_point(class_scope:UploadFileReponse)
-    private static final UploadFileReponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.FileUpload.UploadFileReponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UploadFileReponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.FileUpload.UploadFileReponse();
     }
 
-    public static UploadFileReponse getDefaultInstance() {
+    public static com.graduate.design.proto.FileUpload.UploadFileReponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UploadFileReponse>
         PARSER = new com.google.protobuf.AbstractParser<UploadFileReponse>() {
-      @Override
+      @java.lang.Override
       public UploadFileReponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -4263,23 +2573,18 @@ public final class FileUpload {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UploadFileReponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UploadFileReponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.FileUpload.UploadFileReponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
   }
 
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_indexToken_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_indexToken_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_UploadFileRequest_descriptor;
   private static final 
@@ -4298,15 +2603,12 @@ public final class FileUpload {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\021upload_file.proto\032\014common.proto\"b\n\nind" +
-      "exToken\022\t\n\001L\030\001 \001(\t\022\n\n\002Iw\030\002 \001(\t\022\n\n\002Rw\030\003 \001" +
-      "(\t\022\n\n\002Cw\030\004 \001(\t\022\013\n\003Iid\030\005 \001(\t\022\013\n\003Rid\030\006 \001(\t" +
-      "\022\013\n\003Cid\030\007 \001(\t\"\315\001\n\021UploadFileRequest\022\020\n\010f" +
-      "ileName\030\001 \001(\t\022\020\n\010parentId\030\002 \001(\003\022\036\n\tindex" +
-      "List\030\003 \003(\0132\013.indexToken\022\017\n\007content\030\004 \001(\014" +
-      "\022\017\n\007biIndex\030\005 \001(\t\022\016\n\006nodeId\030\006 \001(\003\022\024\n\014nod" +
-      "eIdOpPair\030\007 \001(\t\022\020\n\010userName\030\010 \001(\t\022\032\n\007bas" +
+    java.lang.String[] descriptorData = {
+      "\n\021upload_file.proto\032\014common.proto\"\271\001\n\021Up" +
+      "loadFileRequest\022\020\n\010fileName\030\001 \001(\t\022\020\n\010par" +
+      "entId\030\002 \001(\003\022\036\n\tindexList\030\003 \003(\0132\013.indexTo" +
+      "ken\022\017\n\007content\030\004 \001(\014\022\017\n\007biIndex\030\005 \001(\t\022\016\n" +
+      "\006nodeId\030\006 \001(\003\022\022\n\nfileSecret\030\007 \001(\t\022\032\n\007bas" +
       "eReq\030\377\001 \001(\0132\010.BaseReq\"1\n\021UploadFileRepon" +
       "se\022\034\n\010baseResp\030\377\001 \001(\0132\t.BaseRespB1\n\031com." +
       "graduate.design.protoB\nFileUploadZ\010./pb_" +
@@ -4315,27 +2617,21 @@ public final class FileUpload {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
-    internal_static_indexToken_descriptor =
-      getDescriptor().getMessageTypes().get(0);
-    internal_static_indexToken_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_indexToken_descriptor,
-        new String[] { "L", "Iw", "Rw", "Cw", "Iid", "Rid", "Cid", });
     internal_static_UploadFileRequest_descriptor =
-      getDescriptor().getMessageTypes().get(1);
+      getDescriptor().getMessageTypes().get(0);
     internal_static_UploadFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadFileRequest_descriptor,
-        new String[] { "FileName", "ParentId", "IndexList", "Content", "BiIndex", "NodeId", "NodeIdOpPair", "UserName", "BaseReq", });
+        new java.lang.String[] { "FileName", "ParentId", "IndexList", "Content", "BiIndex", "NodeId", "FileSecret", "BaseReq", });
     internal_static_UploadFileReponse_descriptor =
-      getDescriptor().getMessageTypes().get(2);
+      getDescriptor().getMessageTypes().get(1);
     internal_static_UploadFileReponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UploadFileReponse_descriptor,
-        new String[] { "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

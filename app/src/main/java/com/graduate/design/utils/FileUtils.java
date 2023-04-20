@@ -41,7 +41,7 @@ public class FileUtils {
     }
 
     // 文件内容分词函数
-    public static List<FileUpload.indexToken> indexList(String content, Long fileId) {
+    public static List<Common.indexToken> indexList(String content, Long fileId) {
         List<String> words = new ArrayList<>();
         StringBuilder word = new StringBuilder();
         EncryptionService encryptionService = new EncryptionServiceImpl();
@@ -58,7 +58,7 @@ public class FileUtils {
             }
         }
         if(word.length()>0) words.add(word.toString());
-        List<FileUpload.indexToken> res = new ArrayList<>();
+        List<Common.indexToken> res = new ArrayList<>();
         // 对关键字使用主密钥加密
         for(int i=0;i<words.size();i++){
             // 生成索引令牌

@@ -19,16 +19,21 @@ public final class DeleteFile {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>int64 delNodeID = 1;</code>
-     * @return The delNodeID.
+     * <code>repeated int64 delNodeID = 1;</code>
+     * @return A list containing the delNodeID.
      */
-    long getDelNodeID();
-
+    java.util.List<java.lang.Long> getDelNodeIDList();
     /**
-     * <code>int64 parentNodeID = 3;</code>
-     * @return The parentNodeID.
+     * <code>repeated int64 delNodeID = 1;</code>
+     * @return The count of delNodeID.
      */
-    long getParentNodeID();
+    int getDelNodeIDCount();
+    /**
+     * <code>repeated int64 delNodeID = 1;</code>
+     * @param index The index of the element to return.
+     * @return The delNodeID at the given index.
+     */
+    long getDelNodeID(int index);
 
     /**
      * <code>.BaseReq baseReq = 255;</code>
@@ -39,11 +44,11 @@ public final class DeleteFile {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code DeleteFileRequest}
@@ -58,16 +63,17 @@ public final class DeleteFile {
       super(builder);
     }
     private DeleteFileRequest() {
+      delNodeID_ = emptyLongList();
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new DeleteFileRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -78,8 +84,9 @@ public final class DeleteFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
+      int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
       try {
@@ -91,21 +98,32 @@ public final class DeleteFile {
               done = true;
               break;
             case 8: {
-
-              delNodeID_ = input.readInt64();
+              if (!((mutable_bitField0_ & 0x00000001) != 0)) {
+                delNodeID_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              delNodeID_.addLong(input.readInt64());
               break;
             }
-            case 24: {
-
-              parentNodeID_ = input.readInt64();
+            case 10: {
+              int length = input.readRawVarint32();
+              int limit = input.pushLimit(length);
+              if (!((mutable_bitField0_ & 0x00000001) != 0) && input.getBytesUntilLimit() > 0) {
+                delNodeID_ = newLongList();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              while (input.getBytesUntilLimit() > 0) {
+                delNodeID_.addLong(input.readInt64());
+              }
+              input.popLimit(limit);
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -128,52 +146,61 @@ public final class DeleteFile {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000001) != 0)) {
+          delNodeID_.makeImmutable(); // C
+        }
         this.unknownFields = unknownFields.build();
         makeExtensionsImmutable();
       }
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return DeleteFile.internal_static_DeleteFileRequest_descriptor;
+      return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return DeleteFile.internal_static_DeleteFileRequest_fieldAccessorTable
+      return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              DeleteFileRequest.class, Builder.class);
+              com.graduate.design.proto.DeleteFile.DeleteFileRequest.class, com.graduate.design.proto.DeleteFile.DeleteFileRequest.Builder.class);
     }
 
     public static final int DELNODEID_FIELD_NUMBER = 1;
-    private long delNodeID_;
+    private com.google.protobuf.Internal.LongList delNodeID_;
     /**
-     * <code>int64 delNodeID = 1;</code>
-     * @return The delNodeID.
+     * <code>repeated int64 delNodeID = 1;</code>
+     * @return A list containing the delNodeID.
      */
-    @Override
-    public long getDelNodeID() {
+    @java.lang.Override
+    public java.util.List<java.lang.Long>
+        getDelNodeIDList() {
       return delNodeID_;
     }
-
-    public static final int PARENTNODEID_FIELD_NUMBER = 3;
-    private long parentNodeID_;
     /**
-     * <code>int64 parentNodeID = 3;</code>
-     * @return The parentNodeID.
+     * <code>repeated int64 delNodeID = 1;</code>
+     * @return The count of delNodeID.
      */
-    @Override
-    public long getParentNodeID() {
-      return parentNodeID_;
+    public int getDelNodeIDCount() {
+      return delNodeID_.size();
     }
+    /**
+     * <code>repeated int64 delNodeID = 1;</code>
+     * @param index The index of the element to return.
+     * @return The delNodeID at the given index.
+     */
+    public long getDelNodeID(int index) {
+      return delNodeID_.getLong(index);
+    }
+    private int delNodeIDMemoizedSerializedSize = -1;
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -181,20 +208,20 @@ public final class DeleteFile {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -204,14 +231,16 @@ public final class DeleteFile {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
-      if (delNodeID_ != 0L) {
-        output.writeInt64(1, delNodeID_);
+      getSerializedSize();
+      if (getDelNodeIDList().size() > 0) {
+        output.writeUInt32NoTag(10);
+        output.writeUInt32NoTag(delNodeIDMemoizedSerializedSize);
       }
-      if (parentNodeID_ != 0L) {
-        output.writeInt64(3, parentNodeID_);
+      for (int i = 0; i < delNodeID_.size(); i++) {
+        output.writeInt64NoTag(delNodeID_.getLong(i));
       }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
@@ -219,19 +248,25 @@ public final class DeleteFile {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
-      if (delNodeID_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(1, delNodeID_);
-      }
-      if (parentNodeID_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, parentNodeID_);
+      {
+        int dataSize = 0;
+        for (int i = 0; i < delNodeID_.size(); i++) {
+          dataSize += com.google.protobuf.CodedOutputStream
+            .computeInt64SizeNoTag(delNodeID_.getLong(i));
+        }
+        size += dataSize;
+        if (!getDelNodeIDList().isEmpty()) {
+          size += 1;
+          size += com.google.protobuf.CodedOutputStream
+              .computeInt32SizeNoTag(dataSize);
+        }
+        delNodeIDMemoizedSerializedSize = dataSize;
       }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -242,20 +277,18 @@ public final class DeleteFile {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof DeleteFileRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.DeleteFile.DeleteFileRequest)) {
         return super.equals(obj);
       }
-      DeleteFileRequest other = (DeleteFileRequest) obj;
+      com.graduate.design.proto.DeleteFile.DeleteFileRequest other = (com.graduate.design.proto.DeleteFile.DeleteFileRequest) obj;
 
-      if (getDelNodeID()
-          != other.getDelNodeID()) return false;
-      if (getParentNodeID()
-          != other.getParentNodeID()) return false;
+      if (!getDelNodeIDList()
+          .equals(other.getDelNodeIDList())) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
         if (!getBaseReq()
@@ -265,19 +298,17 @@ public final class DeleteFile {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
-      hash = (37 * hash) + DELNODEID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getDelNodeID());
-      hash = (37 * hash) + PARENTNODEID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getParentNodeID());
+      if (getDelNodeIDCount() > 0) {
+        hash = (37 * hash) + DELNODEID_FIELD_NUMBER;
+        hash = (53 * hash) + getDelNodeIDList().hashCode();
+      }
       if (hasBaseReq()) {
         hash = (37 * hash) + BASEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getBaseReq().hashCode();
@@ -287,69 +318,69 @@ public final class DeleteFile {
       return hash;
     }
 
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static DeleteFileRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static DeleteFileRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static DeleteFileRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static DeleteFileRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static DeleteFileRequest parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -357,23 +388,23 @@ public final class DeleteFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(DeleteFileRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.DeleteFile.DeleteFileRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -383,18 +414,18 @@ public final class DeleteFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:DeleteFileRequest)
-        DeleteFileRequestOrBuilder {
+        com.graduate.design.proto.DeleteFile.DeleteFileRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return DeleteFile.internal_static_DeleteFileRequest_descriptor;
+        return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return DeleteFile.internal_static_DeleteFileRequest_fieldAccessorTable
+        return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                DeleteFileRequest.class, Builder.class);
+                com.graduate.design.proto.DeleteFile.DeleteFileRequest.class, com.graduate.design.proto.DeleteFile.DeleteFileRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.DeleteFile.DeleteFileRequest.newBuilder()
@@ -403,7 +434,7 @@ public final class DeleteFile {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -412,13 +443,11 @@ public final class DeleteFile {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
-        delNodeID_ = 0L;
-
-        parentNodeID_ = 0L;
-
+        delNodeID_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         if (baseReqBuilder_ == null) {
           baseReq_ = null;
         } else {
@@ -428,31 +457,35 @@ public final class DeleteFile {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return DeleteFile.internal_static_DeleteFileRequest_descriptor;
+        return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileRequest_descriptor;
       }
 
-      @Override
-      public DeleteFileRequest getDefaultInstanceForType() {
-        return DeleteFileRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.DeleteFile.DeleteFileRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.DeleteFile.DeleteFileRequest.getDefaultInstance();
       }
 
-      @Override
-      public DeleteFileRequest build() {
-        DeleteFileRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.DeleteFile.DeleteFileRequest build() {
+        com.graduate.design.proto.DeleteFile.DeleteFileRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public DeleteFileRequest buildPartial() {
-        DeleteFileRequest result = new DeleteFileRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.DeleteFile.DeleteFileRequest buildPartial() {
+        com.graduate.design.proto.DeleteFile.DeleteFileRequest result = new com.graduate.design.proto.DeleteFile.DeleteFileRequest(this);
+        int from_bitField0_ = bitField0_;
+        if (((bitField0_ & 0x00000001) != 0)) {
+          delNodeID_.makeImmutable();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        }
         result.delNodeID_ = delNodeID_;
-        result.parentNodeID_ = parentNodeID_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -462,55 +495,59 @@ public final class DeleteFile {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof DeleteFileRequest) {
-          return mergeFrom((DeleteFileRequest)other);
+        if (other instanceof com.graduate.design.proto.DeleteFile.DeleteFileRequest) {
+          return mergeFrom((com.graduate.design.proto.DeleteFile.DeleteFileRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(DeleteFileRequest other) {
-        if (other == DeleteFileRequest.getDefaultInstance()) return this;
-        if (other.getDelNodeID() != 0L) {
-          setDelNodeID(other.getDelNodeID());
-        }
-        if (other.getParentNodeID() != 0L) {
-          setParentNodeID(other.getParentNodeID());
+      public Builder mergeFrom(com.graduate.design.proto.DeleteFile.DeleteFileRequest other) {
+        if (other == com.graduate.design.proto.DeleteFile.DeleteFileRequest.getDefaultInstance()) return this;
+        if (!other.delNodeID_.isEmpty()) {
+          if (delNodeID_.isEmpty()) {
+            delNodeID_ = other.delNodeID_;
+            bitField0_ = (bitField0_ & ~0x00000001);
+          } else {
+            ensureDelNodeIDIsMutable();
+            delNodeID_.addAll(other.delNodeID_);
+          }
+          onChanged();
         }
         if (other.hasBaseReq()) {
           mergeBaseReq(other.getBaseReq());
@@ -520,21 +557,21 @@ public final class DeleteFile {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        DeleteFileRequest parsedMessage = null;
+        com.graduate.design.proto.DeleteFile.DeleteFileRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (DeleteFileRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.DeleteFile.DeleteFileRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -543,72 +580,90 @@ public final class DeleteFile {
         }
         return this;
       }
+      private int bitField0_;
 
-      private long delNodeID_ ;
-      /**
-       * <code>int64 delNodeID = 1;</code>
-       * @return The delNodeID.
-       */
-      @Override
-      public long getDelNodeID() {
-        return delNodeID_;
+      private com.google.protobuf.Internal.LongList delNodeID_ = emptyLongList();
+      private void ensureDelNodeIDIsMutable() {
+        if (!((bitField0_ & 0x00000001) != 0)) {
+          delNodeID_ = mutableCopy(delNodeID_);
+          bitField0_ |= 0x00000001;
+         }
       }
       /**
-       * <code>int64 delNodeID = 1;</code>
+       * <code>repeated int64 delNodeID = 1;</code>
+       * @return A list containing the delNodeID.
+       */
+      public java.util.List<java.lang.Long>
+          getDelNodeIDList() {
+        return ((bitField0_ & 0x00000001) != 0) ?
+                 java.util.Collections.unmodifiableList(delNodeID_) : delNodeID_;
+      }
+      /**
+       * <code>repeated int64 delNodeID = 1;</code>
+       * @return The count of delNodeID.
+       */
+      public int getDelNodeIDCount() {
+        return delNodeID_.size();
+      }
+      /**
+       * <code>repeated int64 delNodeID = 1;</code>
+       * @param index The index of the element to return.
+       * @return The delNodeID at the given index.
+       */
+      public long getDelNodeID(int index) {
+        return delNodeID_.getLong(index);
+      }
+      /**
+       * <code>repeated int64 delNodeID = 1;</code>
+       * @param index The index to set the value at.
        * @param value The delNodeID to set.
        * @return This builder for chaining.
        */
-      public Builder setDelNodeID(long value) {
-        
-        delNodeID_ = value;
+      public Builder setDelNodeID(
+          int index, long value) {
+        ensureDelNodeIDIsMutable();
+        delNodeID_.setLong(index, value);
         onChanged();
         return this;
       }
       /**
-       * <code>int64 delNodeID = 1;</code>
+       * <code>repeated int64 delNodeID = 1;</code>
+       * @param value The delNodeID to add.
+       * @return This builder for chaining.
+       */
+      public Builder addDelNodeID(long value) {
+        ensureDelNodeIDIsMutable();
+        delNodeID_.addLong(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 delNodeID = 1;</code>
+       * @param values The delNodeID to add.
+       * @return This builder for chaining.
+       */
+      public Builder addAllDelNodeID(
+          java.lang.Iterable<? extends java.lang.Long> values) {
+        ensureDelNodeIDIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, delNodeID_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated int64 delNodeID = 1;</code>
        * @return This builder for chaining.
        */
       public Builder clearDelNodeID() {
-        
-        delNodeID_ = 0L;
+        delNodeID_ = emptyLongList();
+        bitField0_ = (bitField0_ & ~0x00000001);
         onChanged();
         return this;
       }
 
-      private long parentNodeID_ ;
-      /**
-       * <code>int64 parentNodeID = 3;</code>
-       * @return The parentNodeID.
-       */
-      @Override
-      public long getParentNodeID() {
-        return parentNodeID_;
-      }
-      /**
-       * <code>int64 parentNodeID = 3;</code>
-       * @param value The parentNodeID to set.
-       * @return This builder for chaining.
-       */
-      public Builder setParentNodeID(long value) {
-        
-        parentNodeID_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>int64 parentNodeID = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearParentNodeID() {
-        
-        parentNodeID_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -620,9 +675,9 @@ public final class DeleteFile {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -630,7 +685,7 @@ public final class DeleteFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -647,7 +702,7 @@ public final class DeleteFile {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -660,11 +715,11 @@ public final class DeleteFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -692,7 +747,7 @@ public final class DeleteFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -700,23 +755,23 @@ public final class DeleteFile {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -724,13 +779,13 @@ public final class DeleteFile {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -741,18 +796,18 @@ public final class DeleteFile {
     }
 
     // @@protoc_insertion_point(class_scope:DeleteFileRequest)
-    private static final DeleteFileRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.DeleteFile.DeleteFileRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new DeleteFileRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.DeleteFile.DeleteFileRequest();
     }
 
-    public static DeleteFileRequest getDefaultInstance() {
+    public static com.graduate.design.proto.DeleteFile.DeleteFileRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<DeleteFileRequest>
         PARSER = new com.google.protobuf.AbstractParser<DeleteFileRequest>() {
-      @Override
+      @java.lang.Override
       public DeleteFileRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -765,13 +820,13 @@ public final class DeleteFile {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<DeleteFileRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public DeleteFileRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.DeleteFile.DeleteFileRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -790,11 +845,11 @@ public final class DeleteFile {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code DeleteFileResponse}
@@ -811,14 +866,14 @@ public final class DeleteFile {
     private DeleteFileResponse() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new DeleteFileResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -829,7 +884,7 @@ public final class DeleteFile {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -842,11 +897,11 @@ public final class DeleteFile {
               done = true;
               break;
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -875,24 +930,24 @@ public final class DeleteFile {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return DeleteFile.internal_static_DeleteFileResponse_descriptor;
+      return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return DeleteFile.internal_static_DeleteFileResponse_fieldAccessorTable
+      return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              DeleteFileResponse.class, Builder.class);
+              com.graduate.design.proto.DeleteFile.DeleteFileResponse.class, com.graduate.design.proto.DeleteFile.DeleteFileResponse.Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -900,20 +955,20 @@ public final class DeleteFile {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -923,7 +978,7 @@ public final class DeleteFile {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -932,7 +987,7 @@ public final class DeleteFile {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -947,15 +1002,15 @@ public final class DeleteFile {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof DeleteFileResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.DeleteFile.DeleteFileResponse)) {
         return super.equals(obj);
       }
-      DeleteFileResponse other = (DeleteFileResponse) obj;
+      com.graduate.design.proto.DeleteFile.DeleteFileResponse other = (com.graduate.design.proto.DeleteFile.DeleteFileResponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -966,7 +1021,7 @@ public final class DeleteFile {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -982,69 +1037,69 @@ public final class DeleteFile {
       return hash;
     }
 
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static DeleteFileResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static DeleteFileResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static DeleteFileResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static DeleteFileResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static DeleteFileResponse parseFrom(
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1052,23 +1107,23 @@ public final class DeleteFile {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(DeleteFileResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.DeleteFile.DeleteFileResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1078,18 +1133,18 @@ public final class DeleteFile {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:DeleteFileResponse)
-        DeleteFileResponseOrBuilder {
+        com.graduate.design.proto.DeleteFile.DeleteFileResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return DeleteFile.internal_static_DeleteFileResponse_descriptor;
+        return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return DeleteFile.internal_static_DeleteFileResponse_fieldAccessorTable
+        return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                DeleteFileResponse.class, Builder.class);
+                com.graduate.design.proto.DeleteFile.DeleteFileResponse.class, com.graduate.design.proto.DeleteFile.DeleteFileResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.DeleteFile.DeleteFileResponse.newBuilder()
@@ -1098,7 +1153,7 @@ public final class DeleteFile {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1107,7 +1162,7 @@ public final class DeleteFile {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -1119,29 +1174,29 @@ public final class DeleteFile {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return DeleteFile.internal_static_DeleteFileResponse_descriptor;
+        return com.graduate.design.proto.DeleteFile.internal_static_DeleteFileResponse_descriptor;
       }
 
-      @Override
-      public DeleteFileResponse getDefaultInstanceForType() {
-        return DeleteFileResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.DeleteFile.DeleteFileResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.DeleteFile.DeleteFileResponse.getDefaultInstance();
       }
 
-      @Override
-      public DeleteFileResponse build() {
-        DeleteFileResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.DeleteFile.DeleteFileResponse build() {
+        com.graduate.design.proto.DeleteFile.DeleteFileResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public DeleteFileResponse buildPartial() {
-        DeleteFileResponse result = new DeleteFileResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.DeleteFile.DeleteFileResponse buildPartial() {
+        com.graduate.design.proto.DeleteFile.DeleteFileResponse result = new com.graduate.design.proto.DeleteFile.DeleteFileResponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -1151,50 +1206,50 @@ public final class DeleteFile {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof DeleteFileResponse) {
-          return mergeFrom((DeleteFileResponse)other);
+        if (other instanceof com.graduate.design.proto.DeleteFile.DeleteFileResponse) {
+          return mergeFrom((com.graduate.design.proto.DeleteFile.DeleteFileResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(DeleteFileResponse other) {
-        if (other == DeleteFileResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.DeleteFile.DeleteFileResponse other) {
+        if (other == com.graduate.design.proto.DeleteFile.DeleteFileResponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -1203,21 +1258,21 @@ public final class DeleteFile {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        DeleteFileResponse parsedMessage = null;
+        com.graduate.design.proto.DeleteFile.DeleteFileResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (DeleteFileResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.DeleteFile.DeleteFileResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1227,9 +1282,9 @@ public final class DeleteFile {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1241,9 +1296,9 @@ public final class DeleteFile {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -1251,7 +1306,7 @@ public final class DeleteFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1268,7 +1323,7 @@ public final class DeleteFile {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -1281,11 +1336,11 @@ public final class DeleteFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -1313,7 +1368,7 @@ public final class DeleteFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -1321,23 +1376,23 @@ public final class DeleteFile {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -1345,13 +1400,13 @@ public final class DeleteFile {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1362,18 +1417,18 @@ public final class DeleteFile {
     }
 
     // @@protoc_insertion_point(class_scope:DeleteFileResponse)
-    private static final DeleteFileResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.DeleteFile.DeleteFileResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new DeleteFileResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.DeleteFile.DeleteFileResponse();
     }
 
-    public static DeleteFileResponse getDefaultInstance() {
+    public static com.graduate.design.proto.DeleteFile.DeleteFileResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<DeleteFileResponse>
         PARSER = new com.google.protobuf.AbstractParser<DeleteFileResponse>() {
-      @Override
+      @java.lang.Override
       public DeleteFileResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1386,13 +1441,13 @@ public final class DeleteFile {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<DeleteFileResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public DeleteFileResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.DeleteFile.DeleteFileResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1416,32 +1471,32 @@ public final class DeleteFile {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\021delete_file.proto\032\014common.proto\"X\n\021Del" +
-      "eteFileRequest\022\021\n\tdelNodeID\030\001 \001(\003\022\024\n\014par" +
-      "entNodeID\030\003 \001(\003\022\032\n\007baseReq\030\377\001 \001(\0132\010.Base" +
-      "Req\"2\n\022DeleteFileResponse\022\034\n\010baseResp\030\377\001" +
-      " \001(\0132\t.BaseRespB1\n\031com.graduate.design.p" +
-      "rotoB\nDeleteFileZ\010./pb_genb\006proto3"
+    java.lang.String[] descriptorData = {
+      "\n\021delete_file.proto\032\014common.proto\"B\n\021Del" +
+      "eteFileRequest\022\021\n\tdelNodeID\030\001 \003(\003\022\032\n\007bas" +
+      "eReq\030\377\001 \001(\0132\010.BaseReq\"2\n\022DeleteFileRespo" +
+      "nse\022\034\n\010baseResp\030\377\001 \001(\0132\t.BaseRespB1\n\031com" +
+      ".graduate.design.protoB\nDeleteFileZ\010./pb" +
+      "_genb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_DeleteFileRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_DeleteFileRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeleteFileRequest_descriptor,
-        new String[] { "DelNodeID", "ParentNodeID", "BaseReq", });
+        new java.lang.String[] { "DelNodeID", "BaseReq", });
     internal_static_DeleteFileResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_DeleteFileResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_DeleteFileResponse_descriptor,
-        new String[] { "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

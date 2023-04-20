@@ -45,6 +45,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
     private ListView listView;
     private Button disconnectButton;
     private Button shareButton;
+    private Button transferButton;
 
     private DeviceItemAdapter deviceItemAdapter;
  //   private Connect currentConnect;
@@ -89,6 +90,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         sendMsg = findViewById(R.id.send_msg);
         disconnectButton = findViewById(R.id.disconnect_btn);
         shareButton = findViewById(R.id.share_btn);
+        transferButton = findViewById(R.id.transfer_btn);
 
         listView = findViewById(R.id.show_search_device);
         listView.setAdapter(deviceItemAdapter);
@@ -101,6 +103,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         sendButton.setOnClickListener(this);
         disconnectButton.setOnClickListener(this);
         shareButton.setOnClickListener(this);
+        transferButton.setOnClickListener(this);
 
         listView.setOnItemClickListener(this);
     }
@@ -122,7 +125,10 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
                 disconnect();
                 break;
             case R.id.share_btn:
-                selectShareFile();
+                selectShareFile(true);
+                break;
+            case R.id.transfer_btn:
+                selectShareFile(false);
                 break;
             default:
                 ToastUtils.showShortToastCenter("错误的元素ID");
@@ -191,9 +197,10 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         BleManager.getInstance().destory();
     }
 
-    private void selectShareFile(){
+    private void selectShareFile(Boolean isShare){
         Intent intent = new Intent(BtClientActivity.this, ShareActivity.class);
         intent.putExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        intent.putExtra("isShare", isShare);
         ActivityJumpUtils.jumpActivity(BtClientActivity.this, intent, 100L, false);
     }
 

@@ -22,7 +22,7 @@ public final class UserLogin {
      * <code>string userName = 1;</code>
      * @return The userName.
      */
-    String getUserName();
+    java.lang.String getUserName();
     /**
      * <code>string userName = 1;</code>
      * @return The bytes for userName.
@@ -38,7 +38,7 @@ public final class UserLogin {
      * <code>string hashId = 2;</code>
      * @return The hashId.
      */
-    String getHashId();
+    java.lang.String getHashId();
     /**
      * <pre>
      * hashId身份识别
@@ -59,11 +59,11 @@ public final class UserLogin {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code UserLoginRequest}
@@ -82,14 +82,14 @@ public final class UserLogin {
       hashId_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UserLoginRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -100,7 +100,7 @@ public final class UserLogin {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -113,23 +113,23 @@ public final class UserLogin {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userName_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               hashId_ = s;
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -158,32 +158,32 @@ public final class UserLogin {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UserLogin.internal_static_UserLoginRequest_descriptor;
+      return com.graduate.design.proto.UserLogin.internal_static_UserLoginRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UserLogin.internal_static_UserLoginRequest_fieldAccessorTable
+      return com.graduate.design.proto.UserLogin.internal_static_UserLoginRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UserLoginRequest.class, Builder.class);
+              com.graduate.design.proto.UserLogin.UserLoginRequest.class, com.graduate.design.proto.UserLogin.UserLoginRequest.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
-    private volatile Object userName_;
+    private volatile java.lang.Object userName_;
     /**
      * <code>string userName = 1;</code>
      * @return The userName.
      */
-    @Override
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userName_ = s;
         return s;
       }
@@ -192,14 +192,14 @@ public final class UserLogin {
      * <code>string userName = 1;</code>
      * @return The bytes for userName.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userName_ = b;
         return b;
       } else {
@@ -208,7 +208,7 @@ public final class UserLogin {
     }
 
     public static final int HASHID_FIELD_NUMBER = 2;
-    private volatile Object hashId_;
+    private volatile java.lang.Object hashId_;
     /**
      * <pre>
      * hashId身份识别
@@ -217,15 +217,15 @@ public final class UserLogin {
      * <code>string hashId = 2;</code>
      * @return The hashId.
      */
-    @Override
-    public String getHashId() {
-      Object ref = hashId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getHashId() {
+      java.lang.Object ref = hashId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         hashId_ = s;
         return s;
       }
@@ -238,14 +238,14 @@ public final class UserLogin {
      * <code>string hashId = 2;</code>
      * @return The bytes for hashId.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getHashIdBytes() {
-      Object ref = hashId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = hashId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         hashId_ = b;
         return b;
       } else {
@@ -254,12 +254,12 @@ public final class UserLogin {
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -267,20 +267,20 @@ public final class UserLogin {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -290,7 +290,7 @@ public final class UserLogin {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
@@ -305,7 +305,7 @@ public final class UserLogin {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -326,15 +326,15 @@ public final class UserLogin {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UserLoginRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.UserLogin.UserLoginRequest)) {
         return super.equals(obj);
       }
-      UserLoginRequest other = (UserLoginRequest) obj;
+      com.graduate.design.proto.UserLogin.UserLoginRequest other = (com.graduate.design.proto.UserLogin.UserLoginRequest) obj;
 
       if (!getUserName()
           .equals(other.getUserName())) return false;
@@ -349,7 +349,7 @@ public final class UserLogin {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -369,69 +369,69 @@ public final class UserLogin {
       return hash;
     }
 
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserLoginRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserLoginRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserLoginRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UserLoginRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserLoginRequest parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -439,23 +439,23 @@ public final class UserLogin {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UserLoginRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.UserLogin.UserLoginRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -465,18 +465,18 @@ public final class UserLogin {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UserLoginRequest)
-        UserLoginRequestOrBuilder {
+        com.graduate.design.proto.UserLogin.UserLoginRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UserLogin.internal_static_UserLoginRequest_descriptor;
+        return com.graduate.design.proto.UserLogin.internal_static_UserLoginRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UserLogin.internal_static_UserLoginRequest_fieldAccessorTable
+        return com.graduate.design.proto.UserLogin.internal_static_UserLoginRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UserLoginRequest.class, Builder.class);
+                com.graduate.design.proto.UserLogin.UserLoginRequest.class, com.graduate.design.proto.UserLogin.UserLoginRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.UserLogin.UserLoginRequest.newBuilder()
@@ -485,7 +485,7 @@ public final class UserLogin {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -494,7 +494,7 @@ public final class UserLogin {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         userName_ = "";
@@ -510,29 +510,29 @@ public final class UserLogin {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UserLogin.internal_static_UserLoginRequest_descriptor;
+        return com.graduate.design.proto.UserLogin.internal_static_UserLoginRequest_descriptor;
       }
 
-      @Override
-      public UserLoginRequest getDefaultInstanceForType() {
-        return UserLoginRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserLoginRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.UserLogin.UserLoginRequest.getDefaultInstance();
       }
 
-      @Override
-      public UserLoginRequest build() {
-        UserLoginRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserLoginRequest build() {
+        com.graduate.design.proto.UserLogin.UserLoginRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UserLoginRequest buildPartial() {
-        UserLoginRequest result = new UserLoginRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserLoginRequest buildPartial() {
+        com.graduate.design.proto.UserLogin.UserLoginRequest result = new com.graduate.design.proto.UserLogin.UserLoginRequest(this);
         result.userName_ = userName_;
         result.hashId_ = hashId_;
         if (baseReqBuilder_ == null) {
@@ -544,50 +544,50 @@ public final class UserLogin {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UserLoginRequest) {
-          return mergeFrom((UserLoginRequest)other);
+        if (other instanceof com.graduate.design.proto.UserLogin.UserLoginRequest) {
+          return mergeFrom((com.graduate.design.proto.UserLogin.UserLoginRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UserLoginRequest other) {
-        if (other == UserLoginRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.UserLogin.UserLoginRequest other) {
+        if (other == com.graduate.design.proto.UserLogin.UserLoginRequest.getDefaultInstance()) return this;
         if (!other.getUserName().isEmpty()) {
           userName_ = other.userName_;
           onChanged();
@@ -604,21 +604,21 @@ public final class UserLogin {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UserLoginRequest parsedMessage = null;
+        com.graduate.design.proto.UserLogin.UserLoginRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UserLoginRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.UserLogin.UserLoginRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -628,21 +628,21 @@ public final class UserLogin {
         return this;
       }
 
-      private Object userName_ = "";
+      private java.lang.Object userName_ = "";
       /**
        * <code>string userName = 1;</code>
        * @return The userName.
        */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -651,11 +651,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getUserNameBytes() {
-        Object ref = userName_;
+        java.lang.Object ref = userName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userName_ = b;
           return b;
         } else {
@@ -668,7 +668,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setUserName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -704,7 +704,7 @@ public final class UserLogin {
         return this;
       }
 
-      private Object hashId_ = "";
+      private java.lang.Object hashId_ = "";
       /**
        * <pre>
        * hashId身份识别
@@ -713,16 +713,16 @@ public final class UserLogin {
        * <code>string hashId = 2;</code>
        * @return The hashId.
        */
-      public String getHashId() {
-        Object ref = hashId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getHashId() {
+        java.lang.Object ref = hashId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           hashId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -735,11 +735,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getHashIdBytes() {
-        Object ref = hashId_;
+        java.lang.Object ref = hashId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           hashId_ = b;
           return b;
         } else {
@@ -756,7 +756,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setHashId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -800,9 +800,9 @@ public final class UserLogin {
         return this;
       }
 
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -814,9 +814,9 @@ public final class UserLogin {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -824,7 +824,7 @@ public final class UserLogin {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -841,7 +841,7 @@ public final class UserLogin {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -854,11 +854,11 @@ public final class UserLogin {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -886,7 +886,7 @@ public final class UserLogin {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -894,23 +894,23 @@ public final class UserLogin {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -918,13 +918,13 @@ public final class UserLogin {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -935,18 +935,18 @@ public final class UserLogin {
     }
 
     // @@protoc_insertion_point(class_scope:UserLoginRequest)
-    private static final UserLoginRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.UserLogin.UserLoginRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UserLoginRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.UserLogin.UserLoginRequest();
     }
 
-    public static UserLoginRequest getDefaultInstance() {
+    public static com.graduate.design.proto.UserLogin.UserLoginRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UserLoginRequest>
         PARSER = new com.google.protobuf.AbstractParser<UserLoginRequest>() {
-      @Override
+      @java.lang.Override
       public UserLoginRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -959,13 +959,13 @@ public final class UserLogin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UserLoginRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UserLoginRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.UserLogin.UserLoginRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -985,7 +985,7 @@ public final class UserLogin {
      * <code>string userName = 2;</code>
      * @return The userName.
      */
-    String getUserName();
+    java.lang.String getUserName();
     /**
      * <code>string userName = 2;</code>
      * @return The bytes for userName.
@@ -997,7 +997,7 @@ public final class UserLogin {
      * <code>string email = 3;</code>
      * @return The email.
      */
-    String getEmail();
+    java.lang.String getEmail();
     /**
      * <code>string email = 3;</code>
      * @return The bytes for email.
@@ -1013,7 +1013,7 @@ public final class UserLogin {
      * <code>string biIndex = 4;</code>
      * @return The biIndex.
      */
-    String getBiIndex();
+    java.lang.String getBiIndex();
     /**
      * <pre>
      * 双向索引链表，以base64形式存储
@@ -1029,7 +1029,7 @@ public final class UserLogin {
      * <code>string key1 = 5;</code>
      * @return The key1.
      */
-    String getKey1();
+    java.lang.String getKey1();
     /**
      * <code>string key1 = 5;</code>
      * @return The bytes for key1.
@@ -1041,7 +1041,7 @@ public final class UserLogin {
      * <code>string key2 = 6;</code>
      * @return The key2.
      */
-    String getKey2();
+    java.lang.String getKey2();
     /**
      * <code>string key2 = 6;</code>
      * @return The bytes for key2.
@@ -1069,14 +1069,14 @@ public final class UserLogin {
       key2_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UserInfo();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1087,7 +1087,7 @@ public final class UserLogin {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1105,31 +1105,31 @@ public final class UserLogin {
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userName_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               email_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               biIndex_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key1_ = s;
               break;
             }
             case 50: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key2_ = s;
               break;
@@ -1155,15 +1155,15 @@ public final class UserLogin {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UserLogin.internal_static_UserInfo_descriptor;
+      return com.graduate.design.proto.UserLogin.internal_static_UserInfo_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UserLogin.internal_static_UserInfo_fieldAccessorTable
+      return com.graduate.design.proto.UserLogin.internal_static_UserInfo_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UserInfo.class, Builder.class);
+              com.graduate.design.proto.UserLogin.UserInfo.class, com.graduate.design.proto.UserLogin.UserInfo.Builder.class);
     }
 
     public static final int ROOTID_FIELD_NUMBER = 1;
@@ -1172,26 +1172,26 @@ public final class UserLogin {
      * <code>int64 rootId = 1;</code>
      * @return The rootId.
      */
-    @Override
+    @java.lang.Override
     public long getRootId() {
       return rootId_;
     }
 
     public static final int USERNAME_FIELD_NUMBER = 2;
-    private volatile Object userName_;
+    private volatile java.lang.Object userName_;
     /**
      * <code>string userName = 2;</code>
      * @return The userName.
      */
-    @Override
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userName_ = s;
         return s;
       }
@@ -1200,14 +1200,14 @@ public final class UserLogin {
      * <code>string userName = 2;</code>
      * @return The bytes for userName.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userName_ = b;
         return b;
       } else {
@@ -1216,20 +1216,20 @@ public final class UserLogin {
     }
 
     public static final int EMAIL_FIELD_NUMBER = 3;
-    private volatile Object email_;
+    private volatile java.lang.Object email_;
     /**
      * <code>string email = 3;</code>
      * @return The email.
      */
-    @Override
-    public String getEmail() {
-      Object ref = email_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         email_ = s;
         return s;
       }
@@ -1238,14 +1238,14 @@ public final class UserLogin {
      * <code>string email = 3;</code>
      * @return The bytes for email.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getEmailBytes() {
-      Object ref = email_;
-      if (ref instanceof String) {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         email_ = b;
         return b;
       } else {
@@ -1254,7 +1254,7 @@ public final class UserLogin {
     }
 
     public static final int BIINDEX_FIELD_NUMBER = 4;
-    private volatile Object biIndex_;
+    private volatile java.lang.Object biIndex_;
     /**
      * <pre>
      * 双向索引链表，以base64形式存储
@@ -1263,15 +1263,15 @@ public final class UserLogin {
      * <code>string biIndex = 4;</code>
      * @return The biIndex.
      */
-    @Override
-    public String getBiIndex() {
-      Object ref = biIndex_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getBiIndex() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         biIndex_ = s;
         return s;
       }
@@ -1284,14 +1284,14 @@ public final class UserLogin {
      * <code>string biIndex = 4;</code>
      * @return The bytes for biIndex.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getBiIndexBytes() {
-      Object ref = biIndex_;
-      if (ref instanceof String) {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         biIndex_ = b;
         return b;
       } else {
@@ -1300,20 +1300,20 @@ public final class UserLogin {
     }
 
     public static final int KEY1_FIELD_NUMBER = 5;
-    private volatile Object key1_;
+    private volatile java.lang.Object key1_;
     /**
      * <code>string key1 = 5;</code>
      * @return The key1.
      */
-    @Override
-    public String getKey1() {
-      Object ref = key1_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getKey1() {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key1_ = s;
         return s;
       }
@@ -1322,14 +1322,14 @@ public final class UserLogin {
      * <code>string key1 = 5;</code>
      * @return The bytes for key1.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKey1Bytes() {
-      Object ref = key1_;
-      if (ref instanceof String) {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key1_ = b;
         return b;
       } else {
@@ -1338,20 +1338,20 @@ public final class UserLogin {
     }
 
     public static final int KEY2_FIELD_NUMBER = 6;
-    private volatile Object key2_;
+    private volatile java.lang.Object key2_;
     /**
      * <code>string key2 = 6;</code>
      * @return The key2.
      */
-    @Override
-    public String getKey2() {
-      Object ref = key2_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getKey2() {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key2_ = s;
         return s;
       }
@@ -1360,14 +1360,14 @@ public final class UserLogin {
      * <code>string key2 = 6;</code>
      * @return The bytes for key2.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKey2Bytes() {
-      Object ref = key2_;
-      if (ref instanceof String) {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key2_ = b;
         return b;
       } else {
@@ -1376,7 +1376,7 @@ public final class UserLogin {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1386,7 +1386,7 @@ public final class UserLogin {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (rootId_ != 0L) {
@@ -1410,7 +1410,7 @@ public final class UserLogin {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1440,15 +1440,15 @@ public final class UserLogin {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UserInfo)) {
+      if (!(obj instanceof com.graduate.design.proto.UserLogin.UserInfo)) {
         return super.equals(obj);
       }
-      UserInfo other = (UserInfo) obj;
+      com.graduate.design.proto.UserLogin.UserInfo other = (com.graduate.design.proto.UserLogin.UserInfo) obj;
 
       if (getRootId()
           != other.getRootId()) return false;
@@ -1466,7 +1466,7 @@ public final class UserLogin {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1491,69 +1491,69 @@ public final class UserLogin {
       return hash;
     }
 
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserInfo parseFrom(byte[] data)
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserInfo parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserInfo parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserLogin.UserInfo parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UserInfo parseDelimitedFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserInfo parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserInfo parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1561,23 +1561,23 @@ public final class UserLogin {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UserInfo prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.UserLogin.UserInfo prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1587,18 +1587,18 @@ public final class UserLogin {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UserInfo)
-        UserInfoOrBuilder {
+        com.graduate.design.proto.UserLogin.UserInfoOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UserLogin.internal_static_UserInfo_descriptor;
+        return com.graduate.design.proto.UserLogin.internal_static_UserInfo_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UserLogin.internal_static_UserInfo_fieldAccessorTable
+        return com.graduate.design.proto.UserLogin.internal_static_UserInfo_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UserInfo.class, Builder.class);
+                com.graduate.design.proto.UserLogin.UserInfo.class, com.graduate.design.proto.UserLogin.UserInfo.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.UserLogin.UserInfo.newBuilder()
@@ -1607,7 +1607,7 @@ public final class UserLogin {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1616,7 +1616,7 @@ public final class UserLogin {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         rootId_ = 0L;
@@ -1634,29 +1634,29 @@ public final class UserLogin {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UserLogin.internal_static_UserInfo_descriptor;
+        return com.graduate.design.proto.UserLogin.internal_static_UserInfo_descriptor;
       }
 
-      @Override
-      public UserInfo getDefaultInstanceForType() {
-        return UserInfo.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserInfo getDefaultInstanceForType() {
+        return com.graduate.design.proto.UserLogin.UserInfo.getDefaultInstance();
       }
 
-      @Override
-      public UserInfo build() {
-        UserInfo result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserInfo build() {
+        com.graduate.design.proto.UserLogin.UserInfo result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UserInfo buildPartial() {
-        UserInfo result = new UserInfo(this);
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserInfo buildPartial() {
+        com.graduate.design.proto.UserLogin.UserInfo result = new com.graduate.design.proto.UserLogin.UserInfo(this);
         result.rootId_ = rootId_;
         result.userName_ = userName_;
         result.email_ = email_;
@@ -1667,50 +1667,50 @@ public final class UserLogin {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UserInfo) {
-          return mergeFrom((UserInfo)other);
+        if (other instanceof com.graduate.design.proto.UserLogin.UserInfo) {
+          return mergeFrom((com.graduate.design.proto.UserLogin.UserInfo)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UserInfo other) {
-        if (other == UserInfo.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.UserLogin.UserInfo other) {
+        if (other == com.graduate.design.proto.UserLogin.UserInfo.getDefaultInstance()) return this;
         if (other.getRootId() != 0L) {
           setRootId(other.getRootId());
         }
@@ -1739,21 +1739,21 @@ public final class UserLogin {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UserInfo parsedMessage = null;
+        com.graduate.design.proto.UserLogin.UserInfo parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UserInfo) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.UserLogin.UserInfo) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1768,7 +1768,7 @@ public final class UserLogin {
        * <code>int64 rootId = 1;</code>
        * @return The rootId.
        */
-      @Override
+      @java.lang.Override
       public long getRootId() {
         return rootId_;
       }
@@ -1794,21 +1794,21 @@ public final class UserLogin {
         return this;
       }
 
-      private Object userName_ = "";
+      private java.lang.Object userName_ = "";
       /**
        * <code>string userName = 2;</code>
        * @return The userName.
        */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1817,11 +1817,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getUserNameBytes() {
-        Object ref = userName_;
+        java.lang.Object ref = userName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userName_ = b;
           return b;
         } else {
@@ -1834,7 +1834,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setUserName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1870,21 +1870,21 @@ public final class UserLogin {
         return this;
       }
 
-      private Object email_ = "";
+      private java.lang.Object email_ = "";
       /**
        * <code>string email = 3;</code>
        * @return The email.
        */
-      public String getEmail() {
-        Object ref = email_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           email_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1893,11 +1893,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getEmailBytes() {
-        Object ref = email_;
+        java.lang.Object ref = email_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           email_ = b;
           return b;
         } else {
@@ -1910,7 +1910,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setEmail(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1946,7 +1946,7 @@ public final class UserLogin {
         return this;
       }
 
-      private Object biIndex_ = "";
+      private java.lang.Object biIndex_ = "";
       /**
        * <pre>
        * 双向索引链表，以base64形式存储
@@ -1955,16 +1955,16 @@ public final class UserLogin {
        * <code>string biIndex = 4;</code>
        * @return The biIndex.
        */
-      public String getBiIndex() {
-        Object ref = biIndex_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getBiIndex() {
+        java.lang.Object ref = biIndex_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           biIndex_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1977,11 +1977,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getBiIndexBytes() {
-        Object ref = biIndex_;
+        java.lang.Object ref = biIndex_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           biIndex_ = b;
           return b;
         } else {
@@ -1998,7 +1998,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setBiIndex(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2042,21 +2042,21 @@ public final class UserLogin {
         return this;
       }
 
-      private Object key1_ = "";
+      private java.lang.Object key1_ = "";
       /**
        * <code>string key1 = 5;</code>
        * @return The key1.
        */
-      public String getKey1() {
-        Object ref = key1_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey1() {
+        java.lang.Object ref = key1_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key1_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2065,11 +2065,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getKey1Bytes() {
-        Object ref = key1_;
+        java.lang.Object ref = key1_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key1_ = b;
           return b;
         } else {
@@ -2082,7 +2082,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setKey1(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2118,21 +2118,21 @@ public final class UserLogin {
         return this;
       }
 
-      private Object key2_ = "";
+      private java.lang.Object key2_ = "";
       /**
        * <code>string key2 = 6;</code>
        * @return The key2.
        */
-      public String getKey2() {
-        Object ref = key2_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey2() {
+        java.lang.Object ref = key2_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key2_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2141,11 +2141,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getKey2Bytes() {
-        Object ref = key2_;
+        java.lang.Object ref = key2_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key2_ = b;
           return b;
         } else {
@@ -2158,7 +2158,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setKey2(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2193,13 +2193,13 @@ public final class UserLogin {
         onChanged();
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2210,18 +2210,18 @@ public final class UserLogin {
     }
 
     // @@protoc_insertion_point(class_scope:UserInfo)
-    private static final UserInfo DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.UserLogin.UserInfo DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UserInfo();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.UserLogin.UserInfo();
     }
 
-    public static UserInfo getDefaultInstance() {
+    public static com.graduate.design.proto.UserLogin.UserInfo getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UserInfo>
         PARSER = new com.google.protobuf.AbstractParser<UserInfo>() {
-      @Override
+      @java.lang.Override
       public UserInfo parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2234,13 +2234,13 @@ public final class UserLogin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UserInfo> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UserInfo getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.UserLogin.UserInfo getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2258,7 +2258,7 @@ public final class UserLogin {
      * <code>string token = 1;</code>
      * @return The token.
      */
-    String getToken();
+    java.lang.String getToken();
     /**
      * <pre>
      *  登录成功返回的token
@@ -2287,7 +2287,7 @@ public final class UserLogin {
      * <code>.UserInfo userInfo = 2;</code>
      * @return The userInfo.
      */
-    UserInfo getUserInfo();
+    com.graduate.design.proto.UserLogin.UserInfo getUserInfo();
     /**
      * <pre>
      * 用户信息
@@ -2295,7 +2295,7 @@ public final class UserLogin {
      *
      * <code>.UserInfo userInfo = 2;</code>
      */
-    UserInfoOrBuilder getUserInfoOrBuilder();
+    com.graduate.design.proto.UserLogin.UserInfoOrBuilder getUserInfoOrBuilder();
 
     /**
      * <code>.BaseResp baseResp = 255;</code>
@@ -2306,11 +2306,11 @@ public final class UserLogin {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code UserLoginResponse}
@@ -2328,14 +2328,14 @@ public final class UserLogin {
       token_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UserLoginResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -2346,7 +2346,7 @@ public final class UserLogin {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -2359,17 +2359,17 @@ public final class UserLogin {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               token_ = s;
               break;
             }
             case 18: {
-              UserInfo.Builder subBuilder = null;
+              com.graduate.design.proto.UserLogin.UserInfo.Builder subBuilder = null;
               if (userInfo_ != null) {
                 subBuilder = userInfo_.toBuilder();
               }
-              userInfo_ = input.readMessage(UserInfo.parser(), extensionRegistry);
+              userInfo_ = input.readMessage(com.graduate.design.proto.UserLogin.UserInfo.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(userInfo_);
                 userInfo_ = subBuilder.buildPartial();
@@ -2378,11 +2378,11 @@ public final class UserLogin {
               break;
             }
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -2411,19 +2411,19 @@ public final class UserLogin {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UserLogin.internal_static_UserLoginResponse_descriptor;
+      return com.graduate.design.proto.UserLogin.internal_static_UserLoginResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UserLogin.internal_static_UserLoginResponse_fieldAccessorTable
+      return com.graduate.design.proto.UserLogin.internal_static_UserLoginResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UserLoginResponse.class, Builder.class);
+              com.graduate.design.proto.UserLogin.UserLoginResponse.class, com.graduate.design.proto.UserLogin.UserLoginResponse.Builder.class);
     }
 
     public static final int TOKEN_FIELD_NUMBER = 1;
-    private volatile Object token_;
+    private volatile java.lang.Object token_;
     /**
      * <pre>
      *  登录成功返回的token
@@ -2432,15 +2432,15 @@ public final class UserLogin {
      * <code>string token = 1;</code>
      * @return The token.
      */
-    @Override
-    public String getToken() {
-      Object ref = token_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         token_ = s;
         return s;
       }
@@ -2453,14 +2453,14 @@ public final class UserLogin {
      * <code>string token = 1;</code>
      * @return The bytes for token.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getTokenBytes() {
-      Object ref = token_;
-      if (ref instanceof String) {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         token_ = b;
         return b;
       } else {
@@ -2469,7 +2469,7 @@ public final class UserLogin {
     }
 
     public static final int USERINFO_FIELD_NUMBER = 2;
-    private UserInfo userInfo_;
+    private com.graduate.design.proto.UserLogin.UserInfo userInfo_;
     /**
      * <pre>
      * 用户信息
@@ -2478,7 +2478,7 @@ public final class UserLogin {
      * <code>.UserInfo userInfo = 2;</code>
      * @return Whether the userInfo field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasUserInfo() {
       return userInfo_ != null;
     }
@@ -2490,9 +2490,9 @@ public final class UserLogin {
      * <code>.UserInfo userInfo = 2;</code>
      * @return The userInfo.
      */
-    @Override
-    public UserInfo getUserInfo() {
-      return userInfo_ == null ? UserInfo.getDefaultInstance() : userInfo_;
+    @java.lang.Override
+    public com.graduate.design.proto.UserLogin.UserInfo getUserInfo() {
+      return userInfo_ == null ? com.graduate.design.proto.UserLogin.UserInfo.getDefaultInstance() : userInfo_;
     }
     /**
      * <pre>
@@ -2501,18 +2501,18 @@ public final class UserLogin {
      *
      * <code>.UserInfo userInfo = 2;</code>
      */
-    @Override
-    public UserInfoOrBuilder getUserInfoOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.UserLogin.UserInfoOrBuilder getUserInfoOrBuilder() {
       return getUserInfo();
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -2520,20 +2520,20 @@ public final class UserLogin {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -2543,7 +2543,7 @@ public final class UserLogin {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(token_)) {
@@ -2558,7 +2558,7 @@ public final class UserLogin {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -2580,15 +2580,15 @@ public final class UserLogin {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UserLoginResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.UserLogin.UserLoginResponse)) {
         return super.equals(obj);
       }
-      UserLoginResponse other = (UserLoginResponse) obj;
+      com.graduate.design.proto.UserLogin.UserLoginResponse other = (com.graduate.design.proto.UserLogin.UserLoginResponse) obj;
 
       if (!getToken()
           .equals(other.getToken())) return false;
@@ -2606,7 +2606,7 @@ public final class UserLogin {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -2628,69 +2628,69 @@ public final class UserLogin {
       return hash;
     }
 
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserLoginResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserLoginResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserLoginResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UserLoginResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserLoginResponse parseFrom(
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2698,23 +2698,23 @@ public final class UserLogin {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UserLoginResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.UserLogin.UserLoginResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2724,18 +2724,18 @@ public final class UserLogin {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UserLoginResponse)
-        UserLoginResponseOrBuilder {
+        com.graduate.design.proto.UserLogin.UserLoginResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UserLogin.internal_static_UserLoginResponse_descriptor;
+        return com.graduate.design.proto.UserLogin.internal_static_UserLoginResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UserLogin.internal_static_UserLoginResponse_fieldAccessorTable
+        return com.graduate.design.proto.UserLogin.internal_static_UserLoginResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UserLoginResponse.class, Builder.class);
+                com.graduate.design.proto.UserLogin.UserLoginResponse.class, com.graduate.design.proto.UserLogin.UserLoginResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.UserLogin.UserLoginResponse.newBuilder()
@@ -2744,7 +2744,7 @@ public final class UserLogin {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2753,7 +2753,7 @@ public final class UserLogin {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         token_ = "";
@@ -2773,29 +2773,29 @@ public final class UserLogin {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UserLogin.internal_static_UserLoginResponse_descriptor;
+        return com.graduate.design.proto.UserLogin.internal_static_UserLoginResponse_descriptor;
       }
 
-      @Override
-      public UserLoginResponse getDefaultInstanceForType() {
-        return UserLoginResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserLoginResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.UserLogin.UserLoginResponse.getDefaultInstance();
       }
 
-      @Override
-      public UserLoginResponse build() {
-        UserLoginResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserLoginResponse build() {
+        com.graduate.design.proto.UserLogin.UserLoginResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UserLoginResponse buildPartial() {
-        UserLoginResponse result = new UserLoginResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.UserLogin.UserLoginResponse buildPartial() {
+        com.graduate.design.proto.UserLogin.UserLoginResponse result = new com.graduate.design.proto.UserLogin.UserLoginResponse(this);
         result.token_ = token_;
         if (userInfoBuilder_ == null) {
           result.userInfo_ = userInfo_;
@@ -2811,50 +2811,50 @@ public final class UserLogin {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UserLoginResponse) {
-          return mergeFrom((UserLoginResponse)other);
+        if (other instanceof com.graduate.design.proto.UserLogin.UserLoginResponse) {
+          return mergeFrom((com.graduate.design.proto.UserLogin.UserLoginResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UserLoginResponse other) {
-        if (other == UserLoginResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.UserLogin.UserLoginResponse other) {
+        if (other == com.graduate.design.proto.UserLogin.UserLoginResponse.getDefaultInstance()) return this;
         if (!other.getToken().isEmpty()) {
           token_ = other.token_;
           onChanged();
@@ -2870,21 +2870,21 @@ public final class UserLogin {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UserLoginResponse parsedMessage = null;
+        com.graduate.design.proto.UserLogin.UserLoginResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UserLoginResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.UserLogin.UserLoginResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2894,7 +2894,7 @@ public final class UserLogin {
         return this;
       }
 
-      private Object token_ = "";
+      private java.lang.Object token_ = "";
       /**
        * <pre>
        *  登录成功返回的token
@@ -2903,16 +2903,16 @@ public final class UserLogin {
        * <code>string token = 1;</code>
        * @return The token.
        */
-      public String getToken() {
-        Object ref = token_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           token_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -2925,11 +2925,11 @@ public final class UserLogin {
        */
       public com.google.protobuf.ByteString
           getTokenBytes() {
-        Object ref = token_;
+        java.lang.Object ref = token_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           token_ = b;
           return b;
         } else {
@@ -2946,7 +2946,7 @@ public final class UserLogin {
        * @return This builder for chaining.
        */
       public Builder setToken(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2990,9 +2990,9 @@ public final class UserLogin {
         return this;
       }
 
-      private UserInfo userInfo_;
+      private com.graduate.design.proto.UserLogin.UserInfo userInfo_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          UserInfo, UserInfo.Builder, UserInfoOrBuilder> userInfoBuilder_;
+          com.graduate.design.proto.UserLogin.UserInfo, com.graduate.design.proto.UserLogin.UserInfo.Builder, com.graduate.design.proto.UserLogin.UserInfoOrBuilder> userInfoBuilder_;
       /**
        * <pre>
        * 用户信息
@@ -3012,9 +3012,9 @@ public final class UserLogin {
        * <code>.UserInfo userInfo = 2;</code>
        * @return The userInfo.
        */
-      public UserInfo getUserInfo() {
+      public com.graduate.design.proto.UserLogin.UserInfo getUserInfo() {
         if (userInfoBuilder_ == null) {
-          return userInfo_ == null ? UserInfo.getDefaultInstance() : userInfo_;
+          return userInfo_ == null ? com.graduate.design.proto.UserLogin.UserInfo.getDefaultInstance() : userInfo_;
         } else {
           return userInfoBuilder_.getMessage();
         }
@@ -3026,7 +3026,7 @@ public final class UserLogin {
        *
        * <code>.UserInfo userInfo = 2;</code>
        */
-      public Builder setUserInfo(UserInfo value) {
+      public Builder setUserInfo(com.graduate.design.proto.UserLogin.UserInfo value) {
         if (userInfoBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3047,7 +3047,7 @@ public final class UserLogin {
        * <code>.UserInfo userInfo = 2;</code>
        */
       public Builder setUserInfo(
-          UserInfo.Builder builderForValue) {
+          com.graduate.design.proto.UserLogin.UserInfo.Builder builderForValue) {
         if (userInfoBuilder_ == null) {
           userInfo_ = builderForValue.build();
           onChanged();
@@ -3064,11 +3064,11 @@ public final class UserLogin {
        *
        * <code>.UserInfo userInfo = 2;</code>
        */
-      public Builder mergeUserInfo(UserInfo value) {
+      public Builder mergeUserInfo(com.graduate.design.proto.UserLogin.UserInfo value) {
         if (userInfoBuilder_ == null) {
           if (userInfo_ != null) {
             userInfo_ =
-              UserInfo.newBuilder(userInfo_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.UserLogin.UserInfo.newBuilder(userInfo_).mergeFrom(value).buildPartial();
           } else {
             userInfo_ = value;
           }
@@ -3104,7 +3104,7 @@ public final class UserLogin {
        *
        * <code>.UserInfo userInfo = 2;</code>
        */
-      public UserInfo.Builder getUserInfoBuilder() {
+      public com.graduate.design.proto.UserLogin.UserInfo.Builder getUserInfoBuilder() {
         
         onChanged();
         return getUserInfoFieldBuilder().getBuilder();
@@ -3116,12 +3116,12 @@ public final class UserLogin {
        *
        * <code>.UserInfo userInfo = 2;</code>
        */
-      public UserInfoOrBuilder getUserInfoOrBuilder() {
+      public com.graduate.design.proto.UserLogin.UserInfoOrBuilder getUserInfoOrBuilder() {
         if (userInfoBuilder_ != null) {
           return userInfoBuilder_.getMessageOrBuilder();
         } else {
           return userInfo_ == null ?
-              UserInfo.getDefaultInstance() : userInfo_;
+              com.graduate.design.proto.UserLogin.UserInfo.getDefaultInstance() : userInfo_;
         }
       }
       /**
@@ -3132,11 +3132,11 @@ public final class UserLogin {
        * <code>.UserInfo userInfo = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          UserInfo, UserInfo.Builder, UserInfoOrBuilder>
+          com.graduate.design.proto.UserLogin.UserInfo, com.graduate.design.proto.UserLogin.UserInfo.Builder, com.graduate.design.proto.UserLogin.UserInfoOrBuilder> 
           getUserInfoFieldBuilder() {
         if (userInfoBuilder_ == null) {
           userInfoBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              UserInfo, UserInfo.Builder, UserInfoOrBuilder>(
+              com.graduate.design.proto.UserLogin.UserInfo, com.graduate.design.proto.UserLogin.UserInfo.Builder, com.graduate.design.proto.UserLogin.UserInfoOrBuilder>(
                   getUserInfo(),
                   getParentForChildren(),
                   isClean());
@@ -3145,9 +3145,9 @@ public final class UserLogin {
         return userInfoBuilder_;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -3159,9 +3159,9 @@ public final class UserLogin {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -3169,7 +3169,7 @@ public final class UserLogin {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -3186,7 +3186,7 @@ public final class UserLogin {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -3199,11 +3199,11 @@ public final class UserLogin {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -3231,7 +3231,7 @@ public final class UserLogin {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -3239,23 +3239,23 @@ public final class UserLogin {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -3263,13 +3263,13 @@ public final class UserLogin {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -3280,18 +3280,18 @@ public final class UserLogin {
     }
 
     // @@protoc_insertion_point(class_scope:UserLoginResponse)
-    private static final UserLoginResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.UserLogin.UserLoginResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UserLoginResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.UserLogin.UserLoginResponse();
     }
 
-    public static UserLoginResponse getDefaultInstance() {
+    public static com.graduate.design.proto.UserLogin.UserLoginResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UserLoginResponse>
         PARSER = new com.google.protobuf.AbstractParser<UserLoginResponse>() {
-      @Override
+      @java.lang.Override
       public UserLoginResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -3304,13 +3304,13 @@ public final class UserLogin {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UserLoginResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UserLoginResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.UserLogin.UserLoginResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -3339,7 +3339,7 @@ public final class UserLogin {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\020user_login.proto\032\014common.proto\"P\n\020User" +
       "LoginRequest\022\020\n\010userName\030\001 \001(\t\022\016\n\006hashId" +
       "\030\002 \001(\t\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\"h\n\010Us" +
@@ -3354,27 +3354,27 @@ public final class UserLogin {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_UserLoginRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_UserLoginRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserLoginRequest_descriptor,
-        new String[] { "UserName", "HashId", "BaseReq", });
+        new java.lang.String[] { "UserName", "HashId", "BaseReq", });
     internal_static_UserInfo_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_UserInfo_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserInfo_descriptor,
-        new String[] { "RootId", "UserName", "Email", "BiIndex", "Key1", "Key2", });
+        new java.lang.String[] { "RootId", "UserName", "Email", "BiIndex", "Key1", "Key2", });
     internal_static_UserLoginResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_UserLoginResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserLoginResponse_descriptor,
-        new String[] { "Token", "UserInfo", "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "Token", "UserInfo", "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

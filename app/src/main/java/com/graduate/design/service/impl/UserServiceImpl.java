@@ -14,21 +14,16 @@ import com.graduate.design.entity.BiIndex;
 import com.graduate.design.proto.ChangePassword;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.CreateDir;
+import com.graduate.design.proto.DeleteFile;
 import com.graduate.design.proto.FileUpload;
-import com.graduate.design.proto.GetAllNodes;
 import com.graduate.design.proto.GetDir;
 import com.graduate.design.proto.GetNode;
 import com.graduate.design.proto.GetNodeId;
-import com.graduate.design.proto.GetNodes;
-import com.graduate.design.proto.GetRecvFile;
-import com.graduate.design.proto.GetShareTokens;
 import com.graduate.design.proto.Ping;
-import com.graduate.design.proto.RegisterFile;
 import com.graduate.design.proto.SearchFile;
 import com.graduate.design.proto.SendSearchToken;
-import com.graduate.design.proto.ShareFile;
 import com.graduate.design.proto.ShareFirst;
-import com.graduate.design.proto.UpLoadShareToken;
+import com.graduate.design.proto.ShareSecond;
 import com.graduate.design.proto.UserLogin;
 import com.graduate.design.proto.UserRegister;
 import com.graduate.design.service.EncryptionService;
@@ -57,7 +52,7 @@ import javax.crypto.Mac;
 import javax.crypto.spec.SecretKeySpec;
 
 public class UserServiceImpl implements UserService {
-    private final String base = "https://192.168.0.105:8888";
+    private final String base = "https://192.168.43.39:8888";
     private NetWorkService netWorkService = new NetWorkServiceImpl();
 
     @Override
@@ -131,23 +126,22 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public int createDir(String dirName, Long parentId, String token, Long dirId, String nodeIdOpPair, String userName) {
+    public int createDir(String dirName, Long parentId, String token) {
         CreateDir.CreateDirRequest req = CreateDir.CreateDirRequest.newBuilder()
                 .setDirName(dirName)
                 .setParentId(parentId)
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .setDirId(dirId)
-                .setNodeIdOpPair(nodeIdOpPair)
-                .setUserName(userName)
                 .build();
+
+
 
         return sendData(req, 3) == null ? 1 : 0;
     }
 
 
     @Override
-    public int uploadFile(String fileName, Long parentId, List<FileUpload.indexToken> indexList, ByteString content
-            , String biIndex, Long fileId, String token, String nodeIdOpPair, String userName) {
+    public int uploadFile(String fileName, Long parentId, List<Common.indexToken> indexList, ByteString content
+            , String biIndex, Long fileId, String token, String fileSecret) {
         FileUpload.UploadFileRequest req = FileUpload.UploadFileRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setFileName(fileName)
@@ -155,8 +149,7 @@ public class UserServiceImpl implements UserService {
                 .setContent(content)
                 .setBiIndex(biIndex)
                 .setNodeId(fileId)
-                .setNodeIdOpPair(nodeIdOpPair)
-                .setUserName(userName)
+                .setFileSecret(fileSecret)
                 .addAllIndexList(indexList)
                 .build();
 
@@ -219,7 +212,7 @@ public class UserServiceImpl implements UserService {
      * @return dirId下的所有确定存在的Node信息
      */
     @Override
-    public List<Common.Node> getNodeList(Long nodeId, String token) {
+    public List<Common.Node> getDir(Long nodeId, String token) {
         List<Common.Node> res = new ArrayList<>();
 
         GetDir.GetDirRequest req = GetDir.GetDirRequest.newBuilder()
@@ -227,73 +220,24 @@ public class UserServiceImpl implements UserService {
                 .setNodeId(nodeId)
                 .build();
 
+        System.out.println(req.getBaseReq().getToken());
+
         JSONObject jsonObject = sendData(req, 17);
         if (jsonObject == null) return null;
-        JSONArray idOpPairCipher = jsonObject.getJSONArray("idOpPairCipherTexts");
-        // 这个必须得判断 因为如果idOpPairCipherTexts为空集，在jsonObject中是不存在空集(length = 0)这个表示的 而是直接为null
-        if (idOpPairCipher == null) {
+        JSONArray nodeIdList = jsonObject.getJSONArray("nodeIdList");
+        if (nodeIdList == null) {
             return new ArrayList<>();
         }
 
-        Set<Long> addSet = new HashSet<>();
-        Set<Long> deleteSet = new HashSet<>();
-        for (int i = 0; i < idOpPairCipher.size(); i++) {
-            String[] strings = DeleteProtocol.idOpPairDecrypt(GraduateDesignApplication.getKey1(), idOpPairCipher.getString(i));
-            if (strings[1].equals("add")) {
-                addSet.add(Long.parseLong(strings[0]));
-            } else deleteSet.add(Long.parseLong(strings[0]));
+        List<Long> idList = new ArrayList<>();
+        for (int i = 0; i < nodeIdList.size(); i++) {
+            idList.add(nodeIdList.getLong(i));
         }
-        Set<Long> realSet = new HashSet<>(addSet); // 这些就是没有被删除的id，可以再次与后端交互，获取其详细信息
-        // 利用set模拟差集运算
-        realSet.addAll(addSet);
-        realSet.removeAll(deleteSet);
 
-        GetNodes.GetNodesRequest getNodesRequest = GetNodes.GetNodesRequest.newBuilder()
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .addAllNodeId(new ArrayList<>(realSet))
-                .build();
-        jsonObject = sendData(getNodesRequest, 18);
-
-        if (jsonObject == null) return null;
-        JSONArray subNodeList = jsonObject.getJSONArray("node");
-        // 对于每一个密文对进行解密，将其中被删除了的文件直接排除
-        // 没有文件节点
-        if (subNodeList == null) return res;
-        // 遍历所有文件节点
-        for (int i = 0; i < subNodeList.size(); i++) {
-            JSONObject sonJson = subNodeList.getJSONObject(i);
-            // 获取节点类型
-            Common.NodeType realType;
-            String nodeType = sonJson.getString("nodeType");
-            switch (nodeType) {
-                case "File":
-                    realType = Common.NodeType.File;
-                    break;
-                case "Dir":
-                    realType = Common.NodeType.Dir;
-                    break;
-                default:
-                    realType = Common.NodeType.Unknown;
-                    break;
-            }
-            // 构造子节点
-            Common.Node son = Common.Node.newBuilder()
-                    .setNodeType(realType)
-                    .setNodeId(Long.parseLong(sonJson.getString("nodeId")))
-                    .setNodeName(sonJson.getString("nodeName"))
-                    .setCreateTime(Long.parseLong(sonJson.getString("createTime")))
-                    .setUpdateTime(Long.parseLong(sonJson.getString("updateTime")))
-                    .build();
-            res.add(son);
-        }
-        return res;
+        return searchFile(idList, token);
     }
 
-    /**
-     * @param userName 用户名
-     * @param token    用户token
-     * @return 指定用户名下的所有被删除的id(由于用户名是唯一的 ， 因此此处返回的所有id都是指定用户下的)
-     */
+    /*
     public Set<Long> getAllDeleteNodes(String userName, String token) {
         GetAllNodes.GetAllNodesRequest getAllNodesRequest = GetAllNodes.GetAllNodesRequest.newBuilder()
                 .setUsername(userName)
@@ -313,10 +257,10 @@ public class UserServiceImpl implements UserService {
             }
         }
         return deleteSet;
-    }
+    }*/
 
     @Override
-    public String getNodeContent(Long nodeId, String token) {
+    public String[] getNodeContent(Long nodeId, String token) {
         GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
                 .setNodeId(nodeId)
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
@@ -328,50 +272,39 @@ public class UserServiceImpl implements UserService {
 
         JSONObject node = jsonObject.getJSONObject("node");
 
-        String content;
+        String content, secretKey;
 
         // 此时获得的文件内容和文件密钥均为Base64编码
         byte[] contentBytes = node.getBytes("nodeContent");
         if (contentBytes == null) content = "";
         else content = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
 
+        byte[] secretKeyBytes = node.getBytes("secretKey");
+        // 源文件已被删除
+        if (secretKeyBytes == null) {
+            return new String[]{"", ""};
+        }
+        else secretKey = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.UTF_8);
+
         // TODO 解密
         EncryptionService encryptionService = new EncryptionServiceImpl();
-        byte[] fileContentEncrypt = FileUtils.Base64ToBytes(content);
+        // 先用key2解密fileSecretKey
+        byte[] fileSecretKeyEncrypt = FileUtils.Base64ToBytes(secretKey);
 
-        byte[] fileSecret = GraduateDesignApplication.getKey2();
+        byte[] key2 = GraduateDesignApplication.getKey2();
+        byte[] fileSecret = encryptionService.decryptByAES256(fileSecretKeyEncrypt, key2);
+
+        byte[] fileContentEncrypt = FileUtils.Base64ToBytes(content);
         byte[] fileContent = encryptionService.decryptByAES256(fileContentEncrypt, fileSecret);
 
-        return ByteString.copyFrom(fileContent).toString(StandardCharsets.UTF_8);
+        String contentString = ByteString.copyFrom(fileContent).toString(StandardCharsets.UTF_8);
+        String secretString = FileUtils.bytes2Base64(fileSecret);
+
+        return new String[]{contentString, secretString};
     }
 
-    @Override
-    public int registerFile(Long fileId, Long dirId, ByteString secretKey, Boolean isWeb, Long shareId, String token) {
-        RegisterFile.RegisterFileRequest req = RegisterFile.RegisterFileRequest.newBuilder()
-                .setFileId(fileId)
-                .setDirId(dirId)
-                .setSecretKey(secretKey)
-                .setIsWeb(isWeb)
-                .setShareId(shareId)
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .build();
 
-        return sendData(req, 7) == null ? 1 : 0;
-    }
-
-    @Override
-    public int shareFile(String username, Long fileId, ByteString key, String token) {
-        ShareFile.ShareFileRequest req = ShareFile.ShareFileRequest.newBuilder()
-                .setUserName(username)
-                .setFileId(fileId)
-                .setKey(key)
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .build();
-
-        return sendData(req, 8) == null ? 1 : 0;
-    }
-
-    @Override
+  /*  @Override
     public List<GetRecvFile.SharedFile> getRecvFile(String token) {
         List<GetRecvFile.SharedFile> res = new ArrayList<>();
 
@@ -401,7 +334,7 @@ public class UserServiceImpl implements UserService {
             res.add(sharedFile);
         }
         return res;
-    }
+    }*/
 
     @Override
     public Long getNodeId(String token) {
@@ -456,31 +389,87 @@ public class UserServiceImpl implements UserService {
         return jsonObject == null ? 1 : 0;
     }
 
-    /**
-     * 上传shareToken至加密数据库
-     *
-     * @param shareToken 分享令牌，包括了userId,ownerId,L,kid,Jid,id
-     * @param token      用户token
-     * @return 上传情况
-     */
-    public int uploadShareToken(Common.ShareToken shareToken, String token) { // 还没有经过测试
+    @Override
+    public int deleteFileOrDir(List<Long> nodeId, String token) {
+        DeleteFile.DeleteFileRequest req = DeleteFile.DeleteFileRequest.newBuilder()
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .addAllDelNodeID(nodeId)
+                .build();
+
+        JSONObject jsonObject = sendData(req, 20);
+
+        return jsonObject == null ? 1 : 0;
+    }
+
+    @Override
+    public List<String> firstShare(String L, String Jid, String token) {
+        ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .setL(L)
+                .setJId(Jid)
+                .build();
+
+        JSONObject jsonObject = sendData(req, 15);
+
+        if (jsonObject == null) return null;
+
+        List<String> res = new ArrayList<>();
+        JSONArray array = jsonObject.getJSONArray("S");
+        // 没有文件节点
+        if (array == null) return res;
+        // 遍历所有文件节点
+        for (int i = 0; i < array.size(); i++) {
+            String cid = array.getString(i);
+            res.add(cid);
+        }
+        return res;
+    }
+
+    @Override
+    public int secondShare(String filename, Long parentId, String biIndex, Long fileId, Boolean isShare, Long address, String fileSecret, List<Common.indexToken> indexList, String token) {
+        ShareSecond.ShareSecondRequest req = ShareSecond.ShareSecondRequest.newBuilder()
+                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
+                .setFileName(filename)
+                .setParentId(parentId)
+                .setBiIndex(biIndex)
+                .setNodeId(fileId)
+                .setIsShare(isShare)
+                .setAddress(address)
+                .setFileSecret(fileSecret)
+                .addAllSearchIndexSecond(indexList)
+                .build();
+
+        JSONObject jsonObject = sendData(req, 16);
+
+        return jsonObject == null ? 1 : 0;
+    }
+
+    @Override
+    public int uploadShareToken(Common.ShareToken shareToken, String token) {
+        return 0;
+    }
+
+    @Override
+    public List<Common.ShareToken> getAllShareToken(String userid, String token) {
+        return null;
+    }
+
+    @Override
+    public Set<Long> getAllDeleteNodes(String userName, String token) {
+        return null;
+    }
+
+    /*public int uploadShareToken(Common.ShareToken shareToken, String token) { // 还没有经过测试
         UpLoadShareToken.UpLoadShareTokenRequest req = UpLoadShareToken.UpLoadShareTokenRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setShareToken(shareToken)
                 .build();
         JSONObject jsonObject = sendData(req, 13);
         return jsonObject != null ? 1 : 0;
-    }
+    }*/
 
 
-    /**
-     * 根据userid从分享数据库中找到所有的sharetoken
-     *
-     * @param userid 用户id
-     * @param token  用户token
-     * @return 所有的shareToken
-     */
-    public List<Common.ShareToken> getAllShareToken(String userid, String token) { // 这个还没有经过测试
+    /*public List<Common.ShareToken> getAllShareToken(String userid, String token) { // 这个还没有经过测试
         GetShareTokens.GetShareTokensRequest req = GetShareTokens.GetShareTokensRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setUserId(userid)
@@ -493,7 +482,7 @@ public class UserServiceImpl implements UserService {
             shareTokens.add(jsonArray.getObject(i, Common.ShareToken.class));
         }
         return shareTokens;
-    }
+    }*/
 
 //   这部分代码应该是在不使用蓝牙时，直接在server上保存shareToken时所使用的register
 //    public int shareTokenRegister(Common.ShareToken shareToken, String token) {
@@ -583,15 +572,9 @@ public class UserServiceImpl implements UserService {
 //        return jsonObject == null ? 0 : 1;
 //    }
 
-    /**
-     * 将接收方选择接受的shareToken进行注册
-     *
-     * @param shareToken 分享令牌
-     * @param token      用户token
-     * @return 0表示注册失败 1表示注册成功
-     */
+
     // 检查一下搜索界面查看分享文件是否存在问题，这部分最好其实应该放置到EncryptionServiceImpl中
-    public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token) {
+    /*public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token) {
         ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .setL(shareToken.getL())
@@ -668,7 +651,7 @@ public class UserServiceImpl implements UserService {
                     .build());
         }
         return newS;
-    }
+    }*/
 
     private JSONObject sendData(Object req, int number) {
         String[] urls = {
@@ -691,7 +674,8 @@ public class UserServiceImpl implements UserService {
                 "/file/shareSecond", // 16
                 "/dir/get", // 17 用于请求文件夹下的所有结点idOpPair信息
                 "/node/gets", // 18 用户请求所有存在的文件
-                "/node/username" // 19 用于请求特定用户下所有的idOpPair
+                "/node/username", // 19 用于请求特定用户下所有的idOpPair
+                "/node/delete",   // 删除文件或文件夹
         };
         // 将请求对象转换成json格式，不要使用Gson
         String data = JsonUtils.toJson(req);

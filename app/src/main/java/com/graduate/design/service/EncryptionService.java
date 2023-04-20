@@ -1,5 +1,6 @@
 package com.graduate.design.service;
 
+import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.proto.SearchFile;
 import com.graduate.design.proto.SendSearchToken;
@@ -17,7 +18,7 @@ public interface EncryptionService {
     byte[] decryptByAES256(String ciphertext, byte[] secretKey);
     byte[] decryptByAES256(byte[] ciphertext, byte[] secretKey);
 
-    FileUpload.indexToken uploadIndex(Long id, String word);
+    Common.indexToken uploadIndex(Long id, String word);
 
     SendSearchToken.SearchToken getSearchToken(String word);
 

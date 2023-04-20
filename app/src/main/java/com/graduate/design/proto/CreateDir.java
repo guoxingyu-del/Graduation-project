@@ -26,7 +26,7 @@ public final class CreateDir {
      * <code>string dirName = 1;</code>
      * @return The dirName.
      */
-    String getDirName();
+    java.lang.String getDirName();
     /**
      * <pre>
      * 文件夹名称
@@ -49,56 +49,6 @@ public final class CreateDir {
     long getParentId();
 
     /**
-     * <pre>
-     * 文件夹节点id
-     * </pre>
-     *
-     * <code>int64 dirId = 3;</code>
-     * @return The dirId.
-     */
-    long getDirId();
-
-    /**
-     * <pre>
-     * Id与操作op对的密文
-     * </pre>
-     *
-     * <code>string nodeIdOpPair = 4;</code>
-     * @return The nodeIdOpPair.
-     */
-    String getNodeIdOpPair();
-    /**
-     * <pre>
-     * Id与操作op对的密文
-     * </pre>
-     *
-     * <code>string nodeIdOpPair = 4;</code>
-     * @return The bytes for nodeIdOpPair.
-     */
-    com.google.protobuf.ByteString
-        getNodeIdOpPairBytes();
-
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 5;</code>
-     * @return The userName.
-     */
-    String getUserName();
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 5;</code>
-     * @return The bytes for userName.
-     */
-    com.google.protobuf.ByteString
-        getUserNameBytes();
-
-    /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
@@ -107,11 +57,11 @@ public final class CreateDir {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code CreateDirRequest}
@@ -127,18 +77,16 @@ public final class CreateDir {
     }
     private CreateDirRequest() {
       dirName_ = "";
-      nodeIdOpPair_ = "";
-      userName_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new CreateDirRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -149,7 +97,7 @@ public final class CreateDir {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -162,7 +110,7 @@ public final class CreateDir {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               dirName_ = s;
               break;
@@ -172,29 +120,12 @@ public final class CreateDir {
               parentId_ = input.readInt64();
               break;
             }
-            case 24: {
-
-              dirId_ = input.readInt64();
-              break;
-            }
-            case 34: {
-              String s = input.readStringRequireUtf8();
-
-              nodeIdOpPair_ = s;
-              break;
-            }
-            case 42: {
-              String s = input.readStringRequireUtf8();
-
-              userName_ = s;
-              break;
-            }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -223,19 +154,19 @@ public final class CreateDir {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return CreateDir.internal_static_CreateDirRequest_descriptor;
+      return com.graduate.design.proto.CreateDir.internal_static_CreateDirRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return CreateDir.internal_static_CreateDirRequest_fieldAccessorTable
+      return com.graduate.design.proto.CreateDir.internal_static_CreateDirRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              CreateDirRequest.class, Builder.class);
+              com.graduate.design.proto.CreateDir.CreateDirRequest.class, com.graduate.design.proto.CreateDir.CreateDirRequest.Builder.class);
     }
 
     public static final int DIRNAME_FIELD_NUMBER = 1;
-    private volatile Object dirName_;
+    private volatile java.lang.Object dirName_;
     /**
      * <pre>
      * 文件夹名称
@@ -244,15 +175,15 @@ public final class CreateDir {
      * <code>string dirName = 1;</code>
      * @return The dirName.
      */
-    @Override
-    public String getDirName() {
-      Object ref = dirName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getDirName() {
+      java.lang.Object ref = dirName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         dirName_ = s;
         return s;
       }
@@ -265,14 +196,14 @@ public final class CreateDir {
      * <code>string dirName = 1;</code>
      * @return The bytes for dirName.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getDirNameBytes() {
-      Object ref = dirName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = dirName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         dirName_ = b;
         return b;
       } else {
@@ -290,125 +221,18 @@ public final class CreateDir {
      * <code>int64 parentId = 2;</code>
      * @return The parentId.
      */
-    @Override
+    @java.lang.Override
     public long getParentId() {
       return parentId_;
     }
 
-    public static final int DIRID_FIELD_NUMBER = 3;
-    private long dirId_;
-    /**
-     * <pre>
-     * 文件夹节点id
-     * </pre>
-     *
-     * <code>int64 dirId = 3;</code>
-     * @return The dirId.
-     */
-    @Override
-    public long getDirId() {
-      return dirId_;
-    }
-
-    public static final int NODEIDOPPAIR_FIELD_NUMBER = 4;
-    private volatile Object nodeIdOpPair_;
-    /**
-     * <pre>
-     * Id与操作op对的密文
-     * </pre>
-     *
-     * <code>string nodeIdOpPair = 4;</code>
-     * @return The nodeIdOpPair.
-     */
-    @Override
-    public String getNodeIdOpPair() {
-      Object ref = nodeIdOpPair_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        nodeIdOpPair_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * Id与操作op对的密文
-     * </pre>
-     *
-     * <code>string nodeIdOpPair = 4;</code>
-     * @return The bytes for nodeIdOpPair.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getNodeIdOpPairBytes() {
-      Object ref = nodeIdOpPair_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        nodeIdOpPair_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int USERNAME_FIELD_NUMBER = 5;
-    private volatile Object userName_;
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 5;</code>
-     * @return The userName.
-     */
-    @Override
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
-        userName_ = s;
-        return s;
-      }
-    }
-    /**
-     * <pre>
-     * 用户名
-     * </pre>
-     *
-     * <code>string userName = 5;</code>
-     * @return The bytes for userName.
-     */
-    @Override
-    public com.google.protobuf.ByteString
-        getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
-        userName_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -416,20 +240,20 @@ public final class CreateDir {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -439,7 +263,7 @@ public final class CreateDir {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(dirName_)) {
@@ -448,22 +272,13 @@ public final class CreateDir {
       if (parentId_ != 0L) {
         output.writeInt64(2, parentId_);
       }
-      if (dirId_ != 0L) {
-        output.writeInt64(3, dirId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nodeIdOpPair_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, nodeIdOpPair_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, userName_);
-      }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
       }
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -476,16 +291,6 @@ public final class CreateDir {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(2, parentId_);
       }
-      if (dirId_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(3, dirId_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(nodeIdOpPair_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, nodeIdOpPair_);
-      }
-      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, userName_);
-      }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(255, getBaseReq());
@@ -495,26 +300,20 @@ public final class CreateDir {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof CreateDirRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.CreateDir.CreateDirRequest)) {
         return super.equals(obj);
       }
-      CreateDirRequest other = (CreateDirRequest) obj;
+      com.graduate.design.proto.CreateDir.CreateDirRequest other = (com.graduate.design.proto.CreateDir.CreateDirRequest) obj;
 
       if (!getDirName()
           .equals(other.getDirName())) return false;
       if (getParentId()
           != other.getParentId()) return false;
-      if (getDirId()
-          != other.getDirId()) return false;
-      if (!getNodeIdOpPair()
-          .equals(other.getNodeIdOpPair())) return false;
-      if (!getUserName()
-          .equals(other.getUserName())) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
       if (hasBaseReq()) {
         if (!getBaseReq()
@@ -524,7 +323,7 @@ public final class CreateDir {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -536,13 +335,6 @@ public final class CreateDir {
       hash = (37 * hash) + PARENTID_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getParentId());
-      hash = (37 * hash) + DIRID_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getDirId());
-      hash = (37 * hash) + NODEIDOPPAIR_FIELD_NUMBER;
-      hash = (53 * hash) + getNodeIdOpPair().hashCode();
-      hash = (37 * hash) + USERNAME_FIELD_NUMBER;
-      hash = (53 * hash) + getUserName().hashCode();
       if (hasBaseReq()) {
         hash = (37 * hash) + BASEREQ_FIELD_NUMBER;
         hash = (53 * hash) + getBaseReq().hashCode();
@@ -552,69 +344,69 @@ public final class CreateDir {
       return hash;
     }
 
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static CreateDirRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static CreateDirRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static CreateDirRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static CreateDirRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static CreateDirRequest parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -622,23 +414,23 @@ public final class CreateDir {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(CreateDirRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.CreateDir.CreateDirRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -648,18 +440,18 @@ public final class CreateDir {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:CreateDirRequest)
-        CreateDirRequestOrBuilder {
+        com.graduate.design.proto.CreateDir.CreateDirRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return CreateDir.internal_static_CreateDirRequest_descriptor;
+        return com.graduate.design.proto.CreateDir.internal_static_CreateDirRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return CreateDir.internal_static_CreateDirRequest_fieldAccessorTable
+        return com.graduate.design.proto.CreateDir.internal_static_CreateDirRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                CreateDirRequest.class, Builder.class);
+                com.graduate.design.proto.CreateDir.CreateDirRequest.class, com.graduate.design.proto.CreateDir.CreateDirRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.CreateDir.CreateDirRequest.newBuilder()
@@ -668,7 +460,7 @@ public final class CreateDir {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -677,18 +469,12 @@ public final class CreateDir {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         dirName_ = "";
 
         parentId_ = 0L;
-
-        dirId_ = 0L;
-
-        nodeIdOpPair_ = "";
-
-        userName_ = "";
 
         if (baseReqBuilder_ == null) {
           baseReq_ = null;
@@ -699,34 +485,31 @@ public final class CreateDir {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return CreateDir.internal_static_CreateDirRequest_descriptor;
+        return com.graduate.design.proto.CreateDir.internal_static_CreateDirRequest_descriptor;
       }
 
-      @Override
-      public CreateDirRequest getDefaultInstanceForType() {
-        return CreateDirRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.CreateDir.CreateDirRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.CreateDir.CreateDirRequest.getDefaultInstance();
       }
 
-      @Override
-      public CreateDirRequest build() {
-        CreateDirRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.CreateDir.CreateDirRequest build() {
+        com.graduate.design.proto.CreateDir.CreateDirRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public CreateDirRequest buildPartial() {
-        CreateDirRequest result = new CreateDirRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.CreateDir.CreateDirRequest buildPartial() {
+        com.graduate.design.proto.CreateDir.CreateDirRequest result = new com.graduate.design.proto.CreateDir.CreateDirRequest(this);
         result.dirName_ = dirName_;
         result.parentId_ = parentId_;
-        result.dirId_ = dirId_;
-        result.nodeIdOpPair_ = nodeIdOpPair_;
-        result.userName_ = userName_;
         if (baseReqBuilder_ == null) {
           result.baseReq_ = baseReq_;
         } else {
@@ -736,67 +519,56 @@ public final class CreateDir {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof CreateDirRequest) {
-          return mergeFrom((CreateDirRequest)other);
+        if (other instanceof com.graduate.design.proto.CreateDir.CreateDirRequest) {
+          return mergeFrom((com.graduate.design.proto.CreateDir.CreateDirRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(CreateDirRequest other) {
-        if (other == CreateDirRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.CreateDir.CreateDirRequest other) {
+        if (other == com.graduate.design.proto.CreateDir.CreateDirRequest.getDefaultInstance()) return this;
         if (!other.getDirName().isEmpty()) {
           dirName_ = other.dirName_;
           onChanged();
         }
         if (other.getParentId() != 0L) {
           setParentId(other.getParentId());
-        }
-        if (other.getDirId() != 0L) {
-          setDirId(other.getDirId());
-        }
-        if (!other.getNodeIdOpPair().isEmpty()) {
-          nodeIdOpPair_ = other.nodeIdOpPair_;
-          onChanged();
-        }
-        if (!other.getUserName().isEmpty()) {
-          userName_ = other.userName_;
-          onChanged();
         }
         if (other.hasBaseReq()) {
           mergeBaseReq(other.getBaseReq());
@@ -806,21 +578,21 @@ public final class CreateDir {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        CreateDirRequest parsedMessage = null;
+        com.graduate.design.proto.CreateDir.CreateDirRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (CreateDirRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.CreateDir.CreateDirRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -830,7 +602,7 @@ public final class CreateDir {
         return this;
       }
 
-      private Object dirName_ = "";
+      private java.lang.Object dirName_ = "";
       /**
        * <pre>
        * 文件夹名称
@@ -839,16 +611,16 @@ public final class CreateDir {
        * <code>string dirName = 1;</code>
        * @return The dirName.
        */
-      public String getDirName() {
-        Object ref = dirName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getDirName() {
+        java.lang.Object ref = dirName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           dirName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -861,11 +633,11 @@ public final class CreateDir {
        */
       public com.google.protobuf.ByteString
           getDirNameBytes() {
-        Object ref = dirName_;
+        java.lang.Object ref = dirName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           dirName_ = b;
           return b;
         } else {
@@ -882,7 +654,7 @@ public final class CreateDir {
        * @return This builder for chaining.
        */
       public Builder setDirName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -935,7 +707,7 @@ public final class CreateDir {
        * <code>int64 parentId = 2;</code>
        * @return The parentId.
        */
-      @Override
+      @java.lang.Override
       public long getParentId() {
         return parentId_;
       }
@@ -969,244 +741,9 @@ public final class CreateDir {
         return this;
       }
 
-      private long dirId_ ;
-      /**
-       * <pre>
-       * 文件夹节点id
-       * </pre>
-       *
-       * <code>int64 dirId = 3;</code>
-       * @return The dirId.
-       */
-      @Override
-      public long getDirId() {
-        return dirId_;
-      }
-      /**
-       * <pre>
-       * 文件夹节点id
-       * </pre>
-       *
-       * <code>int64 dirId = 3;</code>
-       * @param value The dirId to set.
-       * @return This builder for chaining.
-       */
-      public Builder setDirId(long value) {
-        
-        dirId_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 文件夹节点id
-       * </pre>
-       *
-       * <code>int64 dirId = 3;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearDirId() {
-        
-        dirId_ = 0L;
-        onChanged();
-        return this;
-      }
-
-      private Object nodeIdOpPair_ = "";
-      /**
-       * <pre>
-       * Id与操作op对的密文
-       * </pre>
-       *
-       * <code>string nodeIdOpPair = 4;</code>
-       * @return The nodeIdOpPair.
-       */
-      public String getNodeIdOpPair() {
-        Object ref = nodeIdOpPair_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          nodeIdOpPair_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * Id与操作op对的密文
-       * </pre>
-       *
-       * <code>string nodeIdOpPair = 4;</code>
-       * @return The bytes for nodeIdOpPair.
-       */
-      public com.google.protobuf.ByteString
-          getNodeIdOpPairBytes() {
-        Object ref = nodeIdOpPair_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          nodeIdOpPair_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * Id与操作op对的密文
-       * </pre>
-       *
-       * <code>string nodeIdOpPair = 4;</code>
-       * @param value The nodeIdOpPair to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNodeIdOpPair(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        nodeIdOpPair_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Id与操作op对的密文
-       * </pre>
-       *
-       * <code>string nodeIdOpPair = 4;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearNodeIdOpPair() {
-        
-        nodeIdOpPair_ = getDefaultInstance().getNodeIdOpPair();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * Id与操作op对的密文
-       * </pre>
-       *
-       * <code>string nodeIdOpPair = 4;</code>
-       * @param value The bytes for nodeIdOpPair to set.
-       * @return This builder for chaining.
-       */
-      public Builder setNodeIdOpPairBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        nodeIdOpPair_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Object userName_ = "";
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 5;</code>
-       * @return The userName.
-       */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
-          userName_ = s;
-          return s;
-        } else {
-          return (String) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 5;</code>
-       * @return The bytes for userName.
-       */
-      public com.google.protobuf.ByteString
-          getUserNameBytes() {
-        Object ref = userName_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
-          userName_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 5;</code>
-       * @param value The userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserName(
-          String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        userName_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 5;</code>
-       * @return This builder for chaining.
-       */
-      public Builder clearUserName() {
-        
-        userName_ = getDefaultInstance().getUserName();
-        onChanged();
-        return this;
-      }
-      /**
-       * <pre>
-       * 用户名
-       * </pre>
-       *
-       * <code>string userName = 5;</code>
-       * @param value The bytes for userName to set.
-       * @return This builder for chaining.
-       */
-      public Builder setUserNameBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        userName_ = value;
-        onChanged();
-        return this;
-      }
-
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -1218,9 +755,9 @@ public final class CreateDir {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -1228,7 +765,7 @@ public final class CreateDir {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1245,7 +782,7 @@ public final class CreateDir {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -1258,11 +795,11 @@ public final class CreateDir {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -1290,7 +827,7 @@ public final class CreateDir {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -1298,23 +835,23 @@ public final class CreateDir {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -1322,13 +859,13 @@ public final class CreateDir {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1339,18 +876,18 @@ public final class CreateDir {
     }
 
     // @@protoc_insertion_point(class_scope:CreateDirRequest)
-    private static final CreateDirRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.CreateDir.CreateDirRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new CreateDirRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.CreateDir.CreateDirRequest();
     }
 
-    public static CreateDirRequest getDefaultInstance() {
+    public static com.graduate.design.proto.CreateDir.CreateDirRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<CreateDirRequest>
         PARSER = new com.google.protobuf.AbstractParser<CreateDirRequest>() {
-      @Override
+      @java.lang.Override
       public CreateDirRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1363,13 +900,13 @@ public final class CreateDir {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<CreateDirRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public CreateDirRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.CreateDir.CreateDirRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1388,11 +925,11 @@ public final class CreateDir {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code CreateDirResponse}
@@ -1409,14 +946,14 @@ public final class CreateDir {
     private CreateDirResponse() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new CreateDirResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1427,7 +964,7 @@ public final class CreateDir {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1440,11 +977,11 @@ public final class CreateDir {
               done = true;
               break;
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1473,24 +1010,24 @@ public final class CreateDir {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return CreateDir.internal_static_CreateDirResponse_descriptor;
+      return com.graduate.design.proto.CreateDir.internal_static_CreateDirResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return CreateDir.internal_static_CreateDirResponse_fieldAccessorTable
+      return com.graduate.design.proto.CreateDir.internal_static_CreateDirResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              CreateDirResponse.class, Builder.class);
+              com.graduate.design.proto.CreateDir.CreateDirResponse.class, com.graduate.design.proto.CreateDir.CreateDirResponse.Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1498,20 +1035,20 @@ public final class CreateDir {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1521,7 +1058,7 @@ public final class CreateDir {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -1530,7 +1067,7 @@ public final class CreateDir {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1545,15 +1082,15 @@ public final class CreateDir {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof CreateDirResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.CreateDir.CreateDirResponse)) {
         return super.equals(obj);
       }
-      CreateDirResponse other = (CreateDirResponse) obj;
+      com.graduate.design.proto.CreateDir.CreateDirResponse other = (com.graduate.design.proto.CreateDir.CreateDirResponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -1564,7 +1101,7 @@ public final class CreateDir {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1580,69 +1117,69 @@ public final class CreateDir {
       return hash;
     }
 
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static CreateDirResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static CreateDirResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static CreateDirResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static CreateDirResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static CreateDirResponse parseFrom(
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1650,23 +1187,23 @@ public final class CreateDir {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(CreateDirResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.CreateDir.CreateDirResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1676,18 +1213,18 @@ public final class CreateDir {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:CreateDirResponse)
-        CreateDirResponseOrBuilder {
+        com.graduate.design.proto.CreateDir.CreateDirResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return CreateDir.internal_static_CreateDirResponse_descriptor;
+        return com.graduate.design.proto.CreateDir.internal_static_CreateDirResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return CreateDir.internal_static_CreateDirResponse_fieldAccessorTable
+        return com.graduate.design.proto.CreateDir.internal_static_CreateDirResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                CreateDirResponse.class, Builder.class);
+                com.graduate.design.proto.CreateDir.CreateDirResponse.class, com.graduate.design.proto.CreateDir.CreateDirResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.CreateDir.CreateDirResponse.newBuilder()
@@ -1696,7 +1233,7 @@ public final class CreateDir {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1705,7 +1242,7 @@ public final class CreateDir {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -1717,29 +1254,29 @@ public final class CreateDir {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return CreateDir.internal_static_CreateDirResponse_descriptor;
+        return com.graduate.design.proto.CreateDir.internal_static_CreateDirResponse_descriptor;
       }
 
-      @Override
-      public CreateDirResponse getDefaultInstanceForType() {
-        return CreateDirResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.CreateDir.CreateDirResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.CreateDir.CreateDirResponse.getDefaultInstance();
       }
 
-      @Override
-      public CreateDirResponse build() {
-        CreateDirResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.CreateDir.CreateDirResponse build() {
+        com.graduate.design.proto.CreateDir.CreateDirResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public CreateDirResponse buildPartial() {
-        CreateDirResponse result = new CreateDirResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.CreateDir.CreateDirResponse buildPartial() {
+        com.graduate.design.proto.CreateDir.CreateDirResponse result = new com.graduate.design.proto.CreateDir.CreateDirResponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -1749,50 +1286,50 @@ public final class CreateDir {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof CreateDirResponse) {
-          return mergeFrom((CreateDirResponse)other);
+        if (other instanceof com.graduate.design.proto.CreateDir.CreateDirResponse) {
+          return mergeFrom((com.graduate.design.proto.CreateDir.CreateDirResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(CreateDirResponse other) {
-        if (other == CreateDirResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.CreateDir.CreateDirResponse other) {
+        if (other == com.graduate.design.proto.CreateDir.CreateDirResponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -1801,21 +1338,21 @@ public final class CreateDir {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        CreateDirResponse parsedMessage = null;
+        com.graduate.design.proto.CreateDir.CreateDirResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (CreateDirResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.CreateDir.CreateDirResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1825,9 +1362,9 @@ public final class CreateDir {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1839,9 +1376,9 @@ public final class CreateDir {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -1849,7 +1386,7 @@ public final class CreateDir {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1866,7 +1403,7 @@ public final class CreateDir {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -1879,11 +1416,11 @@ public final class CreateDir {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -1911,7 +1448,7 @@ public final class CreateDir {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -1919,23 +1456,23 @@ public final class CreateDir {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -1943,13 +1480,13 @@ public final class CreateDir {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1960,18 +1497,18 @@ public final class CreateDir {
     }
 
     // @@protoc_insertion_point(class_scope:CreateDirResponse)
-    private static final CreateDirResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.CreateDir.CreateDirResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new CreateDirResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.CreateDir.CreateDirResponse();
     }
 
-    public static CreateDirResponse getDefaultInstance() {
+    public static com.graduate.design.proto.CreateDir.CreateDirResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<CreateDirResponse>
         PARSER = new com.google.protobuf.AbstractParser<CreateDirResponse>() {
-      @Override
+      @java.lang.Override
       public CreateDirResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1984,13 +1521,13 @@ public final class CreateDir {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<CreateDirResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public CreateDirResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.CreateDir.CreateDirResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2014,33 +1551,32 @@ public final class CreateDir {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\020create_dir.proto\032\014common.proto\"\210\001\n\020Cre" +
-      "ateDirRequest\022\017\n\007dirName\030\001 \001(\t\022\020\n\010parent" +
-      "Id\030\002 \001(\003\022\r\n\005dirId\030\003 \001(\003\022\024\n\014nodeIdOpPair\030" +
-      "\004 \001(\t\022\020\n\010userName\030\005 \001(\t\022\032\n\007baseReq\030\377\001 \001(" +
-      "\0132\010.BaseReq\"1\n\021CreateDirResponse\022\034\n\010base" +
-      "Resp\030\377\001 \001(\0132\t.BaseRespB0\n\031com.graduate.d" +
-      "esign.protoB\tCreateDirZ\010./pb_genb\006proto3"
+    java.lang.String[] descriptorData = {
+      "\n\020create_dir.proto\032\014common.proto\"Q\n\020Crea" +
+      "teDirRequest\022\017\n\007dirName\030\001 \001(\t\022\020\n\010parentI" +
+      "d\030\002 \001(\003\022\032\n\007baseReq\030\377\001 \001(\0132\010.BaseReq\"1\n\021C" +
+      "reateDirResponse\022\034\n\010baseResp\030\377\001 \001(\0132\t.Ba" +
+      "seRespB0\n\031com.graduate.design.protoB\tCre" +
+      "ateDirZ\010./pb_genb\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_CreateDirRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_CreateDirRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateDirRequest_descriptor,
-        new String[] { "DirName", "ParentId", "DirId", "NodeIdOpPair", "UserName", "BaseReq", });
+        new java.lang.String[] { "DirName", "ParentId", "BaseReq", });
     internal_static_CreateDirResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_CreateDirResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_CreateDirResponse_descriptor,
-        new String[] { "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

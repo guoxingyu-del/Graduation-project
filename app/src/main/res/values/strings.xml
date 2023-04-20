@@ -16,4 +16,9 @@
     <string name="shareTokenJid">shareTokenJid:</string>
     <string name="shareTokenKid">shareTokenKid:</string>
     <string name="shareTokenFileId">shareTokenFileId:</string>
+    <string name="secretKey">secretKey:</string>
+    <string name="isShare">isShare:</string>
+    <string name="type">type:</string>
+    <string name="from">from:</string>
+    <string name="address">address:</string>
 </resources>

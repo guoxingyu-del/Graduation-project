@@ -30,6 +30,8 @@ import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
 
+import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -45,12 +47,15 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
     private UserService userService;
     private EncryptionService encryptionService;
     private Long nodeId;
+    private String type;
     private String filename;
-    private String fileContent;
+    private String from;
+    private String secretKey;
     private String shareTokenL;
     private String shareTokenJId;
     private String shareTokenKId;
-    private String shareTokenFileId;
+    private String isShare;
+    private String address;
     private ChooseDirFileItemAdapter fileItemAdapter;
     private List<Common.Node> subNodes;
 
@@ -76,13 +81,18 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         context = getApplicationContext();
         userService = new UserServiceImpl();
         encryptionService = new EncryptionServiceImpl();
+
         nodeId = getIntent().getLongExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        type = getIntent().getStringExtra("type");
         filename = getIntent().getStringExtra("filename");
-        fileContent = getIntent().getStringExtra("fileContent");
+        from = getIntent().getStringExtra("from");
+        secretKey = getIntent().getStringExtra("fileSecret");
         shareTokenL = getIntent().getStringExtra("shareTokenL");
         shareTokenJId = getIntent().getStringExtra("shareTokenJId");
         shareTokenKId = getIntent().getStringExtra("shareTokenKId");
-        shareTokenFileId = getIntent().getStringExtra("shareTokenFileId");
+        isShare = getIntent().getStringExtra("isShare");
+        address = getIntent().getStringExtra("address");
+
         fileItemAdapter = new ChooseDirFileItemAdapter(context, R.layout.item_file);
     }
 
@@ -109,7 +119,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         if(map.containsKey(nodeId) && !map.get(nodeId).getUpdate())
             subNodes = FileUtils.putDirBeforeFile(map.get(nodeId).getNodeList());
         else {
-            subNodes = FileUtils.putDirBeforeFile(userService.getNodeList(nodeId, token));
+            subNodes = FileUtils.putDirBeforeFile(userService.getDir(nodeId, token));
             map.put(nodeId, new GotNodeList(subNodes, false));
         }
         fileItemAdapter.addAllFileItem(subNodes);
@@ -135,26 +145,8 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         finish();
     }
 
-//    private void receive(){
-//        // 将文件内容和文件标题作为一个新的节点上传
-//        // 利用文件名和用户密码生成文件密钥
-//        byte[] fileSecret = GraduateDesignApplication.getKey2();
-//        // 将加密结果转为Base64编码
-//        String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
-//        if(encryptContent == null) encryptContent = "";
-//
-//        // 先从服务器中拿到文件节点
-//        Long fileId = userService.getNodeId(token);
-//        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
-//        // 同步上传biIndex进行更新
-//        String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
-//
-//        userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
-//                fileId, token);
-//        ToastUtils.showShortToastCenter("保存成功");
-//    }
     private void receive() {
-        // 将文件内容和文件标题作为一个新的节点上传
+        /*// 将文件内容和文件标题作为一个新的节点上传
         // 利用文件名和用户密码生成文件密钥
         byte[] fileSecret = GraduateDesignApplication.getKey2();
         // 将加密结果转为Base64编码
@@ -166,7 +158,7 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         Long fileId = userService.getNodeId(token);
 
         Common.ShareToken shareToken = Common.ShareToken.newBuilder().setL(shareTokenL).setJId(shareTokenJId).setKId(shareTokenKId).setFileId(String.valueOf(fileId)).build();
-        List<FileUpload.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
+        List<Common.indexToken> indexTokens = userService.shareTokenRegister(shareToken, token);
         String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
         // 这个保存形式也需要改
         userService.uploadFile(filename, nodeId, indexTokens, ByteString.copyFromUtf8(encryptContent), biIndexString,
@@ -174,7 +166,34 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
                 DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
                         String.valueOf(fileId), "add"), GraduateDesignApplication.getUsername());
         GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
-        ToastUtils.showShortToastCenter("保存成功");
+        ToastUtils.showShortToastCenter("保存成功");*/
+
+        List<String> res = userService.firstShare(shareTokenL, shareTokenJId, token);
+        // 为接收文件新建一个id
+        Long curNodeId = userService.getNodeId(token);
+        List<Common.indexToken> indexTokenList = new ArrayList<>();
+        for(String cid : res) {
+            byte[] cidBytes = FileUtils.Base64ToBytes(cid);
+            byte[] wordBytes = encryptionService.decryptByAES256(cidBytes, FileUtils.Base64ToBytes(shareTokenKId));
+            String word = new String(wordBytes);
+            indexTokenList.add(encryptionService.uploadIndex(curNodeId, word));
+        }
+        byte[] secretKeyBytes = FileUtils.Base64ToBytes(secretKey);
+        byte[] key2 = GraduateDesignApplication.getKey2();
+        byte[] encryptKey = encryptionService.encryptByAES256(secretKeyBytes, key2);
+        Boolean isShareBoolean = false;
+        if("1".equals(isShare)) {
+            isShareBoolean = true;
+        }
+        int ret = userService.secondShare(filename, nodeId, FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject()),
+                curNodeId, isShareBoolean, Long.parseLong(address), FileUtils.bytes2Base64(encryptKey), indexTokenList, token);
+
+        if(ret==0) {
+            ToastUtils.showShortToastCenter("接收成功");
+            GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
+            setNodeList();
+        }
+        else ToastUtils.showShortToastCenter("接收失败");
     }
 
     @Override
@@ -195,12 +214,15 @@ public class ReceiveActivity extends AppCompatActivity implements View.OnClickLi
         if(clickedNode.getNodeType()== Common.NodeType.Dir){
             Intent intent = new Intent(ReceiveActivity.this, ReceiveActivity.class);
             intent.putExtra("nodeId", clickedNode.getNodeId());
+            intent.putExtra("type", type);
             intent.putExtra("filename", filename);
-            intent.putExtra("fileContent", fileContent);
+            intent.putExtra("from", from);
+            intent.putExtra("fileSecret", secretKey);
             intent.putExtra("shareTokenL", shareTokenL);
             intent.putExtra("shareTokenJId", shareTokenJId);
             intent.putExtra("shareTokenKId", shareTokenKId);
-            intent.putExtra("shareTokenFileId", shareTokenFileId);
+            intent.putExtra("isShare", isShare);
+            intent.putExtra("address", address);
             ActivityJumpUtils.jumpActivity(ReceiveActivity.this, intent, 100L, false);
         }
     }

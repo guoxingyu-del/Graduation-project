@@ -32,6 +32,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Queue;
@@ -50,7 +51,6 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
     private final UserService userService;
     private final EncryptionService encryptionService;
     private final String token;
-    private final Random random = new Random();
 
     public GetNodeFileItemAdapter(Context context, int layoutId, Long nodeId) {
         super(context, layoutId);
@@ -87,17 +87,37 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
 
                     // TODO 删除文件逻辑
                     public void delete() {
-
                         Common.Node fileBean = list.get(position);
+                        // 获取所有要删除的文件节点id
+                        List<Long> deleteIdList = new ArrayList<>();
+                        // 文件夹节点队列
+                        Queue<Common.Node> dirQueue = new LinkedList<>();
+                        if (fileBean.getNodeType() == Common.NodeType.Dir) {
+                            dirQueue.add(fileBean);
+                        }
+                        deleteIdList.add(fileBean.getNodeId());
+                        while (dirQueue.size() > 0) {
+                            Common.Node curNode = dirQueue.poll();
+                            List<Common.Node> subNodes = userService.getDir(curNode.getNodeId(), token);
+                            for (Common.Node node : subNodes) {
+                                deleteIdList.add(node.getNodeId());
+                                if (node.getNodeType() == Common.NodeType.Dir) dirQueue.add(node);
+                            }
+                        }
 
-//                        Log.e("deleteString", fileContent);
+                        int res = userService.deleteFileOrDir(deleteIdList, token);
 
-//                        Log.e("sssssssssss", fileContent);
+                        if (res == 0) {
+                            ToastUtils.showShortToastCenter("删除文件成功");
+                            clear();
+                            addAllFileItem(userService.getDir(parentId, token));
+                            GraduateDesignApplication.getAllNodeList().get(parentId).setUpdate(true);
+                        }
+                        else {
+                            ToastUtils.showShortToastCenter("删除文件失败");
+                        }
 
-//                        Log.e("indexToken", indexTokens.toString());
-                        // 同步上传biIndex进行更新
-
-                        // 删除文件的重要逻辑就是仿照添加文件
+                        /*// 删除文件的重要逻辑就是仿照添加文件
                         // 单个文件和文件夹分开讨论 文件夹需要将下面的文件全部删除，防止搜索的时候产生问题
                         // 文件名也得修改一下
                         Queue<Common.Node> queueNode = new LinkedList<>();
@@ -115,7 +135,7 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
                             }
                             if (node.getNodeType() == Common.NodeType.Dir) {
                                 // 这里还需要将其下面的所有结点找出来
-                                List<Common.Node> nodeList = userService.getNodeList(node.getNodeId(), token);
+                                List<Common.Node> nodeList = userService.getDir(node.getNodeId(), token);
                                 for (Common.Node n : nodeList) {
                                     queueNode.add(n);
                                     queueParentId.add(node.getNodeId());
@@ -141,27 +161,25 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
                         String fileContent = StringUtils.getRandomCharSet(random.nextInt(128) + 1);
                         String encryptContent = FileUtils.bytes2Base64(encryptionService.encryptByAES256(fileContent, fileSecret));
                         if (encryptContent == null) encryptContent = "";
-                        List<FileUpload.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
+                        List<Common.indexToken> indexTokens = FileUtils.indexList(fileContent, fileId);
                         String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
+                        String fileSecret = "123";
                         // 文件名也得生成一个
                         return userService.uploadFile(nodeName, parentId, indexTokens,
                                 ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)), biIndexString, fileId, token,
-                                DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
-                                        String.valueOf(nodeId), "del"), GraduateDesignApplication.getUsername());
+                                fileSecret);
                     }
 
                     public int deleteDir(String nodeName, Long parentId, Long nodeId) {
                         Long dirId = userService.getNodeId(token);
-                        return userService.createDir(nodeName, parentId, token, dirId,
-                                DeleteProtocol.idOpPairCipherGen(GraduateDesignApplication.getKey1(),
-                                        String.valueOf(nodeId), "del"), GraduateDesignApplication.getUsername());
+                        return userService.createDir(nodeName, parentId, token);
+                    }
+                });*/
                     }
                 });
-
                 popupMenu.show();
             }
         });
-
         return convertView;
     }
 }
