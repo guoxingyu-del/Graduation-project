@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -12,9 +13,12 @@ import androidx.fragment.app.Fragment;
 
 import com.graduate.design.R;
 import com.graduate.design.activity.HomeActivity;
+import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
 
 public class MineFragment extends Fragment implements View.OnClickListener {
+    private TextView username;
+    private TextView email;
     private Button changePasswordButton;
     private Button settingsButton;
     private Button aboutButton;
@@ -40,6 +44,8 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         getComponentsById(view);
         // 为按钮元素设置点击事件
         setListeners();
+        // 设置用户信息
+        setUserInfo();
     }
 
     private void initData(){
@@ -47,6 +53,8 @@ public class MineFragment extends Fragment implements View.OnClickListener {
     }
 
     private void getComponentsById(View view){
+        username = view.findViewById(R.id.username);
+        email = view.findViewById(R.id.email);
         changePasswordButton = view.findViewById(R.id.change_password_btn);
         settingsButton = view.findViewById(R.id.settings_btn);
         aboutButton = view.findViewById(R.id.about_btn);
@@ -58,6 +66,10 @@ public class MineFragment extends Fragment implements View.OnClickListener {
         aboutButton.setOnClickListener(this);
     }
 
+    private void setUserInfo(){
+        username.setText(GraduateDesignApplication.getUsername());
+        email.setText(GraduateDesignApplication.getUserInfo().getEmail());
+    }
 
     @Override
     public void onClick(View v) {

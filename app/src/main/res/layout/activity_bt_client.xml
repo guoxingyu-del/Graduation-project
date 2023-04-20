@@ -56,28 +56,28 @@
                 android:id="@+id/search_device_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:background="@color/common_orange"
+                android:background="@drawable/button_design"
                 android:text="搜索" />
             <Button
                 android:id="@+id/disconnect_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="断开"
-                android:background="@color/common_orange"
+                android:background="@drawable/button_design"
                 android:enabled="false" />
             <Button
                 android:id="@+id/share_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="分享"
-                android:background="@color/common_orange"
+                android:background="@drawable/button_design"
                 android:enabled="false" />
             <Button
                 android:id="@+id/transfer_btn"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="转存"
-                android:background="@color/common_orange"
+                android:background="@drawable/button_design"
                 android:enabled="false" />
 
         </LinearLayout>
@@ -87,14 +87,16 @@
             android:layout_marginTop="10dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="发送数据，测试蓝牙连通性" />
+            android:padding="10dp"
+            android:background="@drawable/edittext_design"
+            android:hint="  发送数据，测试蓝牙连通" />
 
         <Button
             android:id="@+id/send_btn"
             android:layout_marginTop="10dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@color/common_orange"
+            android:background="@drawable/button_design"
             android:text="发送"
             android:enabled="false" />
 

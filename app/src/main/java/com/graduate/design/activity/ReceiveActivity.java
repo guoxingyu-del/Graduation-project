@@ -17,7 +17,6 @@ import com.graduate.design.adapter.fileItem.ChooseDirFileItemAdapter;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
 import com.graduate.design.entity.GotNodeList;
-import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;

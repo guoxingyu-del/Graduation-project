@@ -3,6 +3,7 @@ package com.graduate.design.activity;
 import android.Manifest;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
@@ -20,6 +21,7 @@ import com.graduate.design.fragment.MineFragment;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
+import com.graduate.design.view.MyCircle;
 import com.molihuan.pathselector.PathSelector;
 import com.molihuan.pathselector.fragment.impl.PathSelectFragment;
 import com.molihuan.pathselector.service.IConfigDataBuilder;

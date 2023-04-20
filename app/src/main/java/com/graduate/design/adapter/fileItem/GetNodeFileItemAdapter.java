@@ -14,7 +14,6 @@ import android.widget.TextView;
 
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
-import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.service.EncryptionService;
@@ -66,6 +65,12 @@ public class GetNodeFileItemAdapter extends BaseFileItemAdapter {
         convertView = super.getView(position, convertView, parent);
         // 设置"更多"按钮的点击事件
         ImageButton moreButton = convertView.findViewById(R.id.more_btn);
+        // 搜索节点不支持删除
+        if(parentId==-1) {
+            moreButton.setVisibility(View.INVISIBLE);
+            return convertView;
+        }
+
         moreButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -117,18 +117,6 @@
         android:layout_marginHorizontal="20dp"
         android:layout_weight="2">
 
-        <Button
-            android:id="@+id/github_register_btn"
-            android:background="@drawable/edittext_design"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Github"
-            android:textColor="@color/common_orange"
-            android:textStyle="bold"
-            android:layout_weight="1">
-
-        </Button>
-
 
     </LinearLayout>
 

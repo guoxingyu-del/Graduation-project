@@ -9,7 +9,6 @@ import com.google.protobuf.ByteString;
 import com.google.protobuf.InvalidProtocolBufferException;
 import com.google.protobuf.util.JsonFormat;
 import com.graduate.design.R;
-import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.entity.BiIndex;
 import com.graduate.design.proto.ChangePassword;
 import com.graduate.design.proto.Common;
@@ -237,28 +236,6 @@ public class UserServiceImpl implements UserService {
         return searchFile(idList, token);
     }
 
-    /*
-    public Set<Long> getAllDeleteNodes(String userName, String token) {
-        GetAllNodes.GetAllNodesRequest getAllNodesRequest = GetAllNodes.GetAllNodesRequest.newBuilder()
-                .setUsername(userName)
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .build();
-        JSONObject jsonObject = sendData(getAllNodesRequest, 19);
-        if (jsonObject == null) return null;
-        JSONArray idOpPairCipher = jsonObject.getJSONArray("idOpPairCipher");
-        if (idOpPairCipher == null) {
-            return new HashSet<>();
-        }
-        Set<Long> deleteSet = new HashSet<>();
-        for (int i = 0; i < idOpPairCipher.size(); i++) {
-            String[] strings = DeleteProtocol.idOpPairDecrypt(GraduateDesignApplication.getKey1(), idOpPairCipher.getString(i));
-            if (strings[1].equals("del")) {
-                deleteSet.add(Long.parseLong(strings[0]));
-            }
-        }
-        return deleteSet;
-    }*/
-
     @Override
     public String[] getNodeContent(Long nodeId, String token) {
         GetNode.GetNodeRequest req = GetNode.GetNodeRequest.newBuilder()
@@ -302,39 +279,6 @@ public class UserServiceImpl implements UserService {
 
         return new String[]{contentString, secretString};
     }
-
-
-  /*  @Override
-    public List<GetRecvFile.SharedFile> getRecvFile(String token) {
-        List<GetRecvFile.SharedFile> res = new ArrayList<>();
-
-        GetRecvFile.GetRecvFileRequest req = GetRecvFile.GetRecvFileRequest.newBuilder()
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .build();
-
-        JSONObject jsonObject = sendData(req, 9);
-
-        if (jsonObject == null) return null;
-
-        JSONArray shareFileList = jsonObject.getJSONArray("shareFileList");
-
-        if (shareFileList == null) return res;
-
-        for (int i = 0; i < shareFileList.size(); i++) {
-            JSONObject shareFileJson = shareFileList.getJSONObject(i);
-
-            GetRecvFile.SharedFile sharedFile = GetRecvFile.SharedFile.newBuilder()
-                    .setShareId(shareFileJson.getLong("shareId"))
-                    .setFileId(shareFileJson.getLong("fileId"))
-                    .setFileName(shareFileJson.getString("fileName"))
-                    .setKey(ByteString.copyFrom(shareFileJson.getBytes("key")))
-                    .setFrom(shareFileJson.getString("from"))
-                    .build();
-
-            res.add(sharedFile);
-        }
-        return res;
-    }*/
 
     @Override
     public Long getNodeId(String token) {
@@ -458,200 +402,6 @@ public class UserServiceImpl implements UserService {
     public Set<Long> getAllDeleteNodes(String userName, String token) {
         return null;
     }
-
-    /*public int uploadShareToken(Common.ShareToken shareToken, String token) { // 还没有经过测试
-        UpLoadShareToken.UpLoadShareTokenRequest req = UpLoadShareToken.UpLoadShareTokenRequest.newBuilder()
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .setShareToken(shareToken)
-                .build();
-        JSONObject jsonObject = sendData(req, 13);
-        return jsonObject != null ? 1 : 0;
-    }*/
-
-
-    /*public List<Common.ShareToken> getAllShareToken(String userid, String token) { // 这个还没有经过测试
-        GetShareTokens.GetShareTokensRequest req = GetShareTokens.GetShareTokensRequest.newBuilder()
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .setUserId(userid)
-                .build();
-        JSONObject jsonObject = sendData(req, 14);
-        if (jsonObject == null) return null;
-        List<Common.ShareToken> shareTokens = new ArrayList<>();
-        JSONArray jsonArray = jsonObject.getJSONArray("shareTokens");
-        for (int i = 0; i < jsonArray.size(); i++) {
-            shareTokens.add(jsonArray.getObject(i, Common.ShareToken.class));
-        }
-        return shareTokens;
-    }*/
-
-//   这部分代码应该是在不使用蓝牙时，直接在server上保存shareToken时所使用的register
-//    public int shareTokenRegister(Common.ShareToken shareToken, String token) {
-//        ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
-//                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-//                .setL(shareToken.getL())
-//                .setJId(shareToken.getJId())
-//                .build();
-//        JSONObject jsonObject = sendData(req, 14);
-//        if (jsonObject == null) return 0;
-//        List<String> S = new ArrayList<>();
-//        JSONArray jsonArray = jsonObject.getJSONArray("S");
-//        for (int i = 0; i < jsonArray.size(); i++) {
-//            S.add(jsonArray.getString(i));
-//            Log.e("S", jsonArray.getString(i));
-//        }
-//
-//
-//        EncryptionService encryptionService = new EncryptionServiceImpl();
-//        String id = shareToken.getFileId();
-//        String Kid = shareToken.getKId();
-//        byte[] idBytes = id.getBytes(StandardCharsets.UTF_8);
-//        byte[] KidBytes = FileUtils.Base64ToBytes(Kid);
-//        byte[] key1 = GraduateDesignApplication.getKey1();
-//        byte[] key2 = GraduateDesignApplication.getKey2();
-//        List<Common.SearchIndexSecond> newS = new ArrayList<>();
-//        BiIndex biIndex = GraduateDesignApplication.getBiIndex();
-//        Map<String, Long> lastID = biIndex.getLastID();
-//        Map<Long, String> lastW = biIndex.getLastW();
-//        for (String s : S) {
-//            byte[] w = encryptionService.decryptByAES128(s, KidBytes);
-//            Long lastId = lastID.get(FileUtils.bytes2Base64(w));
-//            String lastw = lastW.get(Long.parseLong(id));
-//            byte[] Cw = encryptionService.encryptByAES128(id,
-//                    cutOffTo128(HmacSha256(key2, w)));
-//            byte[] Cid = encryptionService.encryptByAES128(w,
-//                    cutOffTo128(HmacSha256(key2, idBytes)));
-//            byte[] w_id = ByteUtils.mergeBytes(w, idBytes);
-//            byte[] id_w = ByteUtils.mergeBytes(idBytes, w);
-//            byte[] L = cutOffTo128(HmacSha256(key1, w_id));
-//            byte[] Rw = ByteUtils.getRandomBytes(16);
-//            byte[] Rid = ByteUtils.getRandomBytes(16);
-//            byte[] Iw;
-//            if (lastId == null) {
-//                Iw = HmacSha256(cutOffTo128(HmacSha256(key2, w_id)), Rw);
-//            } else {
-//                byte[] oldIDBytes = String.valueOf(lastId).getBytes(StandardCharsets.UTF_8);
-//                byte[] oldL = cutOffTo128(HmacSha256(key1,
-//                        ByteUtils.mergeBytes(w, oldIDBytes)));
-//                byte[] oldJw = cutOffTo128(HmacSha256(key2, ByteUtils.mergeBytes(w, oldIDBytes)));
-//                byte[] Jw = cutOffTo128(HmacSha256(key2, w_id));
-//                Iw = ByteUtils.xor(HmacSha256(Jw, Rw), ByteUtils.mergeBytes(oldL, oldJw));
-//            }
-//            byte[] Iid;
-//            if (lastw == null) {
-//                byte[] Jid = cutOffTo128(HmacSha256(key2, id_w));
-//                Iid = HmacSha256(Jid, Rid);
-//            } else {
-//                byte[] oldWordBytes = lastw.getBytes(StandardCharsets.UTF_8);
-//                byte[] oldL = cutOffTo128(HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes)));
-//                byte[] oldJid = cutOffTo128(HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes)));
-//                byte[] Jid = cutOffTo128(HmacSha256(key2, id_w));
-//                Iid = ByteUtils.xor(HmacSha256(Jid, Rid), ByteUtils.mergeBytes(oldL, oldJid));
-//            }
-//            lastW.put(Long.valueOf(id), Arrays.toString(w));
-//            lastID.put(Arrays.toString(w), Long.valueOf(id));
-//
-//            biIndex.setLastID(lastID);
-//            biIndex.setLastW(lastW);
-//            newS.add(Common.SearchIndexSecond.newBuilder()
-//                    .setL(FileUtils.bytes2Base64(L))
-//                    .setIw(FileUtils.bytes2Base64(Iw))
-//                    .setRw(FileUtils.bytes2Base64(Rw))
-//                    .setCw(FileUtils.bytes2Base64(Cw))
-//                    .setIId(FileUtils.bytes2Base64(Iid))
-//                    .setRId(FileUtils.bytes2Base64(Rid))
-//                    .setCId(FileUtils.bytes2Base64(Cid))
-//                    .build());
-//
-//        }
-//        Log.e("length", String.valueOf(newS.size()));
-//        ShareSecond.ShareSecondRequest shareSecondRequest = ShareSecond.ShareSecondRequest.newBuilder()
-//                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-//                .addAllSearchIndexSecond(newS)
-//                .build();
-//        jsonObject = sendData(shareSecondRequest, 15);
-//        return jsonObject == null ? 0 : 1;
-//    }
-
-
-    // 检查一下搜索界面查看分享文件是否存在问题，这部分最好其实应该放置到EncryptionServiceImpl中
-    /*public List<FileUpload.indexToken> shareTokenRegister(Common.ShareToken shareToken, String token) {
-        ShareFirst.ShareFirstRequest req = ShareFirst.ShareFirstRequest.newBuilder()
-                .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .setL(shareToken.getL())
-                .setJId(shareToken.getJId())
-                .build();
-        JSONObject jsonObject = sendData(req, 15);
-        if (jsonObject == null) return null;
-        List<String> S = new ArrayList<>();
-        JSONArray jsonArray = jsonObject.getJSONArray("S");
-        for (int i = 0; i < jsonArray.size(); i++) {
-            S.add(jsonArray.getString(i));
-        }
-
-
-        EncryptionService encryptionService = new EncryptionServiceImpl();
-        String id = shareToken.getFileId();
-        String Kid = shareToken.getKId();
-        byte[] idBytes = id.getBytes(StandardCharsets.UTF_8);
-        byte[] KidBytes = FileUtils.Base64ToBytes(Kid);
-        byte[] key1 = GraduateDesignApplication.getKey1();
-        byte[] key2 = GraduateDesignApplication.getKey2();
-        List<FileUpload.indexToken> newS = new ArrayList<>();
-        BiIndex biIndex = GraduateDesignApplication.getBiIndex();
-        Map<String, Long> lastID = biIndex.getLastID();
-        Map<Long, String> lastW = biIndex.getLastW();
-        for (String s : S) {
-            byte[] w = encryptionService.decryptByAES256(s, KidBytes);
-            Long lastId = lastID.get(new String(w));
-            String lastw = lastW.get(Long.parseLong(id));
-            byte[] Cw = encryptionService.encryptByAES256(id,
-                    encryptionService.HmacSha256(key2, w));
-            byte[] Cid = encryptionService.encryptByAES256(w,
-                    encryptionService.HmacSha256(key2, idBytes));
-
-            byte[] w_id = ByteUtils.mergeBytes(w, idBytes);
-            byte[] id_w = ByteUtils.mergeBytes(idBytes, w);
-
-            byte[] L = encryptionService.HmacSha256(key1, w_id);
-            byte[] Rw = ByteUtils.getRandomBytes(32);
-            byte[] Rid = ByteUtils.getRandomBytes(32);
-            byte[] Iw, Iid;
-            if (lastId == null) {
-                Iw = encryptionService.SHA512(ByteUtils.mergeBytes(encryptionService.HmacSha256(key2, w_id), Rw));
-            } else {
-                byte[] oldIDBytes = String.valueOf(lastId).getBytes(StandardCharsets.UTF_8);
-                byte[] oldL = encryptionService.HmacSha256(key1, ByteUtils.mergeBytes(w, oldIDBytes));
-                byte[] oldJw = encryptionService.HmacSha256(key2, ByteUtils.mergeBytes(w, oldIDBytes));
-                byte[] Jw = encryptionService.HmacSha256(key2, w_id);
-                Iw = ByteUtils.xor(encryptionService.SHA512(ByteUtils.mergeBytes(Jw, Rw)), ByteUtils.mergeBytes(oldL, oldJw));
-            }
-            if (lastw == null) {
-                byte[] Jid = encryptionService.HmacSha256(key2, id_w);
-                Iid = encryptionService.SHA512(ByteUtils.mergeBytes(Jid, Rid));
-            } else {
-                byte[] oldWordBytes = lastw.getBytes(StandardCharsets.UTF_8);
-                byte[] oldL = encryptionService.HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes));
-                byte[] oldJid = encryptionService.HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes));
-                byte[] Jid = encryptionService.HmacSha256(key2, id_w);
-                Iid = ByteUtils.xor(encryptionService.SHA512(ByteUtils.mergeBytes(Jid, Rid)), ByteUtils.mergeBytes(oldL, oldJid));
-            }
-            lastW.put(Long.valueOf(id), new String(w));
-            lastID.put(new String(w), Long.valueOf(id));
-
-            biIndex.setLastID(lastID);
-            biIndex.setLastW(lastW);
-            newS.add(FileUpload.indexToken.newBuilder()
-                    .setL(FileUtils.bytes2Base64(L))
-                    .setIw(FileUtils.bytes2Base64(Iw))
-                    .setRw(FileUtils.bytes2Base64(Rw))
-                    .setCw(FileUtils.bytes2Base64(Cw))
-                    .setIid(FileUtils.bytes2Base64(Iid))
-                    .setRid(FileUtils.bytes2Base64(Rid))
-                    .setCid(FileUtils.bytes2Base64(Cid))
-                    .build());
-        }
-        return newS;
-    }*/
 
     private JSONObject sendData(Object req, int number) {
         String[] urls = {

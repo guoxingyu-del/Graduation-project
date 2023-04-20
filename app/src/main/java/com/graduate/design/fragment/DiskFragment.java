@@ -31,7 +31,6 @@ import com.graduate.design.activity.BtClientActivity;
 import com.graduate.design.activity.BtServerActivity;
 import com.graduate.design.activity.HomeActivity;
 import com.graduate.design.adapter.fileItem.GetNodeFileItemAdapter;
-import com.graduate.design.delete.DeleteProtocol;
 import com.graduate.design.entity.GotNodeList;
 import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
@@ -232,22 +231,8 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
         PathSelectFragment selector = PathSelector.build(this, MConstants.BUILD_ACTIVITY)
                 .setTitlebarBG(getResources().getColor(R.color.common_orange))
                 .setRequestCode(635)
-                .setMorePopupItemListeners(
-                        new CommonItemListener("SelectAll") {
-                            @Override
-                            public boolean onClick(View v, TextView tv, List<FileBean> selectedFiles, String currentPath, BasePathSelectFragment pathSelectFragment) {
-                                pathSelectFragment.selectAllFile(true);
-                                return false;
-                            }
-                        },
-                        new CommonItemListener("DeselectAll") {
-                            @Override
-                            public boolean onClick(View v, TextView tv, List<FileBean> selectedFiles, String currentPath, BasePathSelectFragment pathSelectFragment) {
-                                pathSelectFragment.selectAllFile(false);
-                                return false;
-                            }
-                        }
-                )
+                .setTitlebarMainTitle(new FontBean("内存文件"))
+                .setSelectFileTypes("txt")
                 .setHandleItemListeners(
                         new CommonItemListener("OK") {
                             @Override

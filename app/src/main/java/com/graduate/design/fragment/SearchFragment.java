@@ -80,10 +80,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
         token = GraduateDesignApplication.getToken();
         activity = (HomeActivity) getActivity();
         context = getContext();
-        long nodeId;
-        if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
-        else nodeId = getArguments().getLong("nodeId");
-        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, nodeId);
+        if(fileItemAdapter==null)
+            fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, -1L);
     }
 
     private void getComponentsById(View view){
