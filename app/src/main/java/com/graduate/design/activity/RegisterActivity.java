@@ -110,17 +110,17 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
             return;
         }
 
-        // 使用SHA512生成hashID，用于后续登录识别
+
         byte[] usernameBytes = username.getBytes(StandardCharsets.UTF_8);
         byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
-        byte[] hashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, passwordBytes));
 
+        // 使用SHA512生成hashID，用于后续登录识别
+        byte[] hashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, passwordBytes));
         // 把hashId作为用户密码上传
         String encryptHashId = FileUtils.bytes2Base64(hashId);
         // 给注册用户新建一个双向索引表上传
         BiIndex biIndex = new BiIndex();
         String biIndexString = FileUtils.bytes2Base64(biIndex.writeObject());
-
         // 随机生成两个主密钥key1和key2，都是32字节
         byte[] key1 = ByteUtils.getRandomBytes(32);
         byte[] key2 = ByteUtils.getRandomBytes(32);
@@ -129,7 +129,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         byte[] pwd2SHA256 = encryptionService.SHA256(passwordBytes);
         byte[] encryptKey1 = encryptionService.encryptByAES256(key1, pwd2SHA256);
         byte[] encryptKey2 = encryptionService.encryptByAES256(key2, pwd2SHA256);
-
+        // 调用注册接口
         int res = userService.register(username, encryptHashId, email, biIndexString,
                 FileUtils.bytes2Base64(encryptKey1), FileUtils.bytes2Base64(encryptKey2));
 

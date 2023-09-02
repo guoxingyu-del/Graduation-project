@@ -15,9 +15,12 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Base64;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 public class FileUtils {
     private static EncryptionService encryptionService = new EncryptionServiceImpl();
@@ -40,25 +43,46 @@ public class FileUtils {
         return res;
     }
 
-    // 文件内容分词函数
-    public static List<FileUpload.indexToken> indexList(String content, Long fileId) {
-        List<String> words = new ArrayList<>();
+    public static List<String> wordSegmentation(String content) {
+        /*List<String> words = new ArrayList<>();
         StringBuilder word = new StringBuilder();
-        EncryptionService encryptionService = new EncryptionServiceImpl();
+
         for(int i=0;i<content.length();i++){
             char temp = content.charAt(i);
-            if((temp>='a' && temp<='z') || (temp>='A' && temp<='Z') || (temp>='0' && temp<='9')){
+            if(temp=='\'') temp = '’';
+            if((temp>='a' && temp<='z') || (temp>='A' && temp<='Z') || (temp>='0' && temp<='9') || temp=='’'){
                 word.append(temp);
             }
             else {
-                if(word.length()>0){
-                    words.add(word.toString());
-                    word.delete(0, word.length());
+                if(word.length()>0 && !words.contains(word.toString().toLowerCase())){
+                    words.add(word.toString().toLowerCase());
                 }
+                word.delete(0, word.length());
             }
         }
-        if(word.length()>0) words.add(word.toString());
-        List<FileUpload.indexToken> res = new ArrayList<>();
+        if(word.length()>0 && !words.contains(word.toString().toLowerCase())) words.add(word.toString().toLowerCase());
+
+        return words;*/
+
+        String res = content.replaceAll("'", "’");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            return Arrays.stream(res.split(",|\\.|;|!|\\?|:|\\s|\\(|\\)|\\\\\"|”|“|---")).filter(word -> word.length()>0)
+                    .distinct().collect(Collectors.toList());
+        }
+        return null;
+    }
+
+    // 文件内容分词函数
+    public static List<Common.indexToken> indexList(List<String> words, Long fileId) {
+        EncryptionService encryptionService = new EncryptionServiceImpl();
+
+        List<Common.indexToken> res = new ArrayList<>();
+        // 转变为同步集合
+        /*words = Collections.synchronizedList(words);
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            words.parallelStream().forEach(word -> res.add(encryptionService.uploadIndex(fileId, word)));
+        }*/
         // 对关键字使用主密钥加密
         for(int i=0;i<words.size();i++){
             // 生成索引令牌

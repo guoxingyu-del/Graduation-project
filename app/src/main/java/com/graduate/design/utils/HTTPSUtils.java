@@ -10,6 +10,7 @@ import java.security.cert.Certificate;
 import java.security.cert.CertificateFactory;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.concurrent.TimeUnit;
 
 import javax.net.ssl.KeyManagerFactory;
 import javax.net.ssl.SSLContext;
@@ -59,6 +60,7 @@ public final class HTTPSUtils {
 
             client = new OkHttpClient.Builder()
                     .sslSocketFactory(sslSocketFactory, trustManager)
+                    .readTimeout(1, TimeUnit.HOURS)
                     .build();
         } catch (IOException e) {
             e.printStackTrace();

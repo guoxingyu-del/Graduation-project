@@ -51,6 +51,17 @@
 
             </ImageButton>
 
+            <!--wifi分享-->
+            <ImageButton
+                android:id="@+id/share_with_wifi"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:src="@drawable/wifi_share"
+                android:background="#FFFFFF"
+                android:layout_weight="1">
+
+            </ImageButton>
+
 
 
             <TextView

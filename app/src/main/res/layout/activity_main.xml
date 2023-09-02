@@ -5,7 +5,7 @@
     android:id="@+id/splash_btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/splash"
+    android:background="@drawable/mycircle"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -26,7 +26,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text=" 网盘"
-            android:textColor="#fff"
+            android:textColor="@color/white"
             android:textSize="40dp"
             android:textStyle="bold">
 

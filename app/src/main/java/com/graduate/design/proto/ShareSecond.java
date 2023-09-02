@@ -19,27 +19,127 @@ public final class ShareSecond {
       com.google.protobuf.MessageOrBuilder {
 
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <pre>
+     * 文件名称
+     * </pre>
+     *
+     * <code>string fileName = 1;</code>
+     * @return The fileName.
      */
-    java.util.List<Common.SearchIndexSecond>
+    java.lang.String getFileName();
+    /**
+     * <pre>
+     * 文件名称
+     * </pre>
+     *
+     * <code>string fileName = 1;</code>
+     * @return The bytes for fileName.
+     */
+    com.google.protobuf.ByteString
+        getFileNameBytes();
+
+    /**
+     * <pre>
+     * 文件的父节点
+     * </pre>
+     *
+     * <code>int64 parentId = 2;</code>
+     * @return The parentId.
+     */
+    long getParentId();
+
+    /**
+     * <pre>
+     * 用户索引
+     * </pre>
+     *
+     * <code>string biIndex = 3;</code>
+     * @return The biIndex.
+     */
+    java.lang.String getBiIndex();
+    /**
+     * <pre>
+     * 用户索引
+     * </pre>
+     *
+     * <code>string biIndex = 3;</code>
+     * @return The bytes for biIndex.
+     */
+    com.google.protobuf.ByteString
+        getBiIndexBytes();
+
+    /**
+     * <pre>
+     * 文件Id
+     * </pre>
+     *
+     * <code>int64 nodeId = 4;</code>
+     * @return The nodeId.
+     */
+    long getNodeId();
+
+    /**
+     * <pre>
+     * 文件是否为分享文件
+     * </pre>
+     *
+     * <code>bool isShare = 5;</code>
+     * @return The isShare.
+     */
+    boolean getIsShare();
+
+    /**
+     * <pre>
+     * 文件内容地址
+     * </pre>
+     *
+     * <code>int64 address = 6;</code>
+     * @return The address.
+     */
+    long getAddress();
+
+    /**
+     * <pre>
+     * 文件密钥
+     * </pre>
+     *
+     * <code>string fileSecret = 7;</code>
+     * @return The fileSecret.
+     */
+    java.lang.String getFileSecret();
+    /**
+     * <pre>
+     * 文件密钥
+     * </pre>
+     *
+     * <code>string fileSecret = 7;</code>
+     * @return The bytes for fileSecret.
+     */
+    com.google.protobuf.ByteString
+        getFileSecretBytes();
+
+    /**
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
+     */
+    java.util.List<com.graduate.design.proto.Common.indexToken> 
         getSearchIndexSecondList();
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    Common.SearchIndexSecond getSearchIndexSecond(int index);
+    com.graduate.design.proto.Common.indexToken getSearchIndexSecond(int index);
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
     int getSearchIndexSecondCount();
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    java.util.List<? extends Common.SearchIndexSecondOrBuilder>
+    java.util.List<? extends com.graduate.design.proto.Common.indexTokenOrBuilder> 
         getSearchIndexSecondOrBuilderList();
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    Common.SearchIndexSecondOrBuilder getSearchIndexSecondOrBuilder(
+    com.graduate.design.proto.Common.indexTokenOrBuilder getSearchIndexSecondOrBuilder(
         int index);
 
     /**
@@ -51,11 +151,11 @@ public final class ShareSecond {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code ShareSecondRequest}
@@ -70,17 +170,20 @@ public final class ShareSecond {
       super(builder);
     }
     private ShareSecondRequest() {
+      fileName_ = "";
+      biIndex_ = "";
+      fileSecret_ = "";
       searchIndexSecond_ = java.util.Collections.emptyList();
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new ShareSecondRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -91,7 +194,7 @@ public final class ShareSecond {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -105,20 +208,58 @@ public final class ShareSecond {
               done = true;
               break;
             case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileName_ = s;
+              break;
+            }
+            case 16: {
+
+              parentId_ = input.readInt64();
+              break;
+            }
+            case 26: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              biIndex_ = s;
+              break;
+            }
+            case 32: {
+
+              nodeId_ = input.readInt64();
+              break;
+            }
+            case 40: {
+
+              isShare_ = input.readBool();
+              break;
+            }
+            case 48: {
+
+              address_ = input.readInt64();
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              fileSecret_ = s;
+              break;
+            }
+            case 66: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
-                searchIndexSecond_ = new java.util.ArrayList<Common.SearchIndexSecond>();
+                searchIndexSecond_ = new java.util.ArrayList<com.graduate.design.proto.Common.indexToken>();
                 mutable_bitField0_ |= 0x00000001;
               }
               searchIndexSecond_.add(
-                  input.readMessage(Common.SearchIndexSecond.parser(), extensionRegistry));
+                  input.readMessage(com.graduate.design.proto.Common.indexToken.parser(), extensionRegistry));
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -150,64 +291,262 @@ public final class ShareSecond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ShareSecond.internal_static_ShareSecondRequest_descriptor;
+      return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ShareSecond.internal_static_ShareSecondRequest_fieldAccessorTable
+      return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ShareSecondRequest.class, Builder.class);
+              com.graduate.design.proto.ShareSecond.ShareSecondRequest.class, com.graduate.design.proto.ShareSecond.ShareSecondRequest.Builder.class);
     }
 
-    public static final int SEARCHINDEXSECOND_FIELD_NUMBER = 1;
-    private java.util.List<Common.SearchIndexSecond> searchIndexSecond_;
+    public static final int FILENAME_FIELD_NUMBER = 1;
+    private volatile java.lang.Object fileName_;
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <pre>
+     * 文件名称
+     * </pre>
+     *
+     * <code>string fileName = 1;</code>
+     * @return The fileName.
      */
-    @Override
-    public java.util.List<Common.SearchIndexSecond> getSearchIndexSecondList() {
+    @java.lang.Override
+    public java.lang.String getFileName() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 文件名称
+     * </pre>
+     *
+     * <code>string fileName = 1;</code>
+     * @return The bytes for fileName.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFileNameBytes() {
+      java.lang.Object ref = fileName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int PARENTID_FIELD_NUMBER = 2;
+    private long parentId_;
+    /**
+     * <pre>
+     * 文件的父节点
+     * </pre>
+     *
+     * <code>int64 parentId = 2;</code>
+     * @return The parentId.
+     */
+    @java.lang.Override
+    public long getParentId() {
+      return parentId_;
+    }
+
+    public static final int BIINDEX_FIELD_NUMBER = 3;
+    private volatile java.lang.Object biIndex_;
+    /**
+     * <pre>
+     * 用户索引
+     * </pre>
+     *
+     * <code>string biIndex = 3;</code>
+     * @return The biIndex.
+     */
+    @java.lang.Override
+    public java.lang.String getBiIndex() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        biIndex_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 用户索引
+     * </pre>
+     *
+     * <code>string biIndex = 3;</code>
+     * @return The bytes for biIndex.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getBiIndexBytes() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        biIndex_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int NODEID_FIELD_NUMBER = 4;
+    private long nodeId_;
+    /**
+     * <pre>
+     * 文件Id
+     * </pre>
+     *
+     * <code>int64 nodeId = 4;</code>
+     * @return The nodeId.
+     */
+    @java.lang.Override
+    public long getNodeId() {
+      return nodeId_;
+    }
+
+    public static final int ISSHARE_FIELD_NUMBER = 5;
+    private boolean isShare_;
+    /**
+     * <pre>
+     * 文件是否为分享文件
+     * </pre>
+     *
+     * <code>bool isShare = 5;</code>
+     * @return The isShare.
+     */
+    @java.lang.Override
+    public boolean getIsShare() {
+      return isShare_;
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 6;
+    private long address_;
+    /**
+     * <pre>
+     * 文件内容地址
+     * </pre>
+     *
+     * <code>int64 address = 6;</code>
+     * @return The address.
+     */
+    @java.lang.Override
+    public long getAddress() {
+      return address_;
+    }
+
+    public static final int FILESECRET_FIELD_NUMBER = 7;
+    private volatile java.lang.Object fileSecret_;
+    /**
+     * <pre>
+     * 文件密钥
+     * </pre>
+     *
+     * <code>string fileSecret = 7;</code>
+     * @return The fileSecret.
+     */
+    @java.lang.Override
+    public java.lang.String getFileSecret() {
+      java.lang.Object ref = fileSecret_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        fileSecret_ = s;
+        return s;
+      }
+    }
+    /**
+     * <pre>
+     * 文件密钥
+     * </pre>
+     *
+     * <code>string fileSecret = 7;</code>
+     * @return The bytes for fileSecret.
+     */
+    @java.lang.Override
+    public com.google.protobuf.ByteString
+        getFileSecretBytes() {
+      java.lang.Object ref = fileSecret_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        fileSecret_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int SEARCHINDEXSECOND_FIELD_NUMBER = 8;
+    private java.util.List<com.graduate.design.proto.Common.indexToken> searchIndexSecond_;
+    /**
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
+     */
+    @java.lang.Override
+    public java.util.List<com.graduate.design.proto.Common.indexToken> getSearchIndexSecondList() {
       return searchIndexSecond_;
     }
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    @Override
-    public java.util.List<? extends Common.SearchIndexSecondOrBuilder>
+    @java.lang.Override
+    public java.util.List<? extends com.graduate.design.proto.Common.indexTokenOrBuilder> 
         getSearchIndexSecondOrBuilderList() {
       return searchIndexSecond_;
     }
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    @Override
+    @java.lang.Override
     public int getSearchIndexSecondCount() {
       return searchIndexSecond_.size();
     }
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    @Override
-    public Common.SearchIndexSecond getSearchIndexSecond(int index) {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.indexToken getSearchIndexSecond(int index) {
       return searchIndexSecond_.get(index);
     }
     /**
-     * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+     * <code>repeated .indexToken searchIndexSecond = 8;</code>
      */
-    @Override
-    public Common.SearchIndexSecondOrBuilder getSearchIndexSecondOrBuilder(
+    @java.lang.Override
+    public com.graduate.design.proto.Common.indexTokenOrBuilder getSearchIndexSecondOrBuilder(
         int index) {
       return searchIndexSecond_.get(index);
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -215,20 +554,20 @@ public final class ShareSecond {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -238,11 +577,32 @@ public final class ShareSecond {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, fileName_);
+      }
+      if (parentId_ != 0L) {
+        output.writeInt64(2, parentId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 3, biIndex_);
+      }
+      if (nodeId_ != 0L) {
+        output.writeInt64(4, nodeId_);
+      }
+      if (isShare_ != false) {
+        output.writeBool(5, isShare_);
+      }
+      if (address_ != 0L) {
+        output.writeInt64(6, address_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileSecret_)) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, fileSecret_);
+      }
       for (int i = 0; i < searchIndexSecond_.size(); i++) {
-        output.writeMessage(1, searchIndexSecond_.get(i));
+        output.writeMessage(8, searchIndexSecond_.get(i));
       }
       if (baseReq_ != null) {
         output.writeMessage(255, getBaseReq());
@@ -250,15 +610,40 @@ public final class ShareSecond {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
 
       size = 0;
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileName_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, fileName_);
+      }
+      if (parentId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, parentId_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(biIndex_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(3, biIndex_);
+      }
+      if (nodeId_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(4, nodeId_);
+      }
+      if (isShare_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(5, isShare_);
+      }
+      if (address_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(6, address_);
+      }
+      if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(fileSecret_)) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, fileSecret_);
+      }
       for (int i = 0; i < searchIndexSecond_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, searchIndexSecond_.get(i));
+          .computeMessageSize(8, searchIndexSecond_.get(i));
       }
       if (baseReq_ != null) {
         size += com.google.protobuf.CodedOutputStream
@@ -269,16 +654,30 @@ public final class ShareSecond {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ShareSecondRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.ShareSecond.ShareSecondRequest)) {
         return super.equals(obj);
       }
-      ShareSecondRequest other = (ShareSecondRequest) obj;
+      com.graduate.design.proto.ShareSecond.ShareSecondRequest other = (com.graduate.design.proto.ShareSecond.ShareSecondRequest) obj;
 
+      if (!getFileName()
+          .equals(other.getFileName())) return false;
+      if (getParentId()
+          != other.getParentId()) return false;
+      if (!getBiIndex()
+          .equals(other.getBiIndex())) return false;
+      if (getNodeId()
+          != other.getNodeId()) return false;
+      if (getIsShare()
+          != other.getIsShare()) return false;
+      if (getAddress()
+          != other.getAddress()) return false;
+      if (!getFileSecret()
+          .equals(other.getFileSecret())) return false;
       if (!getSearchIndexSecondList()
           .equals(other.getSearchIndexSecondList())) return false;
       if (hasBaseReq() != other.hasBaseReq()) return false;
@@ -290,13 +689,31 @@ public final class ShareSecond {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + FILENAME_FIELD_NUMBER;
+      hash = (53 * hash) + getFileName().hashCode();
+      hash = (37 * hash) + PARENTID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getParentId());
+      hash = (37 * hash) + BIINDEX_FIELD_NUMBER;
+      hash = (53 * hash) + getBiIndex().hashCode();
+      hash = (37 * hash) + NODEID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getNodeId());
+      hash = (37 * hash) + ISSHARE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getIsShare());
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getAddress());
+      hash = (37 * hash) + FILESECRET_FIELD_NUMBER;
+      hash = (53 * hash) + getFileSecret().hashCode();
       if (getSearchIndexSecondCount() > 0) {
         hash = (37 * hash) + SEARCHINDEXSECOND_FIELD_NUMBER;
         hash = (53 * hash) + getSearchIndexSecondList().hashCode();
@@ -310,69 +727,69 @@ public final class ShareSecond {
       return hash;
     }
 
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ShareSecondRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ShareSecondRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ShareSecondRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ShareSecondRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ShareSecondRequest parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -380,23 +797,23 @@ public final class ShareSecond {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ShareSecondRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.ShareSecond.ShareSecondRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -406,18 +823,18 @@ public final class ShareSecond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ShareSecondRequest)
-        ShareSecondRequestOrBuilder {
+        com.graduate.design.proto.ShareSecond.ShareSecondRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ShareSecond.internal_static_ShareSecondRequest_descriptor;
+        return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ShareSecond.internal_static_ShareSecondRequest_fieldAccessorTable
+        return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ShareSecondRequest.class, Builder.class);
+                com.graduate.design.proto.ShareSecond.ShareSecondRequest.class, com.graduate.design.proto.ShareSecond.ShareSecondRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.ShareSecond.ShareSecondRequest.newBuilder()
@@ -426,7 +843,7 @@ public final class ShareSecond {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -436,9 +853,23 @@ public final class ShareSecond {
           getSearchIndexSecondFieldBuilder();
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
+        fileName_ = "";
+
+        parentId_ = 0L;
+
+        biIndex_ = "";
+
+        nodeId_ = 0L;
+
+        isShare_ = false;
+
+        address_ = 0L;
+
+        fileSecret_ = "";
+
         if (searchIndexSecondBuilder_ == null) {
           searchIndexSecond_ = java.util.Collections.emptyList();
           bitField0_ = (bitField0_ & ~0x00000001);
@@ -454,30 +885,37 @@ public final class ShareSecond {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ShareSecond.internal_static_ShareSecondRequest_descriptor;
+        return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondRequest_descriptor;
       }
 
-      @Override
-      public ShareSecondRequest getDefaultInstanceForType() {
-        return ShareSecondRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.ShareSecond.ShareSecondRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.ShareSecond.ShareSecondRequest.getDefaultInstance();
       }
 
-      @Override
-      public ShareSecondRequest build() {
-        ShareSecondRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.ShareSecond.ShareSecondRequest build() {
+        com.graduate.design.proto.ShareSecond.ShareSecondRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public ShareSecondRequest buildPartial() {
-        ShareSecondRequest result = new ShareSecondRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.ShareSecond.ShareSecondRequest buildPartial() {
+        com.graduate.design.proto.ShareSecond.ShareSecondRequest result = new com.graduate.design.proto.ShareSecond.ShareSecondRequest(this);
         int from_bitField0_ = bitField0_;
+        result.fileName_ = fileName_;
+        result.parentId_ = parentId_;
+        result.biIndex_ = biIndex_;
+        result.nodeId_ = nodeId_;
+        result.isShare_ = isShare_;
+        result.address_ = address_;
+        result.fileSecret_ = fileSecret_;
         if (searchIndexSecondBuilder_ == null) {
           if (((bitField0_ & 0x00000001) != 0)) {
             searchIndexSecond_ = java.util.Collections.unmodifiableList(searchIndexSecond_);
@@ -496,50 +934,74 @@ public final class ShareSecond {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ShareSecondRequest) {
-          return mergeFrom((ShareSecondRequest)other);
+        if (other instanceof com.graduate.design.proto.ShareSecond.ShareSecondRequest) {
+          return mergeFrom((com.graduate.design.proto.ShareSecond.ShareSecondRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ShareSecondRequest other) {
-        if (other == ShareSecondRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.ShareSecond.ShareSecondRequest other) {
+        if (other == com.graduate.design.proto.ShareSecond.ShareSecondRequest.getDefaultInstance()) return this;
+        if (!other.getFileName().isEmpty()) {
+          fileName_ = other.fileName_;
+          onChanged();
+        }
+        if (other.getParentId() != 0L) {
+          setParentId(other.getParentId());
+        }
+        if (!other.getBiIndex().isEmpty()) {
+          biIndex_ = other.biIndex_;
+          onChanged();
+        }
+        if (other.getNodeId() != 0L) {
+          setNodeId(other.getNodeId());
+        }
+        if (other.getIsShare() != false) {
+          setIsShare(other.getIsShare());
+        }
+        if (other.getAddress() != 0L) {
+          setAddress(other.getAddress());
+        }
+        if (!other.getFileSecret().isEmpty()) {
+          fileSecret_ = other.fileSecret_;
+          onChanged();
+        }
         if (searchIndexSecondBuilder_ == null) {
           if (!other.searchIndexSecond_.isEmpty()) {
             if (searchIndexSecond_.isEmpty()) {
@@ -574,21 +1036,21 @@ public final class ShareSecond {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ShareSecondRequest parsedMessage = null;
+        com.graduate.design.proto.ShareSecond.ShareSecondRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ShareSecondRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.ShareSecond.ShareSecondRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -599,22 +1061,482 @@ public final class ShareSecond {
       }
       private int bitField0_;
 
-      private java.util.List<Common.SearchIndexSecond> searchIndexSecond_ =
+      private java.lang.Object fileName_ = "";
+      /**
+       * <pre>
+       * 文件名称
+       * </pre>
+       *
+       * <code>string fileName = 1;</code>
+       * @return The fileName.
+       */
+      public java.lang.String getFileName() {
+        java.lang.Object ref = fileName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 文件名称
+       * </pre>
+       *
+       * <code>string fileName = 1;</code>
+       * @return The bytes for fileName.
+       */
+      public com.google.protobuf.ByteString
+          getFileNameBytes() {
+        java.lang.Object ref = fileName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 文件名称
+       * </pre>
+       *
+       * <code>string fileName = 1;</code>
+       * @param value The fileName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件名称
+       * </pre>
+       *
+       * <code>string fileName = 1;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFileName() {
+        
+        fileName_ = getDefaultInstance().getFileName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件名称
+       * </pre>
+       *
+       * <code>string fileName = 1;</code>
+       * @param value The bytes for fileName to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long parentId_ ;
+      /**
+       * <pre>
+       * 文件的父节点
+       * </pre>
+       *
+       * <code>int64 parentId = 2;</code>
+       * @return The parentId.
+       */
+      @java.lang.Override
+      public long getParentId() {
+        return parentId_;
+      }
+      /**
+       * <pre>
+       * 文件的父节点
+       * </pre>
+       *
+       * <code>int64 parentId = 2;</code>
+       * @param value The parentId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setParentId(long value) {
+        
+        parentId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件的父节点
+       * </pre>
+       *
+       * <code>int64 parentId = 2;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearParentId() {
+        
+        parentId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object biIndex_ = "";
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 3;</code>
+       * @return The biIndex.
+       */
+      public java.lang.String getBiIndex() {
+        java.lang.Object ref = biIndex_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          biIndex_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 3;</code>
+       * @return The bytes for biIndex.
+       */
+      public com.google.protobuf.ByteString
+          getBiIndexBytes() {
+        java.lang.Object ref = biIndex_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          biIndex_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 3;</code>
+       * @param value The biIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBiIndex(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        biIndex_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 3;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearBiIndex() {
+        
+        biIndex_ = getDefaultInstance().getBiIndex();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 用户索引
+       * </pre>
+       *
+       * <code>string biIndex = 3;</code>
+       * @param value The bytes for biIndex to set.
+       * @return This builder for chaining.
+       */
+      public Builder setBiIndexBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        biIndex_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long nodeId_ ;
+      /**
+       * <pre>
+       * 文件Id
+       * </pre>
+       *
+       * <code>int64 nodeId = 4;</code>
+       * @return The nodeId.
+       */
+      @java.lang.Override
+      public long getNodeId() {
+        return nodeId_;
+      }
+      /**
+       * <pre>
+       * 文件Id
+       * </pre>
+       *
+       * <code>int64 nodeId = 4;</code>
+       * @param value The nodeId to set.
+       * @return This builder for chaining.
+       */
+      public Builder setNodeId(long value) {
+        
+        nodeId_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件Id
+       * </pre>
+       *
+       * <code>int64 nodeId = 4;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearNodeId() {
+        
+        nodeId_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private boolean isShare_ ;
+      /**
+       * <pre>
+       * 文件是否为分享文件
+       * </pre>
+       *
+       * <code>bool isShare = 5;</code>
+       * @return The isShare.
+       */
+      @java.lang.Override
+      public boolean getIsShare() {
+        return isShare_;
+      }
+      /**
+       * <pre>
+       * 文件是否为分享文件
+       * </pre>
+       *
+       * <code>bool isShare = 5;</code>
+       * @param value The isShare to set.
+       * @return This builder for chaining.
+       */
+      public Builder setIsShare(boolean value) {
+        
+        isShare_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件是否为分享文件
+       * </pre>
+       *
+       * <code>bool isShare = 5;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearIsShare() {
+        
+        isShare_ = false;
+        onChanged();
+        return this;
+      }
+
+      private long address_ ;
+      /**
+       * <pre>
+       * 文件内容地址
+       * </pre>
+       *
+       * <code>int64 address = 6;</code>
+       * @return The address.
+       */
+      @java.lang.Override
+      public long getAddress() {
+        return address_;
+      }
+      /**
+       * <pre>
+       * 文件内容地址
+       * </pre>
+       *
+       * <code>int64 address = 6;</code>
+       * @param value The address to set.
+       * @return This builder for chaining.
+       */
+      public Builder setAddress(long value) {
+        
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件内容地址
+       * </pre>
+       *
+       * <code>int64 address = 6;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearAddress() {
+        
+        address_ = 0L;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object fileSecret_ = "";
+      /**
+       * <pre>
+       * 文件密钥
+       * </pre>
+       *
+       * <code>string fileSecret = 7;</code>
+       * @return The fileSecret.
+       */
+      public java.lang.String getFileSecret() {
+        java.lang.Object ref = fileSecret_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          fileSecret_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 文件密钥
+       * </pre>
+       *
+       * <code>string fileSecret = 7;</code>
+       * @return The bytes for fileSecret.
+       */
+      public com.google.protobuf.ByteString
+          getFileSecretBytes() {
+        java.lang.Object ref = fileSecret_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          fileSecret_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <pre>
+       * 文件密钥
+       * </pre>
+       *
+       * <code>string fileSecret = 7;</code>
+       * @param value The fileSecret to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileSecret(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        fileSecret_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件密钥
+       * </pre>
+       *
+       * <code>string fileSecret = 7;</code>
+       * @return This builder for chaining.
+       */
+      public Builder clearFileSecret() {
+        
+        fileSecret_ = getDefaultInstance().getFileSecret();
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 文件密钥
+       * </pre>
+       *
+       * <code>string fileSecret = 7;</code>
+       * @param value The bytes for fileSecret to set.
+       * @return This builder for chaining.
+       */
+      public Builder setFileSecretBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        fileSecret_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.util.List<com.graduate.design.proto.Common.indexToken> searchIndexSecond_ =
         java.util.Collections.emptyList();
       private void ensureSearchIndexSecondIsMutable() {
         if (!((bitField0_ & 0x00000001) != 0)) {
-          searchIndexSecond_ = new java.util.ArrayList<Common.SearchIndexSecond>(searchIndexSecond_);
+          searchIndexSecond_ = new java.util.ArrayList<com.graduate.design.proto.Common.indexToken>(searchIndexSecond_);
           bitField0_ |= 0x00000001;
          }
       }
 
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          Common.SearchIndexSecond, Common.SearchIndexSecond.Builder, Common.SearchIndexSecondOrBuilder> searchIndexSecondBuilder_;
+          com.graduate.design.proto.Common.indexToken, com.graduate.design.proto.Common.indexToken.Builder, com.graduate.design.proto.Common.indexTokenOrBuilder> searchIndexSecondBuilder_;
 
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public java.util.List<Common.SearchIndexSecond> getSearchIndexSecondList() {
+      public java.util.List<com.graduate.design.proto.Common.indexToken> getSearchIndexSecondList() {
         if (searchIndexSecondBuilder_ == null) {
           return java.util.Collections.unmodifiableList(searchIndexSecond_);
         } else {
@@ -622,7 +1544,7 @@ public final class ShareSecond {
         }
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public int getSearchIndexSecondCount() {
         if (searchIndexSecondBuilder_ == null) {
@@ -632,9 +1554,9 @@ public final class ShareSecond {
         }
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public Common.SearchIndexSecond getSearchIndexSecond(int index) {
+      public com.graduate.design.proto.Common.indexToken getSearchIndexSecond(int index) {
         if (searchIndexSecondBuilder_ == null) {
           return searchIndexSecond_.get(index);
         } else {
@@ -642,10 +1564,10 @@ public final class ShareSecond {
         }
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder setSearchIndexSecond(
-          int index, Common.SearchIndexSecond value) {
+          int index, com.graduate.design.proto.Common.indexToken value) {
         if (searchIndexSecondBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -659,10 +1581,10 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder setSearchIndexSecond(
-          int index, Common.SearchIndexSecond.Builder builderForValue) {
+          int index, com.graduate.design.proto.Common.indexToken.Builder builderForValue) {
         if (searchIndexSecondBuilder_ == null) {
           ensureSearchIndexSecondIsMutable();
           searchIndexSecond_.set(index, builderForValue.build());
@@ -673,9 +1595,9 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public Builder addSearchIndexSecond(Common.SearchIndexSecond value) {
+      public Builder addSearchIndexSecond(com.graduate.design.proto.Common.indexToken value) {
         if (searchIndexSecondBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -689,10 +1611,10 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder addSearchIndexSecond(
-          int index, Common.SearchIndexSecond value) {
+          int index, com.graduate.design.proto.Common.indexToken value) {
         if (searchIndexSecondBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -706,10 +1628,10 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder addSearchIndexSecond(
-          Common.SearchIndexSecond.Builder builderForValue) {
+          com.graduate.design.proto.Common.indexToken.Builder builderForValue) {
         if (searchIndexSecondBuilder_ == null) {
           ensureSearchIndexSecondIsMutable();
           searchIndexSecond_.add(builderForValue.build());
@@ -720,10 +1642,10 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder addSearchIndexSecond(
-          int index, Common.SearchIndexSecond.Builder builderForValue) {
+          int index, com.graduate.design.proto.Common.indexToken.Builder builderForValue) {
         if (searchIndexSecondBuilder_ == null) {
           ensureSearchIndexSecondIsMutable();
           searchIndexSecond_.add(index, builderForValue.build());
@@ -734,10 +1656,10 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder addAllSearchIndexSecond(
-          Iterable<? extends Common.SearchIndexSecond> values) {
+          java.lang.Iterable<? extends com.graduate.design.proto.Common.indexToken> values) {
         if (searchIndexSecondBuilder_ == null) {
           ensureSearchIndexSecondIsMutable();
           com.google.protobuf.AbstractMessageLite.Builder.addAll(
@@ -749,7 +1671,7 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder clearSearchIndexSecond() {
         if (searchIndexSecondBuilder_ == null) {
@@ -762,7 +1684,7 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
       public Builder removeSearchIndexSecond(int index) {
         if (searchIndexSecondBuilder_ == null) {
@@ -775,16 +1697,16 @@ public final class ShareSecond {
         return this;
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public Common.SearchIndexSecond.Builder getSearchIndexSecondBuilder(
+      public com.graduate.design.proto.Common.indexToken.Builder getSearchIndexSecondBuilder(
           int index) {
         return getSearchIndexSecondFieldBuilder().getBuilder(index);
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public Common.SearchIndexSecondOrBuilder getSearchIndexSecondOrBuilder(
+      public com.graduate.design.proto.Common.indexTokenOrBuilder getSearchIndexSecondOrBuilder(
           int index) {
         if (searchIndexSecondBuilder_ == null) {
           return searchIndexSecond_.get(index);  } else {
@@ -792,9 +1714,9 @@ public final class ShareSecond {
         }
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public java.util.List<? extends Common.SearchIndexSecondOrBuilder>
+      public java.util.List<? extends com.graduate.design.proto.Common.indexTokenOrBuilder> 
            getSearchIndexSecondOrBuilderList() {
         if (searchIndexSecondBuilder_ != null) {
           return searchIndexSecondBuilder_.getMessageOrBuilderList();
@@ -803,33 +1725,33 @@ public final class ShareSecond {
         }
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public Common.SearchIndexSecond.Builder addSearchIndexSecondBuilder() {
+      public com.graduate.design.proto.Common.indexToken.Builder addSearchIndexSecondBuilder() {
         return getSearchIndexSecondFieldBuilder().addBuilder(
-            Common.SearchIndexSecond.getDefaultInstance());
+            com.graduate.design.proto.Common.indexToken.getDefaultInstance());
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public Common.SearchIndexSecond.Builder addSearchIndexSecondBuilder(
+      public com.graduate.design.proto.Common.indexToken.Builder addSearchIndexSecondBuilder(
           int index) {
         return getSearchIndexSecondFieldBuilder().addBuilder(
-            index, Common.SearchIndexSecond.getDefaultInstance());
+            index, com.graduate.design.proto.Common.indexToken.getDefaultInstance());
       }
       /**
-       * <code>repeated .SearchIndexSecond searchIndexSecond = 1;</code>
+       * <code>repeated .indexToken searchIndexSecond = 8;</code>
        */
-      public java.util.List<Common.SearchIndexSecond.Builder>
+      public java.util.List<com.graduate.design.proto.Common.indexToken.Builder> 
            getSearchIndexSecondBuilderList() {
         return getSearchIndexSecondFieldBuilder().getBuilderList();
       }
       private com.google.protobuf.RepeatedFieldBuilderV3<
-          Common.SearchIndexSecond, Common.SearchIndexSecond.Builder, Common.SearchIndexSecondOrBuilder>
+          com.graduate.design.proto.Common.indexToken, com.graduate.design.proto.Common.indexToken.Builder, com.graduate.design.proto.Common.indexTokenOrBuilder> 
           getSearchIndexSecondFieldBuilder() {
         if (searchIndexSecondBuilder_ == null) {
           searchIndexSecondBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
-              Common.SearchIndexSecond, Common.SearchIndexSecond.Builder, Common.SearchIndexSecondOrBuilder>(
+              com.graduate.design.proto.Common.indexToken, com.graduate.design.proto.Common.indexToken.Builder, com.graduate.design.proto.Common.indexTokenOrBuilder>(
                   searchIndexSecond_,
                   ((bitField0_ & 0x00000001) != 0),
                   getParentForChildren(),
@@ -839,9 +1761,9 @@ public final class ShareSecond {
         return searchIndexSecondBuilder_;
       }
 
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -853,9 +1775,9 @@ public final class ShareSecond {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -863,7 +1785,7 @@ public final class ShareSecond {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -880,7 +1802,7 @@ public final class ShareSecond {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -893,11 +1815,11 @@ public final class ShareSecond {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -925,7 +1847,7 @@ public final class ShareSecond {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -933,23 +1855,23 @@ public final class ShareSecond {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -957,13 +1879,13 @@ public final class ShareSecond {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -974,18 +1896,18 @@ public final class ShareSecond {
     }
 
     // @@protoc_insertion_point(class_scope:ShareSecondRequest)
-    private static final ShareSecondRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.ShareSecond.ShareSecondRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ShareSecondRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.ShareSecond.ShareSecondRequest();
     }
 
-    public static ShareSecondRequest getDefaultInstance() {
+    public static com.graduate.design.proto.ShareSecond.ShareSecondRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ShareSecondRequest>
         PARSER = new com.google.protobuf.AbstractParser<ShareSecondRequest>() {
-      @Override
+      @java.lang.Override
       public ShareSecondRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -998,13 +1920,13 @@ public final class ShareSecond {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ShareSecondRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public ShareSecondRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.ShareSecond.ShareSecondRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1023,11 +1945,11 @@ public final class ShareSecond {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code ShareSecondResponse}
@@ -1044,14 +1966,14 @@ public final class ShareSecond {
     private ShareSecondResponse() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new ShareSecondResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1062,7 +1984,7 @@ public final class ShareSecond {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1075,11 +1997,11 @@ public final class ShareSecond {
               done = true;
               break;
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1108,24 +2030,24 @@ public final class ShareSecond {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return ShareSecond.internal_static_ShareSecondResponse_descriptor;
+      return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return ShareSecond.internal_static_ShareSecondResponse_fieldAccessorTable
+      return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              ShareSecondResponse.class, Builder.class);
+              com.graduate.design.proto.ShareSecond.ShareSecondResponse.class, com.graduate.design.proto.ShareSecond.ShareSecondResponse.Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1133,20 +2055,20 @@ public final class ShareSecond {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1156,7 +2078,7 @@ public final class ShareSecond {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -1165,7 +2087,7 @@ public final class ShareSecond {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1180,15 +2102,15 @@ public final class ShareSecond {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof ShareSecondResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.ShareSecond.ShareSecondResponse)) {
         return super.equals(obj);
       }
-      ShareSecondResponse other = (ShareSecondResponse) obj;
+      com.graduate.design.proto.ShareSecond.ShareSecondResponse other = (com.graduate.design.proto.ShareSecond.ShareSecondResponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -1199,7 +2121,7 @@ public final class ShareSecond {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1215,69 +2137,69 @@ public final class ShareSecond {
       return hash;
     }
 
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ShareSecondResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static ShareSecondResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ShareSecondResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static ShareSecondResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static ShareSecondResponse parseFrom(
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1285,23 +2207,23 @@ public final class ShareSecond {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(ShareSecondResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.ShareSecond.ShareSecondResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1311,18 +2233,18 @@ public final class ShareSecond {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:ShareSecondResponse)
-        ShareSecondResponseOrBuilder {
+        com.graduate.design.proto.ShareSecond.ShareSecondResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return ShareSecond.internal_static_ShareSecondResponse_descriptor;
+        return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return ShareSecond.internal_static_ShareSecondResponse_fieldAccessorTable
+        return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                ShareSecondResponse.class, Builder.class);
+                com.graduate.design.proto.ShareSecond.ShareSecondResponse.class, com.graduate.design.proto.ShareSecond.ShareSecondResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.ShareSecond.ShareSecondResponse.newBuilder()
@@ -1331,7 +2253,7 @@ public final class ShareSecond {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1340,7 +2262,7 @@ public final class ShareSecond {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -1352,29 +2274,29 @@ public final class ShareSecond {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return ShareSecond.internal_static_ShareSecondResponse_descriptor;
+        return com.graduate.design.proto.ShareSecond.internal_static_ShareSecondResponse_descriptor;
       }
 
-      @Override
-      public ShareSecondResponse getDefaultInstanceForType() {
-        return ShareSecondResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.ShareSecond.ShareSecondResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.ShareSecond.ShareSecondResponse.getDefaultInstance();
       }
 
-      @Override
-      public ShareSecondResponse build() {
-        ShareSecondResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.ShareSecond.ShareSecondResponse build() {
+        com.graduate.design.proto.ShareSecond.ShareSecondResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public ShareSecondResponse buildPartial() {
-        ShareSecondResponse result = new ShareSecondResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.ShareSecond.ShareSecondResponse buildPartial() {
+        com.graduate.design.proto.ShareSecond.ShareSecondResponse result = new com.graduate.design.proto.ShareSecond.ShareSecondResponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -1384,50 +2306,50 @@ public final class ShareSecond {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof ShareSecondResponse) {
-          return mergeFrom((ShareSecondResponse)other);
+        if (other instanceof com.graduate.design.proto.ShareSecond.ShareSecondResponse) {
+          return mergeFrom((com.graduate.design.proto.ShareSecond.ShareSecondResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(ShareSecondResponse other) {
-        if (other == ShareSecondResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.ShareSecond.ShareSecondResponse other) {
+        if (other == com.graduate.design.proto.ShareSecond.ShareSecondResponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -1436,21 +2358,21 @@ public final class ShareSecond {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        ShareSecondResponse parsedMessage = null;
+        com.graduate.design.proto.ShareSecond.ShareSecondResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (ShareSecondResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.ShareSecond.ShareSecondResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1460,9 +2382,9 @@ public final class ShareSecond {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1474,9 +2396,9 @@ public final class ShareSecond {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -1484,7 +2406,7 @@ public final class ShareSecond {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1501,7 +2423,7 @@ public final class ShareSecond {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -1514,11 +2436,11 @@ public final class ShareSecond {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -1546,7 +2468,7 @@ public final class ShareSecond {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -1554,23 +2476,23 @@ public final class ShareSecond {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -1578,13 +2500,13 @@ public final class ShareSecond {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1595,18 +2517,18 @@ public final class ShareSecond {
     }
 
     // @@protoc_insertion_point(class_scope:ShareSecondResponse)
-    private static final ShareSecondResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.ShareSecond.ShareSecondResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new ShareSecondResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.ShareSecond.ShareSecondResponse();
     }
 
-    public static ShareSecondResponse getDefaultInstance() {
+    public static com.graduate.design.proto.ShareSecond.ShareSecondResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<ShareSecondResponse>
         PARSER = new com.google.protobuf.AbstractParser<ShareSecondResponse>() {
-      @Override
+      @java.lang.Override
       public ShareSecondResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1619,13 +2541,13 @@ public final class ShareSecond {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<ShareSecondResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public ShareSecondResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.ShareSecond.ShareSecondResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1649,33 +2571,36 @@ public final class ShareSecond {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
-      "\n\022share_second.proto\032\014common.proto\"_\n\022Sh" +
-      "areSecondRequest\022-\n\021searchIndexSecond\030\001 " +
-      "\003(\0132\022.SearchIndexSecond\022\032\n\007baseReq\030\377\001 \001(" +
-      "\0132\010.BaseReq\"3\n\023ShareSecondResponse\022\034\n\010ba" +
-      "seResp\030\377\001 \001(\0132\t.BaseRespB2\n\031com.graduate" +
-      ".design.protoB\013ShareSecondZ\010./pb_genb\006pr" +
-      "oto3"
+    java.lang.String[] descriptorData = {
+      "\n\022share_second.proto\032\014common.proto\"\323\001\n\022S" +
+      "hareSecondRequest\022\020\n\010fileName\030\001 \001(\t\022\020\n\010p" +
+      "arentId\030\002 \001(\003\022\017\n\007biIndex\030\003 \001(\t\022\016\n\006nodeId" +
+      "\030\004 \001(\003\022\017\n\007isShare\030\005 \001(\010\022\017\n\007address\030\006 \001(\003" +
+      "\022\022\n\nfileSecret\030\007 \001(\t\022&\n\021searchIndexSecon" +
+      "d\030\010 \003(\0132\013.indexToken\022\032\n\007baseReq\030\377\001 \001(\0132\010" +
+      ".BaseReq\"3\n\023ShareSecondResponse\022\034\n\010baseR" +
+      "esp\030\377\001 \001(\0132\t.BaseRespB2\n\031com.graduate.de" +
+      "sign.protoB\013ShareSecondZ\010./pb_genb\006proto" +
+      "3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_ShareSecondRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_ShareSecondRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ShareSecondRequest_descriptor,
-        new String[] { "SearchIndexSecond", "BaseReq", });
+        new java.lang.String[] { "FileName", "ParentId", "BiIndex", "NodeId", "IsShare", "Address", "FileSecret", "SearchIndexSecond", "BaseReq", });
     internal_static_ShareSecondResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_ShareSecondResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ShareSecondResponse_descriptor,
-        new String[] { "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

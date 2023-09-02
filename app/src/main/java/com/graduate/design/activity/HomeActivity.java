@@ -1,29 +1,19 @@
 package com.graduate.design.activity;
 
-import android.Manifest;
-import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
-import com.allenliu.classicbt.BleManager;
 import com.graduate.design.R;
 import com.graduate.design.fragment.DiskFragment;
 import com.graduate.design.fragment.MineFragment;
-import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.ToastUtils;
-import com.molihuan.pathselector.PathSelector;
-import com.molihuan.pathselector.fragment.impl.PathSelectFragment;
-import com.molihuan.pathselector.service.IConfigDataBuilder;
-import com.molihuan.pathselector.utils.MConstants;
 
 import java.util.ArrayList;
 import java.util.List;

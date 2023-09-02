@@ -26,7 +26,7 @@ public final class SendSearchToken {
      * <code>string L = 1;</code>
      * @return The l.
      */
-    String getL();
+    java.lang.String getL();
     /**
      * <pre>
      * base64编码的L和Jw
@@ -42,7 +42,7 @@ public final class SendSearchToken {
      * <code>string Jw = 2;</code>
      * @return The jw.
      */
-    String getJw();
+    java.lang.String getJw();
     /**
      * <code>string Jw = 2;</code>
      * @return The bytes for jw.
@@ -71,14 +71,14 @@ public final class SendSearchToken {
       jw_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new SearchToken();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -89,7 +89,7 @@ public final class SendSearchToken {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -102,13 +102,13 @@ public final class SendSearchToken {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               l_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               jw_ = s;
               break;
@@ -134,19 +134,19 @@ public final class SendSearchToken {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return SendSearchToken.internal_static_SearchToken_descriptor;
+      return com.graduate.design.proto.SendSearchToken.internal_static_SearchToken_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return SendSearchToken.internal_static_SearchToken_fieldAccessorTable
+      return com.graduate.design.proto.SendSearchToken.internal_static_SearchToken_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              SearchToken.class, Builder.class);
+              com.graduate.design.proto.SendSearchToken.SearchToken.class, com.graduate.design.proto.SendSearchToken.SearchToken.Builder.class);
     }
 
     public static final int L_FIELD_NUMBER = 1;
-    private volatile Object l_;
+    private volatile java.lang.Object l_;
     /**
      * <pre>
      * base64编码的L和Jw
@@ -155,15 +155,15 @@ public final class SendSearchToken {
      * <code>string L = 1;</code>
      * @return The l.
      */
-    @Override
-    public String getL() {
-      Object ref = l_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getL() {
+      java.lang.Object ref = l_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         l_ = s;
         return s;
       }
@@ -176,14 +176,14 @@ public final class SendSearchToken {
      * <code>string L = 1;</code>
      * @return The bytes for l.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getLBytes() {
-      Object ref = l_;
-      if (ref instanceof String) {
+      java.lang.Object ref = l_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         l_ = b;
         return b;
       } else {
@@ -192,20 +192,20 @@ public final class SendSearchToken {
     }
 
     public static final int JW_FIELD_NUMBER = 2;
-    private volatile Object jw_;
+    private volatile java.lang.Object jw_;
     /**
      * <code>string Jw = 2;</code>
      * @return The jw.
      */
-    @Override
-    public String getJw() {
-      Object ref = jw_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getJw() {
+      java.lang.Object ref = jw_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         jw_ = s;
         return s;
       }
@@ -214,14 +214,14 @@ public final class SendSearchToken {
      * <code>string Jw = 2;</code>
      * @return The bytes for jw.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getJwBytes() {
-      Object ref = jw_;
-      if (ref instanceof String) {
+      java.lang.Object ref = jw_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         jw_ = b;
         return b;
       } else {
@@ -230,7 +230,7 @@ public final class SendSearchToken {
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -240,7 +240,7 @@ public final class SendSearchToken {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(l_)) {
@@ -252,7 +252,7 @@ public final class SendSearchToken {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -269,15 +269,15 @@ public final class SendSearchToken {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof SearchToken)) {
+      if (!(obj instanceof com.graduate.design.proto.SendSearchToken.SearchToken)) {
         return super.equals(obj);
       }
-      SearchToken other = (SearchToken) obj;
+      com.graduate.design.proto.SendSearchToken.SearchToken other = (com.graduate.design.proto.SendSearchToken.SearchToken) obj;
 
       if (!getL()
           .equals(other.getL())) return false;
@@ -287,7 +287,7 @@ public final class SendSearchToken {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -303,69 +303,69 @@ public final class SendSearchToken {
       return hash;
     }
 
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SearchToken parseFrom(byte[] data)
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SearchToken parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SearchToken parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static SearchToken parseDelimitedFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static SearchToken parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SearchToken parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -373,23 +373,23 @@ public final class SendSearchToken {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(SearchToken prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.SendSearchToken.SearchToken prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -403,18 +403,18 @@ public final class SendSearchToken {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:SearchToken)
-        SearchTokenOrBuilder {
+        com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return SendSearchToken.internal_static_SearchToken_descriptor;
+        return com.graduate.design.proto.SendSearchToken.internal_static_SearchToken_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return SendSearchToken.internal_static_SearchToken_fieldAccessorTable
+        return com.graduate.design.proto.SendSearchToken.internal_static_SearchToken_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                SearchToken.class, Builder.class);
+                com.graduate.design.proto.SendSearchToken.SearchToken.class, com.graduate.design.proto.SendSearchToken.SearchToken.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.SendSearchToken.SearchToken.newBuilder()
@@ -423,7 +423,7 @@ public final class SendSearchToken {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -432,7 +432,7 @@ public final class SendSearchToken {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         l_ = "";
@@ -442,79 +442,79 @@ public final class SendSearchToken {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return SendSearchToken.internal_static_SearchToken_descriptor;
+        return com.graduate.design.proto.SendSearchToken.internal_static_SearchToken_descriptor;
       }
 
-      @Override
-      public SearchToken getDefaultInstanceForType() {
-        return SearchToken.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SearchToken getDefaultInstanceForType() {
+        return com.graduate.design.proto.SendSearchToken.SearchToken.getDefaultInstance();
       }
 
-      @Override
-      public SearchToken build() {
-        SearchToken result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SearchToken build() {
+        com.graduate.design.proto.SendSearchToken.SearchToken result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public SearchToken buildPartial() {
-        SearchToken result = new SearchToken(this);
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SearchToken buildPartial() {
+        com.graduate.design.proto.SendSearchToken.SearchToken result = new com.graduate.design.proto.SendSearchToken.SearchToken(this);
         result.l_ = l_;
         result.jw_ = jw_;
         onBuilt();
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof SearchToken) {
-          return mergeFrom((SearchToken)other);
+        if (other instanceof com.graduate.design.proto.SendSearchToken.SearchToken) {
+          return mergeFrom((com.graduate.design.proto.SendSearchToken.SearchToken)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(SearchToken other) {
-        if (other == SearchToken.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.SendSearchToken.SearchToken other) {
+        if (other == com.graduate.design.proto.SendSearchToken.SearchToken.getDefaultInstance()) return this;
         if (!other.getL().isEmpty()) {
           l_ = other.l_;
           onChanged();
@@ -528,21 +528,21 @@ public final class SendSearchToken {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        SearchToken parsedMessage = null;
+        com.graduate.design.proto.SendSearchToken.SearchToken parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (SearchToken) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.SendSearchToken.SearchToken) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -552,7 +552,7 @@ public final class SendSearchToken {
         return this;
       }
 
-      private Object l_ = "";
+      private java.lang.Object l_ = "";
       /**
        * <pre>
        * base64编码的L和Jw
@@ -561,16 +561,16 @@ public final class SendSearchToken {
        * <code>string L = 1;</code>
        * @return The l.
        */
-      public String getL() {
-        Object ref = l_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getL() {
+        java.lang.Object ref = l_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           l_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -583,11 +583,11 @@ public final class SendSearchToken {
        */
       public com.google.protobuf.ByteString
           getLBytes() {
-        Object ref = l_;
+        java.lang.Object ref = l_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           l_ = b;
           return b;
         } else {
@@ -604,7 +604,7 @@ public final class SendSearchToken {
        * @return This builder for chaining.
        */
       public Builder setL(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -648,21 +648,21 @@ public final class SendSearchToken {
         return this;
       }
 
-      private Object jw_ = "";
+      private java.lang.Object jw_ = "";
       /**
        * <code>string Jw = 2;</code>
        * @return The jw.
        */
-      public String getJw() {
-        Object ref = jw_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getJw() {
+        java.lang.Object ref = jw_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           jw_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -671,11 +671,11 @@ public final class SendSearchToken {
        */
       public com.google.protobuf.ByteString
           getJwBytes() {
-        Object ref = jw_;
+        java.lang.Object ref = jw_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           jw_ = b;
           return b;
         } else {
@@ -688,7 +688,7 @@ public final class SendSearchToken {
        * @return This builder for chaining.
        */
       public Builder setJw(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -723,13 +723,13 @@ public final class SendSearchToken {
         onChanged();
         return this;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -740,18 +740,18 @@ public final class SendSearchToken {
     }
 
     // @@protoc_insertion_point(class_scope:SearchToken)
-    private static final SearchToken DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.SendSearchToken.SearchToken DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new SearchToken();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.SendSearchToken.SearchToken();
     }
 
-    public static SearchToken getDefaultInstance() {
+    public static com.graduate.design.proto.SendSearchToken.SearchToken getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<SearchToken>
         PARSER = new com.google.protobuf.AbstractParser<SearchToken>() {
-      @Override
+      @java.lang.Override
       public SearchToken parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -764,13 +764,13 @@ public final class SendSearchToken {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<SearchToken> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public SearchToken getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.SendSearchToken.SearchToken getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -789,11 +789,11 @@ public final class SendSearchToken {
      * <code>.SearchToken searchToken = 1;</code>
      * @return The searchToken.
      */
-    SearchToken getSearchToken();
+    com.graduate.design.proto.SendSearchToken.SearchToken getSearchToken();
     /**
      * <code>.SearchToken searchToken = 1;</code>
      */
-    SearchTokenOrBuilder getSearchTokenOrBuilder();
+    com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder getSearchTokenOrBuilder();
 
     /**
      * <code>.BaseReq baseReq = 255;</code>
@@ -804,11 +804,11 @@ public final class SendSearchToken {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * <pre>
@@ -829,14 +829,14 @@ public final class SendSearchToken {
     private SendSearchTokenRequest() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new SendSearchTokenRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -847,7 +847,7 @@ public final class SendSearchToken {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -860,11 +860,11 @@ public final class SendSearchToken {
               done = true;
               break;
             case 10: {
-              SearchToken.Builder subBuilder = null;
+              com.graduate.design.proto.SendSearchToken.SearchToken.Builder subBuilder = null;
               if (searchToken_ != null) {
                 subBuilder = searchToken_.toBuilder();
               }
-              searchToken_ = input.readMessage(SearchToken.parser(), extensionRegistry);
+              searchToken_ = input.readMessage(com.graduate.design.proto.SendSearchToken.SearchToken.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(searchToken_);
                 searchToken_ = subBuilder.buildPartial();
@@ -873,11 +873,11 @@ public final class SendSearchToken {
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -906,24 +906,24 @@ public final class SendSearchToken {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return SendSearchToken.internal_static_SendSearchTokenRequest_descriptor;
+      return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return SendSearchToken.internal_static_SendSearchTokenRequest_fieldAccessorTable
+      return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              SendSearchTokenRequest.class, Builder.class);
+              com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.class, com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.Builder.class);
     }
 
     public static final int SEARCHTOKEN_FIELD_NUMBER = 1;
-    private SearchToken searchToken_;
+    private com.graduate.design.proto.SendSearchToken.SearchToken searchToken_;
     /**
      * <code>.SearchToken searchToken = 1;</code>
      * @return Whether the searchToken field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasSearchToken() {
       return searchToken_ != null;
     }
@@ -931,25 +931,25 @@ public final class SendSearchToken {
      * <code>.SearchToken searchToken = 1;</code>
      * @return The searchToken.
      */
-    @Override
-    public SearchToken getSearchToken() {
-      return searchToken_ == null ? SearchToken.getDefaultInstance() : searchToken_;
+    @java.lang.Override
+    public com.graduate.design.proto.SendSearchToken.SearchToken getSearchToken() {
+      return searchToken_ == null ? com.graduate.design.proto.SendSearchToken.SearchToken.getDefaultInstance() : searchToken_;
     }
     /**
      * <code>.SearchToken searchToken = 1;</code>
      */
-    @Override
-    public SearchTokenOrBuilder getSearchTokenOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder getSearchTokenOrBuilder() {
       return getSearchToken();
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -957,20 +957,20 @@ public final class SendSearchToken {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -980,7 +980,7 @@ public final class SendSearchToken {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (searchToken_ != null) {
@@ -992,7 +992,7 @@ public final class SendSearchToken {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1011,15 +1011,15 @@ public final class SendSearchToken {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof SendSearchTokenRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest)) {
         return super.equals(obj);
       }
-      SendSearchTokenRequest other = (SendSearchTokenRequest) obj;
+      com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest other = (com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest) obj;
 
       if (hasSearchToken() != other.hasSearchToken()) return false;
       if (hasSearchToken()) {
@@ -1035,7 +1035,7 @@ public final class SendSearchToken {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1055,69 +1055,69 @@ public final class SendSearchToken {
       return hash;
     }
 
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendSearchTokenRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendSearchTokenRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SendSearchTokenRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static SendSearchTokenRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static SendSearchTokenRequest parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1125,23 +1125,23 @@ public final class SendSearchToken {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(SendSearchTokenRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1155,18 +1155,18 @@ public final class SendSearchToken {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:SendSearchTokenRequest)
-        SendSearchTokenRequestOrBuilder {
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return SendSearchToken.internal_static_SendSearchTokenRequest_descriptor;
+        return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return SendSearchToken.internal_static_SendSearchTokenRequest_fieldAccessorTable
+        return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                SendSearchTokenRequest.class, Builder.class);
+                com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.class, com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.newBuilder()
@@ -1175,7 +1175,7 @@ public final class SendSearchToken {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1184,7 +1184,7 @@ public final class SendSearchToken {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (searchTokenBuilder_ == null) {
@@ -1202,29 +1202,29 @@ public final class SendSearchToken {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return SendSearchToken.internal_static_SendSearchTokenRequest_descriptor;
+        return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenRequest_descriptor;
       }
 
-      @Override
-      public SendSearchTokenRequest getDefaultInstanceForType() {
-        return SendSearchTokenRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.getDefaultInstance();
       }
 
-      @Override
-      public SendSearchTokenRequest build() {
-        SendSearchTokenRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest build() {
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public SendSearchTokenRequest buildPartial() {
-        SendSearchTokenRequest result = new SendSearchTokenRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest buildPartial() {
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest result = new com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest(this);
         if (searchTokenBuilder_ == null) {
           result.searchToken_ = searchToken_;
         } else {
@@ -1239,50 +1239,50 @@ public final class SendSearchToken {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof SendSearchTokenRequest) {
-          return mergeFrom((SendSearchTokenRequest)other);
+        if (other instanceof com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest) {
+          return mergeFrom((com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(SendSearchTokenRequest other) {
-        if (other == SendSearchTokenRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest other) {
+        if (other == com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest.getDefaultInstance()) return this;
         if (other.hasSearchToken()) {
           mergeSearchToken(other.getSearchToken());
         }
@@ -1294,21 +1294,21 @@ public final class SendSearchToken {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        SendSearchTokenRequest parsedMessage = null;
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (SendSearchTokenRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1318,9 +1318,9 @@ public final class SendSearchToken {
         return this;
       }
 
-      private SearchToken searchToken_;
+      private com.graduate.design.proto.SendSearchToken.SearchToken searchToken_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          SearchToken, SearchToken.Builder, SearchTokenOrBuilder> searchTokenBuilder_;
+          com.graduate.design.proto.SendSearchToken.SearchToken, com.graduate.design.proto.SendSearchToken.SearchToken.Builder, com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder> searchTokenBuilder_;
       /**
        * <code>.SearchToken searchToken = 1;</code>
        * @return Whether the searchToken field is set.
@@ -1332,9 +1332,9 @@ public final class SendSearchToken {
        * <code>.SearchToken searchToken = 1;</code>
        * @return The searchToken.
        */
-      public SearchToken getSearchToken() {
+      public com.graduate.design.proto.SendSearchToken.SearchToken getSearchToken() {
         if (searchTokenBuilder_ == null) {
-          return searchToken_ == null ? SearchToken.getDefaultInstance() : searchToken_;
+          return searchToken_ == null ? com.graduate.design.proto.SendSearchToken.SearchToken.getDefaultInstance() : searchToken_;
         } else {
           return searchTokenBuilder_.getMessage();
         }
@@ -1342,7 +1342,7 @@ public final class SendSearchToken {
       /**
        * <code>.SearchToken searchToken = 1;</code>
        */
-      public Builder setSearchToken(SearchToken value) {
+      public Builder setSearchToken(com.graduate.design.proto.SendSearchToken.SearchToken value) {
         if (searchTokenBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1359,7 +1359,7 @@ public final class SendSearchToken {
        * <code>.SearchToken searchToken = 1;</code>
        */
       public Builder setSearchToken(
-          SearchToken.Builder builderForValue) {
+          com.graduate.design.proto.SendSearchToken.SearchToken.Builder builderForValue) {
         if (searchTokenBuilder_ == null) {
           searchToken_ = builderForValue.build();
           onChanged();
@@ -1372,11 +1372,11 @@ public final class SendSearchToken {
       /**
        * <code>.SearchToken searchToken = 1;</code>
        */
-      public Builder mergeSearchToken(SearchToken value) {
+      public Builder mergeSearchToken(com.graduate.design.proto.SendSearchToken.SearchToken value) {
         if (searchTokenBuilder_ == null) {
           if (searchToken_ != null) {
             searchToken_ =
-              SearchToken.newBuilder(searchToken_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.SendSearchToken.SearchToken.newBuilder(searchToken_).mergeFrom(value).buildPartial();
           } else {
             searchToken_ = value;
           }
@@ -1404,7 +1404,7 @@ public final class SendSearchToken {
       /**
        * <code>.SearchToken searchToken = 1;</code>
        */
-      public SearchToken.Builder getSearchTokenBuilder() {
+      public com.graduate.design.proto.SendSearchToken.SearchToken.Builder getSearchTokenBuilder() {
         
         onChanged();
         return getSearchTokenFieldBuilder().getBuilder();
@@ -1412,23 +1412,23 @@ public final class SendSearchToken {
       /**
        * <code>.SearchToken searchToken = 1;</code>
        */
-      public SearchTokenOrBuilder getSearchTokenOrBuilder() {
+      public com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder getSearchTokenOrBuilder() {
         if (searchTokenBuilder_ != null) {
           return searchTokenBuilder_.getMessageOrBuilder();
         } else {
           return searchToken_ == null ?
-              SearchToken.getDefaultInstance() : searchToken_;
+              com.graduate.design.proto.SendSearchToken.SearchToken.getDefaultInstance() : searchToken_;
         }
       }
       /**
        * <code>.SearchToken searchToken = 1;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          SearchToken, SearchToken.Builder, SearchTokenOrBuilder>
+          com.graduate.design.proto.SendSearchToken.SearchToken, com.graduate.design.proto.SendSearchToken.SearchToken.Builder, com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder> 
           getSearchTokenFieldBuilder() {
         if (searchTokenBuilder_ == null) {
           searchTokenBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              SearchToken, SearchToken.Builder, SearchTokenOrBuilder>(
+              com.graduate.design.proto.SendSearchToken.SearchToken, com.graduate.design.proto.SendSearchToken.SearchToken.Builder, com.graduate.design.proto.SendSearchToken.SearchTokenOrBuilder>(
                   getSearchToken(),
                   getParentForChildren(),
                   isClean());
@@ -1437,9 +1437,9 @@ public final class SendSearchToken {
         return searchTokenBuilder_;
       }
 
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -1451,9 +1451,9 @@ public final class SendSearchToken {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -1461,7 +1461,7 @@ public final class SendSearchToken {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1478,7 +1478,7 @@ public final class SendSearchToken {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -1491,11 +1491,11 @@ public final class SendSearchToken {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -1523,7 +1523,7 @@ public final class SendSearchToken {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -1531,23 +1531,23 @@ public final class SendSearchToken {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -1555,13 +1555,13 @@ public final class SendSearchToken {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1572,18 +1572,18 @@ public final class SendSearchToken {
     }
 
     // @@protoc_insertion_point(class_scope:SendSearchTokenRequest)
-    private static final SendSearchTokenRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new SendSearchTokenRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest();
     }
 
-    public static SendSearchTokenRequest getDefaultInstance() {
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<SendSearchTokenRequest>
         PARSER = new com.google.protobuf.AbstractParser<SendSearchTokenRequest>() {
-      @Override
+      @java.lang.Override
       public SendSearchTokenRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1596,13 +1596,13 @@ public final class SendSearchToken {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<SendSearchTokenRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public SendSearchTokenRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.SendSearchToken.SendSearchTokenRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1620,7 +1620,7 @@ public final class SendSearchToken {
      * <code>repeated string Cw = 1;</code>
      * @return A list containing the cw.
      */
-    java.util.List<String>
+    java.util.List<java.lang.String>
         getCwList();
     /**
      * <pre>
@@ -1640,7 +1640,7 @@ public final class SendSearchToken {
      * @param index The index of the element to return.
      * @return The cw at the given index.
      */
-    String getCw(int index);
+    java.lang.String getCw(int index);
     /**
      * <pre>
      * 搜索结果
@@ -1662,11 +1662,11 @@ public final class SendSearchToken {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code SendSearchTokenResponse}
@@ -1684,14 +1684,14 @@ public final class SendSearchToken {
       cw_ = com.google.protobuf.LazyStringArrayList.EMPTY;
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new SendSearchTokenResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1702,7 +1702,7 @@ public final class SendSearchToken {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       int mutable_bitField0_ = 0;
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
@@ -1716,7 +1716,7 @@ public final class SendSearchToken {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 cw_ = new com.google.protobuf.LazyStringArrayList();
                 mutable_bitField0_ |= 0x00000001;
@@ -1725,11 +1725,11 @@ public final class SendSearchToken {
               break;
             }
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1761,15 +1761,15 @@ public final class SendSearchToken {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return SendSearchToken.internal_static_SendSearchTokenResponse_descriptor;
+      return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return SendSearchToken.internal_static_SendSearchTokenResponse_fieldAccessorTable
+      return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              SendSearchTokenResponse.class, Builder.class);
+              com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.class, com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.Builder.class);
     }
 
     public static final int CW_FIELD_NUMBER = 1;
@@ -1806,7 +1806,7 @@ public final class SendSearchToken {
      * @param index The index of the element to return.
      * @return The cw at the given index.
      */
-    public String getCw(int index) {
+    public java.lang.String getCw(int index) {
       return cw_.get(index);
     }
     /**
@@ -1824,12 +1824,12 @@ public final class SendSearchToken {
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1837,20 +1837,20 @@ public final class SendSearchToken {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1860,7 +1860,7 @@ public final class SendSearchToken {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       for (int i = 0; i < cw_.size(); i++) {
@@ -1872,7 +1872,7 @@ public final class SendSearchToken {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1895,15 +1895,15 @@ public final class SendSearchToken {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof SendSearchTokenResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse)) {
         return super.equals(obj);
       }
-      SendSearchTokenResponse other = (SendSearchTokenResponse) obj;
+      com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse other = (com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse) obj;
 
       if (!getCwList()
           .equals(other.getCwList())) return false;
@@ -1916,7 +1916,7 @@ public final class SendSearchToken {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1936,69 +1936,69 @@ public final class SendSearchToken {
       return hash;
     }
 
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendSearchTokenResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static SendSearchTokenResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SendSearchTokenResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static SendSearchTokenResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static SendSearchTokenResponse parseFrom(
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -2006,23 +2006,23 @@ public final class SendSearchToken {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(SendSearchTokenResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -2032,18 +2032,18 @@ public final class SendSearchToken {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:SendSearchTokenResponse)
-        SendSearchTokenResponseOrBuilder {
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return SendSearchToken.internal_static_SendSearchTokenResponse_descriptor;
+        return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return SendSearchToken.internal_static_SendSearchTokenResponse_fieldAccessorTable
+        return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                SendSearchTokenResponse.class, Builder.class);
+                com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.class, com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.newBuilder()
@@ -2052,7 +2052,7 @@ public final class SendSearchToken {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -2061,7 +2061,7 @@ public final class SendSearchToken {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         cw_ = com.google.protobuf.LazyStringArrayList.EMPTY;
@@ -2075,29 +2075,29 @@ public final class SendSearchToken {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return SendSearchToken.internal_static_SendSearchTokenResponse_descriptor;
+        return com.graduate.design.proto.SendSearchToken.internal_static_SendSearchTokenResponse_descriptor;
       }
 
-      @Override
-      public SendSearchTokenResponse getDefaultInstanceForType() {
-        return SendSearchTokenResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.getDefaultInstance();
       }
 
-      @Override
-      public SendSearchTokenResponse build() {
-        SendSearchTokenResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse build() {
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public SendSearchTokenResponse buildPartial() {
-        SendSearchTokenResponse result = new SendSearchTokenResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse buildPartial() {
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse result = new com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse(this);
         int from_bitField0_ = bitField0_;
         if (((bitField0_ & 0x00000001) != 0)) {
           cw_ = cw_.getUnmodifiableView();
@@ -2113,50 +2113,50 @@ public final class SendSearchToken {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof SendSearchTokenResponse) {
-          return mergeFrom((SendSearchTokenResponse)other);
+        if (other instanceof com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse) {
+          return mergeFrom((com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(SendSearchTokenResponse other) {
-        if (other == SendSearchTokenResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse other) {
+        if (other == com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse.getDefaultInstance()) return this;
         if (!other.cw_.isEmpty()) {
           if (cw_.isEmpty()) {
             cw_ = other.cw_;
@@ -2175,21 +2175,21 @@ public final class SendSearchToken {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        SendSearchTokenResponse parsedMessage = null;
+        com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (SendSearchTokenResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -2239,7 +2239,7 @@ public final class SendSearchToken {
        * @param index The index of the element to return.
        * @return The cw at the given index.
        */
-      public String getCw(int index) {
+      public java.lang.String getCw(int index) {
         return cw_.get(index);
       }
       /**
@@ -2266,7 +2266,7 @@ public final class SendSearchToken {
        * @return This builder for chaining.
        */
       public Builder setCw(
-          int index, String value) {
+          int index, java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2285,7 +2285,7 @@ public final class SendSearchToken {
        * @return This builder for chaining.
        */
       public Builder addCw(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -2304,7 +2304,7 @@ public final class SendSearchToken {
        * @return This builder for chaining.
        */
       public Builder addAllCw(
-          Iterable<String> values) {
+          java.lang.Iterable<java.lang.String> values) {
         ensureCwIsMutable();
         com.google.protobuf.AbstractMessageLite.Builder.addAll(
             values, cw_);
@@ -2346,9 +2346,9 @@ public final class SendSearchToken {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -2360,9 +2360,9 @@ public final class SendSearchToken {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -2370,7 +2370,7 @@ public final class SendSearchToken {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2387,7 +2387,7 @@ public final class SendSearchToken {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -2400,11 +2400,11 @@ public final class SendSearchToken {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -2432,7 +2432,7 @@ public final class SendSearchToken {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -2440,23 +2440,23 @@ public final class SendSearchToken {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -2464,13 +2464,13 @@ public final class SendSearchToken {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2481,18 +2481,18 @@ public final class SendSearchToken {
     }
 
     // @@protoc_insertion_point(class_scope:SendSearchTokenResponse)
-    private static final SendSearchTokenResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new SendSearchTokenResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse();
     }
 
-    public static SendSearchTokenResponse getDefaultInstance() {
+    public static com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<SendSearchTokenResponse>
         PARSER = new com.google.protobuf.AbstractParser<SendSearchTokenResponse>() {
-      @Override
+      @java.lang.Override
       public SendSearchTokenResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2505,13 +2505,13 @@ public final class SendSearchToken {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<SendSearchTokenResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public SendSearchTokenResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.SendSearchToken.SendSearchTokenResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2540,7 +2540,7 @@ public final class SendSearchToken {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\027send_search_token.proto\032\014common.proto\"" +
       "$\n\013SearchToken\022\t\n\001L\030\001 \001(\t\022\n\n\002Jw\030\002 \001(\t\"W\n" +
       "\026SendSearchTokenRequest\022!\n\013searchToken\030\001" +
@@ -2553,27 +2553,27 @@ public final class SendSearchToken {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_SearchToken_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_SearchToken_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SearchToken_descriptor,
-        new String[] { "L", "Jw", });
+        new java.lang.String[] { "L", "Jw", });
     internal_static_SendSearchTokenRequest_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_SendSearchTokenRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SendSearchTokenRequest_descriptor,
-        new String[] { "SearchToken", "BaseReq", });
+        new java.lang.String[] { "SearchToken", "BaseReq", });
     internal_static_SendSearchTokenResponse_descriptor =
       getDescriptor().getMessageTypes().get(2);
     internal_static_SendSearchTokenResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SendSearchTokenResponse_descriptor,
-        new String[] { "Cw", "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "Cw", "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

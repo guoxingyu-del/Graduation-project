@@ -28,6 +28,8 @@
                 android:textColor="#000"
                 android:textStyle="bold"
                 android:text="设备名称"
+                android:ellipsize="end"
+                android:singleLine="true"
                 >
             </TextView>
 

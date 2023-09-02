@@ -1,5 +1,6 @@
 package com.graduate.design.service;
 
+import com.graduate.design.proto.Common;
 import com.graduate.design.proto.FileUpload;
 import com.graduate.design.proto.SearchFile;
 import com.graduate.design.proto.SendSearchToken;
@@ -17,10 +18,16 @@ public interface EncryptionService {
     byte[] decryptByAES256(String ciphertext, byte[] secretKey);
     byte[] decryptByAES256(byte[] ciphertext, byte[] secretKey);
 
-    FileUpload.indexToken uploadIndex(Long id, String word);
+    Common.indexToken uploadIndex(Long id, String word);
 
     SendSearchToken.SearchToken getSearchToken(String word);
 
     List<Long> getNodeIdByCw(List<String> Cw, String word);
-    public byte[] HmacSha256(byte[] key, byte[] data);
+    byte[] HmacSha256(byte[] key, byte[] data);
+    // 生成RSA公私钥对
+    List<String> genKeyPair();
+
+    String encryptByRSA(String plaintext, String publicKey);
+
+    String decryptByRSA(String ciphertext, String privateKey);
 }

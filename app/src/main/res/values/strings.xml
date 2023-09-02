@@ -8,6 +8,7 @@
     <string name="upload_file">上传文件</string>
     <string name="create_dir">创建文件夹</string>
     <string name="receive_file">接收文件</string>
+    <string name="share_file">分享文件</string>
     <string name="startMsg">开始</string>
     <string name="endMsg">结束</string>
     <string name="filename">filename:</string>
@@ -16,4 +17,11 @@
     <string name="shareTokenJid">shareTokenJid:</string>
     <string name="shareTokenKid">shareTokenKid:</string>
     <string name="shareTokenFileId">shareTokenFileId:</string>
+    <string name="publicKey">publicKey:</string>
+    <string name="type">type:</string>
+    <string name="from">from:</string>
+    <string name="secretKey">secretKey:</string>
+    <string name="isShare">isShare:</string>
+    <string name="address">address:</string>
+
 </resources>

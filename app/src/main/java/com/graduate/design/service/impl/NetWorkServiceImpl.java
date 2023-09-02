@@ -5,6 +5,8 @@ import com.graduate.design.service.NetWorkService;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.HTTPSUtils;
 
+import java.util.concurrent.TimeUnit;
+
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;

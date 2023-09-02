@@ -22,7 +22,9 @@ import com.allenliu.classicbt.listener.TransferProgressListener;
 import com.google.protobuf.ByteString;
 import com.graduate.design.R;
 import com.graduate.design.adapter.fileItem.ReceiveFileItemAdapter;
+import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
@@ -30,6 +32,7 @@ import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.PermissionUtils;
 import com.graduate.design.utils.ToastUtils;
 
+import java.nio.ByteBuffer;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,14 +44,19 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
     private TextView showReceiveInfo;
     private ListView listView;
 
+    private String type;
     private String filename;
-    private String fileContent;
+    private String from;
+    private String secretKey;
     private String shareTokenL;
     private String shareTokenJId;
     private String shareTokenKId;
-    private String shareTokenFileId;
+    private String isShare;
+    private String address;
     private UserService userService;
+    private EncryptionService encryptionService;
     private ReceiveFileItemAdapter fileItemAdapter;
+    private List<String> keyPair;
     // 当前连接
  //   private Connect currentConnect;
 
@@ -81,7 +89,9 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
 
     private void initData(){
         userService = new UserServiceImpl();
+        encryptionService = new EncryptionServiceImpl();
         fileItemAdapter = new ReceiveFileItemAdapter(getApplicationContext(), BtServerActivity.this);
+        keyPair = new ArrayList<>();
     }
 
     private void getComponentById(){
@@ -110,6 +120,8 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
                 ToastUtils.showShortToastCenter("蓝牙已连接");
                 serverConnectState.setText("已连接");
                 GraduateDesignApplication.setCurConnect(connect);
+                // 将自身公钥发送给发送方
+                sendPublicKey();
                 // 开始接收数据
                 receiveMsg();
             }
@@ -127,6 +139,41 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
                 GraduateDesignApplication.setCurConnect(null);
                 // 重新变为可发现状态
                 registerServer();
+            }
+        });
+    }
+
+    // 接收方将公钥发送给发送方
+    private void sendPublicKey(){
+        if(GraduateDesignApplication.getCurConnect() == null) {
+            ToastUtils.showShortToastCenter("未连接蓝牙");
+            return;
+        }
+        keyPair.clear();
+        keyPair.addAll(encryptionService.genKeyPair());
+        String s = getString(R.string.publicKey) + keyPair.get(0) + "\n";
+        // 此时msg就是公钥
+        byte[] msg = s.getBytes(StandardCharsets.UTF_8);
+        byte[] start = GraduateDesignApplication.getStart();
+        byte[] end = GraduateDesignApplication.getEnd();
+        byte[] lineBreak = "\n".getBytes(StandardCharsets.UTF_8);
+        ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length + lineBreak.length);
+        fullMsg.put(start).put(msg).put(lineBreak).put(end);
+
+        GraduateDesignApplication.getCurConnect().write(fullMsg.array(), new TransferProgressListener() {
+            @Override
+            public void transfering(int progress) {
+                ToastUtils.showShortToastCenter("正在传输数据：" + progress);
+            }
+
+            @Override
+            public void transferSuccess(byte[] bytes) {
+                ToastUtils.showShortToastCenter("传输成功");
+            }
+
+            @Override
+            public void transferFailed(Exception exception) {
+                ToastUtils.showShortToastCenter("传输失败：" + exception.getLocalizedMessage());
             }
         });
     }
@@ -165,31 +212,36 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
                 String resWithoutStartEnd = res.substring(startIndex + getString(R.string.startMsg).length(), endIndex);
 
                 // 将消息分割出文件名和文件内容
-                int filenameIndex = resWithoutStartEnd.indexOf(getString(R.string.filename));
-                int fileContentIndex = resWithoutStartEnd.indexOf(getString(R.string.fileContent));
-                int LIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenL));
-                int JIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenJid));
-                int KIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenKid));
-                int FileIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenFileId));
+                int typeIndex = resWithoutStartEnd.indexOf(getString(R.string.type));
                 // 测试消息，在页面展示
-                if(filenameIndex == -1 || fileContentIndex == -1) {
+                if(typeIndex == -1) {
                     showReceiveInfo.setText(resWithoutStartEnd);
                     return;
                 }
-                if (LIndex == -1 || JIdIndex == -1 || KIdIndex == -1 || FileIdIndex == -1) {
-                    showReceiveInfo.setText(resWithoutStartEnd);
-                    return;
-                }
+                int filenameIndex = resWithoutStartEnd.indexOf(getString(R.string.filename));
                 // 提取出文件名和文件内容
                 // 除去文件名中的换行符
-                shareTokenL = FileUtils.removeLineBreak(resWithoutStartEnd.substring(LIndex + getString(R.string.shareTokenL).length(), JIdIndex));
-                shareTokenJId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(JIdIndex + getString(R.string.shareTokenJid).length(), KIdIndex));
-                shareTokenKId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(KIdIndex + getString(R.string.shareTokenKid).length(), FileIdIndex));
-                shareTokenFileId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(FileIdIndex + getString(R.string.shareTokenFileId).length(), filenameIndex));
-                filename = FileUtils.removeLineBreak(resWithoutStartEnd.substring(filenameIndex + getString(R.string.filename).length(), fileContentIndex));
-                fileContent = resWithoutStartEnd.substring(fileContentIndex + getString(R.string.fileContent).length());
-                String[] shareToken = new String[]{filename, fileContent, shareTokenL, shareTokenJId, shareTokenKId, shareTokenFileId};
-                fileItemAdapter.addFileItem(shareToken);
+                type = FileUtils.removeLineBreak(resWithoutStartEnd.substring(getString(R.string.type).length(), filenameIndex));
+                // 接收文件
+                if("file".equals(type)) {
+                    int fromIndex = resWithoutStartEnd.indexOf(getString(R.string.from));
+                    int secretKeyIndex = resWithoutStartEnd.indexOf(getString(R.string.secretKey));
+                    int LIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenL));
+                    int JIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenJid));
+                    int KIdIndex = resWithoutStartEnd.indexOf(getString(R.string.shareTokenKid));
+                    int isShareIndex = resWithoutStartEnd.indexOf(getString(R.string.isShare));
+                    int addressIndex = resWithoutStartEnd.indexOf(getString(R.string.address));
+                    filename = FileUtils.removeLineBreak(resWithoutStartEnd.substring(filenameIndex + getString(R.string.filename).length(), fromIndex));
+                    from = FileUtils.removeLineBreak(resWithoutStartEnd.substring(fromIndex + getString(R.string.from).length(), secretKeyIndex));
+                    secretKey = encryptionService.decryptByRSA(FileUtils.removeLineBreak(resWithoutStartEnd.substring(secretKeyIndex + getString(R.string.secretKey).length(), LIndex)), keyPair.get(1));
+                    shareTokenL = FileUtils.removeLineBreak(resWithoutStartEnd.substring(LIndex + getString(R.string.shareTokenL).length(), JIdIndex));
+                    shareTokenJId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(JIdIndex + getString(R.string.shareTokenJid).length(), KIdIndex));
+                    shareTokenKId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(KIdIndex + getString(R.string.shareTokenKid).length(), isShareIndex));
+                    isShare = FileUtils.removeLineBreak(resWithoutStartEnd.substring(isShareIndex + getString(R.string.isShare).length(), addressIndex));
+                    address = FileUtils.removeLineBreak(resWithoutStartEnd.substring(addressIndex + getString(R.string.address).length()));
+                    String[] shareFileToken = new String[]{type, filename, from, secretKey, shareTokenL, shareTokenJId, shareTokenKId, isShare, address, "0"};// 最后表示是否通过wifi分享
+                    fileItemAdapter.addFileItem(shareFileToken);
+                }
             }
 
             @Override

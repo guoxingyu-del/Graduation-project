@@ -20,13 +20,16 @@ import androidx.core.app.ActivityCompat;
 import com.allenliu.classicbt.BleManager;
 import com.allenliu.classicbt.Connect;
 import com.allenliu.classicbt.listener.ConnectResultlistner;
+import com.allenliu.classicbt.listener.PacketDefineListener;
 import com.allenliu.classicbt.listener.PinResultListener;
 import com.allenliu.classicbt.listener.ScanResultListener;
 import com.allenliu.classicbt.listener.TransferProgressListener;
 import com.allenliu.classicbt.scan.ScanConfig;
+import com.google.protobuf.ByteString;
 import com.graduate.design.R;
 import com.graduate.design.adapter.DeviceItemAdapter;
 import com.graduate.design.utils.ActivityJumpUtils;
+import com.graduate.design.utils.FileUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.InitViewUtils;
 import com.graduate.design.utils.PermissionUtils;
@@ -45,11 +48,13 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
     private ListView listView;
     private Button disconnectButton;
     private Button shareButton;
+    private Button transferButton;
 
     private DeviceItemAdapter deviceItemAdapter;
  //   private Connect currentConnect;
     // 一次只允许一个连接
     private Boolean isConnected = false;
+    private String publicKey;
 
 
     @Override
@@ -89,6 +94,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         sendMsg = findViewById(R.id.send_msg);
         disconnectButton = findViewById(R.id.disconnect_btn);
         shareButton = findViewById(R.id.share_btn);
+        transferButton = findViewById(R.id.transfer_btn);
 
         listView = findViewById(R.id.show_search_device);
         listView.setAdapter(deviceItemAdapter);
@@ -101,6 +107,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         sendButton.setOnClickListener(this);
         disconnectButton.setOnClickListener(this);
         shareButton.setOnClickListener(this);
+        transferButton.setOnClickListener(this);
 
         listView.setOnItemClickListener(this);
     }
@@ -122,7 +129,10 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
                 disconnect();
                 break;
             case R.id.share_btn:
-                selectShareFile();
+                selectShareFile(true);
+                break;
+            case R.id.transfer_btn:
+                selectShareFile(false);
                 break;
             default:
                 ToastUtils.showShortToastCenter("错误的元素ID");
@@ -187,13 +197,63 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         });
     }
 
+    private void receiveMsg(){
+        if(GraduateDesignApplication.getCurConnect() == null){
+            ToastUtils.showShortToastCenter("没有蓝牙连接");
+            return;
+        }
+        GraduateDesignApplication.getCurConnect().setReadPacketVerifyListener(new PacketDefineListener() {
+            @Override
+            public byte[] getPacketStart() {
+                return GraduateDesignApplication.getStart();
+            }
+
+            @Override
+            public byte[] getPacketEnd() {
+                return GraduateDesignApplication.getEnd();
+            }
+        });
+        GraduateDesignApplication.getCurConnect().read(new TransferProgressListener() {
+            @Override
+            public void transfering(int progress) {
+                ToastUtils.showShortToastCenter("正在传输：" + progress + "%");
+            }
+
+            @Override
+            public void transferSuccess(byte[] bytes) {
+                String res = ByteString.copyFrom(bytes).toString(StandardCharsets.UTF_8);
+
+                // 取出消息整体内容
+                int startIndex = res.indexOf(getString(R.string.startMsg));
+                int endIndex = res.indexOf(getString(R.string.endMsg));
+                String resWithoutStartEnd = res.substring(startIndex + getString(R.string.startMsg).length(), endIndex);
+
+                // 将消息分割出文件名和文件内容
+                int publicKeyIndex = resWithoutStartEnd.indexOf(getString(R.string.publicKey));
+                // 测试消息，在页面展示
+                if(publicKeyIndex == -1) {
+                    return;
+                }
+                // 拿到发送过来的公钥，是base64形式
+                publicKey = FileUtils.removeLineBreak(resWithoutStartEnd.substring( getString(R.string.publicKey).length()));
+            }
+
+            @Override
+            public void transferFailed(Exception exception) {
+                ToastUtils.showShortToastCenter("传输数据失败：" + exception.getLocalizedMessage());
+            }
+        });
+    }
+
     private void disconnect(){
         BleManager.getInstance().destory();
     }
 
-    private void selectShareFile(){
+    private void selectShareFile(Boolean isShare){
         Intent intent = new Intent(BtClientActivity.this, ShareActivity.class);
         intent.putExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
+        intent.putExtra("isShare", isShare);
+        intent.putExtra("publicKey", publicKey);
         ActivityJumpUtils.jumpActivity(BtClientActivity.this, intent, 100L, false);
     }
 
@@ -224,6 +284,8 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
                     disconnectButton.setEnabled(true);
                     shareButton.setEnabled(true);
                     sendButton.setEnabled(true);
+                    transferButton.setEnabled(true);
+                    receiveMsg();
                 }
 
                 @Override
@@ -240,6 +302,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
                     disconnectButton.setEnabled(false);
                     shareButton.setEnabled(false);
                     sendButton.setEnabled(false);
+                    transferButton.setEnabled(false);
                 }
             });
         }

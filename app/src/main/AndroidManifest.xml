@@ -37,6 +37,7 @@
         <activity android:name=".activity.BtServerActivity" />
         <activity android:name=".activity.ShareActivity" />
         <activity android:name=".activity.ReceiveActivity" />
+        <activity android:name=".activity.WifiReceiveActivity" />
     </application>
 
 </manifest>

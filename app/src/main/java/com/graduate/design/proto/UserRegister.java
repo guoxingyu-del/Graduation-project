@@ -22,7 +22,7 @@ public final class UserRegister {
      * <code>string userName = 1;</code>
      * @return The userName.
      */
-    String getUserName();
+    java.lang.String getUserName();
     /**
      * <code>string userName = 1;</code>
      * @return The bytes for userName.
@@ -34,7 +34,7 @@ public final class UserRegister {
      * <code>string hashId = 2;</code>
      * @return The hashId.
      */
-    String getHashId();
+    java.lang.String getHashId();
     /**
      * <code>string hashId = 2;</code>
      * @return The bytes for hashId.
@@ -46,7 +46,7 @@ public final class UserRegister {
      * <code>string email = 3;</code>
      * @return The email.
      */
-    String getEmail();
+    java.lang.String getEmail();
     /**
      * <code>string email = 3;</code>
      * @return The bytes for email.
@@ -58,7 +58,7 @@ public final class UserRegister {
      * <code>string biIndex = 4;</code>
      * @return The biIndex.
      */
-    String getBiIndex();
+    java.lang.String getBiIndex();
     /**
      * <code>string biIndex = 4;</code>
      * @return The bytes for biIndex.
@@ -70,7 +70,7 @@ public final class UserRegister {
      * <code>string key1 = 5;</code>
      * @return The key1.
      */
-    String getKey1();
+    java.lang.String getKey1();
     /**
      * <code>string key1 = 5;</code>
      * @return The bytes for key1.
@@ -82,7 +82,7 @@ public final class UserRegister {
      * <code>string key2 = 6;</code>
      * @return The key2.
      */
-    String getKey2();
+    java.lang.String getKey2();
     /**
      * <code>string key2 = 6;</code>
      * @return The bytes for key2.
@@ -99,11 +99,11 @@ public final class UserRegister {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    Common.BaseReq getBaseReq();
+    com.graduate.design.proto.Common.BaseReq getBaseReq();
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    Common.BaseReqOrBuilder getBaseReqOrBuilder();
+    com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder();
   }
   /**
    * Protobuf type {@code UserRegisterRequest}
@@ -126,14 +126,14 @@ public final class UserRegister {
       key2_ = "";
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UserRegisterRequest();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -144,7 +144,7 @@ public final class UserRegister {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -157,47 +157,47 @@ public final class UserRegister {
               done = true;
               break;
             case 10: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               userName_ = s;
               break;
             }
             case 18: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               hashId_ = s;
               break;
             }
             case 26: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               email_ = s;
               break;
             }
             case 34: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               biIndex_ = s;
               break;
             }
             case 42: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key1_ = s;
               break;
             }
             case 50: {
-              String s = input.readStringRequireUtf8();
+              java.lang.String s = input.readStringRequireUtf8();
 
               key2_ = s;
               break;
             }
             case 2042: {
-              Common.BaseReq.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseReq.Builder subBuilder = null;
               if (baseReq_ != null) {
                 subBuilder = baseReq_.toBuilder();
               }
-              baseReq_ = input.readMessage(Common.BaseReq.parser(), extensionRegistry);
+              baseReq_ = input.readMessage(com.graduate.design.proto.Common.BaseReq.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseReq_);
                 baseReq_ = subBuilder.buildPartial();
@@ -226,32 +226,32 @@ public final class UserRegister {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UserRegister.internal_static_UserRegisterRequest_descriptor;
+      return com.graduate.design.proto.UserRegister.internal_static_UserRegisterRequest_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UserRegister.internal_static_UserRegisterRequest_fieldAccessorTable
+      return com.graduate.design.proto.UserRegister.internal_static_UserRegisterRequest_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UserRegisterRequest.class, Builder.class);
+              com.graduate.design.proto.UserRegister.UserRegisterRequest.class, com.graduate.design.proto.UserRegister.UserRegisterRequest.Builder.class);
     }
 
     public static final int USERNAME_FIELD_NUMBER = 1;
-    private volatile Object userName_;
+    private volatile java.lang.Object userName_;
     /**
      * <code>string userName = 1;</code>
      * @return The userName.
      */
-    @Override
-    public String getUserName() {
-      Object ref = userName_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getUserName() {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         userName_ = s;
         return s;
       }
@@ -260,14 +260,14 @@ public final class UserRegister {
      * <code>string userName = 1;</code>
      * @return The bytes for userName.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getUserNameBytes() {
-      Object ref = userName_;
-      if (ref instanceof String) {
+      java.lang.Object ref = userName_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         userName_ = b;
         return b;
       } else {
@@ -276,20 +276,20 @@ public final class UserRegister {
     }
 
     public static final int HASHID_FIELD_NUMBER = 2;
-    private volatile Object hashId_;
+    private volatile java.lang.Object hashId_;
     /**
      * <code>string hashId = 2;</code>
      * @return The hashId.
      */
-    @Override
-    public String getHashId() {
-      Object ref = hashId_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getHashId() {
+      java.lang.Object ref = hashId_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         hashId_ = s;
         return s;
       }
@@ -298,14 +298,14 @@ public final class UserRegister {
      * <code>string hashId = 2;</code>
      * @return The bytes for hashId.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getHashIdBytes() {
-      Object ref = hashId_;
-      if (ref instanceof String) {
+      java.lang.Object ref = hashId_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         hashId_ = b;
         return b;
       } else {
@@ -314,20 +314,20 @@ public final class UserRegister {
     }
 
     public static final int EMAIL_FIELD_NUMBER = 3;
-    private volatile Object email_;
+    private volatile java.lang.Object email_;
     /**
      * <code>string email = 3;</code>
      * @return The email.
      */
-    @Override
-    public String getEmail() {
-      Object ref = email_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getEmail() {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         email_ = s;
         return s;
       }
@@ -336,14 +336,14 @@ public final class UserRegister {
      * <code>string email = 3;</code>
      * @return The bytes for email.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getEmailBytes() {
-      Object ref = email_;
-      if (ref instanceof String) {
+      java.lang.Object ref = email_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         email_ = b;
         return b;
       } else {
@@ -352,20 +352,20 @@ public final class UserRegister {
     }
 
     public static final int BIINDEX_FIELD_NUMBER = 4;
-    private volatile Object biIndex_;
+    private volatile java.lang.Object biIndex_;
     /**
      * <code>string biIndex = 4;</code>
      * @return The biIndex.
      */
-    @Override
-    public String getBiIndex() {
-      Object ref = biIndex_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getBiIndex() {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         biIndex_ = s;
         return s;
       }
@@ -374,14 +374,14 @@ public final class UserRegister {
      * <code>string biIndex = 4;</code>
      * @return The bytes for biIndex.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getBiIndexBytes() {
-      Object ref = biIndex_;
-      if (ref instanceof String) {
+      java.lang.Object ref = biIndex_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         biIndex_ = b;
         return b;
       } else {
@@ -390,20 +390,20 @@ public final class UserRegister {
     }
 
     public static final int KEY1_FIELD_NUMBER = 5;
-    private volatile Object key1_;
+    private volatile java.lang.Object key1_;
     /**
      * <code>string key1 = 5;</code>
      * @return The key1.
      */
-    @Override
-    public String getKey1() {
-      Object ref = key1_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getKey1() {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key1_ = s;
         return s;
       }
@@ -412,14 +412,14 @@ public final class UserRegister {
      * <code>string key1 = 5;</code>
      * @return The bytes for key1.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKey1Bytes() {
-      Object ref = key1_;
-      if (ref instanceof String) {
+      java.lang.Object ref = key1_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key1_ = b;
         return b;
       } else {
@@ -428,20 +428,20 @@ public final class UserRegister {
     }
 
     public static final int KEY2_FIELD_NUMBER = 6;
-    private volatile Object key2_;
+    private volatile java.lang.Object key2_;
     /**
      * <code>string key2 = 6;</code>
      * @return The key2.
      */
-    @Override
-    public String getKey2() {
-      Object ref = key2_;
-      if (ref instanceof String) {
-        return (String) ref;
+    @java.lang.Override
+    public java.lang.String getKey2() {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
       } else {
         com.google.protobuf.ByteString bs = 
             (com.google.protobuf.ByteString) ref;
-        String s = bs.toStringUtf8();
+        java.lang.String s = bs.toStringUtf8();
         key2_ = s;
         return s;
       }
@@ -450,14 +450,14 @@ public final class UserRegister {
      * <code>string key2 = 6;</code>
      * @return The bytes for key2.
      */
-    @Override
+    @java.lang.Override
     public com.google.protobuf.ByteString
         getKey2Bytes() {
-      Object ref = key2_;
-      if (ref instanceof String) {
+      java.lang.Object ref = key2_;
+      if (ref instanceof java.lang.String) {
         com.google.protobuf.ByteString b = 
             com.google.protobuf.ByteString.copyFromUtf8(
-                (String) ref);
+                (java.lang.String) ref);
         key2_ = b;
         return b;
       } else {
@@ -466,12 +466,12 @@ public final class UserRegister {
     }
 
     public static final int BASEREQ_FIELD_NUMBER = 255;
-    private Common.BaseReq baseReq_;
+    private com.graduate.design.proto.Common.BaseReq baseReq_;
     /**
      * <code>.BaseReq baseReq = 255;</code>
      * @return Whether the baseReq field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseReq() {
       return baseReq_ != null;
     }
@@ -479,20 +479,20 @@ public final class UserRegister {
      * <code>.BaseReq baseReq = 255;</code>
      * @return The baseReq.
      */
-    @Override
-    public Common.BaseReq getBaseReq() {
-      return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReq getBaseReq() {
+      return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
     }
     /**
      * <code>.BaseReq baseReq = 255;</code>
      */
-    @Override
-    public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
       return getBaseReq();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -502,7 +502,7 @@ public final class UserRegister {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (!com.google.protobuf.GeneratedMessageV3.isStringEmpty(userName_)) {
@@ -529,7 +529,7 @@ public final class UserRegister {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -562,15 +562,15 @@ public final class UserRegister {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UserRegisterRequest)) {
+      if (!(obj instanceof com.graduate.design.proto.UserRegister.UserRegisterRequest)) {
         return super.equals(obj);
       }
-      UserRegisterRequest other = (UserRegisterRequest) obj;
+      com.graduate.design.proto.UserRegister.UserRegisterRequest other = (com.graduate.design.proto.UserRegister.UserRegisterRequest) obj;
 
       if (!getUserName()
           .equals(other.getUserName())) return false;
@@ -593,7 +593,7 @@ public final class UserRegister {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -621,69 +621,69 @@ public final class UserRegister {
       return hash;
     }
 
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserRegisterRequest parseFrom(byte[] data)
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserRegisterRequest parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserRegisterRequest parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UserRegisterRequest parseDelimitedFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserRegisterRequest parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -691,23 +691,23 @@ public final class UserRegister {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UserRegisterRequest prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.UserRegister.UserRegisterRequest prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -717,18 +717,18 @@ public final class UserRegister {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UserRegisterRequest)
-        UserRegisterRequestOrBuilder {
+        com.graduate.design.proto.UserRegister.UserRegisterRequestOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UserRegister.internal_static_UserRegisterRequest_descriptor;
+        return com.graduate.design.proto.UserRegister.internal_static_UserRegisterRequest_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UserRegister.internal_static_UserRegisterRequest_fieldAccessorTable
+        return com.graduate.design.proto.UserRegister.internal_static_UserRegisterRequest_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UserRegisterRequest.class, Builder.class);
+                com.graduate.design.proto.UserRegister.UserRegisterRequest.class, com.graduate.design.proto.UserRegister.UserRegisterRequest.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.UserRegister.UserRegisterRequest.newBuilder()
@@ -737,7 +737,7 @@ public final class UserRegister {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -746,7 +746,7 @@ public final class UserRegister {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         userName_ = "";
@@ -770,29 +770,29 @@ public final class UserRegister {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UserRegister.internal_static_UserRegisterRequest_descriptor;
+        return com.graduate.design.proto.UserRegister.internal_static_UserRegisterRequest_descriptor;
       }
 
-      @Override
-      public UserRegisterRequest getDefaultInstanceForType() {
-        return UserRegisterRequest.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.UserRegister.UserRegisterRequest getDefaultInstanceForType() {
+        return com.graduate.design.proto.UserRegister.UserRegisterRequest.getDefaultInstance();
       }
 
-      @Override
-      public UserRegisterRequest build() {
-        UserRegisterRequest result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.UserRegister.UserRegisterRequest build() {
+        com.graduate.design.proto.UserRegister.UserRegisterRequest result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UserRegisterRequest buildPartial() {
-        UserRegisterRequest result = new UserRegisterRequest(this);
+      @java.lang.Override
+      public com.graduate.design.proto.UserRegister.UserRegisterRequest buildPartial() {
+        com.graduate.design.proto.UserRegister.UserRegisterRequest result = new com.graduate.design.proto.UserRegister.UserRegisterRequest(this);
         result.userName_ = userName_;
         result.hashId_ = hashId_;
         result.email_ = email_;
@@ -808,50 +808,50 @@ public final class UserRegister {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UserRegisterRequest) {
-          return mergeFrom((UserRegisterRequest)other);
+        if (other instanceof com.graduate.design.proto.UserRegister.UserRegisterRequest) {
+          return mergeFrom((com.graduate.design.proto.UserRegister.UserRegisterRequest)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UserRegisterRequest other) {
-        if (other == UserRegisterRequest.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.UserRegister.UserRegisterRequest other) {
+        if (other == com.graduate.design.proto.UserRegister.UserRegisterRequest.getDefaultInstance()) return this;
         if (!other.getUserName().isEmpty()) {
           userName_ = other.userName_;
           onChanged();
@@ -884,21 +884,21 @@ public final class UserRegister {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UserRegisterRequest parsedMessage = null;
+        com.graduate.design.proto.UserRegister.UserRegisterRequest parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UserRegisterRequest) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.UserRegister.UserRegisterRequest) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -908,21 +908,21 @@ public final class UserRegister {
         return this;
       }
 
-      private Object userName_ = "";
+      private java.lang.Object userName_ = "";
       /**
        * <code>string userName = 1;</code>
        * @return The userName.
        */
-      public String getUserName() {
-        Object ref = userName_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getUserName() {
+        java.lang.Object ref = userName_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           userName_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -931,11 +931,11 @@ public final class UserRegister {
        */
       public com.google.protobuf.ByteString
           getUserNameBytes() {
-        Object ref = userName_;
+        java.lang.Object ref = userName_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           userName_ = b;
           return b;
         } else {
@@ -948,7 +948,7 @@ public final class UserRegister {
        * @return This builder for chaining.
        */
       public Builder setUserName(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -984,21 +984,21 @@ public final class UserRegister {
         return this;
       }
 
-      private Object hashId_ = "";
+      private java.lang.Object hashId_ = "";
       /**
        * <code>string hashId = 2;</code>
        * @return The hashId.
        */
-      public String getHashId() {
-        Object ref = hashId_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getHashId() {
+        java.lang.Object ref = hashId_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           hashId_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1007,11 +1007,11 @@ public final class UserRegister {
        */
       public com.google.protobuf.ByteString
           getHashIdBytes() {
-        Object ref = hashId_;
+        java.lang.Object ref = hashId_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           hashId_ = b;
           return b;
         } else {
@@ -1024,7 +1024,7 @@ public final class UserRegister {
        * @return This builder for chaining.
        */
       public Builder setHashId(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1060,21 +1060,21 @@ public final class UserRegister {
         return this;
       }
 
-      private Object email_ = "";
+      private java.lang.Object email_ = "";
       /**
        * <code>string email = 3;</code>
        * @return The email.
        */
-      public String getEmail() {
-        Object ref = email_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getEmail() {
+        java.lang.Object ref = email_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           email_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1083,11 +1083,11 @@ public final class UserRegister {
        */
       public com.google.protobuf.ByteString
           getEmailBytes() {
-        Object ref = email_;
+        java.lang.Object ref = email_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           email_ = b;
           return b;
         } else {
@@ -1100,7 +1100,7 @@ public final class UserRegister {
        * @return This builder for chaining.
        */
       public Builder setEmail(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1136,21 +1136,21 @@ public final class UserRegister {
         return this;
       }
 
-      private Object biIndex_ = "";
+      private java.lang.Object biIndex_ = "";
       /**
        * <code>string biIndex = 4;</code>
        * @return The biIndex.
        */
-      public String getBiIndex() {
-        Object ref = biIndex_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getBiIndex() {
+        java.lang.Object ref = biIndex_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           biIndex_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1159,11 +1159,11 @@ public final class UserRegister {
        */
       public com.google.protobuf.ByteString
           getBiIndexBytes() {
-        Object ref = biIndex_;
+        java.lang.Object ref = biIndex_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           biIndex_ = b;
           return b;
         } else {
@@ -1176,7 +1176,7 @@ public final class UserRegister {
        * @return This builder for chaining.
        */
       public Builder setBiIndex(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1212,21 +1212,21 @@ public final class UserRegister {
         return this;
       }
 
-      private Object key1_ = "";
+      private java.lang.Object key1_ = "";
       /**
        * <code>string key1 = 5;</code>
        * @return The key1.
        */
-      public String getKey1() {
-        Object ref = key1_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey1() {
+        java.lang.Object ref = key1_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key1_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1235,11 +1235,11 @@ public final class UserRegister {
        */
       public com.google.protobuf.ByteString
           getKey1Bytes() {
-        Object ref = key1_;
+        java.lang.Object ref = key1_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key1_ = b;
           return b;
         } else {
@@ -1252,7 +1252,7 @@ public final class UserRegister {
        * @return This builder for chaining.
        */
       public Builder setKey1(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1288,21 +1288,21 @@ public final class UserRegister {
         return this;
       }
 
-      private Object key2_ = "";
+      private java.lang.Object key2_ = "";
       /**
        * <code>string key2 = 6;</code>
        * @return The key2.
        */
-      public String getKey2() {
-        Object ref = key2_;
-        if (!(ref instanceof String)) {
+      public java.lang.String getKey2() {
+        java.lang.Object ref = key2_;
+        if (!(ref instanceof java.lang.String)) {
           com.google.protobuf.ByteString bs =
               (com.google.protobuf.ByteString) ref;
-          String s = bs.toStringUtf8();
+          java.lang.String s = bs.toStringUtf8();
           key2_ = s;
           return s;
         } else {
-          return (String) ref;
+          return (java.lang.String) ref;
         }
       }
       /**
@@ -1311,11 +1311,11 @@ public final class UserRegister {
        */
       public com.google.protobuf.ByteString
           getKey2Bytes() {
-        Object ref = key2_;
+        java.lang.Object ref = key2_;
         if (ref instanceof String) {
           com.google.protobuf.ByteString b = 
               com.google.protobuf.ByteString.copyFromUtf8(
-                  (String) ref);
+                  (java.lang.String) ref);
           key2_ = b;
           return b;
         } else {
@@ -1328,7 +1328,7 @@ public final class UserRegister {
        * @return This builder for chaining.
        */
       public Builder setKey2(
-          String value) {
+          java.lang.String value) {
         if (value == null) {
     throw new NullPointerException();
   }
@@ -1364,9 +1364,9 @@ public final class UserRegister {
         return this;
       }
 
-      private Common.BaseReq baseReq_;
+      private com.graduate.design.proto.Common.BaseReq baseReq_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder> baseReqBuilder_;
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> baseReqBuilder_;
       /**
        * <code>.BaseReq baseReq = 255;</code>
        * @return Whether the baseReq field is set.
@@ -1378,9 +1378,9 @@ public final class UserRegister {
        * <code>.BaseReq baseReq = 255;</code>
        * @return The baseReq.
        */
-      public Common.BaseReq getBaseReq() {
+      public com.graduate.design.proto.Common.BaseReq getBaseReq() {
         if (baseReqBuilder_ == null) {
-          return baseReq_ == null ? Common.BaseReq.getDefaultInstance() : baseReq_;
+          return baseReq_ == null ? com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         } else {
           return baseReqBuilder_.getMessage();
         }
@@ -1388,7 +1388,7 @@ public final class UserRegister {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder setBaseReq(Common.BaseReq value) {
+      public Builder setBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -1405,7 +1405,7 @@ public final class UserRegister {
        * <code>.BaseReq baseReq = 255;</code>
        */
       public Builder setBaseReq(
-          Common.BaseReq.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseReq.Builder builderForValue) {
         if (baseReqBuilder_ == null) {
           baseReq_ = builderForValue.build();
           onChanged();
@@ -1418,11 +1418,11 @@ public final class UserRegister {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Builder mergeBaseReq(Common.BaseReq value) {
+      public Builder mergeBaseReq(com.graduate.design.proto.Common.BaseReq value) {
         if (baseReqBuilder_ == null) {
           if (baseReq_ != null) {
             baseReq_ =
-              Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseReq.newBuilder(baseReq_).mergeFrom(value).buildPartial();
           } else {
             baseReq_ = value;
           }
@@ -1450,7 +1450,7 @@ public final class UserRegister {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReq.Builder getBaseReqBuilder() {
+      public com.graduate.design.proto.Common.BaseReq.Builder getBaseReqBuilder() {
         
         onChanged();
         return getBaseReqFieldBuilder().getBuilder();
@@ -1458,23 +1458,23 @@ public final class UserRegister {
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
-      public Common.BaseReqOrBuilder getBaseReqOrBuilder() {
+      public com.graduate.design.proto.Common.BaseReqOrBuilder getBaseReqOrBuilder() {
         if (baseReqBuilder_ != null) {
           return baseReqBuilder_.getMessageOrBuilder();
         } else {
           return baseReq_ == null ?
-              Common.BaseReq.getDefaultInstance() : baseReq_;
+              com.graduate.design.proto.Common.BaseReq.getDefaultInstance() : baseReq_;
         }
       }
       /**
        * <code>.BaseReq baseReq = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>
+          com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder> 
           getBaseReqFieldBuilder() {
         if (baseReqBuilder_ == null) {
           baseReqBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseReq, Common.BaseReq.Builder, Common.BaseReqOrBuilder>(
+              com.graduate.design.proto.Common.BaseReq, com.graduate.design.proto.Common.BaseReq.Builder, com.graduate.design.proto.Common.BaseReqOrBuilder>(
                   getBaseReq(),
                   getParentForChildren(),
                   isClean());
@@ -1482,13 +1482,13 @@ public final class UserRegister {
         }
         return baseReqBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -1499,18 +1499,18 @@ public final class UserRegister {
     }
 
     // @@protoc_insertion_point(class_scope:UserRegisterRequest)
-    private static final UserRegisterRequest DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.UserRegister.UserRegisterRequest DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UserRegisterRequest();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.UserRegister.UserRegisterRequest();
     }
 
-    public static UserRegisterRequest getDefaultInstance() {
+    public static com.graduate.design.proto.UserRegister.UserRegisterRequest getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UserRegisterRequest>
         PARSER = new com.google.protobuf.AbstractParser<UserRegisterRequest>() {
-      @Override
+      @java.lang.Override
       public UserRegisterRequest parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -1523,13 +1523,13 @@ public final class UserRegister {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UserRegisterRequest> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UserRegisterRequest getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.UserRegister.UserRegisterRequest getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -1548,11 +1548,11 @@ public final class UserRegister {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    Common.BaseResp getBaseResp();
+    com.graduate.design.proto.Common.BaseResp getBaseResp();
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    Common.BaseRespOrBuilder getBaseRespOrBuilder();
+    com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder();
   }
   /**
    * Protobuf type {@code UserRegisterResponse}
@@ -1569,14 +1569,14 @@ public final class UserRegister {
     private UserRegisterResponse() {
     }
 
-    @Override
+    @java.lang.Override
     @SuppressWarnings({"unused"})
-    protected Object newInstance(
+    protected java.lang.Object newInstance(
         UnusedPrivateParameter unused) {
       return new UserRegisterResponse();
     }
 
-    @Override
+    @java.lang.Override
     public final com.google.protobuf.UnknownFieldSet
     getUnknownFields() {
       return this.unknownFields;
@@ -1587,7 +1587,7 @@ public final class UserRegister {
         throws com.google.protobuf.InvalidProtocolBufferException {
       this();
       if (extensionRegistry == null) {
-        throw new NullPointerException();
+        throw new java.lang.NullPointerException();
       }
       com.google.protobuf.UnknownFieldSet.Builder unknownFields =
           com.google.protobuf.UnknownFieldSet.newBuilder();
@@ -1600,11 +1600,11 @@ public final class UserRegister {
               done = true;
               break;
             case 2042: {
-              Common.BaseResp.Builder subBuilder = null;
+              com.graduate.design.proto.Common.BaseResp.Builder subBuilder = null;
               if (baseResp_ != null) {
                 subBuilder = baseResp_.toBuilder();
               }
-              baseResp_ = input.readMessage(Common.BaseResp.parser(), extensionRegistry);
+              baseResp_ = input.readMessage(com.graduate.design.proto.Common.BaseResp.parser(), extensionRegistry);
               if (subBuilder != null) {
                 subBuilder.mergeFrom(baseResp_);
                 baseResp_ = subBuilder.buildPartial();
@@ -1633,24 +1633,24 @@ public final class UserRegister {
     }
     public static final com.google.protobuf.Descriptors.Descriptor
         getDescriptor() {
-      return UserRegister.internal_static_UserRegisterResponse_descriptor;
+      return com.graduate.design.proto.UserRegister.internal_static_UserRegisterResponse_descriptor;
     }
 
-    @Override
-    protected FieldAccessorTable
+    @java.lang.Override
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
         internalGetFieldAccessorTable() {
-      return UserRegister.internal_static_UserRegisterResponse_fieldAccessorTable
+      return com.graduate.design.proto.UserRegister.internal_static_UserRegisterResponse_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
-              UserRegisterResponse.class, Builder.class);
+              com.graduate.design.proto.UserRegister.UserRegisterResponse.class, com.graduate.design.proto.UserRegister.UserRegisterResponse.Builder.class);
     }
 
     public static final int BASERESP_FIELD_NUMBER = 255;
-    private Common.BaseResp baseResp_;
+    private com.graduate.design.proto.Common.BaseResp baseResp_;
     /**
      * <code>.BaseResp baseResp = 255;</code>
      * @return Whether the baseResp field is set.
      */
-    @Override
+    @java.lang.Override
     public boolean hasBaseResp() {
       return baseResp_ != null;
     }
@@ -1658,20 +1658,20 @@ public final class UserRegister {
      * <code>.BaseResp baseResp = 255;</code>
      * @return The baseResp.
      */
-    @Override
-    public Common.BaseResp getBaseResp() {
-      return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseResp getBaseResp() {
+      return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
     }
     /**
      * <code>.BaseResp baseResp = 255;</code>
      */
-    @Override
-    public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+    @java.lang.Override
+    public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
       return getBaseResp();
     }
 
     private byte memoizedIsInitialized = -1;
-    @Override
+    @java.lang.Override
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
       if (isInitialized == 1) return true;
@@ -1681,7 +1681,7 @@ public final class UserRegister {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
       if (baseResp_ != null) {
@@ -1690,7 +1690,7 @@ public final class UserRegister {
       unknownFields.writeTo(output);
     }
 
-    @Override
+    @java.lang.Override
     public int getSerializedSize() {
       int size = memoizedSize;
       if (size != -1) return size;
@@ -1705,15 +1705,15 @@ public final class UserRegister {
       return size;
     }
 
-    @Override
-    public boolean equals(final Object obj) {
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
       if (obj == this) {
        return true;
       }
-      if (!(obj instanceof UserRegisterResponse)) {
+      if (!(obj instanceof com.graduate.design.proto.UserRegister.UserRegisterResponse)) {
         return super.equals(obj);
       }
-      UserRegisterResponse other = (UserRegisterResponse) obj;
+      com.graduate.design.proto.UserRegister.UserRegisterResponse other = (com.graduate.design.proto.UserRegister.UserRegisterResponse) obj;
 
       if (hasBaseResp() != other.hasBaseResp()) return false;
       if (hasBaseResp()) {
@@ -1724,7 +1724,7 @@ public final class UserRegister {
       return true;
     }
 
-    @Override
+    @java.lang.Override
     public int hashCode() {
       if (memoizedHashCode != 0) {
         return memoizedHashCode;
@@ -1740,69 +1740,69 @@ public final class UserRegister {
       return hash;
     }
 
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         java.nio.ByteBuffer data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         java.nio.ByteBuffer data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         com.google.protobuf.ByteString data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         com.google.protobuf.ByteString data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserRegisterResponse parseFrom(byte[] data)
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(byte[] data)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         byte[] data,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws com.google.protobuf.InvalidProtocolBufferException {
       return PARSER.parseFrom(data, extensionRegistry);
     }
-    public static UserRegisterResponse parseFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserRegisterResponse parseDelimitedFrom(java.io.InputStream input)
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseDelimitedFrom(java.io.InputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input);
     }
-    public static UserRegisterResponse parseDelimitedFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseDelimitedFrom(
         java.io.InputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         com.google.protobuf.CodedInputStream input)
         throws java.io.IOException {
       return com.google.protobuf.GeneratedMessageV3
           .parseWithIOException(PARSER, input);
     }
-    public static UserRegisterResponse parseFrom(
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse parseFrom(
         com.google.protobuf.CodedInputStream input,
         com.google.protobuf.ExtensionRegistryLite extensionRegistry)
         throws java.io.IOException {
@@ -1810,23 +1810,23 @@ public final class UserRegister {
           .parseWithIOException(PARSER, input, extensionRegistry);
     }
 
-    @Override
+    @java.lang.Override
     public Builder newBuilderForType() { return newBuilder(); }
     public static Builder newBuilder() {
       return DEFAULT_INSTANCE.toBuilder();
     }
-    public static Builder newBuilder(UserRegisterResponse prototype) {
+    public static Builder newBuilder(com.graduate.design.proto.UserRegister.UserRegisterResponse prototype) {
       return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
     }
-    @Override
+    @java.lang.Override
     public Builder toBuilder() {
       return this == DEFAULT_INSTANCE
           ? new Builder() : new Builder().mergeFrom(this);
     }
 
-    @Override
+    @java.lang.Override
     protected Builder newBuilderForType(
-        BuilderParent parent) {
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
       Builder builder = new Builder(parent);
       return builder;
     }
@@ -1836,18 +1836,18 @@ public final class UserRegister {
     public static final class Builder extends
         com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
         // @@protoc_insertion_point(builder_implements:UserRegisterResponse)
-        UserRegisterResponseOrBuilder {
+        com.graduate.design.proto.UserRegister.UserRegisterResponseOrBuilder {
       public static final com.google.protobuf.Descriptors.Descriptor
           getDescriptor() {
-        return UserRegister.internal_static_UserRegisterResponse_descriptor;
+        return com.graduate.design.proto.UserRegister.internal_static_UserRegisterResponse_descriptor;
       }
 
-      @Override
-      protected FieldAccessorTable
+      @java.lang.Override
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
           internalGetFieldAccessorTable() {
-        return UserRegister.internal_static_UserRegisterResponse_fieldAccessorTable
+        return com.graduate.design.proto.UserRegister.internal_static_UserRegisterResponse_fieldAccessorTable
             .ensureFieldAccessorsInitialized(
-                UserRegisterResponse.class, Builder.class);
+                com.graduate.design.proto.UserRegister.UserRegisterResponse.class, com.graduate.design.proto.UserRegister.UserRegisterResponse.Builder.class);
       }
 
       // Construct using com.graduate.design.proto.UserRegister.UserRegisterResponse.newBuilder()
@@ -1856,7 +1856,7 @@ public final class UserRegister {
       }
 
       private Builder(
-          BuilderParent parent) {
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
         super(parent);
         maybeForceBuilderInitialization();
       }
@@ -1865,7 +1865,7 @@ public final class UserRegister {
                 .alwaysUseFieldBuilders) {
         }
       }
-      @Override
+      @java.lang.Override
       public Builder clear() {
         super.clear();
         if (baseRespBuilder_ == null) {
@@ -1877,29 +1877,29 @@ public final class UserRegister {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public com.google.protobuf.Descriptors.Descriptor
           getDescriptorForType() {
-        return UserRegister.internal_static_UserRegisterResponse_descriptor;
+        return com.graduate.design.proto.UserRegister.internal_static_UserRegisterResponse_descriptor;
       }
 
-      @Override
-      public UserRegisterResponse getDefaultInstanceForType() {
-        return UserRegisterResponse.getDefaultInstance();
+      @java.lang.Override
+      public com.graduate.design.proto.UserRegister.UserRegisterResponse getDefaultInstanceForType() {
+        return com.graduate.design.proto.UserRegister.UserRegisterResponse.getDefaultInstance();
       }
 
-      @Override
-      public UserRegisterResponse build() {
-        UserRegisterResponse result = buildPartial();
+      @java.lang.Override
+      public com.graduate.design.proto.UserRegister.UserRegisterResponse build() {
+        com.graduate.design.proto.UserRegister.UserRegisterResponse result = buildPartial();
         if (!result.isInitialized()) {
           throw newUninitializedMessageException(result);
         }
         return result;
       }
 
-      @Override
-      public UserRegisterResponse buildPartial() {
-        UserRegisterResponse result = new UserRegisterResponse(this);
+      @java.lang.Override
+      public com.graduate.design.proto.UserRegister.UserRegisterResponse buildPartial() {
+        com.graduate.design.proto.UserRegister.UserRegisterResponse result = new com.graduate.design.proto.UserRegister.UserRegisterResponse(this);
         if (baseRespBuilder_ == null) {
           result.baseResp_ = baseResp_;
         } else {
@@ -1909,50 +1909,50 @@ public final class UserRegister {
         return result;
       }
 
-      @Override
+      @java.lang.Override
       public Builder clone() {
         return super.clone();
       }
-      @Override
+      @java.lang.Override
       public Builder setField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.setField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder clearField(
           com.google.protobuf.Descriptors.FieldDescriptor field) {
         return super.clearField(field);
       }
-      @Override
+      @java.lang.Override
       public Builder clearOneof(
           com.google.protobuf.Descriptors.OneofDescriptor oneof) {
         return super.clearOneof(oneof);
       }
-      @Override
+      @java.lang.Override
       public Builder setRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
+          int index, java.lang.Object value) {
         return super.setRepeatedField(field, index, value);
       }
-      @Override
+      @java.lang.Override
       public Builder addRepeatedField(
           com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
+          java.lang.Object value) {
         return super.addRepeatedField(field, value);
       }
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof UserRegisterResponse) {
-          return mergeFrom((UserRegisterResponse)other);
+        if (other instanceof com.graduate.design.proto.UserRegister.UserRegisterResponse) {
+          return mergeFrom((com.graduate.design.proto.UserRegister.UserRegisterResponse)other);
         } else {
           super.mergeFrom(other);
           return this;
         }
       }
 
-      public Builder mergeFrom(UserRegisterResponse other) {
-        if (other == UserRegisterResponse.getDefaultInstance()) return this;
+      public Builder mergeFrom(com.graduate.design.proto.UserRegister.UserRegisterResponse other) {
+        if (other == com.graduate.design.proto.UserRegister.UserRegisterResponse.getDefaultInstance()) return this;
         if (other.hasBaseResp()) {
           mergeBaseResp(other.getBaseResp());
         }
@@ -1961,21 +1961,21 @@ public final class UserRegister {
         return this;
       }
 
-      @Override
+      @java.lang.Override
       public final boolean isInitialized() {
         return true;
       }
 
-      @Override
+      @java.lang.Override
       public Builder mergeFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
           throws java.io.IOException {
-        UserRegisterResponse parsedMessage = null;
+        com.graduate.design.proto.UserRegister.UserRegisterResponse parsedMessage = null;
         try {
           parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
         } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (UserRegisterResponse) e.getUnfinishedMessage();
+          parsedMessage = (com.graduate.design.proto.UserRegister.UserRegisterResponse) e.getUnfinishedMessage();
           throw e.unwrapIOException();
         } finally {
           if (parsedMessage != null) {
@@ -1985,9 +1985,9 @@ public final class UserRegister {
         return this;
       }
 
-      private Common.BaseResp baseResp_;
+      private com.graduate.design.proto.Common.BaseResp baseResp_;
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder> baseRespBuilder_;
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> baseRespBuilder_;
       /**
        * <code>.BaseResp baseResp = 255;</code>
        * @return Whether the baseResp field is set.
@@ -1999,9 +1999,9 @@ public final class UserRegister {
        * <code>.BaseResp baseResp = 255;</code>
        * @return The baseResp.
        */
-      public Common.BaseResp getBaseResp() {
+      public com.graduate.design.proto.Common.BaseResp getBaseResp() {
         if (baseRespBuilder_ == null) {
-          return baseResp_ == null ? Common.BaseResp.getDefaultInstance() : baseResp_;
+          return baseResp_ == null ? com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         } else {
           return baseRespBuilder_.getMessage();
         }
@@ -2009,7 +2009,7 @@ public final class UserRegister {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder setBaseResp(Common.BaseResp value) {
+      public Builder setBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (value == null) {
             throw new NullPointerException();
@@ -2026,7 +2026,7 @@ public final class UserRegister {
        * <code>.BaseResp baseResp = 255;</code>
        */
       public Builder setBaseResp(
-          Common.BaseResp.Builder builderForValue) {
+          com.graduate.design.proto.Common.BaseResp.Builder builderForValue) {
         if (baseRespBuilder_ == null) {
           baseResp_ = builderForValue.build();
           onChanged();
@@ -2039,11 +2039,11 @@ public final class UserRegister {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Builder mergeBaseResp(Common.BaseResp value) {
+      public Builder mergeBaseResp(com.graduate.design.proto.Common.BaseResp value) {
         if (baseRespBuilder_ == null) {
           if (baseResp_ != null) {
             baseResp_ =
-              Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
+              com.graduate.design.proto.Common.BaseResp.newBuilder(baseResp_).mergeFrom(value).buildPartial();
           } else {
             baseResp_ = value;
           }
@@ -2071,7 +2071,7 @@ public final class UserRegister {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseResp.Builder getBaseRespBuilder() {
+      public com.graduate.design.proto.Common.BaseResp.Builder getBaseRespBuilder() {
         
         onChanged();
         return getBaseRespFieldBuilder().getBuilder();
@@ -2079,23 +2079,23 @@ public final class UserRegister {
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
-      public Common.BaseRespOrBuilder getBaseRespOrBuilder() {
+      public com.graduate.design.proto.Common.BaseRespOrBuilder getBaseRespOrBuilder() {
         if (baseRespBuilder_ != null) {
           return baseRespBuilder_.getMessageOrBuilder();
         } else {
           return baseResp_ == null ?
-              Common.BaseResp.getDefaultInstance() : baseResp_;
+              com.graduate.design.proto.Common.BaseResp.getDefaultInstance() : baseResp_;
         }
       }
       /**
        * <code>.BaseResp baseResp = 255;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
-          Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>
+          com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder> 
           getBaseRespFieldBuilder() {
         if (baseRespBuilder_ == null) {
           baseRespBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
-              Common.BaseResp, Common.BaseResp.Builder, Common.BaseRespOrBuilder>(
+              com.graduate.design.proto.Common.BaseResp, com.graduate.design.proto.Common.BaseResp.Builder, com.graduate.design.proto.Common.BaseRespOrBuilder>(
                   getBaseResp(),
                   getParentForChildren(),
                   isClean());
@@ -2103,13 +2103,13 @@ public final class UserRegister {
         }
         return baseRespBuilder_;
       }
-      @Override
+      @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.setUnknownFields(unknownFields);
       }
 
-      @Override
+      @java.lang.Override
       public final Builder mergeUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
         return super.mergeUnknownFields(unknownFields);
@@ -2120,18 +2120,18 @@ public final class UserRegister {
     }
 
     // @@protoc_insertion_point(class_scope:UserRegisterResponse)
-    private static final UserRegisterResponse DEFAULT_INSTANCE;
+    private static final com.graduate.design.proto.UserRegister.UserRegisterResponse DEFAULT_INSTANCE;
     static {
-      DEFAULT_INSTANCE = new UserRegisterResponse();
+      DEFAULT_INSTANCE = new com.graduate.design.proto.UserRegister.UserRegisterResponse();
     }
 
-    public static UserRegisterResponse getDefaultInstance() {
+    public static com.graduate.design.proto.UserRegister.UserRegisterResponse getDefaultInstance() {
       return DEFAULT_INSTANCE;
     }
 
     private static final com.google.protobuf.Parser<UserRegisterResponse>
         PARSER = new com.google.protobuf.AbstractParser<UserRegisterResponse>() {
-      @Override
+      @java.lang.Override
       public UserRegisterResponse parsePartialFrom(
           com.google.protobuf.CodedInputStream input,
           com.google.protobuf.ExtensionRegistryLite extensionRegistry)
@@ -2144,13 +2144,13 @@ public final class UserRegister {
       return PARSER;
     }
 
-    @Override
+    @java.lang.Override
     public com.google.protobuf.Parser<UserRegisterResponse> getParserForType() {
       return PARSER;
     }
 
-    @Override
-    public UserRegisterResponse getDefaultInstanceForType() {
+    @java.lang.Override
+    public com.graduate.design.proto.UserRegister.UserRegisterResponse getDefaultInstanceForType() {
       return DEFAULT_INSTANCE;
     }
 
@@ -2174,7 +2174,7 @@ public final class UserRegister {
   private static  com.google.protobuf.Descriptors.FileDescriptor
       descriptor;
   static {
-    String[] descriptorData = {
+    java.lang.String[] descriptorData = {
       "\n\023user_register.proto\032\014common.proto\"\217\001\n\023" +
       "UserRegisterRequest\022\020\n\010userName\030\001 \001(\t\022\016\n" +
       "\006hashId\030\002 \001(\t\022\r\n\005email\030\003 \001(\t\022\017\n\007biIndex\030" +
@@ -2187,21 +2187,21 @@ public final class UserRegister {
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
-          Common.getDescriptor(),
+          com.graduate.design.proto.Common.getDescriptor(),
         });
     internal_static_UserRegisterRequest_descriptor =
       getDescriptor().getMessageTypes().get(0);
     internal_static_UserRegisterRequest_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserRegisterRequest_descriptor,
-        new String[] { "UserName", "HashId", "Email", "BiIndex", "Key1", "Key2", "BaseReq", });
+        new java.lang.String[] { "UserName", "HashId", "Email", "BiIndex", "Key1", "Key2", "BaseReq", });
     internal_static_UserRegisterResponse_descriptor =
       getDescriptor().getMessageTypes().get(1);
     internal_static_UserRegisterResponse_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_UserRegisterResponse_descriptor,
-        new String[] { "BaseResp", });
-    Common.getDescriptor();
+        new java.lang.String[] { "BaseResp", });
+    com.graduate.design.proto.Common.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

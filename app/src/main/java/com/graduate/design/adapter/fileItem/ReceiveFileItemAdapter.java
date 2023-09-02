@@ -15,6 +15,8 @@ import android.widget.TextView;
 
 import com.graduate.design.R;
 import com.graduate.design.activity.ReceiveActivity;
+import com.graduate.design.service.UserService;
+import com.graduate.design.service.impl.UserServiceImpl;
 import com.graduate.design.utils.ActivityJumpUtils;
 import com.graduate.design.utils.GraduateDesignApplication;
 import com.graduate.design.utils.ToastUtils;
@@ -33,12 +35,14 @@ public class ReceiveFileItemAdapter extends BaseAdapter {
     private Activity activity;
     private Context context;
     private List<String[]> list;
+    private UserService userService;
 
 
     public ReceiveFileItemAdapter(Context context, Activity activity) {
         this.context = context;
         this.activity = activity;
         list = new ArrayList<>();
+        userService = new UserServiceImpl();
     }
 
     @Override
@@ -69,12 +73,14 @@ public class ReceiveFileItemAdapter extends BaseAdapter {
         // 设置文件名称
         String[] node = list.get(position);
         TextView topName = convertView.findViewById(R.id.top_name);
-        topName.setText(node[0]);
+        topName.setText(node[1]);
 
         // 设置发送者名称
         TextView subInfo = convertView.findViewById(R.id.sub_info);
         // TODO 获取发送设备名
-        subInfo.setText("设备名");
+        if ("0".equals(node[9]))
+            subInfo.setText("from: " + node[2]);
+        else subInfo.setText("create time: " + node[2]);
 
         // 设置"更多"按钮的点击事件
         ImageButton moreButton = convertView.findViewById(R.id.more_btn);
@@ -106,18 +112,24 @@ public class ReceiveFileItemAdapter extends BaseAdapter {
                     private void gotoReceive(){
                         Intent intent = new Intent(activity, ReceiveActivity.class);
                         intent.putExtra("nodeId", GraduateDesignApplication.getUserInfo().getRootId());
-                        intent.putExtra("filename", node[0]);
-                        intent.putExtra("fileContent", node[1]);
-                        intent.putExtra("shareTokenL", node[2]);
-                        intent.putExtra("shareTokenJId", node[3]);
-                        intent.putExtra("shareTokenKId", node[4]);
-                        intent.putExtra("shareTokenFileId", node[5]);
+                        intent.putExtra("type", node[0]);
+                        intent.putExtra("filename", node[1]);
+                        intent.putExtra("from", node[2]);
+                        intent.putExtra("fileSecret", node[3]);
+                        intent.putExtra("shareTokenL", node[4]);
+                        intent.putExtra("shareTokenJId", node[5]);
+                        intent.putExtra("shareTokenKId", node[6]);
+                        intent.putExtra("isShare", node[7]);
+                        intent.putExtra("address", node[8]);
                         ActivityJumpUtils.jumpActivity(activity, intent, 100L, false);
                     }
 
                     // 从接收列表中删除该文件
                     private void delete(){
                         list.remove(node);
+                        if ("1".equals(node[9])){
+                            userService.deleteShareToken(node[10], GraduateDesignApplication.getToken());
+                        }
                         notifyDataSetChanged();
                     }
                 });

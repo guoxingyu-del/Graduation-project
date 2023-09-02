@@ -80,10 +80,8 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
         token = GraduateDesignApplication.getToken();
         activity = (HomeActivity) getActivity();
         context = getContext();
-        long nodeId;
-        if(getArguments()==null) nodeId = GraduateDesignApplication.getUserInfo().getRootId();
-        else nodeId = getArguments().getLong("nodeId");
-        fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, nodeId);
+        if(fileItemAdapter==null)
+            fileItemAdapter = new GetNodeFileItemAdapter(context, R.layout.item_file, -1L);
     }
 
     private void getComponentsById(View view){
@@ -134,22 +132,24 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
             fileItemAdapter.clear();
             // 将搜索关键字用主密钥加密
             String keyword = searchText.getText().toString();
-            // 构造搜索令牌Tw = (L, Jw)
-            SendSearchToken.SearchToken searchToken = encryptionService.getSearchToken(keyword);
-            // 搜索令牌为空，不存在相应文件
-            if(searchToken==null) return;
-            // 根据搜索令牌拿到对应的Cw集合
-            List<String> Cw = userService.sendSearchToken(searchToken, token);
-            // 根据Cw获取节点id
-            List<Long> idList = encryptionService.getNodeIdByCw(Cw, keyword);
-            // 在这里添加一下查找所有存在的节点，并获得差集
-            Set<Long> allDeletedNodes = userService.getAllDeleteNodes(GraduateDesignApplication.getUsername(), token);
-            Set<Long> realSet = new HashSet<>(idList);
-            realSet.removeAll(allDeletedNodes);
-            // 注意处理空集的情况
-            // 根据id获取文件
-//            searchNodes = userService.searchFile(idList, token);
-            searchNodes = userService.searchFile(new ArrayList<>(realSet), token);
+            List<Long> res = new ArrayList<>();
+            // 分词
+            List<String> words = FileUtils.wordSegmentation(keyword);
+            for(String word : words) {
+                // 构造搜索令牌Tw = (L, Jw)
+                SendSearchToken.SearchToken searchToken = encryptionService.getSearchToken(word);
+                // 搜索令牌为空，不存在相应文件
+                if(searchToken==null) continue;
+                // 根据搜索令牌拿到对应的Cw集合
+                List<String> Cw = userService.sendSearchToken(searchToken, token);
+                // 根据Cw获取节点id
+                List<Long> idList = encryptionService.getNodeIdByCw(Cw, word);
+                if(res.size()==0) res.addAll(idList);
+                else res.retainAll(idList);
+            }
+            if(res.size()==0) return;
+            // 获取查询到的节点
+            searchNodes = userService.searchFile(res, token);
             fileItemAdapter.addAllFileItem(searchNodes);
         }
     }
@@ -168,11 +168,18 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
 
     private void showFileContent(int position){
         Common.Node clickedNode = searchNodes.get(position);
-        // 拿取文件内容和对应密钥
-        String fileContent = userService.getNodeContent(clickedNode.getNodeId(), GraduateDesignApplication.getToken());
+        // 拿取文件内容
+        String[] fileContentSecret = userService.getNodeContent(clickedNode.getNodeId(), GraduateDesignApplication.getToken());
+        if(fileContentSecret==null) {
+            ToastUtils.showShortToastCenter("读文件出错");
+            return;
+        }
 
-        if(fileContent==null) {
-            ToastUtils.showShortToastCenter("读取文件出错");
+        String fileContent = fileContentSecret[0];
+        String secret = fileContentSecret[1];
+
+        if(fileContent=="" && secret=="") {
+            ToastUtils.showShortToastCenter("分享源文件已被删除");
             return;
         }
 

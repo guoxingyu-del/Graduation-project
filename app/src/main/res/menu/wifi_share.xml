@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/share_file"
+        android:title="@string/share_file" />
+    <item
+        android:id="@+id/receive_file"
+        android:title="@string/receive_file" />
+</menu>

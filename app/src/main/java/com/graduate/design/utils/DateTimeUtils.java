@@ -10,7 +10,8 @@ public class DateTimeUtils {
     // timeMillis to string
     public static String timerToString(Long timer) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat(STANDARD_FORMAT, Locale.CHINA);
-        return simpleDateFormat.format(timer);
+        String res = simpleDateFormat.format(timer);
+        return res;
     }
 
     // get Current time of string
