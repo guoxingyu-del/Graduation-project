@@ -1,0 +1,19 @@
+---
+MySQL:
+  Host: "127.0.0.1"
+  Port: "3306"
+  User: "root"
+  Passwd: "gxy240014"
+
+Redis:
+  Host: "localhost"
+  Port: "6379"
+  User: ""
+  Passwd: ""
+
+COS:
+  BucketURL: "https://example-1314125883.cos.ap-nanjing.myqcloud.com"
+  ServiceURL: "https://cos.ap-nanjing.myqcloud.com"
+  SecretID: "AKIDIWbWLUVIuOhnly3vZ4PvMcmrneNsAKMM"
+  SecretKey: "ZMAxmT0DFAvZ3QfjbGmSisdFes48zlQw"
+

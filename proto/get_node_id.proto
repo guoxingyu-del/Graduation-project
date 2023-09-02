@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+import "common.proto";
+
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="GetNodeId";
+option go_package = "./pb_gen";
+
+message GetNodeIdRequest{
+  BaseReq baseReq = 255;
+}
+
+message GetNodeIdResponse{
+  int64 nodeId = 1; // 新建节点id
+
+  BaseResp baseResp = 255;    
+}

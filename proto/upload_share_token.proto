@@ -1,0 +1,17 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = "./pb_gen";
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="UploadShareToken";
+
+message UploadShareTokenRequest{
+	ShareToken shareToken = 1;
+	string secretKey = 2;
+	string fileName = 3;
+	string isShare = 4;
+	BaseReq baseReq = 255;
+}
+
+message UploadShareTokenResponse{
+	BaseResp baseResp = 255;
+}

@@ -1,0 +1,73 @@
+syntax = "proto3";
+
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="Common";
+option go_package = "./pb_gen";
+
+enum StatusCode {
+    Success = 0;
+    // 登录相关
+    UserNotFound = 1; // 用户不存在
+    WrongPasswd = 2; // 密码错误
+    UserNotLogin = 3; // 用户未登录
+
+    // 注册相关
+    UserExist = 100; // 用户已存在
+
+    // 文件相关
+    FileExist = 200; // 用户已经拥有该文件
+    SubExist = 201; // 子文件已经存在与文件夹中
+
+    // 通用错误
+    CommonErr = 1000;
+}
+
+// 节点类型
+enum NodeType{
+    Unknown = 0;// 未知
+    File =  1;// 文件类型
+    Dir = 2;// 文件类型
+}
+
+// 文件节点
+message Node{
+    NodeType nodeType = 1; // 节点类型，文件还是文件夹
+    int64 nodeId = 2;
+    string nodeName = 3;
+    bytes nodeContent = 4; // 节点内容
+    int64 createTime = 5; // 节点创建时间
+    int64 updateTime = 6; // 节点更新时间
+    repeated Node subNodeList = 7; // 子节点
+    bytes secretKey = 8; // 节点密钥，已加密过
+}
+
+// 定义了公共请求参数
+message BaseReq{
+    string token = 1; // 登录成功后获得的token
+}
+
+// 定义了公共返回参数
+message BaseResp{
+    StatusCode statusCode = 1; // 错误码，一般认为0是成功
+    string message = 2; // 错误提示
+}
+
+message ShareToken{
+	string L = 1; // 数据库索引值
+	string JId = 2;
+	string kId = 3;   
+	string fileId = 4;
+	string ownerId = 5;
+	string userId = 6;
+}
+
+message indexToken{
+    // 均以base64格式存储
+    string L = 1;
+    string Iw = 2;
+    string Rw = 3;
+    string Cw = 4;
+    string Iid = 5;
+    string Rid = 6;
+    string Cid = 7;
+}

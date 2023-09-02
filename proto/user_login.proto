@@ -1,0 +1,31 @@
+syntax = "proto3";
+
+import "common.proto";
+
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="UserLogin";
+option go_package = "./pb_gen";
+
+message UserLoginRequest{
+    string userName = 1;
+    string hashId = 2; // hashId身份识别
+    
+    BaseReq baseReq = 255;
+}
+
+message UserInfo{
+    int64 rootId = 1;
+    string userName = 2;
+    string email = 3;
+    // 双向索引链表，以base64形式存储
+    string biIndex = 4;
+    string key1 = 5;
+    string key2 = 6;
+}
+
+message UserLoginResponse{
+    string token = 1; //  登录成功返回的token
+    UserInfo userInfo = 2; // 用户信息
+
+    BaseResp baseResp = 255;
+}

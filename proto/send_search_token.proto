@@ -1,0 +1,27 @@
+syntax = "proto3";
+
+import "common.proto";
+
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="SendSearchToken";
+option go_package = "./pb_gen";
+
+// 搜索令牌
+message SearchToken{
+  // base64编码的L和Jw
+  string L = 1;
+  string Jw = 2;
+}
+
+// base64
+message SendSearchTokenRequest{
+  SearchToken searchToken = 1;
+
+  BaseReq baseReq = 255;
+}
+
+message SendSearchTokenResponse{
+  repeated string Cw = 1; // 搜索结果
+
+  BaseResp baseResp = 255;
+}

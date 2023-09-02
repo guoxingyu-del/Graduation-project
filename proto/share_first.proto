@@ -1,0 +1,16 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = "./pb_gen";
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="ShareFirst";
+
+message ShareFirstRequest{
+	string L = 1;
+	string JId = 2;
+	BaseReq baseReq = 255;
+}
+
+message ShareFirstResponse{
+	repeated string S = 1;
+	BaseResp baseResp = 255;
+}

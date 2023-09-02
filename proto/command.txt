@@ -1,0 +1,3 @@
+ protoc --java_out=./ *.proto
+ 
+ protoc -I=C:\Users\20886\Desktop\GraduateProject\GraduteProjectTools\proto C:\Users\20886\Desktop\GraduateProject\GraduteProjectTools\proto\*.proto --js_out=import_style=commonjs:./ --plugin=protoc-gen-grpc=./protoc-gen-grpc-web.exe --grpc-web_out=import_style=commonjs,mode=grpcwebtext:./

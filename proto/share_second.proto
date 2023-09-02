@@ -1,0 +1,21 @@
+syntax = "proto3";
+import "common.proto";
+option go_package = "./pb_gen";
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="ShareSecond";
+
+message ShareSecondRequest{
+	string fileName = 1; // 文件名称
+  int64 parentId = 2; // 文件的父节点
+  string biIndex = 3; // 用户索引
+  int64 nodeId = 4;  // 文件Id
+	bool isShare = 5;  // 文件是否为分享文件
+  int64 address = 6; // 文件内容地址
+  string fileSecret = 7; // 文件密钥
+	repeated indexToken searchIndexSecond = 8;
+	BaseReq baseReq = 255;
+}
+
+message ShareSecondResponse{
+	BaseResp baseResp = 255;
+}

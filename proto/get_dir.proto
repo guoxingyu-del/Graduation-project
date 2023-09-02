@@ -1,0 +1,19 @@
+syntax = "proto3";
+
+import "common.proto";
+
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="GetDir";
+option go_package = "./pb_gen";
+
+message GetDirRequest{
+    int64 nodeId = 1; // dir节点id
+
+    BaseReq baseReq = 255;
+}
+
+message GetDirResponse{
+	repeated int64 nodeIdList = 1; // 节点id列表
+
+    BaseResp baseResp = 255;    
+}

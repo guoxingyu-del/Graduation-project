@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "common.proto";
+
+option java_package = "com.graduate.design.proto";
+option java_outer_classname="DeleteFile";
+option go_package = "./pb_gen";
+
+message DeleteFileRequest{
+    repeated int64 delNodeID = 1;
+
+    BaseReq baseReq = 255;
+}
+
+message DeleteFileResponse{
+
+    BaseResp baseResp = 255;
+}
