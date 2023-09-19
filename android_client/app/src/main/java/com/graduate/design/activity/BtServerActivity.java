@@ -151,6 +151,9 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
         }
         keyPair.clear();
         keyPair.addAll(encryptionService.genKeyPair());
+        // 固定公私钥
+       // keyPair.add("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCQkUGq4QyiHrNJPTdfAZEZRMno6qfk2BbEa7TzgBYC3/I/TgiEIKrywoJKZp0UvPw59jF1iTsaGguvdFNk79G9gfAd1HY+vJqJP8/oSih0/d1IO8tGwLjwurihZYHhlKloq+fbU0T+orSfAw1AsNQ6/nNnLgGg98J0PmHrmbq6LQIDAQAB");
+       // keyPair.add("MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAJCRQarhDKIes0k9N18BkRlEyejqp+TYFsRrtPOAFgLf8j9OCIQgqvLCgkpmnRS8/Dn2MXWJOxoaC690U2Tv0b2B8B3Udj68mok/z+hKKHT93Ug7y0bAuPC6uKFlgeGUqWir59tTRP6itJ8DDUCw1Dr+c2cuAaD3wnQ+YeuZurotAgMBAAECgYB4RG9l8i1pXbL3VfcPkaUdaW2z2CtupRpjs9rozAEDyTylz4wkJ20v4gM0VCOP0hzfN2I0DsNdVpesElEiYqSQC1rWvNolyOXTbHHHJm/V2oWs0Uwjnch7FTPNfCa4da5iAR5rlcFcEyKh7C6cmofBVNuLCN1Fx5XEIA86Fl0GoQJBAM+SkeZX7ZRyNWnZKiw6yOoolkZMJ3kzXGmnOq9OvpIUra0j6s/f/yeUqBLxTW9QL+MQMilMmlyZ8vJTviUDzykCQQCyS6gTeJ8T0/7zTMw/yYtKr9t1FzLNqlJhT15Ong70N+cyGAurvOzw6Bfi/ggp/qHuVKgMzimDPLJiT2MabOdlAkEAhokcMWy6GuXvQryzfdlYEZTe2Y9QYljsw7nU6n0iPXJTow3NipBHQ3MxgJ2Pr98MOqJrsKLqxawub+vhKQKQCQJANKMJV9ZAgIYRupptoldJ/B6213al1Pn3oCriWKtpFsh6RNu8dlMsUGL0ylrc5ij6fXYYts8Wilwc/dEaHO8R0QJBAKtUxa4xAnkf/k+H84Z7x7RMycmQC5XxGzdTFM43AdzdvQ5tymTgC/Sg9ksvWEeB0+tJzMp20myUMfwADn34kh4=");
         String s = getString(R.string.publicKey) + keyPair.get(0) + "\n";
         // 此时msg就是公钥
         byte[] msg = s.getBytes(StandardCharsets.UTF_8);
@@ -233,7 +236,9 @@ public class BtServerActivity extends AppCompatActivity implements View.OnClickL
                     int addressIndex = resWithoutStartEnd.indexOf(getString(R.string.address));
                     filename = FileUtils.removeLineBreak(resWithoutStartEnd.substring(filenameIndex + getString(R.string.filename).length(), fromIndex));
                     from = FileUtils.removeLineBreak(resWithoutStartEnd.substring(fromIndex + getString(R.string.from).length(), secretKeyIndex));
-                    secretKey = encryptionService.decryptByRSA(FileUtils.removeLineBreak(resWithoutStartEnd.substring(secretKeyIndex + getString(R.string.secretKey).length(), LIndex)), keyPair.get(1));
+                    String temp = resWithoutStartEnd.substring(secretKeyIndex + getString(R.string.secretKey).length(), LIndex);
+                    String temp1 = FileUtils.removeLineBreak(temp);
+                    secretKey = encryptionService.decryptByRSA(temp1, keyPair.get(1));
                     shareTokenL = FileUtils.removeLineBreak(resWithoutStartEnd.substring(LIndex + getString(R.string.shareTokenL).length(), JIdIndex));
                     shareTokenJId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(JIdIndex + getString(R.string.shareTokenJid).length(), KIdIndex));
                     shareTokenKId = FileUtils.removeLineBreak(resWithoutStartEnd.substring(KIdIndex + getString(R.string.shareTokenKid).length(), isShareIndex));

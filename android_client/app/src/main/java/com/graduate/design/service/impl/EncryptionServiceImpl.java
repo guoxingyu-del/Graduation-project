@@ -179,7 +179,8 @@ public class EncryptionServiceImpl implements EncryptionService {
             //RSA加密
             Cipher cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.ENCRYPT_MODE, pubKey);
-            res = FileUtils.bytes2Base64(cipher.doFinal(plaintextBytes));
+            byte[] bytes = cipher.doFinal(plaintextBytes);
+            res = FileUtils.bytes2Base64(bytes);
         } catch (InvalidKeySpecException e) {
             throw new RuntimeException(e);
         } catch (NoSuchAlgorithmException e) {
@@ -208,7 +209,8 @@ public class EncryptionServiceImpl implements EncryptionService {
             //RSA解密
             Cipher cipher = Cipher.getInstance("RSA");
             cipher.init(Cipher.DECRYPT_MODE, priKey);
-            res = FileUtils.bytes2Base64(cipher.doFinal(ciphertextBytes));
+            byte[] here = cipher.doFinal(ciphertextBytes);
+            res = FileUtils.bytes2Base64(here);
         } catch (InvalidKeySpecException e) {
             throw new RuntimeException(e);
         } catch (NoSuchAlgorithmException e) {

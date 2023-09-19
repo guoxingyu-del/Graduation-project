@@ -3,7 +3,6 @@ package method
 import (
 	"context"
 	"errors"
-	"fmt"
 
 	"github.com/JackTJC/gmFS_backend/dal/cache"
 	"github.com/JackTJC/gmFS_backend/dal/db"
@@ -64,20 +63,22 @@ func (h *GetNodeHandler) Run() (resp *pb_gen.GetNodeResponse) {
 		}*/
 	// 判断文件是否为分享文件
 	fileInfo, err := db.FileInfo.GetByNodeID(h.ctx, uint64(h.Req.GetNodeId()))
+	fileSecret := fileInfo.FileSecret
 	if err != nil {
 		return
 	}
 	isShare := fileInfo.IsShare
 	for isShare == 1 {
-		fileInfo, _ := db.FileInfo.GetByNodeID(h.ctx, uint64(fileInfo.Address))
-		isShare = fileInfo.IsShare
+		fileInfoNew, _ := db.FileInfo.GetByNodeID(h.ctx, uint64(fileInfo.Address))
+		isShare = fileInfoNew.IsShare
 		// 判断文件是否被删除
-		if fileNode, err := db.Node.MGetByNodeId(h.ctx, []uint64{fileInfo.NodeId}); err != nil || len(fileNode) == 0 {
+		if fileNode, err := db.Node.MGetByNodeId(h.ctx, []uint64{fileInfoNew.NodeId}); err != nil || len(fileNode) == 0 {
 			resp.Node = &pb_gen.Node{
 				NodeContent: []byte("分享源文件已被删除"),
 			}
 			return
 		}
+		fileInfo = fileInfoNew
 	}
 	// 根据address拿取文件内容和文件密钥
 	content, err := objstore.DownloadFile(h.ctx, GenCosFileKey(int64(fileInfo.Address)))
@@ -86,10 +87,9 @@ func (h *GetNodeHandler) Run() (resp *pb_gen.GetNodeResponse) {
 		resp.BaseResp = util.BuildBaseResp(pb_gen.StatusCode_CommonErr)
 		return
 	}
-	fmt.Printf("here1\n")
 	resp.Node = &pb_gen.Node{
 		NodeContent: content,
-		SecretKey:   []byte(fileInfo.FileSecret),
+		SecretKey:   []byte(fileSecret),
 	}
 	return
 	//// 获取子节点
