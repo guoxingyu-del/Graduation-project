@@ -53,12 +53,12 @@ public class BiIndex implements Serializable {
         List list = new ArrayList();
         list.add(lastID);
         list.add(lastW);
-        byte[] res = JSONObject.toJSONString(list).getBytes(StandardCharsets.UTF_8);
+        byte[] res = JSONObject.toJSONString(list).getBytes(StandardCharsets.ISO_8859_1);
         return res;
     }
 
     public void readObject(byte[] bytes) {
-        String res = new String(bytes);
+        String res = new String(bytes, StandardCharsets.ISO_8859_1);
         JSONArray array = JSONObject.parseArray(res);
         if(array.size() == 0) return;
         Map<String, String> lastID = JSONObject.parseObject(array.getString(0), Map.class);

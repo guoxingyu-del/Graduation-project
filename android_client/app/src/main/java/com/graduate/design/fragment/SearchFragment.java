@@ -183,10 +183,14 @@ public class SearchFragment extends Fragment implements View.OnClickListener,
             return;
         }
 
+        // 提取文件类型和文件内容
+        int pos = fileContent.indexOf('\n');
+
         FileContentFragment fragment = new FileContentFragment();
         Bundle bundle = new Bundle();
+        bundle.putString("fileType", fileContent.substring(0,pos));
         bundle.putString("fileName", clickedNode.getNodeName());
-        bundle.putString("fileContent", fileContent);
+        bundle.putString("fileContent", fileContent.substring(pos+1));
         fragment.setArguments(bundle);
 
         activity.getSupportFragmentManager()

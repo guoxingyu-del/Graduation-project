@@ -146,7 +146,7 @@ public class UserServiceImpl implements UserService {
             , String biIndex, Long fileId, String token, String fileSecret) {
         FileUpload.UploadFileRequest req = FileUpload.UploadFileRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .setFileName(fileName)
+                .setFileName(new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1))
                 .setParentId(parentId)
                 .setContent(content)
                 .setBiIndex(biIndex)
@@ -194,6 +194,7 @@ public class UserServiceImpl implements UserService {
                     realType = Common.NodeType.Unknown;
                     break;
             }
+            String nodeName = nodeJson.getString("nodeName");
             // 构造子节点
             Common.Node node = Common.Node.newBuilder()
                     .setNodeType(realType)
@@ -257,14 +258,14 @@ public class UserServiceImpl implements UserService {
         // 此时获得的文件内容和文件密钥均为Base64编码
         byte[] contentBytes = node.getBytes("nodeContent");
         if (contentBytes == null) content = "";
-        else content = ByteString.copyFrom(contentBytes).toString(StandardCharsets.UTF_8);
+        else content = ByteString.copyFrom(contentBytes).toString(StandardCharsets.ISO_8859_1);
 
         byte[] secretKeyBytes = node.getBytes("secretKey");
         // 源文件已被删除
         if (secretKeyBytes == null) {
             return new String[]{"", ""};
         }
-        else secretKey = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.UTF_8);
+        else secretKey = ByteString.copyFrom(secretKeyBytes).toString(StandardCharsets.ISO_8859_1);
 
         // TODO 解密
         EncryptionService encryptionService = new EncryptionServiceImpl();
@@ -277,7 +278,7 @@ public class UserServiceImpl implements UserService {
         byte[] fileContentEncrypt = FileUtils.Base64ToBytes(content);
         byte[] fileContent = encryptionService.decryptByAES256(fileContentEncrypt, fileSecret);
 
-        String contentString = ByteString.copyFrom(fileContent).toString(StandardCharsets.UTF_8);
+        String contentString = ByteString.copyFrom(fileContent).toString(StandardCharsets.ISO_8859_1);
         String secretString = FileUtils.bytes2Base64(fileSecret);
 
         return new String[]{contentString, secretString};
@@ -376,7 +377,7 @@ public class UserServiceImpl implements UserService {
     public int secondShare(String filename, Long parentId, String biIndex, Long fileId, Boolean isShare, Long address, String fileSecret, List<Common.indexToken> indexList, String token) {
         ShareSecond.ShareSecondRequest req = ShareSecond.ShareSecondRequest.newBuilder()
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
-                .setFileName(filename)
+                .setFileName(new String(filename.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1))
                 .setParentId(parentId)
                 .setBiIndex(biIndex)
                 .setNodeId(fileId)
@@ -396,7 +397,7 @@ public class UserServiceImpl implements UserService {
         UploadShareToken.UploadShareTokenRequest req = UploadShareToken.UploadShareTokenRequest.newBuilder()
                 .setShareToken(shareToken)
                 .setSecretKey(secretKey)
-                .setFileName(fileName)
+                .setFileName(new String(fileName.getBytes(StandardCharsets.UTF_8), StandardCharsets.ISO_8859_1))
                 .setIsShare("1")
                 .setBaseReq(Common.BaseReq.newBuilder().setToken(token).build())
                 .build();

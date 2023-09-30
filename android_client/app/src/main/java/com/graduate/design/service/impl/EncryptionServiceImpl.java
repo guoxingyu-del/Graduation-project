@@ -71,7 +71,7 @@ public class EncryptionServiceImpl implements EncryptionService {
 
     @Override
     public byte[] encryptByAES256(String plaintext, byte[] secretKey) {
-        byte[] plainBytes = plaintext.getBytes(StandardCharsets.UTF_8);
+        byte[] plainBytes = plaintext.getBytes(StandardCharsets.ISO_8859_1);
         return encryptByAES256(plainBytes, secretKey);
     }
 
@@ -81,7 +81,7 @@ public class EncryptionServiceImpl implements EncryptionService {
         try {
             SecretKeySpec spec = new SecretKeySpec(secretKey, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");// "算法/加密/填充"
-            IvParameterSpec iv = new IvParameterSpec(GraduateDesignApplication.IV.getBytes(StandardCharsets.UTF_8));
+            IvParameterSpec iv = new IvParameterSpec(GraduateDesignApplication.IV.getBytes(StandardCharsets.ISO_8859_1));
             cipher.init(Cipher.ENCRYPT_MODE, spec, iv);
             encryptRes = cipher.doFinal(plaintext);
         } catch (NoSuchAlgorithmException e) {
@@ -112,7 +112,7 @@ public class EncryptionServiceImpl implements EncryptionService {
         try {
             SecretKeySpec spec = new SecretKeySpec(secretKey, "AES");
             Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding"); // "算法/加密/填充"
-            IvParameterSpec iv = new IvParameterSpec(GraduateDesignApplication.IV.getBytes(StandardCharsets.UTF_8));
+            IvParameterSpec iv = new IvParameterSpec(GraduateDesignApplication.IV.getBytes(StandardCharsets.ISO_8859_1));
             cipher.init(Cipher.DECRYPT_MODE, spec, iv);
             decryptRes = cipher.doFinal(ciphertext);
         } catch (NoSuchAlgorithmException e) {
@@ -240,8 +240,8 @@ public class EncryptionServiceImpl implements EncryptionService {
 
         String oldWord = lastW.get(String.valueOf(id)); String oldIDString = lastID.get(word);
 
-        byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.UTF_8);
-        byte[] wordBytes = word.getBytes(StandardCharsets.UTF_8);
+        byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.ISO_8859_1);
+        byte[] wordBytes = word.getBytes(StandardCharsets.ISO_8859_1);
         byte[] word_id = ByteUtils.mergeBytes(wordBytes, idBytes); byte[] id_word = ByteUtils.mergeBytes(idBytes, wordBytes);
         byte[] L = HmacSha256(key1, word_id);
         byte[] Rw = ByteUtils.getRandomBytes(32); byte[] Rid = ByteUtils.getRandomBytes(32);
@@ -254,7 +254,7 @@ public class EncryptionServiceImpl implements EncryptionService {
         }
         else {
             Long oldID = Long.parseLong(oldIDString);
-            byte[] oldIDBytes = String.valueOf(oldID).getBytes(StandardCharsets.UTF_8);
+            byte[] oldIDBytes = String.valueOf(oldID).getBytes(StandardCharsets.ISO_8859_1);
             byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(wordBytes, oldIDBytes));
             byte[] oldJw = HmacSha256(key2, ByteUtils.mergeBytes(wordBytes, oldIDBytes));
             byte[] Jw = HmacSha256(key2, word_id);
@@ -266,7 +266,7 @@ public class EncryptionServiceImpl implements EncryptionService {
             Iid = SHA512(ByteUtils.mergeBytes(Jid, Rid));
         }
         else {
-            byte[] oldWordBytes = oldWord.getBytes(StandardCharsets.UTF_8);
+            byte[] oldWordBytes = oldWord.getBytes(StandardCharsets.ISO_8859_1);
             byte[] oldL = HmacSha256(key1, ByteUtils.mergeBytes(oldWordBytes, idBytes));
             byte[] oldJid = HmacSha256(key2, ByteUtils.mergeBytes(idBytes, oldWordBytes));
             byte[] Jid = HmacSha256(key2, id_word);
@@ -299,8 +299,8 @@ public class EncryptionServiceImpl implements EncryptionService {
         if(idString==null) return null;
 
         Long id = Long.parseLong(idString);
-        byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.UTF_8);
-        byte[] wordBytes = word.getBytes(StandardCharsets.UTF_8);
+        byte[] idBytes = String.valueOf(id).getBytes(StandardCharsets.ISO_8859_1);
+        byte[] wordBytes = word.getBytes(StandardCharsets.ISO_8859_1);
         byte[] word_id = ByteUtils.mergeBytes(wordBytes, idBytes);
         byte[] L = HmacSha256(key1, word_id);
         byte[] Jw = HmacSha256(key2, word_id);
@@ -315,13 +315,13 @@ public class EncryptionServiceImpl implements EncryptionService {
     public List<Long> getNodeIdByCw(List<String> Cw, String word) {
         byte[] key2 = GraduateDesignApplication.getKey2();
 
-        byte[] kw = HmacSha256(key2, word.getBytes(StandardCharsets.UTF_8));
+        byte[] kw = HmacSha256(key2, word.getBytes(StandardCharsets.ISO_8859_1));
         List<Long> res = new ArrayList<>();
         for(int i=0;i<Cw.size();i++){
             String cw = Cw.get(i);
             byte[] cwBytes = FileUtils.Base64ToBytes(cw);
             byte[] idBytes = decryptByAES256(cwBytes, kw);
-            Long id = Long.parseLong(new String(idBytes));
+            Long id = Long.parseLong(new String(idBytes, StandardCharsets.ISO_8859_1));
             res.add(id);
         }
         return res;

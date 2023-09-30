@@ -15,7 +15,7 @@ import okhttp3.Response;
 import okhttp3.ResponseBody;
 
 public class NetWorkServiceImpl implements NetWorkService {
-    public static final MediaType JSON = MediaType.parse("application/json; charset=utf-8");
+    public static final MediaType JSON = MediaType.parse("application/json; charset=ISO-8859-1");
 
     @Override
     public String request(String url, String data) {

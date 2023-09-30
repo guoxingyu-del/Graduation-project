@@ -80,6 +80,11 @@ func (h *GetNodeHandler) Run() (resp *pb_gen.GetNodeResponse) {
 		}
 		fileInfo = fileInfoNew
 	}
+	for fileInfo.Address != fileInfo.NodeId {
+		fileInfoNew, _ := db.FileInfo.GetByNodeID(h.ctx, uint64(fileInfo.Address))
+		fileInfo = fileInfoNew
+	}
+
 	// 根据address拿取文件内容和文件密钥
 	content, err := objstore.DownloadFile(h.ctx, GenCosFileKey(int64(fileInfo.Address)))
 	if err != nil {

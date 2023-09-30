@@ -3,6 +3,8 @@ package com.graduate.design.fragment;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
@@ -243,7 +245,7 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 .setTitlebarBG(getResources().getColor(R.color.common_orange))
                 .setRequestCode(635)
                 .setTitlebarMainTitle(new FontBean("内存文件"))
-                .setSelectFileTypes("txt")
+                .setSelectFileTypes("txt", "jpg", "png")
                 .setHandleItemListeners(
                         new CommonItemListener("OK") {
                             @Override
@@ -254,10 +256,19 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                     try {
                                         String path = fileBean.getPath();
                                         fs = new FileInputStream(path);
+
+                                        // 根据文件路径判断文件类型
+                                        int pos = fileBean.getName().lastIndexOf('.');
+                                        String fileType = fileBean.getName().substring(pos+1);
+                                        String fileName = fileBean.getName().substring(0,pos);
+
+                                        // 将文件类型添加到文件内容的头部，用作后续判断
+                                        sb.append(fileType+"\n");
+
                                         byte[] buf = new byte[1024];
                                         int hasRead = 0;
                                         while((hasRead = fs.read(buf)) != -1){
-                                            sb.append(new String(buf,0, hasRead));
+                                            sb.append(new String(buf,0, hasRead, StandardCharsets.ISO_8859_1));
                                         }
 
                                         //long start = System.currentTimeMillis();
@@ -276,26 +287,28 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                                         // 先从服务器拿到文件id
                                         Long fileId = userService.getNodeId(token);
 
-                                        List<String> words = FileUtils.wordSegmentation(sb.toString());
+                                        // 图片文件以文件名称作为搜索关键字
+                                        List<String> words = new ArrayList<>();
+                                        if("jpg".equals(fileType) || "png".equals(fileType)) {
+                                            words.add(fileName);
+                                        }
+                                        else words = FileUtils.wordSegmentation(sb.toString().substring(fileType.length()+1));
                                         List<Common.indexToken> indexTokens = FileUtils.indexList(words, fileId);
                                         System.out.println("indexTokens: " + indexTokens.size());
                                         // 同步上传biIndex进行更新
                                         String biIndexString = FileUtils.bytes2Base64(GraduateDesignApplication.getBiIndex().writeObject());
 
                                         int res = userService.uploadFile(fileBean.getName(), nodeId, indexTokens,
-                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.UTF_8)), biIndexString, fileId, token,
+                                                ByteString.copyFrom(encryptContent.getBytes(StandardCharsets.ISO_8859_1)), biIndexString, fileId, token,
                                                 encryptSecretKey);
                                         GraduateDesignApplication.getAllNodeList().get(nodeId).setUpdate(true);
                                         if(res==1) {
-                                            ToastUtils.showShortToastCenter("上传文件失败" + fileBean.getName());
+                                            ToastUtils.showShortToastCenter("上传文件失败: " + fileBean.getName());
                                         }
 
                                         if(res==0) {
-                                            ToastUtils.showShortToastCenter("上传文件成功" + fileBean.getName());
+                                            ToastUtils.showShortToastCenter("上传文件成功: " + fileBean.getName());
                                         }
-
-                                        //long end = System.currentTimeMillis();
-                                        //System.out.println("上传耗时：" + (end - start));
 
                                         sb.delete(0, sb.length());
 
@@ -384,11 +397,11 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 if(getString(R.string.join_session).contentEquals(item.getTitle())){
-                    ToastUtils.showShortToastCenter("点击了Join Session");
+                    //ToastUtils.showShortToastCenter("点击了Join Session");
                     gotoJoinSession();
                 }
                 else if(getString(R.string.host_session).contentEquals(item.getTitle())){
-                    ToastUtils.showShortToastCenter("点击了Host Session");
+                    //ToastUtils.showShortToastCenter("点击了Host Session");
                     gotoHostSession();
                 }
                 return false;
@@ -507,17 +520,24 @@ public class DiskFragment extends Fragment implements View.OnClickListener,
                 return;
             }
 
-            String fileContent = fileContentSecret[0];
+            // 现在的文件内容头部包含文件类型
+            String fileContentWithType = fileContentSecret[0];
             String secret = fileContentSecret[1];
-            if(fileContent=="" && secret=="") {
+            if(fileContentWithType=="" && secret=="") {
                 ToastUtils.showShortToastCenter("分享源文件已被删除");
                 return;
             }
+
+            // 解析文件内容
+            int pos = fileContentWithType.indexOf('\n');
+            String fileType = fileContentWithType.substring(0, pos);
+            String fileContent = fileContentWithType.substring(pos+1);
 
             FileContentFragment fragment = new FileContentFragment();
             Bundle bundle = new Bundle();
             bundle.putString("fileName", clickedNode.getNodeName());
             bundle.putString("fileContent", fileContent);
+            bundle.putString("fileType", fileType);
             fragment.setArguments(bundle);
 
             activity.getSupportFragmentManager()

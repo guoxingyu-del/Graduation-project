@@ -185,7 +185,7 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
                 case R.id.share:
                     // 分享
                     shareFile();
-                    ToastUtils.showShortToastCenter("点击了分享按钮");
+                    ToastUtils.showShortToastCenter("分享成功");
                     break;
                 default:
                     break;
@@ -252,7 +252,8 @@ public class ShareActivity extends AppCompatActivity implements View.OnClickList
                         + getString(R.string.shareTokenJid) + shareTokenRaw.getJId() + "\n"
                         + getString(R.string.shareTokenKid) + shareTokenRaw.getKId() + "\n"
                         + getString(R.string.isShare) + (isShare?1:0) + "\n"
-                        + getString(R.string.address) + shareTokenRaw.getFileId() + "\n";
+                        + getString(R.string.address) + node.getNodeId() + "\n";
+
 
                 byte[] msg = shareToken.getBytes(StandardCharsets.UTF_8);
                 ByteBuffer fullMsg = ByteBuffer.allocate(msg.length + start.length + end.length);

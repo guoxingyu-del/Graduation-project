@@ -4,6 +4,8 @@ import com.graduate.design.service.EncryptionService;
 import com.graduate.design.service.impl.EncryptionServiceImpl;
 import com.graduate.design.utils.FileUtils;
 
+import java.nio.charset.StandardCharsets;
+
 public class DeleteProtocol {
     static EncryptionService encryptionService = new EncryptionServiceImpl();
 
@@ -15,7 +17,7 @@ public class DeleteProtocol {
 
     public static String[] idOpPairDecrypt(byte[] key1, String idOpPairCipherText) {
         byte[] bytes = encryptionService.decryptByAES256(FileUtils.Base64ToBytes(idOpPairCipherText), key1);
-        String plainText = new String(bytes);
+        String plainText = new String(bytes, StandardCharsets.ISO_8859_1);
         int opIndex = plainText.indexOf("op:");
         String nodeId = plainText.substring("nodeId:".length(), opIndex);
         String op = plainText.substring(opIndex + "op:".length());

@@ -93,8 +93,8 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         }
 
         // 使用SHA512生成hashID
-        byte[] usernameBytes = username.getBytes(StandardCharsets.UTF_8);
-        byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+        byte[] usernameBytes = username.getBytes(StandardCharsets.ISO_8859_1);
+        byte[] passwordBytes = password.getBytes(StandardCharsets.ISO_8859_1);
         byte[] hashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, passwordBytes));
 
         // 用主密钥加密用户密码后上传

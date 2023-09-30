@@ -199,7 +199,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
 
     private void receiveMsg(){
         if(GraduateDesignApplication.getCurConnect() == null){
-            ToastUtils.showShortToastCenter("没有蓝牙连接");
+            ToastUtils.showShortToastCenter("未连接蓝牙");
             return;
         }
         GraduateDesignApplication.getCurConnect().setReadPacketVerifyListener(new PacketDefineListener() {
@@ -216,7 +216,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
         GraduateDesignApplication.getCurConnect().read(new TransferProgressListener() {
             @Override
             public void transfering(int progress) {
-                ToastUtils.showShortToastCenter("正在传输：" + progress + "%");
+                // ToastUtils.showShortToastCenter("正在传输：" + progress + "%");
             }
 
             @Override
@@ -240,7 +240,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
 
             @Override
             public void transferFailed(Exception exception) {
-                ToastUtils.showShortToastCenter("传输数据失败：" + exception.getLocalizedMessage());
+                // ToastUtils.showShortToastCenter("传输数据失败：" + exception.getLocalizedMessage());
             }
         });
     }
@@ -296,7 +296,7 @@ public class BtClientActivity extends AppCompatActivity implements View.OnClickL
 
                 @Override
                 public void disconnected() {
-                    ToastUtils.showShortToastCenter("连接已断开");
+                    // ToastUtils.showShortToastCenter("连接已断开");
                     isConnected = false;
                     GraduateDesignApplication.setCurConnect(null);
                     disconnectButton.setEnabled(false);

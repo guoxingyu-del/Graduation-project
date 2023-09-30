@@ -111,8 +111,8 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
         }
 
 
-        byte[] usernameBytes = username.getBytes(StandardCharsets.UTF_8);
-        byte[] passwordBytes = password.getBytes(StandardCharsets.UTF_8);
+        byte[] usernameBytes = username.getBytes(StandardCharsets.ISO_8859_1);
+        byte[] passwordBytes = password.getBytes(StandardCharsets.ISO_8859_1);
 
         // 使用SHA512生成hashID，用于后续登录识别
         byte[] hashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, passwordBytes));

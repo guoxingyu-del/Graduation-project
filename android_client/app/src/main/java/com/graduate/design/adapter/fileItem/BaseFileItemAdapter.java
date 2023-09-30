@@ -12,6 +12,7 @@ import com.graduate.design.R;
 import com.graduate.design.proto.Common;
 import com.graduate.design.utils.DateTimeUtils;
 
+import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
 

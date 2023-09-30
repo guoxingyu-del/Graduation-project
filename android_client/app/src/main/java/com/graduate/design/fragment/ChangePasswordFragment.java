@@ -113,9 +113,9 @@ public class ChangePasswordFragment extends Fragment implements View.OnClickList
         }
 
         // 利用旧密码和新密码分别生成hashId
-        byte[] usernameBytes = GraduateDesignApplication.getUsername().getBytes(StandardCharsets.UTF_8);
-        byte[] oldBytes = oldPassword.getBytes(StandardCharsets.UTF_8);
-        byte[] newBytes = newPassword.getBytes(StandardCharsets.UTF_8);
+        byte[] usernameBytes = GraduateDesignApplication.getUsername().getBytes(StandardCharsets.ISO_8859_1);
+        byte[] oldBytes = oldPassword.getBytes(StandardCharsets.ISO_8859_1);
+        byte[] newBytes = newPassword.getBytes(StandardCharsets.ISO_8859_1);
 
         byte[] oldHashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, oldBytes));
         byte[] newHashId = encryptionService.SHA512(ByteUtils.mergeBytes(usernameBytes, newBytes));
