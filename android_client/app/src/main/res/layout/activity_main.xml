@@ -5,7 +5,7 @@
     android:id="@+id/splash_btn"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/mycircle"
+    android:background="@drawable/xuanwu_bg"
     android:gravity="center"
     android:orientation="vertical"
     tools:context=".MainActivity">
@@ -16,21 +16,22 @@
         android:gravity="center">
 
         <ImageView
-            android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:src="@drawable/abdroid">
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="30dp"
+            android:src="@drawable/xuanwu">
 
         </ImageView>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text=" 网盘"
-            android:textColor="@color/white"
-            android:textSize="40dp"
-            android:textStyle="bold">
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:text=" 玄武密盘"-->
+<!--            android:textColor="@color/black"-->
+<!--            android:textSize="40dp"-->
+<!--            android:textStyle="bold">-->
 
-        </TextView>
+<!--        </TextView>-->
 
     </LinearLayout>
 

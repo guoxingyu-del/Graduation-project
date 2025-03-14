@@ -29,4 +29,9 @@
         <item name="android:backgroundDimEnabled">true</item>
         <item name="android:radius">10dp</item>
     </style>
+
+    <style name="FullScreenTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
 </resources>

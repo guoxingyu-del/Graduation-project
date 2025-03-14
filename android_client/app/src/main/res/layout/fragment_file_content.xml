@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/xuanwu_bg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -21,7 +22,7 @@
                 android:layout_width="40dp"
                 android:layout_height="60dp"
                 android:src="@drawable/back"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:layout_weight="0.3"
                 >
 
@@ -40,8 +41,16 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:layout_weight="17" />
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="8dp"
+                android:src="@mipmap/xuanwu"
+                android:background="@android:color/transparent"
+                />
 
             <!--<ImageButton
                 android:id="@+id/share_btn"
@@ -64,6 +73,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="hello"
+                android:textColor="#FFF"
                 android:textSize="60sp"
                 android:ellipsize="end"
                 android:singleLine="true"

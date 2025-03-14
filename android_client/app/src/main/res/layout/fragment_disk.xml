@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/xuanwu_bg"
     android:orientation="vertical">
 
     <LinearLayout
@@ -46,7 +47,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/add_file_or_dir"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:layout_weight="1">
 
             </ImageButton>
@@ -57,7 +58,7 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/wifi_share"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:layout_weight="1">
 
             </ImageButton>
@@ -67,7 +68,7 @@
             <TextView
                 android:layout_width="60dp"
                 android:layout_height="60dp"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:layout_weight="17" />
 
             <!--<ImageButton
@@ -84,10 +85,19 @@
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:src="@drawable/search_device"
-                android:background="#FFFFFF"
+                android:background="@android:color/transparent"
                 android:layout_weight="1">
 
             </ImageButton>
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="8dp"
+                android:src="@mipmap/xuanwu"
+                android:background="@android:color/transparent"
+                />
 
         </LinearLayout>
 

@@ -7,7 +7,7 @@
     android:weightSum="5"
     android:gravity="center"
     android:orientation="vertical"
-    android:background="@drawable/mycircle"
+    android:background="@drawable/xuanwu_bg"
     tools:context=".activity.LoginActivity">
 
     <ImageView
@@ -15,7 +15,7 @@
         android:layout_width="50dp"
         android:layout_height="50dp"
         android:layout_weight="0.9"
-        android:src="@drawable/abdroid">
+        android:src="@mipmap/xuanwu">
 
     </ImageView>
 
@@ -79,7 +79,7 @@
             android:background="@drawable/edittext_design"
             android:padding="10dp"
             android:textSize="18dp"
-            android:textColor="@color/common_orange"
+            android:textColor="@color/black"
             android:text="登录" >
 
         </Button>

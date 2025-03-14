@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/xuanwu_bg"
     android:orientation="vertical"
     >
 
@@ -44,6 +45,15 @@
                 android:textColor="@color/common_orange"
                 android:background="@android:color/transparent"
                 android:layout_weight="1"
+                />
+
+
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:padding="8dp"
+                android:src="@mipmap/xuanwu"
+                android:background="@android:color/transparent"
                 />
 
         </LinearLayout>
